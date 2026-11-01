@@ -1,0 +1,41 @@
+{
+  "id": "1",
+  "names": {
+    "en": [
+      "Hexagonal Yajilin"
+    ],
+    "ja": [],
+    "cs": []
+  },
+  "rules": {
+    "en": {
+      "statements": [],
+      "source": {
+        "text": "",
+        "link": ""
+      }
+    },
+    "ja": {
+      "statements": [],
+      "source": {
+        "text": "",
+        "link": ""
+      }
+    },
+    "cs": {
+      "statements": [],
+      "source": {
+        "text": "",
+        "link": ""
+      }
+    }
+  },
+  "inventor": {
+    "name": "",
+    "link": "",
+    "note": ""
+  },
+  "notes": "",
+  "family": "",
+  "categories": []
+}
