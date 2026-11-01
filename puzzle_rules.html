@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Puzzle rules</title>
+<style>
+:root{--bg:#eef0f4;--pn:#fff;--ink:#1b1f2a;--mut:#6b7385;--ln:#dde1e8;--ac:#4655c4;--acl:#e8eaf9;--dg:#b3362f}
+@media(prefers-color-scheme:dark){:root{--bg:#161920;--pn:#1f232d;--ink:#e8eaf0;--mut:#8f97a8;--ln:#323847;--ac:#9aa5ff;--acl:#2a2f48;--dg:#ef7f78}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Segoe UI",system-ui,"Yu Gothic","Hiragino Sans","Noto Sans JP",sans-serif;height:100vh;display:flex;flex-direction:column}
+header{display:flex;gap:14px;align-items:center;padding:0 18px;background:var(--pn);border-bottom:1px solid var(--ln);height:48px}
+h1{font-size:15px;margin:0}
+#tabs{display:flex;gap:2px;height:100%}
+#tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:none;padding:0 12px;color:var(--mut)}
+#tabs button.on{color:var(--ink);border-bottom-color:var(--ac);font-weight:600}
+#st{margin-left:auto;color:var(--mut);font-size:12px}
+button,input,select,textarea{font:inherit;color:inherit;background:var(--pn);border:1px solid var(--ln);border-radius:6px;padding:5px 9px}
+button{cursor:pointer}button:hover{border-color:var(--ac)}
+button.pri{background:var(--ac);border-color:var(--ac);color:var(--pn)}
+button.dg{color:var(--dg);border-color:transparent;background:none}button.dg:hover{border-color:var(--dg)}
+button.arm{background:var(--dg);color:var(--pn);border-color:var(--dg)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+main{flex:1;display:grid;grid-template-columns:300px 1fr;min-height:0}
+aside{display:flex;flex-direction:column;min-height:0;background:var(--pn);border-right:1px solid var(--ln)}
+.srch{display:flex;gap:6px;padding:10px 10px 6px}.srch input{flex:1;min-width:0}
+#flt{display:flex;flex-wrap:wrap;gap:6px;padding:0 10px 10px}#flt select{flex:1 1 45%;min-width:0}
+#list{overflow:auto;flex:1;border-top:1px solid var(--ln)}
+.it{padding:8px 14px;cursor:pointer;border-left:3px solid transparent}
+.it:hover{background:var(--bg)}
+.it.on{background:var(--acl);border-left-color:var(--ac)}
+.it b{font-weight:600;display:block}
+.it small{display:block;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ed{overflow:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;align-items:center;gap:10px}
+h2{font-size:22px;margin:0;font-weight:600}
+.idt{color:var(--mut);font-size:12px;margin-right:auto}
+.card{background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:14px 16px}
+.card h3{font-size:13px;margin:0 0 10px;font-weight:600;display:flex;gap:10px;align-items:center}
+label{display:block;font-size:12px;color:var(--mut)}
+label input,label textarea,label select{display:block;width:100%;margin-top:3px;color:var(--ink)}
+textarea{resize:vertical}
+button:disabled{opacity:.6;cursor:not-allowed}
+.row{align-items:start}
+.sts{display:flex;flex-direction:column;gap:10px}
+.st{display:flex;gap:8px;align-items:flex-start}
+.st .n{width:22px;flex:none;text-align:right;color:var(--mut);font-size:12px;padding-top:7px}
+.st textarea{flex:1;min-width:0;resize:none;overflow:hidden}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.row+.row{margin-top:10px}
+.rules{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.col{display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:8px;background:var(--bg)}
+.ch{display:flex;gap:6px;align-items:center}.ch span{color:var(--mut);font-size:12px;flex:1}
+.ch button{padding:1px 8px;font-size:12px}
+.cats{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px}.cats label{color:var(--ink);display:flex;gap:5px;align-items:center}.cats input{width:auto;margin:0}
+.cmp{display:flex;gap:8px;align-items:center;padding:5px 0}.cmp b{flex:1;font-weight:600}
+.tag{font-size:11px;color:var(--ac);background:var(--acl);border-radius:4px;padding:0 6px}
+.cmp button{padding:1px 8px;font-size:12px}
+.info{margin:2px 0 8px;padding:8px 12px;background:var(--bg);border-radius:8px;font-size:13px}
+.info p{margin:0 0 4px;color:var(--mut)}.info ol{margin:0;padding-left:20px}
+.pick{position:relative;margin-top:8px}.pick input{width:100%}
+.pkl{position:absolute;left:0;right:0;top:100%;z-index:5;background:var(--pn);border:1px solid var(--ac);border-radius:8px;margin-top:3px;max-height:300px;overflow:auto;box-shadow:0 6px 18px #0003}
+.opt{padding:7px 12px;cursor:pointer}.opt:hover{background:var(--acl)}.opt b{font-weight:600}
+.opt small{display:block;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{color:var(--mut);max-width:460px;padding:12px 14px}
+#cfg{position:fixed;top:54px;right:14px;width:330px;z-index:20;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 24px #0004}#cfg[hidden]{display:none}
+.ro #new,.ro #imp,.ro [data-del],.ro [data-addst],.ro .pick,.ro [data-rm],.ro [data-addex],.ro [data-rmex],.ro [data-newapp]{display:none}
+.msg{font-size:12px;min-height:16px}.msg.ok{color:#2a8a4a}.msg.bad{color:var(--dg)}.ro .dg{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:3px 0 4px}.chips input{flex:1;min-width:170px}
+.chip{background:var(--acl);border-radius:12px;padding:1px 4px 1px 10px;display:inline-flex;align-items:center;gap:2px;color:var(--ink)}.chip button{border:0;background:none;padding:0 6px;color:var(--mut)}
+.tag.tv{color:#8a5a00;background:#fbf0d4}.cmp b.variant{font-weight:500;font-style:italic}
+@media(prefers-color-scheme:dark){.tag.tv{color:#e8c46a;background:#3a3220}}
+.ro [data-rmf],.ro #fin{display:none}
+.ex{border:1px solid var(--ln);border-radius:8px;padding:10px;margin-bottom:10px}
+.slot{border:1px dashed var(--ln);border-radius:8px;padding:8px;min-height:90px;cursor:pointer;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.slot img{max-width:100%;max-height:340px;border-radius:4px}.ro .slot{cursor:default}
+@media(max-width:800px){main{grid-template-columns:1fr;grid-template-rows:42% 1fr}aside{border-right:0;border-bottom:1px solid var(--ln)}}
+</style></head><body>
+<header>
+<h1>Puzzle rules</h1><nav id="tabs"></nav>
+<span id="st"></span><button id="gh">GitHub</button><button id="sv" class="pri" hidden>Save to GitHub</button><button id="imp">Import zip</button><button id="exp">Export zip</button>
+<input id="file" type="file" accept=".zip" hidden><input id="imgf" type="file" accept="image/*" hidden>
+</header>
+<div id="cfg" class="card" hidden>
+<label>Repository link (or owner/name)<input id="c-r" placeholder="https://github.com/owner/repo"></label><label>Branch (empty = default)<input id="c-b"></label>
+<label>Fine-grained token (this repo only, Contents: read and write)<input id="c-t" type="password" autocomplete="off"></label>
+<label style="display:flex;gap:6px;align-items:center"><input id="c-k" type="checkbox" style="width:auto;margin:0">Remember token on this device</label>
+<label>Commit message<input id="c-m" placeholder="Update puzzle rules"></label>
+<div id="c-msg" class="msg"></div><div class="ch"><button id="c-go" class="pri">Connect</button><button id="c-out">Sign out</button><button id="c-x">Close</button></div>
+</div>
+<main>
+<aside><div class="srch"><input id="q" type="search" placeholder="Search names and rules"><button id="new" class="pri">New</button></div><div id="flt"></div><div id="list"></div></aside>
+<section id="ed"></section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const CATS=[["number","Number"],["path","Path"],["shading","Shading"],["object","Object"],["region","Region"],["word","Word"],["other","Other"]];
+const KEY="puzzle-rules-v1",DEFL=[{code:"en",label:"English",base:true},{code:"ja",label:"日本語"},{code:"cs",label:"Čeština"}];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let SAVED=null;try{SAVED=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+let S={languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};
+let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();
+const langs=()=>S.languages.map(l=>l.code);
+const base=()=>(S.languages.find(l=>l.base)||S.languages[0]).code;
+const kind=()=>tab==="genres"?"g":tab==="variants"?"v":"a";
+const coll=()=>S[tab];
+const persist=()=>{if(A())try{localStorage.setItem(KEY,JSON.stringify({...S,commit:G.commit,pend:G.pend}))}catch(e){}status()};
+const save=()=>{S.dirty=true;persist()};
+const nid=o=>String(Math.max(0,...Object.keys(o).map(Number).filter(Number.isFinite))+1);
+const rid=()=>"a_"+Math.random().toString(36).slice(2,8);
+const catLbl=c=>(CATS.find(x=>x[0]===c)||[0,""])[1];
+const cget=c=>(c.type==="genre"?S.genres:S.variants)[c.id];
+const words=s=>s.toLowerCase().split(/\s+/).filter(Boolean);
+const fams=e=>e.families||(e.family?[e.family]:[]);
+function sortComps(a){const L=c=>lbl(cget(c)||{},c.type[0]);return a.sort((x,y)=>(x.type===y.type?0:x.type==="genre"?-1:1)||L(x).localeCompare(L(y)))}
+const sts=(e,l)=>(e.rules?.[l]?.statements||[]).filter(s=>s.trim());
+function clean(e){if(!e||!e.rules)return;for(const l in e.rules)if(e.rules[l]?.statements)e.rules[l].statements=e.rules[l].statements.map(s=>s.trim()).filter(Boolean)}
+const usedBy=(ty,id)=>Object.values(S.appearances).filter(a=>(a.components||[]).some(c=>c.type===ty&&c.id===id));
+const grow=t=>{t.style.height="auto";t.style.height=t.scrollHeight+"px"};
+const cnt=l=>{$("#n_"+l).textContent=sts(coll()[sel],l).length+" statements"};
+function renderCol(l,f,pos){const r=coll()[sel].rules[l];if(!r.statements.length)r.statements.push("");
+ const b=$("#s_"+l);b.innerHTML=r.statements.map((s,i)=>`<div class="st"><span class="n">${i+1}</span><textarea rows="1" data-sl="${l}" data-si="${i}">${esc(s)}</textarea></div>`).join("");
+ const ts=b.querySelectorAll("textarea");ts.forEach(grow);
+ if(f!=null){const t=ts[f];if(t){t.focus();const q=pos??t.value.length;t.setSelectionRange(q,q)}}}
+function flash(t){$("#st").textContent=t;setTimeout(status,6000)}
+const gp=location.hostname.endsWith(".github.io")?{owner:location.hostname.split(".")[0],repo:location.pathname.split("/")[1]||""}:{};
+const C=Object.assign({branch:""},gp,JSON.parse(localStorage.getItem("pzr-gh")||"{}"));
+let G={mode:"view",commit:"",base:{},imgs:new Set(),pend:{}},imgT=null;
+const TOK=()=>sessionStorage.getItem("pzr-tok")||localStorage.getItem("pzr-tok")||"";
+const A=()=>G.mode==="admin",J=o=>JSON.stringify(o,null,2);
+const raw=(ref,p)=>`https://raw.githubusercontent.com/${C.owner}/${C.repo}/${ref}/${p}`;
+const imgUrl=p=>G.pend[p]?G.pend[p].url:raw(A()?G.commit:C.branch,p);
+async function api(p,o={}){const hd={Accept:"application/vnd.github+json"};if(TOK())hd.Authorization="Bearer "+TOK();if(o.body)hd["Content-Type"]="application/json";
+ const r=await fetch(`https://api.github.com/repos/${C.owner}/${C.repo}${p?"/"+p:""}`,{...o,headers:hd,body:o.body&&JSON.stringify(o.body)});
+ if(!r.ok)throw Error((await r.json().catch(()=>({}))).message||r.status);return r.json()}
+async function pull(ref){const f=async p=>{const r=await fetch(raw(ref,p));if(!r.ok)throw Error(p+" "+r.status);return r.json()};
+ const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},appearances:{},dirty:false};
+ await Promise.all([...ix.genres.map(x=>["genres",x.id]),...ix.variants.map(x=>["variants",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
+ (await f("data/appearances.json")).forEach(a=>n.appearances[a.id]=a);return n}
+function files(){const o={},cl=e=>{const c=JSON.parse(JSON.stringify(e));clean(c);return c};
+ o["data/languages.json"]=J(S.languages);
+ for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(cl(e)));
+ o["data/appearances.json"]=J(Object.values(S.appearances).map(a=>({...a,components:sortComps([...(a.components||[])])})));
+ o["data/index.json"]=J({schemaVersion:1,genres:Object.values(S.genres).map(e=>({id:e.id,names:e.names})),variants:Object.values(S.variants).map(e=>({id:e.id,names:e.names}))});return o}
+async function connect(){const rp=await api("");if(rp.permissions&&rp.permissions.push===false)throw Error("This token cannot write to the repo");
+ G.commit=(await api(`git/ref/heads/${C.branch}`)).object.sha;
+ G.imgs=new Set((await api(`git/trees/${G.commit}?recursive=1`)).tree.filter(x=>x.type==="blob"&&x.path.startsWith("images/")).map(x=>x.path));
+ let n;try{n=await pull(G.commit)}catch(e){if(!/404/.test(e.message))throw e}
+ S=n||{languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};sel=null;G.base=n?files():{};G.pend={};
+ if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;G.pend=pend||{}}SAVED=null;G.mode="admin"}
+async function load(){if(!C.branch)C.branch=(await api("")).default_branch;
+ if(TOK())await connect();else{S=await pull(C.branch);sel=null;G.mode="view"}}
+function parseRepo(s){const m=s.trim().replace(/\.git$/,"").match(/(?:github\.com[\/:])?([\w.-]+)\/([\w.-]+)(?:\/tree\/([^\/\s]+))?/);return m?{owner:m[1],repo:m[2],branch:m[3]||""}:null}
+const hint=e=>/Bad credentials/.test(e.message)?"GitHub rejected the token (wrong, expired, or no access to this repo).":/404|Not Found/.test(e.message)?"Not found. Check the repository link and branch. For a new repo, an admin must save once to create the data files.":e.message;
+const cmsg=(t,c)=>{$("#c-msg").textContent=t;$("#c-msg").className="msg "+c};
+async function ghSave(){
+ if((await api(`git/ref/heads/${C.branch}`)).object.sha!==G.commit)throw Error("The repo changed since you loaded it. Reconnect first (export a zip as backup).");
+ const f=files(),ent=[],used=new Set();
+ Object.values(S.genres).forEach(g=>(g.examples||[]).forEach(x=>[x.problem,x.solution].forEach(q=>q&&used.add(q))));
+ const blob=async(path,content,encoding)=>{const b=await api("git/blobs",{method:"POST",body:{content,encoding}});ent.push({path,mode:"100644",type:"blob",sha:b.sha})},jobs=[];
+ for(const[q,c]of Object.entries(f))if(G.base[q]!==c)jobs.push(blob(q,c,"utf-8"));
+ for(const q in G.base)if(!(q in f))ent.push({path:q,mode:"100644",type:"blob",sha:null});
+ for(const q in G.pend)if(used.has(q))jobs.push(blob(q,G.pend[q].b64,"base64"));
+ for(const q of G.imgs)if(!used.has(q))ent.push({path:q,mode:"100644",type:"blob",sha:null});
+ await Promise.all(jobs);if(!ent.length)return flash("Nothing to save.");
+ const cm=await api(`git/commits/${G.commit}`),tr=await api("git/trees",{method:"POST",body:{base_tree:cm.tree.sha,tree:ent}});
+ const nc=await api("git/commits",{method:"POST",body:{message:C.msg||"Update puzzle rules",tree:tr.sha,parents:[G.commit]}});
+ await api(`git/refs/heads/${C.branch}`,{method:"PATCH",body:{sha:nc.sha}});
+ for(const q in G.pend)if(used.has(q))G.imgs.add(q);G.imgs=new Set([...G.imgs].filter(q=>used.has(q)));
+ G.commit=nc.sha;G.base=f;G.pend={};S.dirty=false;persist();flash("Saved to GitHub")}
+function toWebp(file){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>{const s=Math.min(1,1000/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext("2d").drawImage(i,0,0,c.width,c.height);
+ c.toBlob(b=>{const r=new FileReader();r.onload=()=>res({url:r.result,b64:r.result.split(",")[1]});r.readAsDataURL(b)},"image/webp",.9)};i.onerror=rej;i.src=URL.createObjectURL(file)})}
+async function setImg(f){const e=coll()[sel],x=e.examples[imgT.i];
+ try{const r=await toWebp(f),q=`images/${e.id}/${x.id}-${imgT.s}-${rid().slice(2,6)}.webp`;delete G.pend[x[imgT.s]];G.pend[q]=r;x[imgT.s]=q;save();editor()}catch(err){flash("Could not read that image")}}
+function applyMode(){const ro=!A();document.body.classList.toggle("ro",ro);$("#sv").hidden=!A();
+ if(ro){document.querySelectorAll("#ed input,#ed textarea").forEach(x=>x.readOnly=true);document.querySelectorAll("#ed select,#ed input[type=checkbox]").forEach(x=>x.disabled=true)}}
+function editor(){editor0();applyMode()}
+async function boot(){if(!C.owner||!C.repo)return;try{await load()}catch(e){flash("GitHub: "+hint(e))}render()}
+function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor||{name:"",link:"",note:""};e.notes=e.notes||"";
+ langs().forEach(l=>{e.names[l]=e.names[l]||[];const r=e.rules[l]=e.rules[l]||{};r.statements=r.statements||[];r.source=r.source||{text:"",link:""}});
+ if(k==="v"){e.families=fams(e);delete e.family;e.categories=e.categories||[]}else e.category=e.category||"";return e}
+function nm(e){const b=e.names?.[base()]||[];if(b.length)return b.join(" / ");for(const l of langs()){const n=(e.names?.[l]||[])[0];if(n)return n}return""}
+function snip(e){const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
+function lbl(e,k){if(k==="a")return(e.components||[]).map(c=>{const x=cget(c);return x?lbl(x,c.type[0]):"?"}).join(" + ");
+ return nm(e)||(k==="g"?"Unnamed genre":"Unnamed variant")}
+function wscore(e,w){let s=0;
+ for(const l of langs())for(const n of e.names?.[l]||[]){const x=n.toLowerCase();s=Math.max(s,x===w?5:x.startsWith(w)?4:x.includes(w)?3:0)}
+ if(fams(e).some(f=>f.toLowerCase().includes(w)))s=Math.max(s,2);
+ for(const l of langs())for(const t of sts(e,l))if(t.toLowerCase().includes(w))s=Math.max(s,1);
+ return s}
+function sc(e,ws){if(!ws.length)return 1;let tot=0;for(const w of ws){const s=wscore(e,w);if(!s)return 0;tot+=s}return tot}
+function items(){const k=kind(),ws=words(q);
+ let a=Object.values(coll()).map(e=>({e,s:k==="a"?(ws.every(w=>(lbl(e,"a")+" "+(e.link||"")+" "+(e.by||"")+" "+(e.note||"")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
+  if(F.c)a=a.filter(x=>k==="g"?x.e.category===F.c:(x.e.categories||[]).includes(F.c));
+ if(F.r)a=a.filter(x=>!sts(x.e,F.r).length);
+ if(F.n)a=a.filter(x=>F.n==="*"?langs().every(l=>!(x.e.names?.[l]||[]).length):!(x.e.names?.[F.n]||[]).length);
+ if(F.f)a=a.filter(x=>fams(x.e).includes(F.f));
+ return a.sort((x,y)=>y.s-x.s||lbl(x.e,k).localeCompare(lbl(y.e,k))).map(x=>x.e)}
+function meta(e,k){
+ if(k==="a")return[e.by,e.link].filter(Boolean).join(" · ");
+ const p=k==="g"?[catLbl(e.category),langs().filter(l=>sts(e,l).length).join(" ")]:[fams(e).join(", "),(e.categories||[]).map(catLbl).join(", ")];
+ if(!nm(e))p.unshift(snip(e));return p.filter(Boolean).join(" · ")}
+function tabs(){$("#tabs").innerHTML=[["genres","Genres"],["variants","Variants"],["appearances","Appearances"]].map(([t,n])=>`<button data-tab="${t}" class="${t===tab?"on":""}">${n} ${Object.keys(S[t]).length}</button>`).join("")}
+function filters(){const k=kind();if(k==="a"){$("#flt").style.display="none";return}
+ const o=(v,t,c)=>`<option value="${esc(v)}" ${c===v?"selected":""}>${esc(t)}</option>`,sl=(key,all,opts)=>`<select data-f="${key}">${o("",all,F[key]||"")+opts.map(x=>o(x[0],x[1],F[key]||"")).join("")}</select>`;
+ let h=sl("c","All categories",CATS);
+ if(k==="v")h+=sl("f","All families",[...new Set(Object.values(S.variants).flatMap(fams))].sort().map(f=>[f,f]));
+ h+=sl("n","Any names",[["*","No name at all"],...S.languages.map(l=>[l.code,"No "+l.code+" name"])])+sl("r","Any rules",S.languages.map(l=>[l.code,"No "+l.code+" rules"]));
+ $("#flt").innerHTML=h;$("#flt").style.display="flex"}
+function list(){const k=kind(),a=items();
+ $("#list").innerHTML=a.map(e=>`<div class="it ${e.id===sel?"on":""}" data-id="${esc(e.id)}"><b>${esc(lbl(e,k)||"New appearance")}</b><small>${esc(meta(e,k))||"&nbsp;"}</small></div>`).join("")||`<p class="empty">${A()?"Nothing here yet. Use New to add one.":"Nothing to show. Open the GitHub panel and load a repository."}</p>`}
+const fld=(lab,p,v,ex="")=>`<label>${lab}<input data-p="${p}" value="${esc(v)}" ${ex}></label>`;
+const ta=(lab,p,v,rows=1)=>`<label>${lab}<textarea rows="${rows}" data-p="${p}">${esc(v)}</textarea></label>`;
+const card=(t,b,x="")=>`<section class="card"><h3>${t}${x}</h3>${b}</section>`;
+function infoHtml(x){const b=base(),l=sts(x,b).length?b:langs().find(c=>sts(x,c).length);
+ const names=S.languages.map(L=>(x.names?.[L.code]||[]).join(" / ")).filter(Boolean).join(" · ");
+ return`<div class="info">${names?`<p>${esc(names)}</p>`:""}${l?`<ol>${sts(x,l).map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`+(l!==b?`<p>Shown in ${l}; no ${b} rules yet.</p>`:""):`<p>No rules entered yet.</p>`}</div>`}
+function editor0(){const k=kind(),e=coll()[sel];
+ if(!e){$("#ed").innerHTML=`<p class="empty">Pick an entry on the left or create a new one. Write rules one statement per line; the copy buttons give plain text without numbers.</p>`;return}
+ if(k==="a")return edApp(e);
+ norm(e,k);const L=S.languages,type=k==="g"?"genre":"variant";
+ const used=usedBy(type,e.id);
+ let h=`<div class="top"><h2>${esc(lbl(e,k))}</h2><span class="idt">#${esc(e.id)}</span>${used.length?`<button class="dg" disabled title="Remove it from its appearances first">Can't delete: used in ${used.length}</button>`:`<button class="dg" data-del>Delete</button>`}</div>`;
+ h+=card("Names"+(k==="v"?" (optional)":""),`<div class="row">${L.map(l=>`<label>${esc(l.label)}, one per line<textarea rows="2" data-p="names.${l.code}" data-l="1">${esc(e.names[l.code].join("\n"))}</textarea></label>`).join("")}</div>`);
+ let d=k==="g"?`<div class="row"><label>Category<select data-p="category"><option value="">Choose…</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label></div>`
+  :`<label>Families</label><div class="chips">${e.families.map((f,i)=>`<span class="chip">${esc(f)}<button data-rmf="${i}" title="Remove">×</button></span>`).join("")}<input id="fin" list="fam" placeholder="Add family, press Enter"></div><datalist id="fam">${[...new Set(Object.values(S.variants).flatMap(fams))].map(f=>`<option value="${esc(f)}">`).join("")}</datalist><div class="cats"><label>Applies to:</label>${CATS.map(c=>`<label><input type="checkbox" data-cat="${c[0]}" ${e.categories.includes(c[0])?"checked":""}>${c[1]}</label>`).join("")}</div>`;
+ d+=`<div class="row">${fld("Inventor","inventor.name",e.inventor.name)}${fld("Inventor link","inventor.link",e.inventor.link)}${ta("Inventor note","inventor.note",e.inventor.note)}</div>`;
+ h+=card("Details",d);
+ h+=card(k==="g"?"Rules":"Rule changes",`<div class="row rules">${L.map(l=>{const c=l.code,r=e.rules[c];
+  return`<div class="col"><div class="ch"><b>${esc(l.label)}</b><span id="n_${c}">${sts(e,c).length} statements</span><button data-copy="${c}">Copy</button><button data-copy="${c}" data-num="1">Numbered</button></div>
+  <div class="sts" id="s_${c}"></div>
+  <textarea rows="1" data-p="rules.${c}.source.text" placeholder="Source note, e.g. modified from…">${esc(r.source.text)}</textarea><input data-p="rules.${c}.source.link" placeholder="Source link" value="${esc(r.source.link)}"></div>`}).join("")}</div>`);
+ if(k==="g"){h+=card("Examples",(e.examples||[]).map((x,i)=>`<div class="ex"><div class="row">${["problem","solution"].map(s=>{const im=x[s]?`<img src="${esc(imgUrl(x[s]))}" alt="${s}" loading="lazy">`:`<small>${A()?"Click, paste or drop an image":"No image"}</small>`;
+  return`<div class="slot" tabindex="0" data-slot="${s}" data-exi="${i}"><b>${s==="problem"?"Problem":"Solution"}</b>${A()||!x[s]?im:`<a href="${esc(imgUrl(x[s]))}" target="_blank">${im}</a>`}</div>`}).join("")}</div>
+  <div class="row">${fld("Puzzle link",`examples.${i}.link`,x.link||"")}${fld("Author",`examples.${i}.author`,x.author||"")}${ta("Note",`examples.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmex="${i}">Remove example</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">${A()?"No examples yet.":"No examples."}</small>`,A()?`<button data-addex>Add example</button>`:"");}
+ h+=card("Notes",`<textarea rows="2" style="width:100%" data-p="notes">${esc(e.notes)}</textarea>`);
+ h+=card(`Appearances (${used.length})`,used.map(a=>`<div class="cmp"><b>${esc(lbl(a,"a"))}${a.by?" — "+esc(a.by):""}</b><button data-open="appearance:${a.id}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`,`<button data-newapp>New appearance with this</button>`);
+ $("#ed").innerHTML=h;langs().forEach(l=>renderCol(l))}
+function edApp(e){e.components=sortComps(e.components||[]);
+ const comps=e.components.map((c,i)=>{const x=cget(c),key=c.type+":"+c.id;
+  return`<div class="cmp"><span class="tag ${c.type==="variant"?"tv":""}">${c.type==="genre"?"Genre":"Variant"}</span><b class="${c.type}">${esc(x?lbl(x,c.type[0]):"(missing)")}</b>${x?`<button data-info="${key}" title="Show rules">${openInfo.has(key)?"Hide rules":"Rules"}</button><button data-open="${key}">Open</button>`:""}<button data-rm="${i}">Remove</button></div>${x&&openInfo.has(key)?infoHtml(x):""}`}).join("");
+ $("#ed").innerHTML=`<div class="top"><h2>${esc(lbl(e,"a")||"New appearance")}</h2><span class="idt">#${esc(e.id)}</span><button class="dg" data-del>Delete</button></div>
+ ${card("Components",comps+`<div class="row" style="margin-top:8px">${["genre","variant"].map(t=>`<div class="pick" style="margin:0"><input id="pk-${t}" placeholder="Search ${t==="genre"?"genres":"variants"} to add…" autocomplete="off"><div id="pkl-${t}" class="pkl" hidden></div></div>`).join("")}</div>`)}
+ ${card("Details",`<div class="row">${fld("Link","link",e.link||"")}${fld("Used by","by",e.by||"")}${ta("Note","note",e.note||"")}</div>`)}`}
+function pickList(t){const ws=words($("#pk-"+t).value);
+ const a=Object.values(t==="genre"?S.genres:S.variants).map(e=>({e,s:sc(e,ws)})).filter(x=>x.s>0).sort((x,y)=>y.s-x.s||lbl(x.e,t[0]).localeCompare(lbl(y.e,t[0]))).slice(0,12);
+ const b=$("#pkl-"+t);b.innerHTML=a.map(x=>`<div class="opt" data-pick="${t}:${esc(x.e.id)}"><b>${esc(lbl(x.e,t[0]))}</b>${snip(x.e)?`<small>${esc(snip(x.e))}</small>`:""}</div>`).join("")||`<div class="opt">No match</div>`;b.hidden=false}
+function status(){const c=t=>Object.keys(S[t]).length,m=A()?"editing "+C.owner+"/"+C.repo:C.owner?"read-only, "+C.owner+"/"+C.repo:"read-only · open GitHub to load a repository";
+ $("#st").textContent=`${c("genres")} genres · ${c("variants")} variants · ${c("appearances")} appearances · ${m}`+(A()&&S.dirty?" · unsaved to GitHub":"")}
+function render(){tabs();filters();list();editor();status()}
+function go(t,id){clean(coll()[sel]);tab=t;sel=id;armDel=null;q="";F={};$("#q").value="";render()}
+let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.textContent=lbl(e,kind())||"New appearance"},200)};
+$("#tabs").onclick=ev=>{const t=ev.target.dataset.tab;if(t){clean(coll()[sel]);tab=t;sel=null;armDel=null;F={};render()}};
+$("#q").oninput=ev=>{q=ev.target.value;list()};
+$("#flt").oninput=ev=>{F[ev.target.dataset.f]=ev.target.value;list()};
+$("#list").onclick=ev=>{const d=ev.target.closest(".it");if(d){clean(coll()[sel]);sel=d.dataset.id;armDel=null;list();editor()}};
+$("#new").onclick=()=>{const c=coll();let e;clean(c[sel]);
+ if(tab==="appearances")e={id:rid(),components:[],link:"",by:"",note:""};else e=norm({id:nid(c)},kind());
+ c[e.id]=e;sel=e.id;save();render();($("#pk-genre")||$("#ed textarea"))?.focus()};
+function setp(o,p,v){const k=p.split("."),last=k.pop();let x=o;for(const s of k)x=x[s]||(x[s]={});x[last]=v}
+$("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e)return;
+ if(t.id?.startsWith("pk-"))return pickList(t.id.slice(3));
+ if(t.dataset.si!==undefined){e.rules[t.dataset.sl].statements[+t.dataset.si]=t.value;grow(t);cnt(t.dataset.sl)}
+ else if(t.dataset.cat){const a=e.categories;if(t.checked){if(!a.includes(t.dataset.cat))a.push(t.dataset.cat)}else e.categories=a.filter(x=>x!==t.dataset.cat)}
+ else if(t.dataset.p){setp(e,t.dataset.p,t.dataset.l?t.value.split("\n").map(s=>s.trim()).filter(Boolean):t.value);
+  const m=t.dataset.p.match(/^rules\.(\w+)\.statements$/);if(m)$("#n_"+m[1]).textContent=e.rules[m[1]].statements.length+" statements"}
+ else return;save();lazy()});
+$("#ed").addEventListener("focusin",ev=>{const i=ev.target.id;if(i?.startsWith("pk-"))pickList(i.slice(3))});
+$("#ed").addEventListener("focusout",ev=>{const i=ev.target.id;if(i?.startsWith("pk-"))$("#pkl-"+i.slice(3)).hidden=true});
+$("#ed").addEventListener("keydown",ev=>{const t=ev.target;if(t.dataset.si===undefined)return;
+ const l=t.dataset.sl,i=+t.dataset.si,a=coll()[sel].rules[l].statements,p=t.selectionStart;
+ if(ev.key==="Enter"&&!ev.shiftKey&&!ev.isComposing){ev.preventDefault();a.splice(i,1,t.value.slice(0,p),t.value.slice(t.selectionEnd));save();renderCol(l,i+1,0);cnt(l)}
+ else if(ev.key==="Backspace"&&p===0&&t.selectionEnd===0&&i>0){ev.preventDefault();const j=a[i-1].length;a.splice(i-1,2,a[i-1]+t.value);save();renderCol(l,i-1,j);cnt(l)}});
+$("#ed").addEventListener("paste",ev=>{const t=ev.target,sl=t.closest?.(".slot");
+ if(sl){if(!A())return;const f=[...ev.clipboardData.items].map(i=>i.getAsFile()).find(Boolean);if(f){ev.preventDefault();imgT={i:+sl.dataset.exi,s:sl.dataset.slot};setImg(f)}return}
+ if(t.dataset.si===undefined)return;const txt=ev.clipboardData.getData("text");if(!/\r?\n/.test(txt))return;ev.preventDefault();
+ const l=t.dataset.sl,i=+t.dataset.si,a=coll()[sel].rules[l].statements,parts=txt.split(/\r?\n/).map(s=>s.trim().replace(/^\d+[.)]\s+/,"")).filter(Boolean);
+ if(!parts.length)return;const at=t.value.trim()?i+1:i;a.splice(at,t.value.trim()?0:1,...parts);save();renderCol(l,at+parts.length-1);cnt(l)});
+$("#ed").addEventListener("mousedown",ev=>{if(ev.target.closest(".opt"))ev.preventDefault()});
+$("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.slot");if(!t)return;const e=coll()[sel],d=t.dataset;
+ if(d.copy){const s=sts(e,d.copy);navigator.clipboard.writeText(s.map((x,i)=>d.num?`${i+1}) ${x}`:x).join("\n"))}
+ else if(d.slot){if(A()){imgT={i:+d.exi,s:d.slot};$("#imgf").click()}}
+ else if(d.addex!==undefined){(e.examples=e.examples||[]).push({id:rid().slice(2),problem:"",solution:"",link:"",author:"",note:""});save();editor()}
+ else if(d.rmex){e.examples.splice(+d.rmex,1);save();editor()}
+ else if(d.rmf){e.families.splice(+d.rmf,1);save();editor()}
+ else if(d.open){const[a,b]=d.open.split(":");go(a+"s",b)}
+ else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}],link:"",by:"",note:""};S.appearances[a.id]=a;save();go("appearances",a.id)}
+ else if(d.pick){const[ty,id]=d.pick.split(":");e.components.push({type:ty,id});sortComps(e.components);save();edApp(e);lazy()}
+ else if(d.info){openInfo.has(d.info)?openInfo.delete(d.info):openInfo.add(d.info);edApp(e)}
+ else if(d.rm){e.components.splice(+d.rm,1);save();edApp(e);lazy()}
+ else if(d.del!==undefined){
+  if(kind()!=="a"&&usedBy(kind()==="g"?"genre":"variant",sel).length)return flash("Used in an appearance: remove it there first.");
+  if(armDel!==sel){armDel=sel;t.textContent="Click again to delete";t.classList.add("arm");const id=sel;setTimeout(()=>{if(armDel===id){armDel=null;if(t.isConnected){t.textContent="Delete";t.classList.remove("arm")}}},4000);return}
+  const id=sel;delete coll()[id];
+  sel=null;armDel=null;save();render()}});
+$("#exp").onclick=async()=>{if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
+ const z=new JSZip();for(const[q,c]of Object.entries(files()))z.file(q,c);
+ const a=document.createElement("a");a.href=URL.createObjectURL(await z.generateAsync({type:"blob"}));a.download="puzzle-rules-data.zip";a.click();if(!A())S.dirty=false;persist()};
+$("#imp").onclick=()=>{const has=Object.keys(S.genres).length+Object.keys(S.variants).length+Object.keys(S.appearances).length;
+ if(has&&!armImp){armImp=true;$("#imp").textContent="Replace current data?";$("#imp").classList.add("arm");setTimeout(()=>{armImp=false;$("#imp").textContent="Import zip";$("#imp").classList.remove("arm")},4000);return}
+ armImp=false;$("#imp").textContent="Import zip";$("#imp").classList.remove("arm");$("#file").click()};
+$("#file").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;
+ if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
+ try{const z=await JSZip.loadAsync(f),n={languages:null,genres:{},variants:{},appearances:{},dirty:A()};
+  for(const[p,x]of Object.entries(z.files)){if(x.dir)continue;const m=p.match(/(?:^|\/)(genres|variants)\/([^/]+)\.json$/),t=await x.async("string");
+   if(m){const e=JSON.parse(t);e.id=e.id||m[2];n[m[1]][e.id]=e}
+   else if(/(^|\/)languages\.json$/.test(p))n.languages=JSON.parse(t);
+   else if(/(^|\/)appearances\.json$/.test(p))JSON.parse(t).forEach(a=>n.appearances[a.id]=a)}
+  n.languages=n.languages||DEFL;S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
+$("#ed").addEventListener("dragover",ev=>{if(ev.target.closest(".slot"))ev.preventDefault()});
+$("#ed").addEventListener("drop",ev=>{const sl=ev.target.closest(".slot");if(!sl||!A())return;ev.preventDefault();const f=ev.dataTransfer.files[0];if(f){imgT={i:+sl.dataset.exi,s:sl.dataset.slot};setImg(f)}});
+const addFam=v=>{const e=coll()[sel];v=v.trim();if(!e||!v||!A())return;e.families=fams(e);if(!e.families.includes(v))e.families.push(v);save();editor()};
+$("#ed").addEventListener("keydown",ev=>{if(ev.target.id==="fin"&&(ev.key==="Enter"||ev.key===",")){ev.preventDefault();addFam(ev.target.value)}});
+$("#ed").addEventListener("change",ev=>{if(ev.target.id==="fin")addFam(ev.target.value)});
+$("#imgf").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(f)await setImg(f)};
+$("#gh").onclick=()=>{const c=$("#cfg");c.hidden=!c.hidden;$("#c-r").value=C.owner&&C.repo?C.owner+"/"+C.repo:"";$("#c-b").value=C.branch||"";$("#c-m").value=C.msg||"";cmsg(A()?"Editing is enabled.":"","ok")};
+$("#c-x").onclick=()=>$("#cfg").hidden=true;
+$("#c-out").onclick=()=>{localStorage.removeItem("pzr-tok");sessionStorage.removeItem("pzr-tok");location.reload()};
+$("#c-go").onclick=async()=>{const pr=parseRepo($("#c-r").value);if(!pr)return cmsg("Enter the repository as a GitHub link or owner/name.","bad");
+ Object.assign(C,pr);if($("#c-b").value.trim())C.branch=$("#c-b").value.trim();C.msg=$("#c-m").value;
+ const t=$("#c-t").value.trim();if(t){$("#c-t").value="";($("#c-k").checked?localStorage:sessionStorage).setItem("pzr-tok",t)}
+ cmsg("Connecting…","");
+ try{await load();localStorage.setItem("pzr-gh",JSON.stringify(C));cmsg(A()?`Connected to ${C.owner}/${C.repo} (${C.branch}). Editing is enabled.`:`Loaded ${C.owner}/${C.repo} read-only. Add a token to enable editing.`,"ok")}catch(e){cmsg(hint(e),"bad")}render()};
+$("#sv").onclick=async()=>{$("#sv").textContent="Saving…";try{await ghSave()}catch(e){flash("Save failed: "+e.message)}$("#sv").textContent="Save to GitHub"};
+window.addEventListener("resize",()=>document.querySelectorAll(".st textarea").forEach(grow));
+render();boot();
+</script></body></html>
