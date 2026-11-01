@@ -19,7 +19,7 @@
         "Clues cannot be shaded or passed through by the loop, and represent the number of shaded cells in a straight line in the indicated direction."
       ],
       "source": {
-        "text": "Reworded",
+        "text": "reworded",
         "link": "Eric Fox's Dictionary of Rulesets"
       }
     },
@@ -39,7 +39,7 @@
     "cs": {
       "statements": [
         "Začerněte některá políčka tabulky tak, aby spolu žádná dvě začerněná políčka stranově nesousedila.",
-        "Potom nakreslete všemi zbylými prázdnými políčky jednu uzavřenou smyčku. Smyčka prochází vodorovně a svisle mezi středy políček a nikde se sama se sebou nekříží ani nedotýká.",
+        "Potom nakreslete všemi zbylými prázdnými políčky jednu uzavřenou smyčku. Smyčka prochází vodorovně a svisle mezi středy políček a nikde se sama se sebou nekříží ani jinak nedotýká.",
         "Číselné nápovědy nemohou být začerněné ani jimi nemůže procházet smyčka. Udávají počet začerněných políček ve směru šipky."
       ],
       "source": {
@@ -53,7 +53,7 @@
     "link": "",
     "note": ""
   },
-  "notes": "some notes",
+  "notes": "",
   "category": "path",
   "examples": [
     {
@@ -61,7 +61,8 @@
       "problem": "images/1/0ucv5i-problem-mi46.webp",
       "solution": "images/1/0ucv5i-solution-gg6t.webp",
       "link": "https://puzsq.logicpuzzle.app/puzzle/101228",
-      "note": "Author: ペンギン王者"
+      "note": "",
+      "author": "ペンギン王者"
     }
   ]
 }
