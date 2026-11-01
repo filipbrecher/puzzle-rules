@@ -16,4 +16,4 @@ It supports English, Japanese and Czech for now, but it's easy to add a new lang
 
 ### Usage
 
-Go to https://filipbrecher.github.io/puzzle-types where it's accessible for viewing and browsing.
+Go to https://filipbrecher.github.io/puzzle-rules where it's accessible for viewing and browsing.
