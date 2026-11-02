@@ -1,0 +1,49 @@
+{
+  "id": "1",
+  "names": {
+    "en": [
+      "Yajilin"
+    ],
+    "ja": [
+      "ヤジリン"
+    ],
+    "cs": [
+      "Yajilin"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent.",
+        "Then draw a non-intersecting loop through the centers of all the remaining empty cells.",
+        "Clues cannot be shaded or passed through by the loop, and represent the number of shaded cells in a straight line in the indicated direction."
+      ]
+    },
+    "ja": {
+      "statements": [
+        "盤面にタテヨコに線を引き、全体で１つの輪っかを作ります。線が通らないマスはすべて黒く塗りつぶします。",
+        "輪っかを作る線はマスの中央を通り、盤面の外に出たり、交差したり、枝分かれしたり、行き止まりがあったりしてはいけません。",
+        "黒マスをタテヨコに連続させてはいけません。",
+        "矢印のついた数字はその方向に入る黒マスの数を表します。矢印が指していない範囲にはいくつ黒マスが入るかわかりません。",
+        "数字のマスに線を引いたり黒マスを置いたりしてはいけません。"
+      ]
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka tabulky tak, aby spolu žádná dvě začerněná políčka stranově nesousedila.",
+        "Potom nakreslete všemi zbylými prázdnými políčky jednu uzavřenou smyčku. Smyčka prochází vodorovně a svisle mezi středy políček a nikde se sama se sebou nekříží ani jinak nedotýká.",
+        "Číselné nápovědy nemohou být začerněné ani jimi nemůže procházet smyčka. Udávají počet začerněných políček ve směru šipky."
+      ]
+    }
+  },
+  "category": "path",
+  "examples": [
+    {
+      "id": "v9hp45",
+      "problem": "images/1/v9hp45-problem-yy2k.webp",
+      "solution": "images/1/v9hp45-solution-emc1.webp",
+      "author": "ペンギン王者",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101228"
+    }
+  ]
+}

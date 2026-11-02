@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "genres": [
+    {
+      "id": "1",
+      "names": {
+        "en": [
+          "Yajilin"
+        ],
+        "ja": [
+          "ヤジリン"
+        ],
+        "cs": [
+          "Yajilin"
+        ]
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "1",
+      "names": {
+        "en": [
+          "Hexagonal"
+        ],
+        "cs": [
+          "Hexagonální"
+        ]
+      }
+    }
+  ]
+}
