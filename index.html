@@ -125,7 +125,7 @@ function renderCol(l,f,pos){const r=coll()[sel].rules[l];if(!r.statements.length
  if(f!=null){const t=ts[f];if(t){t.focus();const q=pos??t.value.length;t.setSelectionRange(q,q)}}}
 function flash(t){$("#st").textContent=t;setTimeout(status,6000)}
 const gp=location.hostname.endsWith(".github.io")?{owner:location.hostname.split(".")[0],repo:location.pathname.split("/")[1]||""}:{};
-const REPO={owner:"",repo:"",branch:"main"}; // set once: your GitHub account name, repository name and branch
+const REPO={owner:"filipbrecher",repo:"puzzle-rules",branch:"main"}; // set once: your GitHub account name, repository name and branch
 const C=Object.assign({branch:""},JSON.parse(localStorage.getItem("pzr-gh")||"{}"),gp,REPO.owner?REPO:{});
 let G={mode:"view",commit:"",base:{},imgs:new Set(),pend:{}},imgT=null;
 const TOK=()=>sessionStorage.getItem("pzr-tok")||localStorage.getItem("pzr-tok")||"";
