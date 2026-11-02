@@ -66,6 +66,7 @@ button:disabled{opacity:.6;cursor:not-allowed}
 .g{font-weight:600}.v{font-style:italic;font-weight:500;color:#8a5a00}.c{font-variant:small-caps;letter-spacing:.03em;color:#1f7a6b}
 .au{color:var(--mut);font-weight:400}.nm,.cmp b.nm,.opt b.nm{font-weight:400}
 @media(prefers-color-scheme:dark){.v{color:#e8c46a}.c{color:#6fd0bd}}
+.alist .cmp{padding:8px 0}.alist .cmp+.cmp{border-top:1px solid var(--ln)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:3px 0 4px}.chips input{flex:1;min-width:170px}
 .chip{background:var(--acl);border-radius:12px;padding:1px 4px 1px 10px;display:inline-flex;align-items:center;gap:2px;color:var(--ink)}.chip button{border:0;background:none;padding:0 6px;color:var(--mut)}
 .tag.tv{color:#8a5a00;background:#fbf0d4}.cmp b.variant{font-weight:500;font-style:italic}
@@ -100,7 +101,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let SAVED=null;try{SAVED=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 let S={languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};
-let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();
+let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();let appPage=0,appSel=null,RAW={};
 const langs=()=>S.languages.map(l=>l.code);
 const base=()=>(S.languages.find(l=>l.base)||S.languages[0]).code;
 const kind=()=>tab==="genres"?"g":tab==="variants"?"v":"a";
@@ -114,6 +115,10 @@ const cget=c=>(c.type==="genre"?S.genres:S.variants)[c.id];
 const words=s=>s.toLowerCase().split(/\s+/).filter(Boolean);
 const fams=e=>e.families||(e.family?[e.family]:[]);
 function sortComps(a){const L=c=>lbl(cget(c)||{},c.type[0]);return a.sort((x,y)=>(x.type===y.type?0:x.type==="genre"?-1:1)||L(x).localeCompare(L(y)))}
+function prune(o){if(Array.isArray(o)){const a=o.map(prune).filter(v=>v!==undefined);return a.length?a:undefined}
+ if(o&&typeof o==="object"){const r={};for(const k in o){const v=prune(o[k]);if(v!==undefined)r[k]=v}return Object.keys(r).length?r:undefined}
+ return o===""||o==null?undefined:o}
+const useTxt=(a,v)=>[v?`variants (${v})`:"",a?`appearances (${a})`:""].filter(Boolean).join(", ");
 const sts=(e,l)=>(e.rules?.[l]?.statements||[]).filter(s=>s.trim());
 function clean(e){if(!e||!e.rules)return;for(const l in e.rules)if(e.rules[l]?.statements)e.rules[l].statements=e.rules[l].statements.map(s=>s.trim()).filter(Boolean)}
 const usedBy=(ty,id)=>Object.values(S.appearances).filter(a=>(a.components||[]).some(c=>c.type===ty&&c.id===id));
@@ -135,21 +140,21 @@ const imgUrl=p=>G.pend[p]?G.pend[p].url:raw(A()?G.commit:C.branch,p);
 async function api(p,o={}){const hd={Accept:"application/vnd.github+json"};if(TOK())hd.Authorization="Bearer "+TOK();if(o.body)hd["Content-Type"]="application/json";
  const r=await fetch(`https://api.github.com/repos/${C.owner}/${C.repo}${p?"/"+p:""}`,{...o,headers:hd,body:o.body&&JSON.stringify(o.body)});
  if(!r.ok)throw Error((await r.json().catch(()=>({}))).message||r.status);return r.json()}
-async function pull(ref){const f=async p=>{const r=await fetch(raw(ref,p));if(!r.ok)throw Error(p+" "+r.status);return r.json()};
+async function pull(ref){RAW={};const f=async p=>{const r=await fetch(raw(ref,p));if(!r.ok)throw Error(p+" "+r.status);const t=await r.text();RAW[p]=t;return JSON.parse(t)};
  const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},appearances:{},dirty:false};
- await Promise.all([...ix.genres.map(x=>["genres",x.id]),...ix.variants.map(x=>["variants",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
+ await Promise.all([...(ix.genres||[]).map(x=>["genres",x.id]),...(ix.variants||[]).map(x=>["variants",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
  (await f("data/appearances.json")).forEach(a=>n.appearances[a.id]=a);Object.values(n.variants).forEach(mig);return n}
 function files(){const o={},cl=e=>{const c=JSON.parse(JSON.stringify(e));clean(c);return c};
  o["data/languages.json"]=J(S.languages);
- for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(cl(e)));
- o["data/appearances.json"]=J(Object.values(S.appearances).map(a=>({...a,components:sortComps([...(a.components||[])])})));
- o["data/index.json"]=J({schemaVersion:1,genres:Object.values(S.genres).map(e=>({id:e.id,names:e.names})),variants:Object.values(S.variants).map(e=>({id:e.id,names:e.names}))});return o}
+ for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(prune(cl(e))));
+ o["data/appearances.json"]=J(prune(Object.values(S.appearances).map(a=>({...a,components:sortComps([...(a.components||[])])})))||[]);
+ o["data/index.json"]=J(prune({schemaVersion:1,genres:Object.values(S.genres).map(e=>({id:e.id,names:e.names})),variants:Object.values(S.variants).map(e=>({id:e.id,names:e.names}))}));return o}
 async function connect(){const rp=await api("");if(rp.permissions&&rp.permissions.push===false)throw Error("This token cannot write to the repo");
  G.commit=(await api(`git/ref/heads/${C.branch}`)).object.sha;
  G.imgs=new Set((await api(`git/trees/${G.commit}?recursive=1`)).tree.filter(x=>x.type==="blob"&&x.path.startsWith("images/")).map(x=>x.path));
  let n;try{n=await pull(G.commit)}catch(e){if(!/404/.test(e.message))throw e}
- S=n||{languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};sel=null;G.base=n?files():{};G.pend={};
- if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;G.pend=pend||{}}SAVED=null;G.mode="admin"}
+ S=n||{languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};sel=null;G.base=n?{...RAW}:{};G.pend={};
+ if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;Object.values(S.variants||{}).forEach(mig);G.pend=pend||{}}SAVED=null;G.mode="admin"}
 async function load(){if(!C.branch)C.branch=(await api("")).default_branch;
  if(TOK())await connect();else{S=await pull(C.branch);sel=null;G.mode="view"}}
 function parseRepo(s){const m=s.trim().replace(/\.git$/,"").match(/(?:github\.com[\/:])?([\w.-]+)\/([\w.-]+)(?:\/tree\/([^\/\s]+))?/);return m?{owner:m[1],repo:m[2],branch:m[3]||""}:null}
@@ -184,7 +189,7 @@ function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor
 function nm(e){const b=e.names?.[base()]||[];if(b.length)return b.join(" / ");for(const l of langs()){const n=(e.names?.[l]||[])[0];if(n)return n}return""}
 function snip(e){const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
 const au=a=>a.author??a.by??"";
-function mig(v){if(!v.kind){v.kind="general";v.category=(v.categories||[]).length===1?v.categories[0]:"all"}if(v.kind==="general"&&!v.category)v.category="all";delete v.categories;return v}
+function mig(v){if(v.family!==undefined){v.families=fams(v);delete v.family}if(!v.kind){v.kind="general";v.category=(v.categories||[]).length===1?v.categories[0]:"all"}if(v.kind==="general"&&!v.category)v.category="all";delete v.categories;return v}
 const scopeT=v=>v.kind==="specific"?(S.genres[v.genre]?nm(S.genres[v.genre])||"Unnamed genre":"?"):(v.category&&v.category!=="all"?catLbl(v.category):"All");
 const scopeH=v=>v.kind==="specific"?`<span class="g">${esc(scopeT(v))}</span>`:`<span class="c">${esc(scopeT(v))}</span>`;
 function lbl(e,k){if(k==="a")return(e.components||[]).map(c=>{const x=cget(c);return x?lbl(x,c.type[0]):"?"}).join(" + ");
@@ -209,7 +214,7 @@ function meta(e,k){
  if(k==="a")return au(e)?`<span class="au">${esc(au(e))}</span>`:"";
  const p=[];if(!nm(e)&&snip(e))p.push(esc(snip(e)));
  if(k==="g"){if(e.category)p.push(`<span class="c">${esc(catLbl(e.category))}</span>`)}
- else{if(fams(e).length)p.push(esc(fams(e).join(", ")));p.push(scopeH(e))}
+ else if(fams(e).length)p.push(esc(fams(e).join(", ")))
  return p.join(" · ")}
 function tabs(){$("#tabs").innerHTML=[["genres","Genres"],["variants","Variants"],["appearances","Appearances"]].map(([t,n])=>`<button data-tab="${t}" class="${t===tab?"on":""}">${n} ${Object.keys(S[t]).length}</button>`).join("")}
 function filters(){const k=kind();if(k==="a"){$("#flt").style.display="none";return}
@@ -227,11 +232,11 @@ function infoHtml(x){const b=base(),l=sts(x,b).length?b:langs().find(c=>sts(x,c)
  const names=nm(x);
  return`<div class="info">${names?`<p>${esc(names)}</p>`:""}${l?`<ol>${sts(x,l).map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`+(l!==b?`<p>Shown in ${l}; no ${b} rules yet.</p>`:""):`<p>No rules entered yet.</p>`}</div>`}
 function editor0(){const k=kind(),e=coll()[sel];
- if(!e){$("#ed").innerHTML=`<p class="empty">Pick an entry on the left or create a new one. Write rules one statement per line; the copy buttons give plain text without numbers.</p>`;return}
+ if(!e){const nn={genres:"genre",variants:"variant",appearances:"appearance"}[tab];$("#ed").innerHTML=`<p class="empty">Pick ${nn==="appearance"?"an":"a"} ${nn} on the left${A()?", or create a new one with New.":" to see its details."}${A()&&tab!=="appearances"?" In the rules, Enter starts a new statement.":""}</p>`;return}
  if(k==="a")return edApp(e);
  norm(e,k);const L=S.languages,type=k==="g"?"genre":"variant";
  const used=usedBy(type,e.id),vu=k==="g"?Object.values(S.variants).filter(v=>v.kind==="specific"&&v.genre===e.id):[];
- let h=`<div class="top"><h2>${lblH(e,k)}</h2><span class="idt">#${esc(e.id)}</span>${used.length+vu.length?`<button class="dg" disabled title="Remove it from its appearances and variants first">Can't delete: in use (${used.length+vu.length})</button>`:`<button class="dg" data-del>Delete</button>`}</div>`;
+ let h=`<div class="top"><h2>${lblH(e,k)}</h2><span class="idt">#${esc(e.id)}</span>${used.length+vu.length?`<button class="dg" disabled title="Remove it from its appearances and variants first">Can't delete: used in ${useTxt(used.length,vu.length)}</button>`:`<button class="dg" data-del>Delete</button>`}</div>`;
  h+=card("Names"+(k==="v"?" (optional)":""),`<div class="row">${L.map(l=>`<label>${esc(l.label)}, one per line<textarea rows="2" data-p="names.${l.code}" data-l="1">${esc(e.names[l.code].join("\n"))}</textarea></label>`).join("")}</div>`);
  let d=k==="g"?`<div class="row"><label>Category<select data-p="category"><option value="">Choose…</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label></div>`
   :`<div class="row"><label>Applies to<select data-p="kind"><option value="general" ${e.kind==="general"?"selected":""}>All genres of a category</option><option value="specific" ${e.kind==="specific"?"selected":""}>One specific genre</option></select></label>${e.kind==="specific"?`<label>Genre<select data-p="genre"><option value="">Choose…</option>${Object.values(S.genres).sort((a,b)=>lbl(a,"g").localeCompare(lbl(b,"g"))).map(g=>`<option value="${esc(g.id)}" ${e.genre===g.id?"selected":""}>${esc(lbl(g,"g"))}</option>`).join("")}</select></label>`:`<label>Category<select data-p="category"><option value="all" ${e.category==="all"?"selected":""}>All</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label>`}</div><label>Families</label><div class="chips">${e.families.map((f,i)=>`<span class="chip">${esc(f)}<button data-rmf="${i}" title="Remove">×</button></span>`).join("")}<input id="fin" list="fam" placeholder="Add family, press Enter"></div><datalist id="fam">${[...new Set(Object.values(S.variants).flatMap(fams))].map(f=>`<option value="${esc(f)}">`).join("")}</datalist>`;
@@ -245,7 +250,10 @@ function editor0(){const k=kind(),e=coll()[sel];
   return`<div class="slot" tabindex="0" data-slot="${s}" data-exi="${i}"><b>${s==="problem"?"Problem":"Solution"}</b>${A()||!x[s]?im:`<a href="${esc(imgUrl(x[s]))}" target="_blank">${im}</a>`}</div>`}).join("")}</div>
   <div class="row">${fld("Author",`examples.${i}.author`,x.author||"")}${fld("Puzzle Link",`examples.${i}.link`,x.link||"")}${ta("Note",`examples.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmex="${i}">Remove example</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">${A()?"No examples yet.":"No examples."}</small>`,A()?`<button data-addex>Add example</button>`:"");}
  h+=card("Notes",`<textarea rows="2" style="width:100%" data-p="notes">${esc(e.notes)}</textarea>`);
- h+=card(`Appearances (${used.length})`,used.map(a=>`<div class="cmp"><b class="nm">${lblH(a,"a")}${au(a)?` <span class="au">— ${esc(au(a))}</span>`:""}</b><button data-open="appearance:${a.id}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`,`<button data-newapp>New appearance with this</button>`);
+ if(vu.length)h+=card(`Specific variants (${vu.length})`,`<div class="alist">${vu.map(v=>`<div class="cmp"><b class="nm">${lblH(v,"v")}</b><button data-open="variant:${esc(v.id)}">Open</button></div>`).join("")}</div>`);
+ used.sort((a,b)=>lbl(a,"a").localeCompare(lbl(b,"a")));if(appSel!==sel){appSel=sel;appPage=0}
+ const np=Math.max(1,Math.ceil(used.length/20));appPage=Math.min(appPage,np-1);
+ h+=card(`Appearances (${used.length})`,`<div class="alist">${used.slice(appPage*20,appPage*20+20).map(a=>`<div class="cmp"><b class="nm">${lblH(a,"a")}${au(a)?` <span class="au">— ${esc(au(a))}</span>`:""}</b><button data-open="appearance:${esc(a.id)}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`}</div>`+(np>1?`<div class="cmp"><button data-pg="-1" ${appPage?"":"disabled"}>Previous</button><span style="flex:1;text-align:center" class="au">Page ${appPage+1} of ${np}</span><button data-pg="1" ${appPage<np-1?"":"disabled"}>Next</button></div>`:""),`<button data-newapp>New appearance with this</button>`);
  $("#ed").innerHTML=h;langs().forEach(l=>renderCol(l))}
 function edApp(e){e.components=sortComps(e.components||[]);e.author=au(e);delete e.by;
  const comps=e.components.map((c,i)=>{const x=cget(c),key=c.type+":"+c.id;
@@ -269,7 +277,7 @@ $("#new").onclick=()=>{const c=coll();let e;clean(c[sel]);
  if(tab==="appearances")e={id:rid(),components:[],link:"",author:"",note:""};else e=norm({id:nid(c)},kind());
  c[e.id]=e;sel=e.id;save();render();($("#pk-genre")||$("#ed textarea"))?.focus()};
 function setp(o,p,v){const k=p.split("."),last=k.pop();let x=o;for(const s of k)x=x[s]||(x[s]={});x[last]=v}
-$("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e)return;
+$("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e||!A())return;
  if(t.id?.startsWith("pk-"))return pickList(t.id.slice(3));
  if(t.dataset.si!==undefined){e.rules[t.dataset.sl].statements[+t.dataset.si]=t.value;grow(t);cnt(t.dataset.sl)}
  else if(t.dataset.cat){const a=e.categories;if(t.checked){if(!a.includes(t.dataset.cat))a.push(t.dataset.cat)}else e.categories=a.filter(x=>x!==t.dataset.cat)}
@@ -279,13 +287,13 @@ $("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e)ret
  else return;save();lazy()});
 $("#ed").addEventListener("focusin",ev=>{const i=ev.target.id;if(i?.startsWith("pk-"))pickList(i.slice(3))});
 $("#ed").addEventListener("focusout",ev=>{const i=ev.target.id;if(i?.startsWith("pk-"))$("#pkl-"+i.slice(3)).hidden=true});
-$("#ed").addEventListener("keydown",ev=>{const t=ev.target;if(t.dataset.si===undefined)return;
+$("#ed").addEventListener("keydown",ev=>{const t=ev.target;if(t.dataset.si===undefined||!A())return;
  const l=t.dataset.sl,i=+t.dataset.si,a=coll()[sel].rules[l].statements,p=t.selectionStart;
  if(ev.key==="Enter"&&!ev.shiftKey&&!ev.isComposing){ev.preventDefault();a.splice(i,1,t.value.slice(0,p),t.value.slice(t.selectionEnd));save();renderCol(l,i+1,0);cnt(l)}
  else if(ev.key==="Backspace"&&p===0&&t.selectionEnd===0&&i>0){ev.preventDefault();const j=a[i-1].length;a.splice(i-1,2,a[i-1]+t.value);save();renderCol(l,i-1,j);cnt(l)}});
 $("#ed").addEventListener("paste",ev=>{const t=ev.target,sl=t.closest?.(".slot");
  if(sl){if(!A())return;const f=[...ev.clipboardData.items].map(i=>i.getAsFile()).find(Boolean);if(f){ev.preventDefault();imgT={i:+sl.dataset.exi,s:sl.dataset.slot};setImg(f)}return}
- if(t.dataset.si===undefined)return;const txt=ev.clipboardData.getData("text");if(!/\r?\n/.test(txt))return;ev.preventDefault();
+ if(t.dataset.si===undefined||!A())return;const txt=ev.clipboardData.getData("text");if(!/\r?\n/.test(txt))return;ev.preventDefault();
  const l=t.dataset.sl,i=+t.dataset.si,a=coll()[sel].rules[l].statements,parts=txt.split(/\r?\n/).map(s=>s.trim().replace(/^\d+[.)]\s+/,"")).filter(Boolean);
  if(!parts.length)return;const at=t.value.trim()?i+1:i;a.splice(at,t.value.trim()?0:1,...parts);save();renderCol(l,at+parts.length-1);cnt(l)});
 $("#ed").addEventListener("mousedown",ev=>{if(ev.target.closest(".opt"))ev.preventDefault()});
@@ -294,6 +302,7 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
  else if(d.slot){if(A()){imgT={i:+d.exi,s:d.slot};$("#imgf").click()}}
  else if(d.addex!==undefined){(e.examples=e.examples||[]).push({id:rid().slice(2),problem:"",solution:"",link:"",author:"",note:""});save();editor()}
  else if(d.rmex){e.examples.splice(+d.rmex,1);save();editor()}
+ else if(d.pg){appPage+=+d.pg;editor()}
  else if(d.rmf){e.families.splice(+d.rmf,1);save();editor()}
  else if(d.open){const[a,b]=d.open.split(":");go(a+"s",b)}
  else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}],link:"",author:"",note:""};S.appearances[a.id]=a;save();go("appearances",a.id)}
@@ -301,7 +310,7 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
  else if(d.info){openInfo.has(d.info)?openInfo.delete(d.info):openInfo.add(d.info);edApp(e)}
  else if(d.rm){e.components.splice(+d.rm,1);save();edApp(e);lazy()}
  else if(d.del!==undefined){
-  if(kind()!=="a"&&(usedBy(kind()==="g"?"genre":"variant",sel).length||(kind()==="g"&&Object.values(S.variants).some(v=>v.kind==="specific"&&v.genre===sel))))return flash("In use by an appearance or variant: remove it there first.");
+  if(kind()!=="a"){const ua=usedBy(kind()==="g"?"genre":"variant",sel).length,uv=kind()==="g"?Object.values(S.variants).filter(v=>v.kind==="specific"&&v.genre===sel).length:0;if(ua+uv)return flash("Can't delete: used in "+useTxt(ua,uv))}
   if(armDel!==sel){armDel=sel;t.textContent="Click again to delete";t.classList.add("arm");const id=sel;setTimeout(()=>{if(armDel===id){armDel=null;if(t.isConnected){t.textContent="Delete";t.classList.remove("arm")}}},4000);return}
   const id=sel;delete coll()[id];
   sel=null;armDel=null;save();render()}});
