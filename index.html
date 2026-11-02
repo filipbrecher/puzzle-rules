@@ -6,12 +6,17 @@
 @media(prefers-color-scheme:dark){:root{--bg:#161920;--pn:#1f232d;--ink:#e8eaf0;--mut:#8f97a8;--ln:#323847;--ac:#9aa5ff;--acl:#2a2f48;--dg:#ef7f78}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Segoe UI",system-ui,"Yu Gothic","Hiragino Sans","Noto Sans JP",sans-serif;height:100vh;display:flex;flex-direction:column}
-header{display:flex;gap:14px;align-items:center;padding:0 18px;background:var(--pn);border-bottom:1px solid var(--ln);height:48px}
+header{display:flex;gap:14px;align-items:center;padding:6px 18px;background:var(--pn);border-bottom:1px solid var(--ln);min-height:48px;flex-wrap:wrap}
 h1{font-size:15px;margin:0}
-#tabs{display:flex;gap:2px;height:100%}
+#tabs{display:flex;gap:2px;align-self:stretch}
 #tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:none;padding:0 12px;color:var(--mut)}
 #tabs button.on{color:var(--ink);border-bottom-color:var(--ac);font-weight:600}
-#st{margin-left:auto;color:var(--mut);font-size:12px}
+.hr{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.hr .gap{width:12px}
+.seg{display:inline-flex}.seg button{border-radius:0}.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0;margin-left:-1px}
+.seg button.on{background:var(--ac);color:var(--pn);border-color:var(--ac)}
+#dirty{color:#b36b00;font-size:12px;font-weight:600;white-space:nowrap;visibility:hidden}
+@media(prefers-color-scheme:dark){#dirty{color:#e8a33a}}
+footer{padding:3px 18px;font-size:12px;color:var(--mut);border-top:1px solid var(--ln);background:var(--pn)}
 button,input,select,textarea{font:inherit;color:inherit;background:var(--pn);border:1px solid var(--ln);border-radius:6px;padding:5px 9px}
 button{cursor:pointer}button:hover{border-color:var(--ac)}
 button.pri{background:var(--ac);border-color:var(--ac);color:var(--pn)}
@@ -61,11 +66,13 @@ button:disabled{opacity:.6;cursor:not-allowed}
 .opt small{display:block;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .empty{color:var(--mut);max-width:460px;padding:12px 14px}
 #cfg{position:fixed;top:54px;right:14px;width:330px;z-index:20;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 24px #0004}#cfg[hidden]{display:none}
-.ro #new,.ro #imp,.ro [data-del],.ro [data-addst],.ro .pick,.ro [data-rm],.ro [data-addex],.ro [data-rmex],.ro [data-newapp]{display:none}
+.ro [data-del],.ro [data-addst],.ro .pick,.ro [data-rm],.ro [data-addex],.ro [data-rmex],.ro [data-newapp]{display:none}
 .msg{font-size:12px;min-height:16px}.msg.ok{color:#2a8a4a}.msg.bad{color:var(--dg)}.ro .dg{display:none}
 .g{font-weight:600}.v{font-style:italic;font-weight:500;color:#8a5a00}.c{font-variant:small-caps;letter-spacing:.03em;color:#1f7a6b}
 .au{color:var(--mut);font-weight:400}.nm,.cmp b.nm,.opt b.nm{font-weight:400}
 @media(prefers-color-scheme:dark){.v{color:#e8c46a}.c{color:#6fd0bd}}
+.warn{border-color:#c9922b;background:#fbf0d4;color:#5a3d00}.ro [data-addap]{display:none}
+@media(prefers-color-scheme:dark){.warn{background:#3a3220;color:#e8c46a}}
 .alist .cmp{padding:8px 0}.alist .cmp+.cmp{border-top:1px solid var(--ln)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:3px 0 4px}.chips input{flex:1;min-width:170px}
 .chip{background:var(--acl);border-radius:12px;padding:1px 4px 1px 10px;display:inline-flex;align-items:center;gap:2px;color:var(--ink)}.chip button{border:0;background:none;padding:0 6px;color:var(--mut)}
@@ -79,7 +86,7 @@ button:disabled{opacity:.6;cursor:not-allowed}
 </style></head><body>
 <header>
 <h1>Puzzle rules</h1><nav id="tabs"></nav>
-<span id="st"></span><button id="gh">GitHub</button><button id="sv" class="pri" hidden>Save to GitHub</button><button id="imp">Import zip</button><button id="exp">Export zip</button>
+<div class="hr"><button id="imp">Import</button><button id="exp">Export</button><button id="gh">GitHub</button><span class="gap"></span><span class="seg"><button id="m-view">View</button><button id="m-edit">Edit</button></span><span id="dirty">● Unsaved changes</span><button id="dc">Discard</button><button id="sv">Save to GitHub</button></div>
 <input id="file" type="file" accept=".zip" hidden><input id="imgf" type="file" accept="image/*" hidden>
 </header>
 <div id="cfg" class="card" hidden>
@@ -93,6 +100,7 @@ button:disabled{opacity:.6;cursor:not-allowed}
 <aside><div class="srch"><input id="q" type="search" placeholder="Search names and rules"><button id="new" class="pri">New</button></div><div id="flt"></div><div id="list"></div></aside>
 <section id="ed"></section>
 </main>
+<footer id="st"></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 const CATS=[["number","Number"],["path","Path"],["shading","Shading"],["object","Object"],["region","Region"],["word","Word"],["other","Other"]];
@@ -100,7 +108,7 @@ const KEY="puzzle-rules-v1",DEFL=[{code:"en",label:"English",base:true},{code:"j
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let SAVED=null;try{SAVED=JSON.parse(localStorage.getItem(KEY))}catch(e){}
-let S={languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};
+let S={languages:DEFL,genres:{},variants:{},combos:{},dirty:false};
 let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();let appPage=0,appSel=null,RAW={};
 const langs=()=>S.languages.map(l=>l.code);
 const base=()=>(S.languages.find(l=>l.base)||S.languages[0]).code;
@@ -109,19 +117,19 @@ const coll=()=>S[tab];
 const persist=()=>{if(A())try{localStorage.setItem(KEY,JSON.stringify({...S,commit:G.commit,pend:G.pend}))}catch(e){}status()};
 const save=()=>{S.dirty=true;persist()};
 const nid=o=>String(Math.max(0,...Object.keys(o).map(Number).filter(Number.isFinite))+1);
-const rid=()=>"a_"+Math.random().toString(36).slice(2,8);
+const rid=()=>"c_"+Math.random().toString(36).slice(2,8);
 const catLbl=c=>(CATS.find(x=>x[0]===c)||[0,""])[1];
 const cget=c=>(c.type==="genre"?S.genres:S.variants)[c.id];
 const words=s=>s.toLowerCase().split(/\s+/).filter(Boolean);
-const fams=e=>e.families||(e.family?[e.family]:[]);
+const fams=e=>e.families||[];
 function sortComps(a){const L=c=>lbl(cget(c)||{},c.type[0]);return a.sort((x,y)=>(x.type===y.type?0:x.type==="genre"?-1:1)||L(x).localeCompare(L(y)))}
 function prune(o){if(Array.isArray(o)){const a=o.map(prune).filter(v=>v!==undefined);return a.length?a:undefined}
  if(o&&typeof o==="object"){const r={};for(const k in o){const v=prune(o[k]);if(v!==undefined)r[k]=v}return Object.keys(r).length?r:undefined}
  return o===""||o==null?undefined:o}
-const useTxt=(a,v)=>[v?`variants (${v})`:"",a?`appearances (${a})`:""].filter(Boolean).join(", ");
+const useTxt=(a,v)=>[v?`variants (${v})`:"",a?`combinations (${a})`:""].filter(Boolean).join(", ");
 const sts=(e,l)=>(e.rules?.[l]?.statements||[]).filter(s=>s.trim());
 function clean(e){if(!e||!e.rules)return;for(const l in e.rules)if(e.rules[l]?.statements)e.rules[l].statements=e.rules[l].statements.map(s=>s.trim()).filter(Boolean)}
-const usedBy=(ty,id)=>Object.values(S.appearances).filter(a=>(a.components||[]).some(c=>c.type===ty&&c.id===id));
+const usedBy=(ty,id)=>Object.values(S.combos).filter(a=>(a.components||[]).some(c=>c.type===ty&&c.id===id));
 const grow=t=>{t.style.height="auto";t.style.height=t.scrollHeight+"px"};
 const cnt=l=>{$("#n_"+l).textContent=sts(coll()[sel],l).length+" statements"};
 function renderCol(l,f,pos){const r=coll()[sel].rules[l];if(!r.statements.length)r.statements.push("");
@@ -132,38 +140,38 @@ function flash(t){$("#st").textContent=t;setTimeout(status,6000)}
 const gp=location.hostname.endsWith(".github.io")?{owner:location.hostname.split(".")[0],repo:location.pathname.split("/")[1]||""}:{};
 const REPO={owner:"filipbrecher",repo:"puzzle-rules",branch:"main"}; // set once: your GitHub account name, repository name and branch
 const C=Object.assign({branch:""},JSON.parse(localStorage.getItem("pzr-gh")||"{}"),gp,REPO.owner?REPO:{});
-let G={mode:"view",commit:"",base:{},imgs:new Set(),pend:{}},imgT=null;
+let G={authed:false,edit:false,commit:"",base:{},imgs:new Set(),pend:{}},imgT=null;
 const TOK=()=>sessionStorage.getItem("pzr-tok")||localStorage.getItem("pzr-tok")||"";
-const A=()=>G.mode==="admin",J=o=>JSON.stringify(o,null,2);
+const A=()=>G.authed&&G.edit,J=o=>JSON.stringify(o,null,2);
 const raw=(ref,p)=>`https://raw.githubusercontent.com/${C.owner}/${C.repo}/${ref}/${p}`;
-const imgUrl=p=>G.pend[p]?G.pend[p].url:raw(A()?G.commit:C.branch,p);
+const imgUrl=p=>G.pend[p]?G.pend[p].url:raw(G.authed?G.commit:C.branch,p);
 async function api(p,o={}){const hd={Accept:"application/vnd.github+json"};if(TOK())hd.Authorization="Bearer "+TOK();if(o.body)hd["Content-Type"]="application/json";
  const r=await fetch(`https://api.github.com/repos/${C.owner}/${C.repo}${p?"/"+p:""}`,{...o,headers:hd,body:o.body&&JSON.stringify(o.body)});
  if(!r.ok)throw Error((await r.json().catch(()=>({}))).message||r.status);return r.json()}
 async function pull(ref){RAW={};const f=async p=>{const r=await fetch(raw(ref,p));if(!r.ok)throw Error(p+" "+r.status);const t=await r.text();RAW[p]=t;return JSON.parse(t)};
- const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},appearances:{},dirty:false};
+ const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},combos:{},dirty:false};
  await Promise.all([...(ix.genres||[]).map(x=>["genres",x.id]),...(ix.variants||[]).map(x=>["variants",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
- (await f("data/appearances.json")).forEach(a=>n.appearances[a.id]=a);Object.values(n.variants).forEach(mig);return n}
+ (await f("data/combinations.json")).forEach(a=>n.combos[a.id]=a);return n}
 function files(){const o={},cl=e=>{const c=JSON.parse(JSON.stringify(e));clean(c);return c};
  o["data/languages.json"]=J(S.languages);
  for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(prune(cl(e))));
- o["data/appearances.json"]=J(prune(Object.values(S.appearances).map(a=>({...a,components:sortComps([...(a.components||[])])})))||[]);
+ o["data/combinations.json"]=J(prune(Object.values(S.combos).map(a=>({...a,components:sortComps([...(a.components||[])])})))||[]);
  o["data/index.json"]=J(prune({schemaVersion:1,genres:Object.values(S.genres).map(e=>({id:e.id,names:e.names})),variants:Object.values(S.variants).map(e=>({id:e.id,names:e.names}))}));return o}
 async function connect(){const rp=await api("");if(rp.permissions&&rp.permissions.push===false)throw Error("This token cannot write to the repo");
  G.commit=(await api(`git/ref/heads/${C.branch}`)).object.sha;
  G.imgs=new Set((await api(`git/trees/${G.commit}?recursive=1`)).tree.filter(x=>x.type==="blob"&&x.path.startsWith("images/")).map(x=>x.path));
  let n;try{n=await pull(G.commit)}catch(e){if(!/404/.test(e.message))throw e}
- S=n||{languages:DEFL,genres:{},variants:{},appearances:{},dirty:false};sel=null;G.base=n?{...RAW}:{};G.pend={};
- if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;Object.values(S.variants||{}).forEach(mig);G.pend=pend||{}}SAVED=null;G.mode="admin"}
+ S=n||{languages:DEFL,genres:{},variants:{},combos:{},dirty:false};sel=null;G.base=n?{...RAW}:{};G.pend={};
+ G.edit=false;if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;G.pend=pend||{};G.edit=true}SAVED=null;G.authed=true}
 async function load(){if(!C.branch)C.branch=(await api("")).default_branch;
- if(TOK())await connect();else{S=await pull(C.branch);sel=null;G.mode="view"}}
+ if(TOK())await connect();else{S=await pull(C.branch);sel=null;G.authed=false;G.edit=false}}
 function parseRepo(s){const m=s.trim().replace(/\.git$/,"").match(/(?:github\.com[\/:])?([\w.-]+)\/([\w.-]+)(?:\/tree\/([^\/\s]+))?/);return m?{owner:m[1],repo:m[2],branch:m[3]||""}:null}
 const hint=e=>/Bad credentials/.test(e.message)?"GitHub rejected the token (wrong, expired, or no access to this repo).":/404|Not Found/.test(e.message)?"Not found. Check the repository link and branch. For a new repo, an admin must save once to create the data files.":e.message;
 const cmsg=(t,c)=>{$("#c-msg").textContent=t;$("#c-msg").className="msg "+c};
 async function ghSave(){
  if((await api(`git/ref/heads/${C.branch}`)).object.sha!==G.commit)throw Error("The repo changed since you loaded it. Reconnect first (export a zip as backup).");
  const f=files(),ent=[],used=new Set();
- Object.values(S.genres).forEach(g=>(g.examples||[]).forEach(x=>[x.problem,x.solution].forEach(q=>q&&used.add(q))));
+ [...Object.values(S.genres),...Object.values(S.combos)].forEach(g=>(g.examples||[]).forEach(x=>[x.problem,x.solution].forEach(q=>q&&used.add(q))));
  const blob=async(path,content,encoding)=>{const b=await api("git/blobs",{method:"POST",body:{content,encoding}});ent.push({path,mode:"100644",type:"blob",sha:b.sha})},jobs=[];
  for(const[q,c]of Object.entries(f))if(G.base[q]!==c)jobs.push(blob(q,c,"utf-8"));
  for(const q in G.base)if(!(q in f))ent.push({path:q,mode:"100644",type:"blob",sha:null});
@@ -179,17 +187,16 @@ function toWebp(file){return new Promise((res,rej)=>{const i=new Image();i.onloa
  c.toBlob(b=>{const r=new FileReader();r.onload=()=>res({url:r.result,b64:r.result.split(",")[1]});r.readAsDataURL(b)},"image/webp",.9)};i.onerror=rej;i.src=URL.createObjectURL(file)})}
 async function setImg(f){const e=coll()[sel],x=e.examples[imgT.i];
  try{const r=await toWebp(f),q=`images/${e.id}/${x.id}-${imgT.s}-${rid().slice(2,6)}.webp`;delete G.pend[x[imgT.s]];G.pend[q]=r;x[imgT.s]=q;save();editor()}catch(err){flash("Could not read that image")}}
-function applyMode(){const ro=!A();document.body.classList.toggle("ro",ro);$("#sv").hidden=!A();
+function applyMode(){const ro=!A();document.body.classList.toggle("ro",ro);hdr();
  if(ro){document.querySelectorAll("#ed input,#ed textarea").forEach(x=>x.readOnly=true);document.querySelectorAll("#ed select,#ed input[type=checkbox]").forEach(x=>x.disabled=true)}}
 function editor(){editor0();applyMode()}
 async function boot(){if(!C.owner||!C.repo)return;try{await load()}catch(e){flash("GitHub: "+hint(e))}render()}
-function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor||{name:"",link:"",note:""};e.notes=e.notes||"";
- langs().forEach(l=>{e.names[l]=e.names[l]||[];const r=e.rules[l]=e.rules[l]||{};r.statements=r.statements||[];r.source=r.source||{text:"",link:""}});
- if(k==="v"){e.families=fams(e);delete e.family;mig(e)}else e.category=e.category||"";return e}
+function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor||{name:"",source:"",note:""};e.notes=e.notes||"";
+ langs().forEach(l=>{e.names[l]=e.names[l]||[];const r=e.rules[l]=e.rules[l]||{};r.statements=r.statements||[];r.source=r.source||"";r.note=r.note||""});
+ if(k==="v"){e.families=e.families||[];if(!e.kind){e.kind="general";e.category="all"}}else e.category=e.category||"";return e}
 function nm(e){const b=e.names?.[base()]||[];if(b.length)return b.join(" / ");for(const l of langs()){const n=(e.names?.[l]||[])[0];if(n)return n}return""}
 function snip(e){const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
-const au=a=>a.author??a.by??"";
-function mig(v){if(v.family!==undefined){v.families=fams(v);delete v.family}if(!v.kind){v.kind="general";v.category=(v.categories||[]).length===1?v.categories[0]:"all"}if(v.kind==="general"&&!v.category)v.category="all";delete v.categories;return v}
+const authText=c=>{const a=[...new Set((c.appearances||[]).map(x=>x.author).filter(Boolean))];return a.slice(0,3).join(", ")+(a.length>3?" and others":"")};
 const scopeT=v=>v.kind==="specific"?(S.genres[v.genre]?nm(S.genres[v.genre])||"Unnamed genre":"?"):(v.category&&v.category!=="all"?catLbl(v.category):"All");
 const scopeH=v=>v.kind==="specific"?`<span class="g">${esc(scopeT(v))}</span>`:`<span class="c">${esc(scopeT(v))}</span>`;
 function lbl(e,k){if(k==="a")return(e.components||[]).map(c=>{const x=cget(c);return x?lbl(x,c.type[0]):"?"}).join(" + ");
@@ -204,19 +211,19 @@ function wscore(e,w){let s=0;
  return s}
 function sc(e,ws){if(!ws.length)return 1;let tot=0;for(const w of ws){const s=wscore(e,w);if(!s)return 0;tot+=s}return tot}
 function items(){const k=kind(),ws=words(q);
- let a=Object.values(coll()).map(e=>({e,s:k==="a"?(ws.every(w=>(lbl(e,"a")+" "+(e.link||"")+" "+au(e)+" "+(e.note||"")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
+ let a=Object.values(coll()).map(e=>({e,s:k==="a"?(ws.every(w=>(lbl(e,"a")+" "+(e.appearances||[]).map(x=>[x.author,x.source,x.note].join(" ")).join(" ")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
   if(F.c)a=a.filter(x=>k==="g"?x.e.category===F.c:x.e.kind==="specific"?S.genres[x.e.genre]?.category===F.c:(!x.e.category||x.e.category==="all"||x.e.category===F.c));
  if(F.r)a=a.filter(x=>!sts(x.e,F.r).length);
  if(F.n)a=a.filter(x=>F.n==="*"?langs().every(l=>!(x.e.names?.[l]||[]).length):!(x.e.names?.[F.n]||[]).length);
  if(F.f)a=a.filter(x=>fams(x.e).includes(F.f));
  return a.sort((x,y)=>y.s-x.s||lbl(x.e,k).localeCompare(lbl(y.e,k))).map(x=>x.e)}
 function meta(e,k){
- if(k==="a")return au(e)?`<span class="au">${esc(au(e))}</span>`:"";
+ if(k==="a")return authText(e)?`<span class="au">${esc(authText(e))}</span>`:"";
  const p=[];if(!nm(e)&&snip(e))p.push(esc(snip(e)));
  if(k==="g"){if(e.category)p.push(`<span class="c">${esc(catLbl(e.category))}</span>`)}
  else if(fams(e).length)p.push(esc(fams(e).join(", ")))
  return p.join(" · ")}
-function tabs(){$("#tabs").innerHTML=[["genres","Genres"],["variants","Variants"],["appearances","Appearances"]].map(([t,n])=>`<button data-tab="${t}" class="${t===tab?"on":""}">${n} ${Object.keys(S[t]).length}</button>`).join("")}
+function tabs(){$("#tabs").innerHTML=[["genres","Genres"],["variants","Variants"],["combos","Combinations"]].map(([t,n])=>`<button data-tab="${t}" class="${t===tab?"on":""}">${n} ${Object.keys(S[t]).length}</button>`).join("")}
 function filters(){const k=kind();if(k==="a"){$("#flt").style.display="none";return}
  const o=(v,t,c)=>`<option value="${esc(v)}" ${c===v?"selected":""}>${esc(t)}</option>`,sl=(key,all,opts)=>`<select data-f="${key}">${o("",all,F[key]||"")+opts.map(x=>o(x[0],x[1],F[key]||"")).join("")}</select>`;
  let h=sl("c","All categories",CATS);
@@ -224,15 +231,18 @@ function filters(){const k=kind();if(k==="a"){$("#flt").style.display="none";ret
  h+=sl("n","Any names",[["*","No name at all"],...S.languages.map(l=>[l.code,"No "+l.code+" name"])])+sl("r","Any rules",S.languages.map(l=>[l.code,"No "+l.code+" rules"]));
  $("#flt").innerHTML=h;$("#flt").style.display="flex"}
 function list(){const k=kind(),a=items();
- $("#list").innerHTML=a.map(e=>`<div class="it ${e.id===sel?"on":""}" data-id="${esc(e.id)}"><div class="nm">${lblH(e,k)||"New appearance"}</div><small>${meta(e,k)||"&nbsp;"}</small></div>`).join("")||`<p class="empty">${A()?"Nothing here yet. Use New to add one.":"Nothing to show. Open the GitHub panel and load a repository."}</p>`}
+ $("#list").innerHTML=a.map(e=>`<div class="it ${e.id===sel?"on":""}" data-id="${esc(e.id)}"><div class="nm">${lblH(e,k)||"New combination"}</div><small>${meta(e,k)||"&nbsp;"}</small></div>`).join("")||`<p class="empty">${A()?"Nothing here yet. Use New to add one.":"Nothing to show. Open the GitHub panel and load a repository."}</p>`}
 const fld=(lab,p,v,ex="")=>`<label>${lab}<input data-p="${p}" value="${esc(v)}" ${ex}></label>`;
 const ta=(lab,p,v,rows=1)=>`<label>${lab}<textarea rows="${rows}" data-p="${p}">${esc(v)}</textarea></label>`;
 const card=(t,b,x="")=>`<section class="card"><h3>${t}${x}</h3>${b}</section>`;
 function infoHtml(x){const b=base(),l=sts(x,b).length?b:langs().find(c=>sts(x,c).length);
  const names=nm(x);
  return`<div class="info">${names?`<p>${esc(names)}</p>`:""}${l?`<ol>${sts(x,l).map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`+(l!==b?`<p>Shown in ${l}; no ${b} rules yet.</p>`:""):`<p>No rules entered yet.</p>`}</div>`}
+function exCard(e){return card("Examples",(e.examples||[]).map((x,i)=>`<div class="ex"><div class="row">${["problem","solution"].map(s=>{const im=x[s]?`<img src="${esc(imgUrl(x[s]))}" alt="${s}" loading="lazy">`:`<small>${A()?"Click, paste or drop an image":"No image"}</small>`;
+  return`<div class="slot" tabindex="0" data-slot="${s}" data-exi="${i}"><b>${s==="problem"?"Problem":"Solution"}</b>${A()||!x[s]?im:`<a href="${esc(imgUrl(x[s]))}" target="_blank">${im}</a>`}</div>`}).join("")}</div>
+  <div class="row">${fld("Author",`examples.${i}.author`,x.author||"")}${fld("Source",`examples.${i}.source`,x.source||"")}${ta("Note",`examples.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmex="${i}">Remove example</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">${A()?"No examples yet.":"No examples."}</small>`,A()?`<button data-addex>Add example</button>`:"")}
 function editor0(){const k=kind(),e=coll()[sel];
- if(!e){const nn={genres:"genre",variants:"variant",appearances:"appearance"}[tab];$("#ed").innerHTML=`<p class="empty">Pick ${nn==="appearance"?"an":"a"} ${nn} on the left${A()?", or create a new one with New.":" to see its details."}${A()&&tab!=="appearances"?" In the rules, Enter starts a new statement.":""}</p>`;return}
+ if(!e){const nn={genres:"genre",variants:"variant",combos:"combination"}[tab];$("#ed").innerHTML=`<p class="empty">Pick a ${nn} on the left${A()?", or create a new one with New.":" to see its details."}${A()&&tab!=="combos"?" In the rules, Enter starts a new statement.":""}</p>`;return}
  if(k==="a")return edApp(e);
  norm(e,k);const L=S.languages,type=k==="g"?"genre":"variant";
  const used=usedBy(type,e.id),vu=k==="g"?Object.values(S.variants).filter(v=>v.kind==="specific"&&v.genre===e.id):[];
@@ -240,47 +250,51 @@ function editor0(){const k=kind(),e=coll()[sel];
  h+=card("Names"+(k==="v"?" (optional)":""),`<div class="row">${L.map(l=>`<label>${esc(l.label)}, one per line<textarea rows="2" data-p="names.${l.code}" data-l="1">${esc(e.names[l.code].join("\n"))}</textarea></label>`).join("")}</div>`);
  let d=k==="g"?`<div class="row"><label>Category<select data-p="category"><option value="">Choose…</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label></div>`
   :`<div class="row"><label>Applies to<select data-p="kind"><option value="general" ${e.kind==="general"?"selected":""}>All genres of a category</option><option value="specific" ${e.kind==="specific"?"selected":""}>One specific genre</option></select></label>${e.kind==="specific"?`<label>Genre<select data-p="genre"><option value="">Choose…</option>${Object.values(S.genres).sort((a,b)=>lbl(a,"g").localeCompare(lbl(b,"g"))).map(g=>`<option value="${esc(g.id)}" ${e.genre===g.id?"selected":""}>${esc(lbl(g,"g"))}</option>`).join("")}</select></label>`:`<label>Category<select data-p="category"><option value="all" ${e.category==="all"?"selected":""}>All</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label>`}</div><label>Families</label><div class="chips">${e.families.map((f,i)=>`<span class="chip">${esc(f)}<button data-rmf="${i}" title="Remove">×</button></span>`).join("")}<input id="fin" list="fam" placeholder="Add family, press Enter"></div><datalist id="fam">${[...new Set(Object.values(S.variants).flatMap(fams))].map(f=>`<option value="${esc(f)}">`).join("")}</datalist>`;
- d+=`<div class="row">${fld("Inventor","inventor.name",e.inventor.name)}${fld("Link","inventor.link",e.inventor.link)}${ta("Note","inventor.note",e.inventor.note)}</div>`;
+ d+=`<div class="row">${fld("Inventor","inventor.name",e.inventor.name)}${fld("Source","inventor.source",e.inventor.source||"")}${ta("Note","inventor.note",e.inventor.note)}</div>`;
  h+=card("Details",d);
  h+=card(k==="g"?"Rules":"Rule changes",`<div class="row rules">${L.map(l=>{const c=l.code,r=e.rules[c];
   return`<div class="col"><div class="ch"><b>${esc(l.label)}</b><span id="n_${c}">${sts(e,c).length} statements</span><button data-copy="${c}">Copy</button><button data-copy="${c}" data-num="1">Numbered</button></div>
   <div class="sts" id="s_${c}"></div>
-  <input data-p="rules.${c}.source.link" placeholder="Source link (or a name, e.g. Puzsq Rules)" value="${esc(r.source.link)}"><textarea rows="1" data-p="rules.${c}.source.text" placeholder="Source note, e.g. modified from…">${esc(r.source.text)}</textarea></div>`}).join("")}</div>`);
- if(k==="g"){h+=card("Examples",(e.examples||[]).map((x,i)=>`<div class="ex"><div class="row">${["problem","solution"].map(s=>{const im=x[s]?`<img src="${esc(imgUrl(x[s]))}" alt="${s}" loading="lazy">`:`<small>${A()?"Click, paste or drop an image":"No image"}</small>`;
-  return`<div class="slot" tabindex="0" data-slot="${s}" data-exi="${i}"><b>${s==="problem"?"Problem":"Solution"}</b>${A()||!x[s]?im:`<a href="${esc(imgUrl(x[s]))}" target="_blank">${im}</a>`}</div>`}).join("")}</div>
-  <div class="row">${fld("Author",`examples.${i}.author`,x.author||"")}${fld("Puzzle Link",`examples.${i}.link`,x.link||"")}${ta("Note",`examples.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmex="${i}">Remove example</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">${A()?"No examples yet.":"No examples."}</small>`,A()?`<button data-addex>Add example</button>`:"");}
+  <input data-p="rules.${c}.source" placeholder="Source (link or name, e.g. Puzsq Rules)" value="${esc(r.source)}"><textarea rows="1" data-p="rules.${c}.note" placeholder="Note, e.g. modified from…">${esc(r.note)}</textarea></div>`}).join("")}</div>`);
+ if(k==="g")h+=exCard(e);
  h+=card("Notes",`<textarea rows="2" style="width:100%" data-p="notes">${esc(e.notes)}</textarea>`);
  if(vu.length)h+=card(`Specific variants (${vu.length})`,`<div class="alist">${vu.map(v=>`<div class="cmp"><b class="nm">${lblH(v,"v")}</b><button data-open="variant:${esc(v.id)}">Open</button></div>`).join("")}</div>`);
  used.sort((a,b)=>lbl(a,"a").localeCompare(lbl(b,"a")));if(appSel!==sel){appSel=sel;appPage=0}
  const np=Math.max(1,Math.ceil(used.length/20));appPage=Math.min(appPage,np-1);
- h+=card(`Appearances (${used.length})`,`<div class="alist">${used.slice(appPage*20,appPage*20+20).map(a=>`<div class="cmp"><b class="nm">${lblH(a,"a")}${au(a)?` <span class="au">— ${esc(au(a))}</span>`:""}</b><button data-open="appearance:${esc(a.id)}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`}</div>`+(np>1?`<div class="cmp"><button data-pg="-1" ${appPage?"":"disabled"}>Previous</button><span style="flex:1;text-align:center" class="au">Page ${appPage+1} of ${np}</span><button data-pg="1" ${appPage<np-1?"":"disabled"}>Next</button></div>`:""),`<button data-newapp>New appearance with this</button>`);
+ h+=card(`Combinations (${used.length})`,`<div class="alist">${used.slice(appPage*20,appPage*20+20).map(a=>`<div class="cmp"><b class="nm">${lblH(a,"a")}${authText(a)?` <span class="au">— ${esc(authText(a))}</span>`:""}</b><button data-open="combo:${esc(a.id)}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`}</div>`+(np>1?`<div class="cmp"><button data-pg="-1" ${appPage?"":"disabled"}>Previous</button><span style="flex:1;text-align:center" class="au">Page ${appPage+1} of ${np}</span><button data-pg="1" ${appPage<np-1?"":"disabled"}>Next</button></div>`:""),`<button data-newapp>New combination with this</button>`);
  $("#ed").innerHTML=h;langs().forEach(l=>renderCol(l))}
-function edApp(e){e.components=sortComps(e.components||[]);e.author=au(e);delete e.by;
+function edApp(e){e.components=sortComps(e.components||[]);
  const comps=e.components.map((c,i)=>{const x=cget(c),key=c.type+":"+c.id;
   return`<div class="cmp"><span class="tag ${c.type==="variant"?"tv":""}">${c.type==="genre"?"Genre":"Variant"}</span><b class="nm">${x?lblH(x,c.type[0]):"(missing)"}</b>${x?`<button data-info="${key}" title="Show rules">${openInfo.has(key)?"Hide Rules":"Show Rules"}</button><button data-open="${key}">Open</button>`:""}<button data-rm="${i}">Remove</button></div>${x&&openInfo.has(key)?infoHtml(x):""}`}).join("");
- $("#ed").innerHTML=`<div class="top"><h2>${lblH(e,"a")||"New appearance"}</h2><span class="idt">#${esc(e.id)}</span><button class="dg" data-del>Delete</button></div>
+ const ck=c=>(c.components||[]).map(x=>x.type[0]+x.id).sort().join("|"),k0=ck(e);
+ const same=e.components.length?Object.values(S.combos).filter(c=>c.id!==e.id&&ck(c)===k0):[];
+ $("#ed").innerHTML=`<div class="top"><h2>${lblH(e,"a")||"New combination"}</h2><span class="idt">#${esc(e.id)}</span><button class="dg" data-del>Delete</button></div>
+ ${same.length?`<div class="card warn"><b>Another combination has the same genres and variants:</b>${same.map(c=>`<div class="cmp"><span style="flex:1">${esc(authText(c))||"(no authors)"}</span><button data-open="combo:${esc(c.id)}">Open</button></div>`).join("")}</div>`:""}
  ${card("Components",comps+`<div class="row" style="margin-top:8px">${["genre","variant"].map(t=>`<div class="pick" style="margin:0"><input id="pk-${t}" placeholder="Search ${t==="genre"?"genres":"variants"} to add…" autocomplete="off"><div id="pkl-${t}" class="pkl" hidden></div></div>`).join("")}</div>`)}
- ${card("Details",`<div class="row">${fld("Author","author",au(e))}${fld("Puzzle Link","link",e.link||"")}${ta("Note","note",e.note||"")}</div>`)}`}
+ ${exCard(e)}
+ ${card("Appearances",(e.appearances||[]).map((x,i)=>`<div class="ex"><div class="row">${fld("Author",`appearances.${i}.author`,x.author||"")}${fld("Source",`appearances.${i}.source`,x.source||"")}${ta("Note",`appearances.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmap="${i}">Remove</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">None recorded. Add who used this combination, with a source and a note.</small>`,A()?`<button data-addap>Add appearance</button>`:"")}`}
 function pickList(t){const ws=words($("#pk-"+t).value);
  const a=Object.values(t==="genre"?S.genres:S.variants).map(e=>({e,s:sc(e,ws)})).filter(x=>x.s>0).sort((x,y)=>y.s-x.s||lbl(x.e,t[0]).localeCompare(lbl(y.e,t[0]))).slice(0,12);
  const b=$("#pkl-"+t);b.innerHTML=a.map(x=>`<div class="opt" data-pick="${t}:${esc(x.e.id)}"><b class="nm">${lblH(x.e,t[0])}</b>${snip(x.e)?`<small>${esc(snip(x.e))}</small>`:""}</div>`).join("")||`<div class="opt">No match</div>`;b.hidden=false}
-function status(){const c=t=>Object.keys(S[t]).length,m=A()?"editing "+C.owner+"/"+C.repo:C.owner?"read-only, "+C.owner+"/"+C.repo:"read-only · open GitHub to load a repository";
- $("#st").textContent=`${c("genres")} genres · ${c("variants")} variants · ${c("appearances")} appearances · ${m}`+(A()&&S.dirty?" · unsaved to GitHub":"")}
+function hdr(){const d=A()&&S.dirty;$("#new").disabled=!A();$("#imp").disabled=!A();
+ $("#m-view").classList.toggle("on",!G.edit);$("#m-edit").classList.toggle("on",G.edit);
+ $("#sv").disabled=!d;$("#sv").classList.toggle("pri",d);$("#dc").disabled=!d;$("#dirty").style.visibility=d?"visible":"hidden"}
+function status(){const c=t=>Object.keys(S[t]).length,r=C.owner+"/"+C.repo,m=A()?"edit mode, "+r:G.authed?"view mode (signed in), "+r:C.owner?"view mode, "+r:"view mode · open GitHub to load a repository";
+ $("#st").textContent=`${c("genres")} genres · ${c("variants")} variants · ${c("combos")} combinations · ${m}`;document.title=(A()&&S.dirty?"● ":"")+"Puzzle rules";hdr()}
 function render(){tabs();filters();list();editor();status()}
 function go(t,id){clean(coll()[sel]);tab=t;sel=id;armDel=null;q="";F={};$("#q").value="";render()}
-let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.innerHTML=lblH(e,kind())||"New appearance"},200)};
+let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.innerHTML=lblH(e,kind())||"New combination"},200)};
 $("#tabs").onclick=ev=>{const t=ev.target.dataset.tab;if(t){clean(coll()[sel]);tab=t;sel=null;armDel=null;F={};render()}};
 $("#q").oninput=ev=>{q=ev.target.value;list()};
 $("#flt").oninput=ev=>{F[ev.target.dataset.f]=ev.target.value;list()};
 $("#list").onclick=ev=>{const d=ev.target.closest(".it");if(d){clean(coll()[sel]);sel=d.dataset.id;armDel=null;list();editor()}};
 $("#new").onclick=()=>{const c=coll();let e;clean(c[sel]);
- if(tab==="appearances")e={id:rid(),components:[],link:"",author:"",note:""};else e=norm({id:nid(c)},kind());
+ if(tab==="combos")e={id:rid(),components:[]};else e=norm({id:nid(c)},kind());
  c[e.id]=e;sel=e.id;save();render();($("#pk-genre")||$("#ed textarea"))?.focus()};
 function setp(o,p,v){const k=p.split("."),last=k.pop();let x=o;for(const s of k)x=x[s]||(x[s]={});x[last]=v}
 $("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e||!A())return;
  if(t.id?.startsWith("pk-"))return pickList(t.id.slice(3));
  if(t.dataset.si!==undefined){e.rules[t.dataset.sl].statements[+t.dataset.si]=t.value;grow(t);cnt(t.dataset.sl)}
- else if(t.dataset.cat){const a=e.categories;if(t.checked){if(!a.includes(t.dataset.cat))a.push(t.dataset.cat)}else e.categories=a.filter(x=>x!==t.dataset.cat)}
  else if(t.dataset.p){if(t.dataset.p==="kind"){e.kind=t.value;if(e.kind==="specific")e.genre=e.genre||"";else e.category=e.category||"all";save();return editor()}
   setp(e,t.dataset.p,t.dataset.l?t.value.split("\n").map(s=>s.trim()).filter(Boolean):t.value);
   const m=t.dataset.p.match(/^rules\.(\w+)\.statements$/);if(m)$("#n_"+m[1]).textContent=e.rules[m[1]].statements.length+" statements"}
@@ -300,12 +314,14 @@ $("#ed").addEventListener("mousedown",ev=>{if(ev.target.closest(".opt"))ev.preve
 $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.slot");if(!t)return;const e=coll()[sel],d=t.dataset;
  if(d.copy){const s=sts(e,d.copy);navigator.clipboard.writeText(s.map((x,i)=>d.num?`${i+1}) ${x}`:x).join("\n"))}
  else if(d.slot){if(A()){imgT={i:+d.exi,s:d.slot};$("#imgf").click()}}
- else if(d.addex!==undefined){(e.examples=e.examples||[]).push({id:rid().slice(2),problem:"",solution:"",link:"",author:"",note:""});save();editor()}
+ else if(d.addex!==undefined){(e.examples=e.examples||[]).push({id:rid().slice(2)});save();editor()}
  else if(d.rmex){e.examples.splice(+d.rmex,1);save();editor()}
+ else if(d.addap!==undefined){(e.appearances=e.appearances||[]).push({author:"",source:"",note:""});edApp(e)}
+ else if(d.rmap){e.appearances.splice(+d.rmap,1);save();edApp(e);lazy()}
  else if(d.pg){appPage+=+d.pg;editor()}
  else if(d.rmf){e.families.splice(+d.rmf,1);save();editor()}
- else if(d.open){const[a,b]=d.open.split(":");go(a+"s",b)}
- else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}],link:"",author:"",note:""};S.appearances[a.id]=a;save();go("appearances",a.id)}
+ else if(d.open){const[a,b]=d.open.split(":");go(a==="combo"?"combos":a+"s",b)}
+ else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}]};S.combos[a.id]=a;save();go("combos",a.id)}
  else if(d.pick){const[ty,id]=d.pick.split(":");e.components.push({type:ty,id});sortComps(e.components);save();edApp(e);lazy()}
  else if(d.info){openInfo.has(d.info)?openInfo.delete(d.info):openInfo.add(d.info);edApp(e)}
  else if(d.rm){e.components.splice(+d.rm,1);save();edApp(e);lazy()}
@@ -317,32 +333,39 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
 $("#exp").onclick=async()=>{if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
  const z=new JSZip();for(const[q,c]of Object.entries(files()))z.file(q,c);
  const a=document.createElement("a");a.href=URL.createObjectURL(await z.generateAsync({type:"blob"}));a.download="puzzle-rules-data.zip";a.click();if(!A())S.dirty=false;persist()};
-$("#imp").onclick=()=>{const has=Object.keys(S.genres).length+Object.keys(S.variants).length+Object.keys(S.appearances).length;
- if(has&&!armImp){armImp=true;$("#imp").textContent="Replace current data?";$("#imp").classList.add("arm");setTimeout(()=>{armImp=false;$("#imp").textContent="Import zip";$("#imp").classList.remove("arm")},4000);return}
- armImp=false;$("#imp").textContent="Import zip";$("#imp").classList.remove("arm");$("#file").click()};
+$("#imp").onclick=()=>{const has=Object.keys(S.genres).length+Object.keys(S.variants).length+Object.keys(S.combos).length;
+ if(has&&!armImp){armImp=true;$("#imp").textContent="Replace current data?";$("#imp").classList.add("arm");setTimeout(()=>{armImp=false;$("#imp").textContent="Import";$("#imp").classList.remove("arm")},4000);return}
+ armImp=false;$("#imp").textContent="Import";$("#imp").classList.remove("arm");$("#file").click()};
 $("#file").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;
  if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
- try{const z=await JSZip.loadAsync(f),n={languages:null,genres:{},variants:{},appearances:{},dirty:A()};
+ try{const z=await JSZip.loadAsync(f),n={languages:null,genres:{},variants:{},combos:{},dirty:A()};
   for(const[p,x]of Object.entries(z.files)){if(x.dir)continue;const m=p.match(/(?:^|\/)(genres|variants)\/([^/]+)\.json$/),t=await x.async("string");
    if(m){const e=JSON.parse(t);e.id=e.id||m[2];n[m[1]][e.id]=e}
    else if(/(^|\/)languages\.json$/.test(p))n.languages=JSON.parse(t);
-   else if(/(^|\/)appearances\.json$/.test(p))JSON.parse(t).forEach(a=>n.appearances[a.id]=a)}
-  n.languages=n.languages||DEFL;Object.values(n.variants).forEach(mig);S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
+   else if(/(^|\/)combinations\.json$/.test(p))JSON.parse(t).forEach(a=>n.combos[a.id]=a)}
+  n.languages=n.languages||DEFL;S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
 $("#ed").addEventListener("dragover",ev=>{if(ev.target.closest(".slot"))ev.preventDefault()});
 $("#ed").addEventListener("drop",ev=>{const sl=ev.target.closest(".slot");if(!sl||!A())return;ev.preventDefault();const f=ev.dataTransfer.files[0];if(f){imgT={i:+sl.dataset.exi,s:sl.dataset.slot};setImg(f)}});
 const addFam=v=>{const e=coll()[sel];v=v.trim();if(!e||!v||!A())return;e.families=fams(e);if(!e.families.includes(v))e.families.push(v);save();editor()};
 $("#ed").addEventListener("keydown",ev=>{if(ev.target.id==="fin"&&(ev.key==="Enter"||ev.key===",")){ev.preventDefault();addFam(ev.target.value)}});
 $("#ed").addEventListener("change",ev=>{if(ev.target.id==="fin")addFam(ev.target.value)});
 $("#imgf").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(f)await setImg(f)};
-$("#gh").onclick=()=>{const c=$("#cfg");c.hidden=!c.hidden;$("#c-r").value=C.owner&&C.repo?C.owner+"/"+C.repo:"";$("#c-b").value=C.branch||"";$("#c-m").value=C.msg||"";cmsg(A()?"Editing is enabled.":"","ok")};
+$("#gh").onclick=()=>{const c=$("#cfg");c.hidden=!c.hidden;$("#c-r").value=C.owner&&C.repo?C.owner+"/"+C.repo:"";$("#c-b").value=C.branch||"";$("#c-m").value=C.msg||"";cmsg(A()?"Edit mode is on.":G.authed?"Signed in, view mode. Use the mode button to edit.":"","ok")};
 $("#c-x").onclick=()=>$("#cfg").hidden=true;
 $("#c-out").onclick=()=>{localStorage.removeItem("pzr-tok");sessionStorage.removeItem("pzr-tok");location.reload()};
 $("#c-go").onclick=async()=>{const pr=parseRepo($("#c-r").value);if(!pr)return cmsg("Enter the repository as a GitHub link or owner/name.","bad");
  Object.assign(C,pr);if($("#c-b").value.trim())C.branch=$("#c-b").value.trim();C.msg=$("#c-m").value;
  const t=$("#c-t").value.trim();if(t){$("#c-t").value="";($("#c-k").checked?localStorage:sessionStorage).setItem("pzr-tok",t)}
  cmsg("Connecting…","");
- try{await load();localStorage.setItem("pzr-gh",JSON.stringify(C));cmsg(A()?`Connected to ${C.owner}/${C.repo} (${C.branch}). Editing is enabled.`:`Loaded ${C.owner}/${C.repo} read-only. Add a token to enable editing.`,"ok")}catch(e){cmsg(hint(e),"bad")}render()};
+ try{await load();localStorage.setItem("pzr-gh",JSON.stringify(C));cmsg(G.authed?`Connected to ${C.owner}/${C.repo} (${C.branch}), view mode. Use the mode button at the top to switch to edit mode.`:`Loaded ${C.owner}/${C.repo} read-only. Add a token to enable editing.`,"ok")}catch(e){cmsg(hint(e),"bad")}render()};
 $("#sv").onclick=async()=>{$("#sv").textContent="Saving…";try{await ghSave()}catch(e){flash("Save failed: "+e.message)}$("#sv").textContent="Save to GitHub"};
+$("#m-view").onclick=()=>{if(!G.edit)return;if(S.dirty)return flash("Save or discard your changes before switching to view mode.");G.edit=false;render()};
+$("#m-edit").onclick=async()=>{if(G.edit)return;if(!G.authed){$("#cfg").hidden=false;return cmsg("Add your token and press Connect to enable editing.","bad")}
+ try{await connect()}catch(e){return flash("GitHub: "+hint(e))}G.edit=true;render()};
+let armDc=false;const dcReset=()=>{armDc=false;$("#dc").textContent="Discard";$("#dc").classList.remove("arm")};
+$("#dc").onclick=async()=>{if(!armDc){armDc=true;$("#dc").textContent="Click again to discard";$("#dc").classList.add("arm");setTimeout(dcReset,4000);return}
+ dcReset();localStorage.removeItem(KEY);SAVED=null;try{await connect();G.edit=true}catch(e){flash("GitHub: "+hint(e))}render()};
+window.addEventListener("beforeunload",ev=>{if(A()&&S.dirty){ev.preventDefault();ev.returnValue=""}});
 window.addEventListener("resize",()=>document.querySelectorAll(".st textarea").forEach(grow));
 render();boot();
 </script></body></html>
