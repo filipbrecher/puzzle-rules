@@ -63,6 +63,9 @@ button:disabled{opacity:.6;cursor:not-allowed}
 #cfg{position:fixed;top:54px;right:14px;width:330px;z-index:20;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 24px #0004}#cfg[hidden]{display:none}
 .ro #new,.ro #imp,.ro [data-del],.ro [data-addst],.ro .pick,.ro [data-rm],.ro [data-addex],.ro [data-rmex],.ro [data-newapp]{display:none}
 .msg{font-size:12px;min-height:16px}.msg.ok{color:#2a8a4a}.msg.bad{color:var(--dg)}.ro .dg{display:none}
+.g{font-weight:600}.v{font-style:italic;font-weight:500;color:#8a5a00}.c{font-variant:small-caps;letter-spacing:.03em;color:#1f7a6b}
+.au{color:var(--mut);font-weight:400}.nm,.cmp b.nm,.opt b.nm{font-weight:400}
+@media(prefers-color-scheme:dark){.v{color:#e8c46a}.c{color:#6fd0bd}}
 .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:3px 0 4px}.chips input{flex:1;min-width:170px}
 .chip{background:var(--acl);border-radius:12px;padding:1px 4px 1px 10px;display:inline-flex;align-items:center;gap:2px;color:var(--ink)}.chip button{border:0;background:none;padding:0 6px;color:var(--mut)}
 .tag.tv{color:#8a5a00;background:#fbf0d4}.cmp b.variant{font-weight:500;font-style:italic}
@@ -122,7 +125,8 @@ function renderCol(l,f,pos){const r=coll()[sel].rules[l];if(!r.statements.length
  if(f!=null){const t=ts[f];if(t){t.focus();const q=pos??t.value.length;t.setSelectionRange(q,q)}}}
 function flash(t){$("#st").textContent=t;setTimeout(status,6000)}
 const gp=location.hostname.endsWith(".github.io")?{owner:location.hostname.split(".")[0],repo:location.pathname.split("/")[1]||""}:{};
-const C=Object.assign({branch:""},gp,JSON.parse(localStorage.getItem("pzr-gh")||"{}"));
+const REPO={owner:"",repo:"",branch:"main"}; // set once: your GitHub account name, repository name and branch
+const C=Object.assign({branch:""},JSON.parse(localStorage.getItem("pzr-gh")||"{}"),gp,REPO.owner?REPO:{});
 let G={mode:"view",commit:"",base:{},imgs:new Set(),pend:{}},imgT=null;
 const TOK=()=>sessionStorage.getItem("pzr-tok")||localStorage.getItem("pzr-tok")||"";
 const A=()=>G.mode==="admin",J=o=>JSON.stringify(o,null,2);
@@ -134,7 +138,7 @@ async function api(p,o={}){const hd={Accept:"application/vnd.github+json"};if(TO
 async function pull(ref){const f=async p=>{const r=await fetch(raw(ref,p));if(!r.ok)throw Error(p+" "+r.status);return r.json()};
  const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},appearances:{},dirty:false};
  await Promise.all([...ix.genres.map(x=>["genres",x.id]),...ix.variants.map(x=>["variants",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
- (await f("data/appearances.json")).forEach(a=>n.appearances[a.id]=a);return n}
+ (await f("data/appearances.json")).forEach(a=>n.appearances[a.id]=a);Object.values(n.variants).forEach(mig);return n}
 function files(){const o={},cl=e=>{const c=JSON.parse(JSON.stringify(e));clean(c);return c};
  o["data/languages.json"]=J(S.languages);
  for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(cl(e)));
@@ -176,28 +180,37 @@ function editor(){editor0();applyMode()}
 async function boot(){if(!C.owner||!C.repo)return;try{await load()}catch(e){flash("GitHub: "+hint(e))}render()}
 function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor||{name:"",link:"",note:""};e.notes=e.notes||"";
  langs().forEach(l=>{e.names[l]=e.names[l]||[];const r=e.rules[l]=e.rules[l]||{};r.statements=r.statements||[];r.source=r.source||{text:"",link:""}});
- if(k==="v"){e.families=fams(e);delete e.family;e.categories=e.categories||[]}else e.category=e.category||"";return e}
+ if(k==="v"){e.families=fams(e);delete e.family;mig(e)}else e.category=e.category||"";return e}
 function nm(e){const b=e.names?.[base()]||[];if(b.length)return b.join(" / ");for(const l of langs()){const n=(e.names?.[l]||[])[0];if(n)return n}return""}
 function snip(e){const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
+const au=a=>a.author??a.by??"";
+function mig(v){if(!v.kind){v.kind="general";v.category=(v.categories||[]).length===1?v.categories[0]:"all"}if(v.kind==="general"&&!v.category)v.category="all";delete v.categories;return v}
+const scopeT=v=>v.kind==="specific"?(S.genres[v.genre]?nm(S.genres[v.genre])||"Unnamed genre":"?"):(v.category&&v.category!=="all"?catLbl(v.category):"All");
+const scopeH=v=>v.kind==="specific"?`<span class="g">${esc(scopeT(v))}</span>`:`<span class="c">${esc(scopeT(v))}</span>`;
 function lbl(e,k){if(k==="a")return(e.components||[]).map(c=>{const x=cget(c);return x?lbl(x,c.type[0]):"?"}).join(" + ");
- return nm(e)||(k==="g"?"Unnamed genre":"Unnamed variant")}
+ return k==="g"?nm(e)||"Unnamed genre":(nm(e)||"Unnamed variant")+" ("+scopeT(e)+")"}
+function lblH(e,k){if(k==="a")return(e.components||[]).map(c=>{const x=cget(c);return x?lblH(x,c.type[0]):"?"}).join(" + ");
+ return k==="g"?`<span class="g">${esc(nm(e)||"Unnamed genre")}</span>`:`<span class="v">${esc(nm(e)||"Unnamed variant")}</span> (${scopeH(e)})`}
 function wscore(e,w){let s=0;
  for(const l of langs())for(const n of e.names?.[l]||[]){const x=n.toLowerCase();s=Math.max(s,x===w?5:x.startsWith(w)?4:x.includes(w)?3:0)}
  if(fams(e).some(f=>f.toLowerCase().includes(w)))s=Math.max(s,2);
  for(const l of langs())for(const t of sts(e,l))if(t.toLowerCase().includes(w))s=Math.max(s,1);
+ const g=e.kind==="specific"?S.genres[e.genre]:null;if(g&&nm(g).toLowerCase().includes(w))s=Math.max(s,2);
  return s}
 function sc(e,ws){if(!ws.length)return 1;let tot=0;for(const w of ws){const s=wscore(e,w);if(!s)return 0;tot+=s}return tot}
 function items(){const k=kind(),ws=words(q);
- let a=Object.values(coll()).map(e=>({e,s:k==="a"?(ws.every(w=>(lbl(e,"a")+" "+(e.link||"")+" "+(e.by||"")+" "+(e.note||"")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
-  if(F.c)a=a.filter(x=>k==="g"?x.e.category===F.c:(x.e.categories||[]).includes(F.c));
+ let a=Object.values(coll()).map(e=>({e,s:k==="a"?(ws.every(w=>(lbl(e,"a")+" "+(e.link||"")+" "+au(e)+" "+(e.note||"")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
+  if(F.c)a=a.filter(x=>k==="g"?x.e.category===F.c:x.e.kind==="specific"?S.genres[x.e.genre]?.category===F.c:(!x.e.category||x.e.category==="all"||x.e.category===F.c));
  if(F.r)a=a.filter(x=>!sts(x.e,F.r).length);
  if(F.n)a=a.filter(x=>F.n==="*"?langs().every(l=>!(x.e.names?.[l]||[]).length):!(x.e.names?.[F.n]||[]).length);
  if(F.f)a=a.filter(x=>fams(x.e).includes(F.f));
  return a.sort((x,y)=>y.s-x.s||lbl(x.e,k).localeCompare(lbl(y.e,k))).map(x=>x.e)}
 function meta(e,k){
- if(k==="a")return[e.by,e.link].filter(Boolean).join(" · ");
- const p=k==="g"?[catLbl(e.category),langs().filter(l=>sts(e,l).length).join(" ")]:[fams(e).join(", "),(e.categories||[]).map(catLbl).join(", ")];
- if(!nm(e))p.unshift(snip(e));return p.filter(Boolean).join(" · ")}
+ if(k==="a")return au(e)?`<span class="au">${esc(au(e))}</span>`:"";
+ const p=[];if(!nm(e)&&snip(e))p.push(esc(snip(e)));
+ if(k==="g"){if(e.category)p.push(`<span class="c">${esc(catLbl(e.category))}</span>`)}
+ else{if(fams(e).length)p.push(esc(fams(e).join(", ")));p.push(scopeH(e))}
+ return p.join(" · ")}
 function tabs(){$("#tabs").innerHTML=[["genres","Genres"],["variants","Variants"],["appearances","Appearances"]].map(([t,n])=>`<button data-tab="${t}" class="${t===tab?"on":""}">${n} ${Object.keys(S[t]).length}</button>`).join("")}
 function filters(){const k=kind();if(k==="a"){$("#flt").style.display="none";return}
  const o=(v,t,c)=>`<option value="${esc(v)}" ${c===v?"selected":""}>${esc(t)}</option>`,sl=(key,all,opts)=>`<select data-f="${key}">${o("",all,F[key]||"")+opts.map(x=>o(x[0],x[1],F[key]||"")).join("")}</select>`;
@@ -206,61 +219,62 @@ function filters(){const k=kind();if(k==="a"){$("#flt").style.display="none";ret
  h+=sl("n","Any names",[["*","No name at all"],...S.languages.map(l=>[l.code,"No "+l.code+" name"])])+sl("r","Any rules",S.languages.map(l=>[l.code,"No "+l.code+" rules"]));
  $("#flt").innerHTML=h;$("#flt").style.display="flex"}
 function list(){const k=kind(),a=items();
- $("#list").innerHTML=a.map(e=>`<div class="it ${e.id===sel?"on":""}" data-id="${esc(e.id)}"><b>${esc(lbl(e,k)||"New appearance")}</b><small>${esc(meta(e,k))||"&nbsp;"}</small></div>`).join("")||`<p class="empty">${A()?"Nothing here yet. Use New to add one.":"Nothing to show. Open the GitHub panel and load a repository."}</p>`}
+ $("#list").innerHTML=a.map(e=>`<div class="it ${e.id===sel?"on":""}" data-id="${esc(e.id)}"><div class="nm">${lblH(e,k)||"New appearance"}</div><small>${meta(e,k)||"&nbsp;"}</small></div>`).join("")||`<p class="empty">${A()?"Nothing here yet. Use New to add one.":"Nothing to show. Open the GitHub panel and load a repository."}</p>`}
 const fld=(lab,p,v,ex="")=>`<label>${lab}<input data-p="${p}" value="${esc(v)}" ${ex}></label>`;
 const ta=(lab,p,v,rows=1)=>`<label>${lab}<textarea rows="${rows}" data-p="${p}">${esc(v)}</textarea></label>`;
 const card=(t,b,x="")=>`<section class="card"><h3>${t}${x}</h3>${b}</section>`;
 function infoHtml(x){const b=base(),l=sts(x,b).length?b:langs().find(c=>sts(x,c).length);
- const names=S.languages.map(L=>(x.names?.[L.code]||[]).join(" / ")).filter(Boolean).join(" · ");
+ const names=nm(x);
  return`<div class="info">${names?`<p>${esc(names)}</p>`:""}${l?`<ol>${sts(x,l).map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`+(l!==b?`<p>Shown in ${l}; no ${b} rules yet.</p>`:""):`<p>No rules entered yet.</p>`}</div>`}
 function editor0(){const k=kind(),e=coll()[sel];
  if(!e){$("#ed").innerHTML=`<p class="empty">Pick an entry on the left or create a new one. Write rules one statement per line; the copy buttons give plain text without numbers.</p>`;return}
  if(k==="a")return edApp(e);
  norm(e,k);const L=S.languages,type=k==="g"?"genre":"variant";
- const used=usedBy(type,e.id);
- let h=`<div class="top"><h2>${esc(lbl(e,k))}</h2><span class="idt">#${esc(e.id)}</span>${used.length?`<button class="dg" disabled title="Remove it from its appearances first">Can't delete: used in ${used.length}</button>`:`<button class="dg" data-del>Delete</button>`}</div>`;
+ const used=usedBy(type,e.id),vu=k==="g"?Object.values(S.variants).filter(v=>v.kind==="specific"&&v.genre===e.id):[];
+ let h=`<div class="top"><h2>${lblH(e,k)}</h2><span class="idt">#${esc(e.id)}</span>${used.length+vu.length?`<button class="dg" disabled title="Remove it from its appearances and variants first">Can't delete: in use (${used.length+vu.length})</button>`:`<button class="dg" data-del>Delete</button>`}</div>`;
  h+=card("Names"+(k==="v"?" (optional)":""),`<div class="row">${L.map(l=>`<label>${esc(l.label)}, one per line<textarea rows="2" data-p="names.${l.code}" data-l="1">${esc(e.names[l.code].join("\n"))}</textarea></label>`).join("")}</div>`);
  let d=k==="g"?`<div class="row"><label>Category<select data-p="category"><option value="">Choose…</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label></div>`
-  :`<label>Families</label><div class="chips">${e.families.map((f,i)=>`<span class="chip">${esc(f)}<button data-rmf="${i}" title="Remove">×</button></span>`).join("")}<input id="fin" list="fam" placeholder="Add family, press Enter"></div><datalist id="fam">${[...new Set(Object.values(S.variants).flatMap(fams))].map(f=>`<option value="${esc(f)}">`).join("")}</datalist><div class="cats"><label>Applies to:</label>${CATS.map(c=>`<label><input type="checkbox" data-cat="${c[0]}" ${e.categories.includes(c[0])?"checked":""}>${c[1]}</label>`).join("")}</div>`;
- d+=`<div class="row">${fld("Inventor","inventor.name",e.inventor.name)}${fld("Inventor link","inventor.link",e.inventor.link)}${ta("Inventor note","inventor.note",e.inventor.note)}</div>`;
+  :`<div class="row"><label>Applies to<select data-p="kind"><option value="general" ${e.kind==="general"?"selected":""}>All genres of a category</option><option value="specific" ${e.kind==="specific"?"selected":""}>One specific genre</option></select></label>${e.kind==="specific"?`<label>Genre<select data-p="genre"><option value="">Choose…</option>${Object.values(S.genres).sort((a,b)=>lbl(a,"g").localeCompare(lbl(b,"g"))).map(g=>`<option value="${esc(g.id)}" ${e.genre===g.id?"selected":""}>${esc(lbl(g,"g"))}</option>`).join("")}</select></label>`:`<label>Category<select data-p="category"><option value="all" ${e.category==="all"?"selected":""}>All</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label>`}</div><label>Families</label><div class="chips">${e.families.map((f,i)=>`<span class="chip">${esc(f)}<button data-rmf="${i}" title="Remove">×</button></span>`).join("")}<input id="fin" list="fam" placeholder="Add family, press Enter"></div><datalist id="fam">${[...new Set(Object.values(S.variants).flatMap(fams))].map(f=>`<option value="${esc(f)}">`).join("")}</datalist>`;
+ d+=`<div class="row">${fld("Inventor","inventor.name",e.inventor.name)}${fld("Link","inventor.link",e.inventor.link)}${ta("Note","inventor.note",e.inventor.note)}</div>`;
  h+=card("Details",d);
  h+=card(k==="g"?"Rules":"Rule changes",`<div class="row rules">${L.map(l=>{const c=l.code,r=e.rules[c];
   return`<div class="col"><div class="ch"><b>${esc(l.label)}</b><span id="n_${c}">${sts(e,c).length} statements</span><button data-copy="${c}">Copy</button><button data-copy="${c}" data-num="1">Numbered</button></div>
   <div class="sts" id="s_${c}"></div>
-  <textarea rows="1" data-p="rules.${c}.source.text" placeholder="Source note, e.g. modified from…">${esc(r.source.text)}</textarea><input data-p="rules.${c}.source.link" placeholder="Source link" value="${esc(r.source.link)}"></div>`}).join("")}</div>`);
+  <input data-p="rules.${c}.source.link" placeholder="Source link (or a name, e.g. Puzsq Rules)" value="${esc(r.source.link)}"><textarea rows="1" data-p="rules.${c}.source.text" placeholder="Source note, e.g. modified from…">${esc(r.source.text)}</textarea></div>`}).join("")}</div>`);
  if(k==="g"){h+=card("Examples",(e.examples||[]).map((x,i)=>`<div class="ex"><div class="row">${["problem","solution"].map(s=>{const im=x[s]?`<img src="${esc(imgUrl(x[s]))}" alt="${s}" loading="lazy">`:`<small>${A()?"Click, paste or drop an image":"No image"}</small>`;
   return`<div class="slot" tabindex="0" data-slot="${s}" data-exi="${i}"><b>${s==="problem"?"Problem":"Solution"}</b>${A()||!x[s]?im:`<a href="${esc(imgUrl(x[s]))}" target="_blank">${im}</a>`}</div>`}).join("")}</div>
-  <div class="row">${fld("Puzzle link",`examples.${i}.link`,x.link||"")}${fld("Author",`examples.${i}.author`,x.author||"")}${ta("Note",`examples.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmex="${i}">Remove example</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">${A()?"No examples yet.":"No examples."}</small>`,A()?`<button data-addex>Add example</button>`:"");}
+  <div class="row">${fld("Author",`examples.${i}.author`,x.author||"")}${fld("Puzzle Link",`examples.${i}.link`,x.link||"")}${ta("Note",`examples.${i}.note`,x.note||"")}</div>${A()?`<button class="dg" data-rmex="${i}">Remove example</button>`:""}</div>`).join("")||`<small style="color:var(--mut)">${A()?"No examples yet.":"No examples."}</small>`,A()?`<button data-addex>Add example</button>`:"");}
  h+=card("Notes",`<textarea rows="2" style="width:100%" data-p="notes">${esc(e.notes)}</textarea>`);
- h+=card(`Appearances (${used.length})`,used.map(a=>`<div class="cmp"><b>${esc(lbl(a,"a"))}${a.by?" — "+esc(a.by):""}</b><button data-open="appearance:${a.id}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`,`<button data-newapp>New appearance with this</button>`);
+ h+=card(`Appearances (${used.length})`,used.map(a=>`<div class="cmp"><b class="nm">${lblH(a,"a")}${au(a)?` <span class="au">— ${esc(au(a))}</span>`:""}</b><button data-open="appearance:${a.id}">Open</button></div>`).join("")||`<small style="color:var(--mut)">None recorded.</small>`,`<button data-newapp>New appearance with this</button>`);
  $("#ed").innerHTML=h;langs().forEach(l=>renderCol(l))}
-function edApp(e){e.components=sortComps(e.components||[]);
+function edApp(e){e.components=sortComps(e.components||[]);e.author=au(e);delete e.by;
  const comps=e.components.map((c,i)=>{const x=cget(c),key=c.type+":"+c.id;
-  return`<div class="cmp"><span class="tag ${c.type==="variant"?"tv":""}">${c.type==="genre"?"Genre":"Variant"}</span><b class="${c.type}">${esc(x?lbl(x,c.type[0]):"(missing)")}</b>${x?`<button data-info="${key}" title="Show rules">${openInfo.has(key)?"Hide rules":"Rules"}</button><button data-open="${key}">Open</button>`:""}<button data-rm="${i}">Remove</button></div>${x&&openInfo.has(key)?infoHtml(x):""}`}).join("");
- $("#ed").innerHTML=`<div class="top"><h2>${esc(lbl(e,"a")||"New appearance")}</h2><span class="idt">#${esc(e.id)}</span><button class="dg" data-del>Delete</button></div>
+  return`<div class="cmp"><span class="tag ${c.type==="variant"?"tv":""}">${c.type==="genre"?"Genre":"Variant"}</span><b class="nm">${x?lblH(x,c.type[0]):"(missing)"}</b>${x?`<button data-info="${key}" title="Show rules">${openInfo.has(key)?"Hide Rules":"Show Rules"}</button><button data-open="${key}">Open</button>`:""}<button data-rm="${i}">Remove</button></div>${x&&openInfo.has(key)?infoHtml(x):""}`}).join("");
+ $("#ed").innerHTML=`<div class="top"><h2>${lblH(e,"a")||"New appearance"}</h2><span class="idt">#${esc(e.id)}</span><button class="dg" data-del>Delete</button></div>
  ${card("Components",comps+`<div class="row" style="margin-top:8px">${["genre","variant"].map(t=>`<div class="pick" style="margin:0"><input id="pk-${t}" placeholder="Search ${t==="genre"?"genres":"variants"} to add…" autocomplete="off"><div id="pkl-${t}" class="pkl" hidden></div></div>`).join("")}</div>`)}
- ${card("Details",`<div class="row">${fld("Link","link",e.link||"")}${fld("Used by","by",e.by||"")}${ta("Note","note",e.note||"")}</div>`)}`}
+ ${card("Details",`<div class="row">${fld("Author","author",au(e))}${fld("Puzzle Link","link",e.link||"")}${ta("Note","note",e.note||"")}</div>`)}`}
 function pickList(t){const ws=words($("#pk-"+t).value);
  const a=Object.values(t==="genre"?S.genres:S.variants).map(e=>({e,s:sc(e,ws)})).filter(x=>x.s>0).sort((x,y)=>y.s-x.s||lbl(x.e,t[0]).localeCompare(lbl(y.e,t[0]))).slice(0,12);
- const b=$("#pkl-"+t);b.innerHTML=a.map(x=>`<div class="opt" data-pick="${t}:${esc(x.e.id)}"><b>${esc(lbl(x.e,t[0]))}</b>${snip(x.e)?`<small>${esc(snip(x.e))}</small>`:""}</div>`).join("")||`<div class="opt">No match</div>`;b.hidden=false}
+ const b=$("#pkl-"+t);b.innerHTML=a.map(x=>`<div class="opt" data-pick="${t}:${esc(x.e.id)}"><b class="nm">${lblH(x.e,t[0])}</b>${snip(x.e)?`<small>${esc(snip(x.e))}</small>`:""}</div>`).join("")||`<div class="opt">No match</div>`;b.hidden=false}
 function status(){const c=t=>Object.keys(S[t]).length,m=A()?"editing "+C.owner+"/"+C.repo:C.owner?"read-only, "+C.owner+"/"+C.repo:"read-only · open GitHub to load a repository";
  $("#st").textContent=`${c("genres")} genres · ${c("variants")} variants · ${c("appearances")} appearances · ${m}`+(A()&&S.dirty?" · unsaved to GitHub":"")}
 function render(){tabs();filters();list();editor();status()}
 function go(t,id){clean(coll()[sel]);tab=t;sel=id;armDel=null;q="";F={};$("#q").value="";render()}
-let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.textContent=lbl(e,kind())||"New appearance"},200)};
+let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.innerHTML=lblH(e,kind())||"New appearance"},200)};
 $("#tabs").onclick=ev=>{const t=ev.target.dataset.tab;if(t){clean(coll()[sel]);tab=t;sel=null;armDel=null;F={};render()}};
 $("#q").oninput=ev=>{q=ev.target.value;list()};
 $("#flt").oninput=ev=>{F[ev.target.dataset.f]=ev.target.value;list()};
 $("#list").onclick=ev=>{const d=ev.target.closest(".it");if(d){clean(coll()[sel]);sel=d.dataset.id;armDel=null;list();editor()}};
 $("#new").onclick=()=>{const c=coll();let e;clean(c[sel]);
- if(tab==="appearances")e={id:rid(),components:[],link:"",by:"",note:""};else e=norm({id:nid(c)},kind());
+ if(tab==="appearances")e={id:rid(),components:[],link:"",author:"",note:""};else e=norm({id:nid(c)},kind());
  c[e.id]=e;sel=e.id;save();render();($("#pk-genre")||$("#ed textarea"))?.focus()};
 function setp(o,p,v){const k=p.split("."),last=k.pop();let x=o;for(const s of k)x=x[s]||(x[s]={});x[last]=v}
 $("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e)return;
  if(t.id?.startsWith("pk-"))return pickList(t.id.slice(3));
  if(t.dataset.si!==undefined){e.rules[t.dataset.sl].statements[+t.dataset.si]=t.value;grow(t);cnt(t.dataset.sl)}
  else if(t.dataset.cat){const a=e.categories;if(t.checked){if(!a.includes(t.dataset.cat))a.push(t.dataset.cat)}else e.categories=a.filter(x=>x!==t.dataset.cat)}
- else if(t.dataset.p){setp(e,t.dataset.p,t.dataset.l?t.value.split("\n").map(s=>s.trim()).filter(Boolean):t.value);
+ else if(t.dataset.p){if(t.dataset.p==="kind"){e.kind=t.value;if(e.kind==="specific")e.genre=e.genre||"";else e.category=e.category||"all";save();return editor()}
+  setp(e,t.dataset.p,t.dataset.l?t.value.split("\n").map(s=>s.trim()).filter(Boolean):t.value);
   const m=t.dataset.p.match(/^rules\.(\w+)\.statements$/);if(m)$("#n_"+m[1]).textContent=e.rules[m[1]].statements.length+" statements"}
  else return;save();lazy()});
 $("#ed").addEventListener("focusin",ev=>{const i=ev.target.id;if(i?.startsWith("pk-"))pickList(i.slice(3))});
@@ -282,12 +296,12 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
  else if(d.rmex){e.examples.splice(+d.rmex,1);save();editor()}
  else if(d.rmf){e.families.splice(+d.rmf,1);save();editor()}
  else if(d.open){const[a,b]=d.open.split(":");go(a+"s",b)}
- else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}],link:"",by:"",note:""};S.appearances[a.id]=a;save();go("appearances",a.id)}
+ else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}],link:"",author:"",note:""};S.appearances[a.id]=a;save();go("appearances",a.id)}
  else if(d.pick){const[ty,id]=d.pick.split(":");e.components.push({type:ty,id});sortComps(e.components);save();edApp(e);lazy()}
  else if(d.info){openInfo.has(d.info)?openInfo.delete(d.info):openInfo.add(d.info);edApp(e)}
  else if(d.rm){e.components.splice(+d.rm,1);save();edApp(e);lazy()}
  else if(d.del!==undefined){
-  if(kind()!=="a"&&usedBy(kind()==="g"?"genre":"variant",sel).length)return flash("Used in an appearance: remove it there first.");
+  if(kind()!=="a"&&(usedBy(kind()==="g"?"genre":"variant",sel).length||(kind()==="g"&&Object.values(S.variants).some(v=>v.kind==="specific"&&v.genre===sel))))return flash("In use by an appearance or variant: remove it there first.");
   if(armDel!==sel){armDel=sel;t.textContent="Click again to delete";t.classList.add("arm");const id=sel;setTimeout(()=>{if(armDel===id){armDel=null;if(t.isConnected){t.textContent="Delete";t.classList.remove("arm")}}},4000);return}
   const id=sel;delete coll()[id];
   sel=null;armDel=null;save();render()}});
@@ -304,7 +318,7 @@ $("#file").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(
    if(m){const e=JSON.parse(t);e.id=e.id||m[2];n[m[1]][e.id]=e}
    else if(/(^|\/)languages\.json$/.test(p))n.languages=JSON.parse(t);
    else if(/(^|\/)appearances\.json$/.test(p))JSON.parse(t).forEach(a=>n.appearances[a.id]=a)}
-  n.languages=n.languages||DEFL;S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
+  n.languages=n.languages||DEFL;Object.values(n.variants).forEach(mig);S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
 $("#ed").addEventListener("dragover",ev=>{if(ev.target.closest(".slot"))ev.preventDefault()});
 $("#ed").addEventListener("drop",ev=>{const sl=ev.target.closest(".slot");if(!sl||!A())return;ev.preventDefault();const f=ev.dataTransfer.files[0];if(f){imgT={i:+sl.dataset.exi,s:sl.dataset.slot};setImg(f)}});
 const addFam=v=>{const e=coll()[sel];v=v.trim();if(!e||!v||!A())return;e.families=fams(e);if(!e.families.includes(v))e.families.push(v);save();editor()};
