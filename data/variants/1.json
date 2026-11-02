@@ -2,17 +2,17 @@
   "id": "1",
   "names": {
     "en": [
-      "Hexagonal Yajilin"
+      "Hexagonal"
     ],
     "ja": [],
     "cs": [
-      "Hexagonální Yajilin"
+      "Hexagonální"
     ]
   },
   "rules": {
     "en": {
       "statements": [
-        "Yajilin on a hexagonal grid."
+        "On a hexagonal grid."
       ],
       "source": {
         "text": "",
@@ -28,7 +28,7 @@
     },
     "cs": {
       "statements": [
-        "Yajilin na hexagonální mřížce."
+        "Na hexagonální mřížce."
       ],
       "source": {
         "text": "",
@@ -42,8 +42,10 @@
     "note": ""
   },
   "notes": "",
-  "categories": [],
   "families": [
     "hexagonal"
-  ]
+  ],
+  "kind": "general",
+  "category": "all",
+  "genre": "1"
 }
