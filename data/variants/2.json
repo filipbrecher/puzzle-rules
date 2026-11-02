@@ -1,0 +1,45 @@
+{
+  "id": "2",
+  "names": {
+    "en": [
+      "Aqre"
+    ],
+    "ja": [],
+    "cs": []
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "There may not be 4 or more shaded or unshaded cells in any row or column."
+      ],
+      "source": {
+        "text": "",
+        "link": ""
+      }
+    },
+    "ja": {
+      "statements": [],
+      "source": {
+        "text": "",
+        "link": ""
+      }
+    },
+    "cs": {
+      "statements": [],
+      "source": {
+        "text": "",
+        "link": ""
+      }
+    }
+  },
+  "inventor": {
+    "name": "",
+    "link": "",
+    "note": ""
+  },
+  "notes": "",
+  "families": [],
+  "kind": "specific",
+  "category": "shading",
+  "genre": "1"
+}
