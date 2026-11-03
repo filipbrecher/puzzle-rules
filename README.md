@@ -69,6 +69,8 @@ Use Rule Notes to describe any differences between the rules as presented on thi
 
 It supports English, Japanese and Czech for now, but it's easy to add a new language. English ... obviously. Japanese because I will use most of the rules from Puzsq so I want to include their original Japanese versions as well. Czech because I want to record Czech versions for easier use in future Czech tournaments 
 
+Previously when making a tournament I either wrote the rules again, went to my personal sheet with all of my puzzles and copied from the rules in Penpa+, searched the official Czech website for puzzles, looked through past Czech tournament papers or through older latex files with those genres. And for some tournaments I needed to make an English version of the pdfs which made it even more annoying.
+
 
 ### Future Goals
 
@@ -78,5 +80,3 @@ Main ideas: Editor for puzzle generation or creation - define rules on parts of 
 
 In the past I already made quite a generalised Sudoku problem creator and solver which allowed to combine multiple sudokus together (something like a Samurai, but image you can define any rule anywhere, and even link number hints together to add another layer of hints) and combine variant rules together. It generated a random problem with a unique solution. I didn't make a frontendeditor for it (only for printing the generated puzzles) for it so everything was written in code and then ran in the page, so it's a bit hard to use. It includes over 100 Sudoku variants. It includes a couple of logic puzzles which were compatible. I might make the repo public if there is interest. Although the code isn't the best quality (Could use design patterns in some places to improve the code quality and readability...).
 
-
-Previously when making a tournament I either wrote the rules again, went to my personal sheet with all of my puzzles and copied from the rules in Penpa+, searched the official Czech website for puzzles, looked through past Czech tournament papers or through older latex files with those genres. And for some tournaments I needed to make an English version of the pdfs which made it even more annoying.
