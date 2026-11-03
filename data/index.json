@@ -51,9 +51,6 @@
         ],
         "ja": [
           "美術館"
-        ],
-        "cs": [
-          "Žárovky"
         ]
       }
     },
@@ -171,6 +168,95 @@
         ],
         "cs": [
           "Smyčka"
+        ]
+      }
+    },
+    {
+      "id": "14",
+      "names": {
+        "en": [
+          "Numberlink"
+        ],
+        "ja": [
+          "ナンバーリンク"
+        ]
+      }
+    },
+    {
+      "id": "15",
+      "names": {
+        "en": [
+          "Fillomino"
+        ],
+        "ja": [
+          "フィルオミノ"
+        ],
+        "cs": [
+          "Fillomino"
+        ]
+      }
+    },
+    {
+      "id": "16",
+      "names": {
+        "en": [
+          "Tapa"
+        ],
+        "ja": [
+          "Tapa"
+        ],
+        "cs": [
+          "Tapa"
+        ]
+      }
+    },
+    {
+      "id": "17",
+      "names": {
+        "en": [
+          "Slalom"
+        ],
+        "ja": [
+          "スラローム"
+        ],
+        "cs": [
+          "Slalom"
+        ]
+      }
+    },
+    {
+      "id": "18",
+      "names": {
+        "en": [
+          "Aqre"
+        ],
+        "ja": [
+          "Aqre"
+        ],
+        "cs": [
+          "Aqre"
+        ]
+      }
+    },
+    {
+      "id": "19",
+      "names": {
+        "en": [
+          "Nuri-Maze"
+        ],
+        "ja": [
+          "ぬりめいず"
+        ]
+      }
+    },
+    {
+      "id": "20",
+      "names": {
+        "en": [
+          "Castle Wall"
+        ],
+        "ja": [
+          "Castle Wall"
         ]
       }
     }

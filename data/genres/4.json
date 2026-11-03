@@ -6,11 +6,9 @@
     ],
     "ja": [
       "美術館"
-    ],
-    "cs": [
-      "Žárovky"
     ]
   },
+  "category": "object",
   "rules": {
     "en": {
       "statements": [
@@ -42,7 +40,6 @@
       "note": "Reworded"
     }
   },
-  "category": "object",
   "examples": [
     {
       "id": "1mk45i",
@@ -51,8 +48,5 @@
       "author": "ふーなんとかさん",
       "source": "https://puzsq.logicpuzzle.app/puzzle/126992"
     }
-  ],
-  "categories": [
-    "object"
   ]
 }

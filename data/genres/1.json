@@ -11,6 +11,7 @@
       "Yajilin"
     ]
   },
+  "category": "path",
   "rules": {
     "en": {
       "statements": [
@@ -40,7 +41,6 @@
       "source": "Original"
     }
   },
-  "category": "path",
   "examples": [
     {
       "id": "v9hp45",
@@ -49,9 +49,5 @@
       "author": "ペンギン王者",
       "source": "https://puzsq.logicpuzzle.app/puzzle/101228"
     }
-  ],
-  "categories": [
-    "path",
-    "shading"
   ]
 }

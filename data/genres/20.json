@@ -1,0 +1,43 @@
+{
+  "id": "20",
+  "names": {
+    "en": [
+      "Castle Wall"
+    ],
+    "ja": [
+      "Castle Wall"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells.",
+        "The loop may not enter outlined cells or cells containing clues.",
+        "White cells with outlines must lie inside the loop, while black cells with outlines must lie outside the loop.",
+        "Grey cells may either be inside or outside the loop.",
+        "A number represents the sum of the lengths of loop segments in the indicated direction."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて、全体で１つのループを作ります。",
+        "線はマスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "枠線で囲まれた白マスと黒マスに線を引いてはいけません。",
+        "数字は、矢印の方向に伸びている直線の長さの合計を示します。",
+        "枠線で囲まれた白マスはループの内側に、黒いマスはループの外側になります。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "ph35e7",
+      "problem": "images/20/ph35e7-problem-8yrb.webp",
+      "solution": "images/20/ph35e7-solution-q15q.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126999"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "16",
+  "names": {
+    "en": [
+      "Tapa"
+    ],
+    "ja": [
+      "Tapa"
+    ],
+    "cs": [
+      "Tapa"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that all shaded cells form one orthogonally connected area.",
+        "Clues cannot be shaded, and represent the lengths of the blocks of consecutive shaded cells in the (up to) eight cells surrounding the clue.",
+        "No 2x2 region may be entirely shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒く塗りましょう。",
+        "盤面の数字は、その数字のマスの周囲８マスを見た時に、連結してつながっている黒マスの数を表します。複数の数字がある場合は、それぞれの間が一つ以上の白マスで分かれていることを表します。",
+        "数字の入っているマスを黒く塗ってはいけません。",
+        "すべての黒マスはタテヨコにひとつながりになっていなければいけません。",
+        "黒マスを２×２以上のカタマリにしてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka v tabulce tak, aby všechna začerněná políčka tvořila jednu stranově souvislo oblast a nikde nebyl začerněn celý čtverec 2x2.",
+        "Pole s čísly není dovoleno začernit. Zadaná čísla potom určují délky souvislých začerněných částí v (až osmi) okolních políčkách. Mezi jednotlivými začerněnými částmi je vždy alespoň jedno políčko nezačerněné.",
+        "Pokud je v políčku číslo 0, žádné z okolních políček není začerněno."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
+    }
+  },
+  "examples": [
+    {
+      "id": "ob0e3d",
+      "problem": "images/16/ob0e3d-problem-u3le.webp",
+      "solution": "images/16/ob0e3d-solution-kxpe.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102313"
+    }
+  ]
+}

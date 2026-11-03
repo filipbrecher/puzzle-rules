@@ -11,6 +11,7 @@
       "Smyčka"
     ]
   },
+  "category": "path",
   "rules": {
     "en": {
       "statements": [
@@ -20,8 +21,8 @@
     },
     "ja": {
       "statements": [
-        "盤面の白マスにタテヨコに線を引き、すべての白マスを通る１つの輪っかを作ります",
-        "輪っかを作る線は交差したり枝分かれしたり行き止まりがあったりしてはいけません"
+        "盤面の白マスにタテヨコに線を引き、すべての白マスを通る１つの輪っかを作ります。",
+        "輪っかを作る線は交差したり枝分かれしたり行き止まりがあったりしてはいけません。"
       ],
       "source": "Puzsq Rules"
     },
@@ -33,16 +34,13 @@
       "note": "Reworded"
     }
   },
-  "categories": [
-    "path"
-  ],
   "examples": [
     {
       "id": "m6ryk0",
       "problem": "images/13/m6ryk0-problem-8mbo.webp",
       "solution": "images/13/m6ryk0-solution-aj05.webp",
-      "source": "https://puzsq.logicpuzzle.app/puzzle/101230",
-      "author": "AOKI"
+      "author": "AOKI",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101230"
     }
   ]
 }

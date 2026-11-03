@@ -1,0 +1,37 @@
+{
+  "id": "14",
+  "names": {
+    "en": [
+      "Numberlink"
+    ],
+    "ja": [
+      "ナンバーリンク"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw non-intersecting paths through the centers of some cells, each connecting one clue to its equal counterpart."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Reworded"
+    },
+    "ja": {
+      "statements": [
+        "盤面のタテヨコにいくつかの線を引き、同じ数字同士を結ぶようにします。",
+        "線はマスの中央を通り、盤面の外に出たり、交差したり、枝分かれしたり、行き止まりがあったり、他の線と繋がったりしてはいけません。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "a3wehb",
+      "problem": "images/14/a3wehb-problem-qqc5.webp",
+      "solution": "images/14/a3wehb-solution-6c0g.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102300"
+    }
+  ]
+}

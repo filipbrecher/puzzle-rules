@@ -11,6 +11,7 @@
       "Heyawake"
     ]
   },
+  "category": "shading",
   "rules": {
     "en": {
       "statements": [
@@ -38,17 +39,13 @@
       "source": "Original"
     }
   },
-  "category": "shading",
   "examples": [
     {
       "id": "rypozc",
       "problem": "images/2/rypozc-problem-og0c.webp",
       "solution": "images/2/rypozc-solution-uuym.webp",
-      "source": "https://puzsq.logicpuzzle.app/puzzle/102302",
-      "author": "ゆずっこ"
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102302"
     }
-  ],
-  "categories": [
-    "shading"
   ]
 }

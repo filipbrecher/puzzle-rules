@@ -11,6 +11,7 @@
       "Masyu"
     ]
   },
+  "category": "path",
   "rules": {
     "en": {
       "statements": [
@@ -40,7 +41,6 @@
       "source": "Dlouhodobá soutěž HALAS"
     }
   },
-  "category": "path",
   "examples": [
     {
       "id": "vsr2kk",
@@ -49,8 +49,5 @@
       "author": "ゆずっこ",
       "source": "https://puzsq.logicpuzzle.app/puzzle/102298"
     }
-  ],
-  "categories": [
-    "path"
   ]
 }

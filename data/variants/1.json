@@ -8,6 +8,11 @@
       "Hexagonální"
     ]
   },
+  "families": [
+    "hexagonal"
+  ],
+  "kind": "general",
+  "category": "all",
   "rules": {
     "en": {
       "statements": [
@@ -19,10 +24,5 @@
         "Na hexagonální mřížce."
       ]
     }
-  },
-  "families": [
-    "hexagonal"
-  ],
-  "kind": "general",
-  "category": "all"
+  }
 }

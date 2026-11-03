@@ -1,0 +1,49 @@
+{
+  "id": "15",
+  "names": {
+    "en": [
+      "Fillomino"
+    ],
+    "ja": [
+      "フィルオミノ"
+    ],
+    "cs": [
+      "Fillomino"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of orthogonally connected cells.",
+        "Two regions of the same size may not share an edge.",
+        "Clued cells must belong to a region containing the indicated number of cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "空いているマスに1以上の整数を1つずつ書き込み、さらに異なる数字のマスの間に線を引き、いくつかの領域に分割します。",
+        "数字は、1マスの面積を1とする、分割された領域の面積を表します。",
+        "領域内に１つ以上数字が書かれていれば、残りの数字の書込は省略できます。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte obrazec podél linií mřížky na oblasti tak, aby se žádné dvě oblasti stejné velikosti nedotýkaly stranou.",
+        "Uvnitř některých políček jsou čísla. Každé číslo představuje velikost oblasti, ve které se nachází. Oblast může obsahovat nula, jedno, nebo více zadaných čísel."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "nk8evf",
+      "problem": "images/15/nk8evf-problem-2rku.webp",
+      "solution": "images/15/nk8evf-solution-l78r.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102310"
+    }
+  ]
+}

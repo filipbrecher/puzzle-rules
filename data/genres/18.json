@@ -1,0 +1,52 @@
+{
+  "id": "18",
+  "names": {
+    "en": [
+      "Aqre"
+    ],
+    "ja": [
+      "Aqre"
+    ],
+    "cs": [
+      "Aqre"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that all shaded cells form one orthogonally connected area.",
+        "Regions with numbers must contain the indicated amount of shaded cells.",
+        "There may not exist a run of more than three consecutive shaded or unshaded cells horizontally or vertically anywhere in the grid."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "太線で区切られた四角（部屋と呼びます）に入っている数字は、その部屋に入る黒マスの数を表しています。数字の入っていない部屋には、いくつ黒マスが入るかわかりません。",
+        "すべての黒マスはタテヨコにひとつながりになっていなければなりません。",
+        "同じ色のマスを、タテまたはヨコにまっすぐに4つ以上続けさせてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka. Všechna začerněná políčka musí být vzájemně propojena stranou. (Je dovoleno, aby se začerněná plocha dotýkala sama sebe rohem, avšak dotyk rohem se nepovažuje za propojení.)",
+        "Žádná sekvence sousedních políček 1x4 nebo 4x1 nesmí být kompletně začerněna ani kompletně nezačerněna.",
+        "Tabulka je dále rozdělena na regiony. Čísla v regionech značí, kolik políček je v daném regionu začerněno."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
+    }
+  },
+  "examples": [
+    {
+      "id": "tb2uum",
+      "problem": "images/18/tb2uum-problem-icwd.webp",
+      "solution": "images/18/tb2uum-solution-m3zz.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101385"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "19",
+  "names": {
+    "en": [
+      "Nuri-Maze"
+    ],
+    "ja": [
+      "ぬりめいず"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that each region is either fully shaded or fully unshaded and all unshaded cells form one orthogonally connected area with no loops.",
+        "No 2x2 area may be entirely shaded or unshaded.",
+        "Clues must be unshaded.",
+        "All circles must lie on the shortest path from the S (start) to the G (goal), while triangles must not."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の太枠で区切られた領域のいくつかを黒く塗ります。すべての領域は、領域全体が黒く塗られるか、一つも塗られないかのどちらかになります。",
+        "すべての白マスはタテヨコにひとつながりになっていなければなりませんが、白マスの一部が輪っかを作ってはいけません。",
+        "黒マスも白マスも2×2以上のカタマリになってはいけません。",
+        "記号(S,G,○,△)の入ったマスを黒く塗りつぶすことはできません。",
+        "SからGに向かう最短経路を引いた時、○はその経路上に存在しなければならず、△がその経路上に存在してはなりません。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "y3ftne",
+      "problem": "images/19/y3ftne-problem-ktvd.webp",
+      "solution": "images/19/y3ftne-solution-y3z1.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102307"
+    }
+  ]
+}

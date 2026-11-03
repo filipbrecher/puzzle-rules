@@ -5,6 +5,8 @@
       "Symmetrical Regions"
     ]
   },
+  "kind": "general",
+  "category": "shading",
   "rules": {
     "en": {
       "statements": [
@@ -20,7 +22,5 @@
       "source": "Puzsq Rules",
       "note": "From Ekawayeh rules"
     }
-  },
-  "kind": "general",
-  "category": "shading"
+  }
 }

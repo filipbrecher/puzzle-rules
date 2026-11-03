@@ -8,6 +8,7 @@
       "チョコバナナ"
     ]
   },
+  "category": "shading",
   "rules": {
     "en": {
       "statements": [
@@ -23,13 +24,11 @@
         "盤面のいくつかのマスを黒く塗りましょう。",
         "タテヨコにひとつながりになった黒マスのカタマリは、長方形（正方形含む）になります。",
         "タテヨコにひとつながりになった白マスのカタマリは、長方形（正方形含む）以外の形になります。",
-        "数字は、そのマスを含むカタマリのマス数を表します。",
-        "（パズル通信ニコリ vol.176より）"
+        "数字は、そのマスを含むカタマリのマス数を表します。"
       ],
       "source": "https://puzz.link/rules.html?cbanana"
     }
   },
-  "category": "shading",
   "examples": [
     {
       "id": "2y4ez7",
@@ -38,8 +37,5 @@
       "author": "_AtomicNeoN_",
       "source": "https://puzsq.logicpuzzle.app/puzzle/101312"
     }
-  ],
-  "categories": [
-    "shading"
   ]
 }

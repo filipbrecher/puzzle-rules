@@ -1,0 +1,44 @@
+{
+  "id": "17",
+  "names": {
+    "en": [
+      "Slalom"
+    ],
+    "ja": [
+      "スラローム"
+    ],
+    "cs": [
+      "Slalom"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells, starting and ending at the circle.",
+        "The loop may not enter blackened cells, and must pass straight through each gate exactly once.",
+        "If a number N is pointing at a gate, it must be the Nth gate visited from the circle."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の白マスにタテヨコに線を引き、白丸から出て白丸に戻る１つの輪っかを作ります。",
+        "輪っかを作る線はマスの中央を通り、盤面の外に出たり、交差したり、枝分かれしたり、行き止まりがあったりしてはいけません。",
+        "マスの中に書かれた、黒マスもしくはマスの外側同士を結ぶ破線を「旗門」と呼びます。ひと繋がりの破線を一つの旗門とし、線はすべての旗門と一度ずつ垂直に交差します。交差以外で旗門と線を接触させてはいけません。",
+        "白丸の中の数字は旗門の総数を表しています。",
+        "黒マスの中の数字は矢印で示されたり数字に隣り合う旗門および、白丸のマスから出た線が何番目に交差するかを表します。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "jqw4qx",
+      "problem": "images/17/jqw4qx-problem-drb0.webp",
+      "solution": "images/17/jqw4qx-solution-x32x.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102299"
+    }
+  ]
+}

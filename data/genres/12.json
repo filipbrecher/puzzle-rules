@@ -8,6 +8,7 @@
       "ノースリー"
     ]
   },
+  "category": "shading",
   "rules": {
     "en": {
       "statements": [
@@ -27,7 +28,6 @@
       "source": "Eric Fox's Dictionary of Rulesets"
     }
   },
-  "category": "shading",
   "examples": [
     {
       "id": "6i5vd8",
@@ -36,8 +36,5 @@
       "author": "fff",
       "source": "https://puzsq.logicpuzzle.app/puzzle/115909"
     }
-  ],
-  "categories": [
-    "shading"
   ]
 }
