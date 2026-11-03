@@ -53,7 +53,7 @@
           "美術館"
         ],
         "cs": [
-          "Akari"
+          "Žárovky"
         ]
       }
     },
@@ -82,6 +82,31 @@
         ],
         "cs": [
           "Shakashaka"
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "names": {
+        "en": [
+          "Double Choco"
+        ],
+        "ja": [
+          "ダブルチョコ"
+        ]
+      }
+    },
+    {
+      "id": "8",
+      "names": {
+        "en": [
+          "Slitherlink"
+        ],
+        "ja": [
+          "スリザーリンク"
+        ],
+        "cs": [
+          "Ploty"
         ]
       }
     }

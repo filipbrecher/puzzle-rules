@@ -1,0 +1,40 @@
+{
+  "id": "7",
+  "names": {
+    "en": [
+      "Double Choco"
+    ],
+    "ja": [
+      "ダブルチョコ"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of orthogonally connected cells, each containing a connected group of white cells and a connected group of grey cells, with the property that the shape of the white cells is identical to the shape of the grey cells, allowing rotations and reflections.",
+        "Clued cells must belong to a region containing the indicated number of white cells and the indicated number of grey cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の点線の上に線を引き、いくつかのブロックに分割します",
+        "ブロックは白マスのカタマリと灰色のカタマリを1つずつ含みます",
+        "各ブロックの白マスのカタマリと灰色のカタマリは回転あるいは裏返しをして同じ形になります",
+        "数字は分割されたブロックのうち片方の色のカタマリのマス数を表します。すなわち、ブロックのマス数は数字の2倍になります",
+        "分割されたそれぞれのブロックには、いくつ数字が入っても構いません。数字が入っていないブロックがあっても構いません"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "category": "region",
+  "examples": [
+    {
+      "id": "m1yfq3",
+      "problem": "images/7/m1yfq3-problem-gm79.webp",
+      "solution": "images/7/m1yfq3-solution-qlts.webp",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101233",
+      "author": "へーくま"
+    }
+  ]
+}

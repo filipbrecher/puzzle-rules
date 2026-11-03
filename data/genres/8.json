@@ -1,0 +1,48 @@
+{
+  "id": "8",
+  "names": {
+    "en": [
+      "Slitherlink"
+    ],
+    "ja": [
+      "スリザーリンク"
+    ],
+    "cs": [
+      "Ploty"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Connect some pairs of orthogonally adjacent dots to form a single non-intersecting loop.",
+        "Clues represent the number of edges drawn surrounding the clue (up to four)."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の点の間にタテヨコに線を引き、全体で１つの輪っかを作ります",
+        "輪っかを作る線は交差したり枝分かれしたり行き止まりがあったりしてはいけません",
+        "数字は周りの点の間に引かれる線の数を表します。点のなかに数字の書かれていないところでは、線がいくつ引かれるかわかりません"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Nakreslete nekřižující a nedotýkající se uzavřenou smyčku, která je složena pouze z vodorovných a svislých úseků mezi tečkami.",
+        "Čísla uvnitř políček udávají, kolik stran daného políčka je součástí smyčky."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "category": "path",
+  "examples": [
+    {
+      "id": "h0vt1d",
+      "problem": "images/8/h0vt1d-problem-5zrs.webp",
+      "solution": "images/8/h0vt1d-solution-nzfx.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102297"
+    }
+  ]
+}
