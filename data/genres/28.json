@@ -1,0 +1,39 @@
+{
+  "id": "28",
+  "names": {
+    "en": [
+      "Regional Yajilin"
+    ],
+    "ja": [
+      "ヘヤジリン"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent and draw a non-intersecting loop through the centers of all the remaining cells.",
+        "Numbered regions must contain the indicated amount of shaded cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて全体で１つの輪っかを作りましょう。また、線が通らないマスは黒くぬり、黒マスにしましょう。",
+        "太線で区切られた部分を部屋と呼び、部屋に入っている数字は、その部屋に入る黒マスの数を表しています。数字の入っていない部屋には、いくつ黒マスが入るかわかりません。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "黒マスをタテヨコに連続させてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "y740re",
+      "problem": "images/28/y740re-problem-uj0d.webp",
+      "solution": "images/28/y740re-solution-yvn3.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101326"
+    }
+  ]
+}

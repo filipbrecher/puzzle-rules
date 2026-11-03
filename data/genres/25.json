@@ -1,0 +1,50 @@
+{
+  "id": "25",
+  "names": {
+    "en": [
+      "Shikaku"
+    ],
+    "ja": [
+      "四角に切れ"
+    ],
+    "cs": [
+      "Shikaku"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into rectangular regions of orthogonally connected cells.",
+        "Each region must contain exactly one circle.",
+        "A number in a circle represents how many cells are in the region the circle belongs to."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の点線の上に線を引き、いくつかの長方形（正方形を含む）に分割します。",
+        "数字は、1マスの面積を1とする、分割された長方形の面積を表します。",
+        "数字は分割されたそれぞれの長方形に1つずつ入ります。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte mřížku podél vyznačených čar na obdélníkové či čtvercové oblasti.",
+        "Každé pole mřížky musí náležet do právě jedné oblasti.",
+        "Každá oblast musí obsahovat právě jedno číslo, toto číslo udává počet polí dané oblasti."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "kl6vus",
+      "problem": "images/25/kl6vus-problem-yrtc.webp",
+      "solution": "images/25/kl6vus-solution-khh7.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102325"
+    }
+  ]
+}

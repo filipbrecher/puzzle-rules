@@ -1,0 +1,54 @@
+{
+  "id": "22",
+  "names": {
+    "en": [
+      "Sashigane"
+    ],
+    "ja": [
+      "さしがね"
+    ],
+    "cs": [
+      "Sashigane"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of orthogonally connected cells.",
+        "Each region must be an L shape with a width of one cell.",
+        "Arrows must lie at one end of an L and point toward the bend.",
+        "Circles must lie at the bend of an L, and if one contains a number, the L it’s inside must contain the indicated amount of cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "点線上に線を引き、盤面を幅１マスのＬ字型のブロックに切り分けましょう。Ｌ字型でないブロックができてはいけません。",
+        "白丸があるマスは、必ずＬ字型ブロックの角（折れ曲がるところ）になります。",
+        "白丸の数字は、そのマスを含むブロックのマス数を表します。数字のない白丸は何マスになるかはわかりません。",
+        "矢印があるマスは必ずブロックの端になり、矢印が示す先にそのブロックの角が来ます。",
+        "１つのブロックに入る記号（白丸と矢印）の個数は、０～３個のどれになってもかまいません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte tabulku na oblasti tvaru L o šířce 1 pole. Každé pole tabulky je součástí jedné oblasti tvaru L.",
+        "Pokud oblast obsahuje šipku, je umístěna na jednom jejím konci a ukazuje směrem k ohybu písmene L.",
+        "Pokud oblast obsahuje kolečko, je umístěno v ohybu písmene L.",
+        "Pokud kolečko obsahuje číslo, toto číslo udává celkový počet políček oblasti. Oblast nemusí obsahovat žádnou zadanou šipku či kolečko."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "83me3v",
+      "problem": "images/22/83me3v-problem-w5o4.webp",
+      "solution": "images/22/83me3v-solution-pz3t.webp",
+      "author": "K.N.Y.",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101965"
+    }
+  ]
+}

@@ -259,6 +259,131 @@
           "Castle Wall"
         ]
       }
+    },
+    {
+      "id": "21",
+      "names": {
+        "en": [
+          "Guide Arrow"
+        ],
+        "ja": [
+          "ガイドアロー"
+        ]
+      }
+    },
+    {
+      "id": "22",
+      "names": {
+        "en": [
+          "Sashigane"
+        ],
+        "ja": [
+          "さしがね"
+        ],
+        "cs": [
+          "Sashigane"
+        ]
+      }
+    },
+    {
+      "id": "23",
+      "names": {
+        "en": [
+          "Sudoku"
+        ],
+        "ja": [
+          "数独",
+          "ナンプレ"
+        ],
+        "cs": [
+          "Sudoku"
+        ]
+      }
+    },
+    {
+      "id": "24",
+      "names": {
+        "en": [
+          "Soul Mates"
+        ],
+        "ja": [
+          "ソウルメイツ"
+        ]
+      }
+    },
+    {
+      "id": "25",
+      "names": {
+        "en": [
+          "Shikaku"
+        ],
+        "ja": [
+          "四角に切れ"
+        ],
+        "cs": [
+          "Shikaku"
+        ]
+      }
+    },
+    {
+      "id": "26",
+      "names": {
+        "en": [
+          "School Trip",
+          "Shugaku"
+        ],
+        "ja": [
+          "修学旅行の夜"
+        ]
+      }
+    },
+    {
+      "id": "27",
+      "names": {
+        "en": [
+          "Evolmino"
+        ],
+        "ja": [
+          "シンカミノ"
+        ]
+      }
+    },
+    {
+      "id": "28",
+      "names": {
+        "en": [
+          "Regional Yajilin"
+        ],
+        "ja": [
+          "ヘヤジリン"
+        ]
+      }
+    },
+    {
+      "id": "29",
+      "names": {
+        "en": [
+          "Ripple Effect",
+          "Hakyuu"
+        ],
+        "ja": [
+          "波及効果"
+        ]
+      }
+    },
+    {
+      "id": "30",
+      "names": {
+        "en": [
+          "Norinori"
+        ],
+        "ja": [
+          "のりのり"
+        ],
+        "cs": [
+          "Norinori"
+        ]
+      }
     }
   ],
   "variants": [

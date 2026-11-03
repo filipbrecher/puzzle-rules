@@ -1,0 +1,39 @@
+{
+  "id": "29",
+  "names": {
+    "en": [
+      "Ripple Effect",
+      "Hakyuu"
+    ],
+    "ja": [
+      "波及効果"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number into each cell so that each region contains the numbers from 1 to N with no repeats, where N is the number of cells in the region.",
+        "Two instances of the same number in the same row or column must have at least as many cells between them as the value of the number."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のすべてのマスに数字を１つずつ入れましょう。",
+        "太線で区切られた部分を部屋と呼び、それぞれの部屋には、１からその部屋のマス数までの数を１つずつ入れます。",
+        "同じ数字をタテまたはヨコの同じ列に入れる場合は、数字と数字のあいだに、数字と同じ数以上のマスがなければいけません。例えば３を同じ列に２つ入れる場合は、その２つのあいだに３マス以上なければならないということです。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "vjtcey",
+      "problem": "images/29/vjtcey-problem-10w2.webp",
+      "solution": "images/29/vjtcey-solution-82u4.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102311"
+    }
+  ]
+}

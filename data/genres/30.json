@@ -1,0 +1,41 @@
+{
+  "id": "30",
+  "names": {
+    "en": [
+      "Norinori"
+    ],
+    "ja": [
+      "のりのり"
+    ],
+    "cs": [
+      "Norinori"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some dominoes of cells so that every region contains exactly two shaded cells.",
+        "Shaded dominoes may not touch orthogonally."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マスに黒マスがタテヨコに２つ連なったピース（のり）を書き込みます。",
+        "のり同士は辺を共有してはいけません。",
+        "太線で区切られた領域には黒マスが２つずつ入ります。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "8vbdrs",
+      "problem": "images/30/8vbdrs-problem-8j0i.webp",
+      "solution": "images/30/8vbdrs-solution-wpj5.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102306"
+    }
+  ]
+}

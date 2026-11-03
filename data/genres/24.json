@@ -1,0 +1,39 @@
+{
+  "id": "24",
+  "names": {
+    "en": [
+      "Soul Mates"
+    ],
+    "ja": [
+      "ソウルメイツ"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number into some cells such that for each numbered cell, exactly one other number of the same value is able to be reached by traveling through only empty cells.",
+        "The value of each number must be equal to the distance of the shortest possible path from it to its partner."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに1以上の数字を入れます。",
+        "各数字には1つ、同じ数字のパートナーがいて、パートナーのいるマスまで白マス上をタテヨコに通って会いに行ける(以下、「マッチできる」)ようにします。",
+        "数字は、パートナーにマッチさせるために必要な最小移動マス数を表すようにします。たとえば、数字4は白マス上をタテヨコに通って4マス目でパートナーの4とマッチできるようにします。",
+        "同じ数字の組が2組以上あってもかまいませんが、パートナーでない同じ数字にはマッチできないようにします。(他の数字によってさえぎられる、ということです。)"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "nycnjn",
+      "problem": "images/24/nycnjn-problem-h0km.webp",
+      "solution": "images/24/nycnjn-solution-nt9q.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115912"
+    }
+  ]
+}

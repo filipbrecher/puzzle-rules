@@ -1,0 +1,43 @@
+{
+  "id": "21",
+  "names": {
+    "en": [
+      "Guide Arrow"
+    ],
+    "ja": [
+      "ガイドアロー"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are horizontally or vertically adjacent.",
+        "All unshaded cells on the board form an orthogonally connected area",
+        "Unshaded cells cannot form a loop. This includes 2x2 squares.",
+        "Cells with a clue cannot be shaded.",
+        "An arrow indicates the only direction in which one could begin a path to the star without going through a shaded cell or backtracking."
+      ],
+      "source": "https://puzz.link/rules.html?guidearrow",
+      "note": "Reworded"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒マスにします。ただし、矢印が書かれたマスと★がかかれたマスは黒マスにしてはいけません。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断してはいけません。",
+        "引き返す事無く白マスだけをたどって元の場所に戻ってこれるようなマスがあってはいけません。",
+        "矢印は、そのマスからどの方向に出発すれば★に白マスだけを通ってたどり着けるかを示しています。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "l6ropu",
+      "problem": "images/21/l6ropu-problem-2yf5.webp",
+      "solution": "images/21/l6ropu-solution-54pj.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115918"
+    }
+  ]
+}

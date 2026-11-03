@@ -1,0 +1,47 @@
+{
+  "id": "26",
+  "names": {
+    "en": [
+      "School Trip",
+      "Shugaku"
+    ],
+    "ja": [
+      "修学旅行の夜"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place some 1x2 beds in the grid, each with a pillow on one side and shade all of the remaining empty cells.",
+        "All shaded cells form one orthogonally connected area.",
+        "No 2x2 region may be entirely shaded.",
+        "Each bed must be orthogonally touching the group of shaded cells.",
+        "Beds may not overlap each other or shaded cells.",
+        "Cells with clues cannot be shaded or contain beds.",
+        "A clue indicates the number of pillows appearing in cells orthogonally adjacent to it.",
+        "A vertically oriented bed must have its pillow on its bottom half."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "点線上に線を引き、盤面に幅1マス、長さ2マスのブロック(布団)を配置します。さらに、すべての布団のどちらかのマスに□（枕）を入れます。タテに布団を敷く場合、上のマスに枕を入れてはいけません。北枕になりますからね。",
+        "丸（柱）のマスに布団は敷けません。",
+        "数字は、タテヨコ両隣最大4マスに入る枕の数を表します。",
+        "布団が敷かれず、柱でもないマスはすべて黒マス（通路）となります。すべての布団は、1マス以上の通路と辺を共有します。",
+        "すべての通路はタテヨコにひとつながりになります。また、通路が2×2のカタマリになってはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "i7jsm7",
+      "problem": "images/26/i7jsm7-problem-loml.webp",
+      "solution": "images/26/i7jsm7-solution-6dkr.webp",
+      "author": "三価スニウム",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101348"
+    }
+  ]
+}

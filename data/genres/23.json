@@ -1,0 +1,46 @@
+{
+  "id": "23",
+  "names": {
+    "en": [
+      "Sudoku"
+    ],
+    "ja": [
+      "数独",
+      "ナンプレ"
+    ],
+    "cs": [
+      "Sudoku"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number from 1 to N into each empty cell so that each row, column, and bold region contains every number from that range with no repeats, where N is the side length of the grid."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "空いているマスに1から各列のマスの数までの数字を1つずつ書き込みます。",
+        "すべてのタテ列、すべてのヨコ列、すべての太枠で囲まれた領域のそれぞれについて、1から各列のマスの数までの数字が1つずつ入ります。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Do každého políčka vepište jednu číslici od 1 do N tak, aby se číslice neopakovaly v žádném řádku, sloupci ani vyznačeném regionu. N je velikost tabulky."
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "zwf28z",
+      "problem": "images/23/zwf28z-problem-oy5s.webp",
+      "solution": "images/23/zwf28z-solution-58h9.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102309"
+    }
+  ]
+}
