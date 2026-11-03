@@ -67,16 +67,16 @@ Use Rule Notes to describe any differences between the rules as presented on thi
 | Translated | The rules were translated from the source language into another language. |
 
 
-### Language support
+## Classification guidelines
+
+todo
+
+
+## Language support
 
 It supports English, Japanese and Czech for now, but it's easy to add a new language. English ... obviously. Japanese because I will use most of the rules from Puzsq so I want to include their original Japanese versions as well. Czech because I want to record Czech versions for easier use in future Czech tournaments 
 
 Previously when making a tournament I either wrote the rules again, went to my personal sheet with all of my puzzles and copied from the rules in Penpa+, searched the official Czech website for puzzles, looked through past Czech tournament papers or through older latex files with those genres. And for some tournaments I needed to make an English version of the pdfs which made it even more annoying.
-
-
-## Classification guidelines
-
-todo
 
 
 ## Future Goals
