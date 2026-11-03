@@ -1,0 +1,53 @@
+{
+  "id": "5",
+  "names": {
+    "en": [
+      "Masyu"
+    ],
+    "ja": [
+      "ましゅ"
+    ],
+    "cs": [
+      "Masyu"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells that passes through every circle.",
+        "The loop must turn on black circles and travel straight through the cells on either side.",
+        "The loop must go straight through white circles, and turn in at least one of the cells on either side."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面にタテヨコに線を引き、全体で１つの輪っかを作ります。",
+        "輪っかを作る線はマスの中央を通り、盤面の外に出たり、交差したり、枝分かれしたり、行き止まりがあったりしてはいけません。",
+        "線はすべての白丸と黒丸の上を通ります。",
+        "線は白丸の上で直進し、線が白丸の前後で進入するマスの片方もしくは両方で直角に曲がります。",
+        "線は黒丸の上で直角に曲がり、線が黒丸の前後で進入する両方のマスで直進します。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Nakreslete jednu uzavřenou lomenou čáru (smyčku), která se nekříží ani nedotýká sama sebe a prochází středy některých prázdných polí ve vodorovném či svislém směru",
+        "Smyčka nemusí procházet všemi políčky tabulky, ale musí procházet přes všechny kroužky.",
+        "Přes bílý kroužek prochází čára rovně a alespoň v jednom sousedícím políčku se zlomí do pravého úhlu.",
+        "V černém kroužku se čára zlomí do pravého úhlu a v obou směrech pokračuje rovně ještě alespoň přes jedno pole."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "category": "path",
+  "examples": [
+    {
+      "id": "vsr2kk",
+      "problem": "images/5/vsr2kk-problem-4b7e.webp",
+      "solution": "images/5/vsr2kk-solution-yp4r.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102298"
+    }
+  ]
+}

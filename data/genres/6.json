@@ -1,0 +1,52 @@
+{
+  "id": "6",
+  "names": {
+    "en": [
+      "Shakashaka"
+    ],
+    "ja": [
+      "シャカシャカ"
+    ],
+    "cs": [
+      "Shakashaka"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade a right triangle in some empty cells, each of which occupies exactly half the cell it’s in.",
+        "Each unshaded area must be rectangular in shape.",
+        "A number in a cell represents how many of the (up to) four cells orthogonally adjacent to the clue contain triangles."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに対角線を引いて一方を塗りつぶし、直角三角形にします",
+        "盤面の数字は、その数字の入っているマスにタテヨコに隣り合うマスのうち、直角三角形が書かれるマスの数を表します",
+        "塗られずに白く残った領域はすべて長方形（正方形を含む）にならなければなりません"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Do některých bílých polí zakreslete černý pravoúhlý trojúhelník, který zaujímá přesně polovinu políčka (tzn. že žádné bílé pole nelze zcela začernit, pouze z poloviny formou pravoúhlého trojúhelníka). Černá pole zůstanou černá.",
+        "Musí platit, že všechny zbývající (= nezačerněné) bílé plochy v obrazci tvoří výhradně obdélníky nebo čtverce. Čtverce a obdélníky mohou být ve své normální poloze nebo pootočeny o 45°.",
+        "Žádné dvě bílé plochy se nedotýkají stranou, rohem se ale dotýkat mohou.",
+        "Číslo na černém poli značí, kolik pravoúhlých trojúhelníků bude začerněno v (až čtyřech) stranově sousedích polích."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
+    }
+  },
+  "category": "object",
+  "examples": [
+    {
+      "id": "83d8wd",
+      "problem": "images/6/83d8wd-problem-b2sc.webp",
+      "solution": "images/6/83d8wd-solution-2yvb.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102324"
+    }
+  ]
+}

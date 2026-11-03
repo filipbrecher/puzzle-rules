@@ -1,0 +1,55 @@
+{
+  "id": "4",
+  "names": {
+    "en": [
+      "Akari"
+    ],
+    "ja": [
+      "美術館"
+    ],
+    "cs": [
+      "Akari"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Place lights in some cells so that every cell is illuminated.",
+        "Lights illuminate the cell they’re in as well as all cells seen in a straight line horizontally or vertically, not obstructed by a black cell.",
+        "Lights may not illuminate each other.",
+        "Clues represent the number of lights in the (up to) four cells surrounding the clue."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マスに白丸（照明）を書き込みます。",
+        "盤面の数字は、その数字の入っているマスにタテヨコに隣り合うマスのうち、照明が書かれるマスの数を表します。",
+        "照明はそのマスから上下左右それぞれに、壁または黒マスにぶつかるまで直進できる範囲のマスを照らします。",
+        "照明が照らす範囲に他の照明が含まれてはいけません。",
+        "どの照明にも照らされない白マスがあってはいけません。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Do některých prázdných políček tabulky umístěte žárovky tak, aby všechna prázdná políčka obsahovala žárovku, nebo byla žárovkou \"osvětlena\".",
+        "Žárovka svítí ve čtyřech směrech a osvětluje tak všechna bílá políčka, která se od ní nacházejí ve vodorovném či svislém směru. Žárovka však nedokáže \"prosvítit\" černá políčka, takže je-li mezi prázdným políčkem a žárovkou černé políčko, není toto prázdné políčko žárovkou osvětleno.",
+        "Žádné dvě žárovky se nemohou navzájem \"osvětlovat\".",
+        "Čísla v černých políčkách udávají počet žárovek, která se nacházejí v (až čtyřech) stranou sousedích políčkách."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
+    }
+  },
+  "category": "object",
+  "examples": [
+    {
+      "id": "1mk45i",
+      "problem": "images/4/1mk45i-problem-j0a6.webp",
+      "solution": "images/4/1mk45i-solution-n4wy.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126992"
+    }
+  ]
+}

@@ -17,7 +17,9 @@
         "Shade some cells so that no two shaded cells are orthogonally adjacent.",
         "Then draw a non-intersecting loop through the centers of all the remaining empty cells.",
         "Clues cannot be shaded or passed through by the loop, and represent the number of shaded cells in a straight line in the indicated direction."
-      ]
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Reworded"
     },
     "ja": {
       "statements": [
@@ -26,14 +28,16 @@
         "黒マスをタテヨコに連続させてはいけません。",
         "矢印のついた数字はその方向に入る黒マスの数を表します。矢印が指していない範囲にはいくつ黒マスが入るかわかりません。",
         "数字のマスに線を引いたり黒マスを置いたりしてはいけません。"
-      ]
+      ],
+      "source": "Puzsq Rules"
     },
     "cs": {
       "statements": [
         "Začerněte některá políčka tabulky tak, aby spolu žádná dvě začerněná políčka stranově nesousedila.",
         "Potom nakreslete všemi zbylými prázdnými políčky jednu uzavřenou smyčku. Smyčka prochází vodorovně a svisle mezi středy políček a nikde se sama se sebou nekříží ani jinak nedotýká.",
         "Číselné nápovědy nemohou být začerněné ani jimi nemůže procházet smyčka. Udávají počet začerněných políček ve směru šipky."
-      ]
+      ],
+      "source": "Original"
     }
   },
   "category": "path",

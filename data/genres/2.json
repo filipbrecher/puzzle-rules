@@ -1,0 +1,51 @@
+{
+  "id": "2",
+  "names": {
+    "en": [
+      "Heyawake"
+    ],
+    "ja": [
+      "へやわけ"
+    ],
+    "cs": [
+      "Heyawake"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent and the remaining unshaded cells form one orthogonally connected area.",
+        "Numbered regions must contain the indicated amount of shaded cells.",
+        "A line of consecutive unshaded cells may not cross more than one bold border."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断してはいけません。",
+        "盤面に与えられた数字は、太線で区切られた領域の中に入る黒マスの数を表します。数字の入っていない領域にはいくつ黒マスが入るかわかりません。",
+        "タテまたはヨコに連続する白マスが２つ以上の太線をまたいではいけません。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka v tabulce tak, aby zbývající nezačerněná políčka tvořila stranově propojenou plochu, přičemž nesmíte začernit dvě políčka sousedící stranou.",
+        "Oblasti vyznačené tlustými čarami obsahují tolik černých políček, kolik udává číslo, které obsahují.",
+        "Žádná skupina přímo za sebou ležících nezačerněných políček ve vodorovném či svislém směru nesmí vést přes více než jednu tlustou čáru."
+      ],
+      "source": "Original"
+    }
+  },
+  "category": "shading",
+  "examples": [
+    {
+      "id": "rypozc",
+      "problem": "images/2/rypozc-problem-og0c.webp",
+      "solution": "images/2/rypozc-solution-uuym.webp",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102302",
+      "author": "ゆずっこ"
+    }
+  ]
+}

@@ -14,6 +14,76 @@
           "Yajilin"
         ]
       }
+    },
+    {
+      "id": "2",
+      "names": {
+        "en": [
+          "Heyawake"
+        ],
+        "ja": [
+          "へやわけ"
+        ],
+        "cs": [
+          "Heyawake"
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "names": {
+        "en": [
+          "LITS"
+        ],
+        "ja": [
+          "LITS"
+        ],
+        "cs": [
+          "LITS"
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "names": {
+        "en": [
+          "Akari"
+        ],
+        "ja": [
+          "美術館"
+        ],
+        "cs": [
+          "Akari"
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "names": {
+        "en": [
+          "Masyu"
+        ],
+        "ja": [
+          "ましゅ"
+        ],
+        "cs": [
+          "Masyu"
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "names": {
+        "en": [
+          "Shakashaka"
+        ],
+        "ja": [
+          "シャカシャカ"
+        ],
+        "cs": [
+          "Shakashaka"
+        ]
+      }
     }
   ],
   "variants": [
