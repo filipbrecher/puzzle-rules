@@ -122,7 +122,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let SAVED=null;try{SAVED=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 let S={languages:DEFL,genres:{},variants:{},combos:{},dirty:false};
-let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();let appPage=0,appSel=null,RAW={},SR=false;
+let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();let appPage=0,appSel=null,RAW={},SR=false,SELS={};
 const langs=()=>S.languages.map(l=>l.code);
 const base=()=>(S.languages.find(l=>l.base)||S.languages[0]).code;
 const kind=()=>tab==="genres"?"g":tab==="variants"?"v":"a";
@@ -179,7 +179,7 @@ async function connect(){const rp=await api("");if(rp.permissions&&rp.permission
  G.commit=(await api(`git/ref/heads/${C.branch}`)).object.sha;
  G.imgs=new Set((await api(`git/trees/${G.commit}?recursive=1`)).tree.filter(x=>x.type==="blob"&&x.path.startsWith("images/")).map(x=>x.path));
  let n;try{n=await pull(G.commit)}catch(e){if(!/404/.test(e.message))throw e}
- S=n||{languages:DEFL,genres:{},variants:{},combos:{},dirty:false};sel=null;G.base=n?{...RAW}:{};G.pend={};
+ S=n||{languages:DEFL,genres:{},variants:{},combos:{},dirty:false};if(!(S[tab]||{})[sel])sel=null;G.base=n?{...RAW}:{};G.pend={};
  G.edit=false;if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;G.pend=pend||{};G.edit=true}SAVED=null;G.authed=true}
 async function load(){if(!C.branch)C.branch=(await api("")).default_branch;
  if(TOK())await connect();else{S=await pull(C.branch);sel=null;G.authed=false;G.edit=false}}
@@ -306,9 +306,9 @@ function hdr(){const d=A()&&S.dirty;$("#new").disabled=!A();$("#imp").disabled=!
  $("#sv").disabled=!d;$("#sv").classList.toggle("pri",d);$("#dc").disabled=!d;$("#dirty").style.visibility=d?"visible":"hidden";$("#dots").classList.toggle("dirty",d)}
 function status(){document.title=(A()&&S.dirty?"● ":"")+"Puzzle rules";hdr()}
 function render(){tabs();filters();list();editor();status()}
-function go(t,id){if(mob())hideSearch();clean(coll()[sel]);tab=t;sel=id;armDel=null;q="";F={};$("#q").value="";render()}
+function go(t,id){if(mob())hideSearch();clean(coll()[sel]);SELS[tab]=sel;tab=t;sel=id;armDel=null;q="";F={};$("#q").value="";render()}
 let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.innerHTML=lblH(e,kind())||"New combination"},200)};
-$("#tabs").onclick=ev=>{const t=ev.target.dataset.tab;if(t){clean(coll()[sel]);tab=t;sel=null;armDel=null;F={};render()}};
+$("#tabs").onclick=ev=>{const t=ev.target.dataset.tab;if(t){clean(coll()[sel]);SELS[tab]=sel;tab=t;sel=coll()[SELS[t]]?SELS[t]:null;armDel=null;F={};render()}};
 $("#q").oninput=ev=>{q=ev.target.value;list()};
 $("#flt").oninput=ev=>{F[ev.target.dataset.f]=ev.target.value;list()};
 $("#list").onclick=ev=>{const d=ev.target.closest(".it");if(d){if(mob())hideSearch();clean(coll()[sel]);sel=d.dataset.id;armDel=null;list();editor()}};
