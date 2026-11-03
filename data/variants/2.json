@@ -1,0 +1,26 @@
+{
+  "id": "2",
+  "names": {
+    "en": [
+      "Symmetrical Regions"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shaded cells in all regions must have 180° rotational symmetry around the region's center."
+      ],
+      "source": "Puzsq Rules",
+      "note": "From Ekawayeh rules"
+    },
+    "ja": {
+      "statements": [
+        "すべての部屋には、黒マスが点対称に入ります。"
+      ],
+      "source": "Puzsq Rules",
+      "note": "From Ekawayeh rules"
+    }
+  },
+  "kind": "general",
+  "category": "shading"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "11",
+  "names": {
+    "en": [
+      "Nurimisaki"
+    ],
+    "ja": [
+      "ぬりみさき"
+    ],
+    "cs": [
+      "Nurimisaki"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that the remaining unshaded cells form one orthogonally connected area.",
+        "No 2x2 region may be entirely shaded or unshaded.",
+        "Circles mark every instance of a cell which is unshaded and orthogonally adjacent to exactly one other unshaded cell.",
+        "If a circle contains a number, it indicates how many cells are in the straight line of unshaded cells coming out of the cell with the circle, including itself."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします",
+        "すべての白マスはタテヨコにひとつながりになっていなければなりません",
+        "黒マスも白マスも2×2以上のカタマリになってはいけません",
+        "タテヨコに隣り合う最大４マスのうち、１マスだけが白マスで、残りが黒く塗られたマスのことを「岬」と呼びます。丸の入ったマスはすべて岬になります。丸の入らないマスが岬になってはいけません",
+        "丸の中の数字は、丸のマスから白マスの方向に、自身を含めていくつ白マスが連続するかを表します。数字のない丸のマスでは、何マス連続するかはわかりません"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "category": "shading",
+  "examples": [
+    {
+      "id": "uth1cf",
+      "problem": "images/11/uth1cf-problem-r8dm.webp",
+      "solution": "images/11/uth1cf-solution-wic5.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/14987"
+    }
+  ]
+}

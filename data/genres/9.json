@@ -1,0 +1,55 @@
+{
+  "id": "9",
+  "names": {
+    "en": [
+      "Nurikabe"
+    ],
+    "ja": [
+      "ぬりかべ"
+    ],
+    "cs": [
+      "Nurikabe"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that all shaded cells form one orthogonally connected area.",
+        "Clues cannot be shaded, and every orthogonally connected area of unshaded cells contains exactly one clue, the value of which represents the size of the area.",
+        "No 2x2 region may be entirely shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします",
+        "すべての黒マスはタテヨコにひとつながりになっていなければなりません",
+        "黒マスが2×2以上のカタマリになってはいけません",
+        "数字は黒マスによって分断されたひとつながりの白マス領域のマス数を表します。",
+        "すべての白マス領域には１つずつ数字が入ります",
+        "数字の入ったマスを黒く塗りつぶすことはできません"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka tabulky tak, aby tvořila jednu stranově propojenou oblast.",
+        "Políčka s čísly nesmí být začerněná.",
+        "Žádný 2x2 čtverec políček nesmí být celý začerněný.",
+        "Každá stranově propojená oblast nezačerněných políček musí obsahovat přesně jedno číslo, které zároveň udává velikost té oblasti.",
+        "Otazník označuje libovolně velkou oblast."
+      ],
+      "source": "Original"
+    }
+  },
+  "category": "shading",
+  "examples": [
+    {
+      "id": "njcxs9",
+      "problem": "images/9/njcxs9-problem-e8b7.webp",
+      "solution": "images/9/njcxs9-solution-m9j5.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102301"
+    }
+  ]
+}

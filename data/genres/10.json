@@ -1,0 +1,42 @@
+{
+  "id": "10",
+  "names": {
+    "en": [
+      "Choco Banana"
+    ],
+    "ja": [
+      "チョコバナナ"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells on the board.",
+        "A group of shaded cells must form a rectangle or square.",
+        "A group of unshaded cells must not form a rectangle or square.",
+        "A number indicates the size of the (shaded or unshaded) group that overlaps it. A group can contain one or more numbers, or none at all."
+      ],
+      "source": "https://puzz.link/rules.html?cbanana"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒く塗りましょう。",
+        "タテヨコにひとつながりになった黒マスのカタマリは、長方形（正方形含む）になります。",
+        "タテヨコにひとつながりになった白マスのカタマリは、長方形（正方形含む）以外の形になります。",
+        "数字は、そのマスを含むカタマリのマス数を表します。",
+        "（パズル通信ニコリ vol.176より）"
+      ],
+      "source": "https://puzz.link/rules.html?cbanana"
+    }
+  },
+  "category": "shading",
+  "examples": [
+    {
+      "id": "2y4ez7",
+      "problem": "images/10/2y4ez7-problem-65hj.webp",
+      "solution": "images/10/2y4ez7-solution-cc6v.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101312"
+    }
+  ]
+}

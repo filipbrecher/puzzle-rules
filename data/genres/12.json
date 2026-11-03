@@ -1,0 +1,40 @@
+{
+  "id": "12",
+  "names": {
+    "en": [
+      "No Three"
+    ],
+    "ja": [
+      "ノースリー"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent and the remaining unshaded cells form one orthogonally connected area.",
+        "Each circle must touch exactly one shaded cell.",
+        "Three consecutive shaded cells within the same row or column may not be evenly spaced."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒く塗りましょう。",
+        "小さな丸が置かれた場所では、その丸が接している最大4マスのうち1マスだけが黒マスになります。",
+        "すべてのヨコ列、タテ列で、連続した黒マスが等間隔に3つ以上並ぶ形になってはいけません。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断したりしてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "category": "shading",
+  "examples": [
+    {
+      "id": "6i5vd8",
+      "problem": "images/12/6i5vd8-problem-fa26.webp",
+      "solution": "images/12/6i5vd8-solution-ud8v.webp",
+      "author": "fff",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115909"
+    }
+  ]
+}

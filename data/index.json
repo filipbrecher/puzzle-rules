@@ -109,6 +109,56 @@
           "Ploty"
         ]
       }
+    },
+    {
+      "id": "9",
+      "names": {
+        "en": [
+          "Nurikabe"
+        ],
+        "ja": [
+          "ぬりかべ"
+        ],
+        "cs": [
+          "Nurikabe"
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "names": {
+        "en": [
+          "Choco Banana"
+        ],
+        "ja": [
+          "チョコバナナ"
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "names": {
+        "en": [
+          "Nurimisaki"
+        ],
+        "ja": [
+          "ぬりみさき"
+        ],
+        "cs": [
+          "Nurimisaki"
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "names": {
+        "en": [
+          "No Three"
+        ],
+        "ja": [
+          "ノースリー"
+        ]
+      }
     }
   ],
   "variants": [
@@ -120,6 +170,14 @@
         ],
         "cs": [
           "Hexagonální"
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "names": {
+        "en": [
+          "Symmetrical Regions"
         ]
       }
     }
