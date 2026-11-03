@@ -164,10 +164,16 @@ async function pull(ref){RAW={};const f=async p=>{const r=await fetch(raw(ref,p)
  const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},combos:{},dirty:false};
  await Promise.all([...(ix.genres||[]).map(x=>["genres",x.id]),...(ix.variants||[]).map(x=>["variants",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
  (await f("data/combinations.json")).forEach(a=>n.combos[a.id]=a);return n}
-function files(){const o={},cl=e=>{const c=JSON.parse(JSON.stringify(e));clean(c);return c};
+const pk=(o,ks)=>{const r={};ks.forEach(k=>{if(o&&o[k]!==undefined)r[k]=o[k]});return r};
+function shape(t,e){const c=JSON.parse(JSON.stringify(e));clean(c);
+ const ex=a=>(a||[]).map(x=>pk(x,["id","problem","solution","author","source","note"])),rl=r=>{const o={};for(const l in r||{})o[l]=pk(r[l],["statements","source","note"]);return o},b={id:c.id,names:c.names,notes:c.notes};
+ if(t==="genres")return{...b,category:c.category,inventor:pk(c.inventor,["name","source","note"]),rules:rl(c.rules),examples:ex(c.examples)};
+ if(t==="variants")return{...b,families:c.families,kind:c.kind,category:c.kind==="general"?c.category:undefined,genre:c.kind==="specific"?c.genre:undefined,inventor:pk(c.inventor,["name","source","note"]),rules:rl(c.rules)};
+ return{...b,components:(c.components||[]).map(x=>pk(x,["type","id"])),examples:ex(c.examples),appearances:(c.appearances||[]).map(x=>pk(x,["author","source","note"]))}}
+function files(){const o={};
  o["data/languages.json"]=J(S.languages);
- for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(prune(cl(e))));
- o["data/combinations.json"]=J(prune(Object.values(S.combos).map(a=>({...a,components:sortComps([...(a.components||[])])})))||[]);
+ for(const t of["genres","variants"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(prune(shape(t,e))));
+ o["data/combinations.json"]=J(prune(Object.values(S.combos).map(a=>shape("combos",{...a,components:sortComps([...(a.components||[])])})))||[]);
  o["data/index.json"]=J(prune({schemaVersion:1,genres:Object.values(S.genres).map(e=>({id:e.id,names:e.names})),variants:Object.values(S.variants).map(e=>({id:e.id,names:e.names}))}));return o}
 async function connect(){const rp=await api("");if(rp.permissions&&rp.permissions.push===false)throw Error("This token cannot write to the repo");
  G.commit=(await api(`git/ref/heads/${C.branch}`)).object.sha;
@@ -205,7 +211,7 @@ function editor(){editor0();applyMode()}
 async function boot(){if(!C.owner||!C.repo)return;try{await load()}catch(e){flash("GitHub: "+hint(e))}render()}
 function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor||{name:"",source:"",note:""};e.notes=e.notes||"";
  langs().forEach(l=>{e.names[l]=e.names[l]||[];const r=e.rules[l]=e.rules[l]||{};r.statements=r.statements||[];r.source=r.source||"";r.note=r.note||""});
- if(k==="v"){e.families=e.families||[];if(!e.kind){e.kind="general";e.category="all"}}else e.categories=e.categories||[];return e}
+ if(k==="v"){e.families=e.families||[];if(!e.kind){e.kind="general";e.category="all"}}else e.category=e.category||"";return e}
 function nm(e){const b=e.names?.[base()]||[];if(b.length)return b.join(" / ");for(const l of langs()){const n=(e.names?.[l]||[])[0];if(n)return n}return""}
 function snip(e){const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
 const authText=c=>{const a=[...new Set((c.appearances||[]).map(x=>x.author).filter(Boolean))];return a.slice(0,3).join(", ")+(a.length>3?" and others":"")};
@@ -224,7 +230,7 @@ function wscore(e,w){let s=0;
 function sc(e,ws){if(!ws.length)return 1;let tot=0;for(const w of ws){const s=wscore(e,w);if(!s)return 0;tot+=s}return tot}
 function items(){const k=kind(),ws=words(q);
  let a=Object.values(coll()).map(e=>({e,s:k==="a"?(ws.every(w=>(lbl(e,"a")+" "+Object.values(e.names||{}).flat().join(" ")+" "+(e.components||[]).map(c=>{const x=cget(c);return x?Object.values(x.names||{}).flat().join(" "):""}).join(" ")+" "+(e.appearances||[]).map(x=>[x.author,x.source,x.note].join(" ")).join(" ")+" "+(e.notes||"")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
-  if(F.c)a=a.filter(x=>(x.e.categories||[]).includes(F.c));
+  if(F.c)a=a.filter(x=>x.e.category===F.c);
  if(F.r)a=a.filter(x=>!sts(x.e,F.r).length);
  if(F.n)a=a.filter(x=>F.n==="*"?langs().every(l=>!(x.e.names?.[l]||[]).length):!(x.e.names?.[F.n]||[]).length);
  if(F.f)a=a.filter(x=>fams(x.e).includes(F.f));
@@ -234,7 +240,7 @@ function items(){const k=kind(),ws=words(q);
 function meta(e,k){
  if(k==="a")return authText(e)?`<span class="au">${esc(authText(e))}</span>`:"";
  const p=[];if(!nm(e)&&snip(e))p.push(esc(snip(e)));
- if(k==="g"){if((e.categories||[]).length)p.push((e.categories||[]).map(c=>`<span class="c">${esc(catLbl(c))}</span>`).join(", "))}
+ if(k==="g"){if(e.category)p.push(`<span class="c">${esc(catLbl(e.category))}</span>`)}
  else if(fams(e).length)p.push(esc(fams(e).join(", ")))
  return p.join(" · ")}
 function tabs(){$("#tabs").innerHTML=[["genres","Genres"],["variants","Variants"],["combos","Combinations"]].map(([t,n])=>`<button data-tab="${t}" class="${t===tab?"on":""}">${n} (${Object.keys(S[t]).length})</button>`).join("")}
@@ -266,7 +272,7 @@ function editor0(){const k=kind(),e=coll()[sel];
  const used=usedBy(type,e.id),vu=k==="g"?Object.values(S.variants).filter(v=>v.kind==="specific"&&v.genre===e.id):[];
  let h=`<div class="top"><h2>${lblH(e,k)}</h2><span class="idt">#${esc(e.id)}</span>${used.length+vu.length?`<button class="dg" disabled title="Remove it from its appearances and variants first">Can't delete: used in ${useTxt(used.length,vu.length)}</button>`:`<button class="dg" data-del>Delete</button>`}</div>`;
  h+=namesCard(e,"Names"+(k==="v"?" (optional)":""));
- let d=k==="g"?`<div class="cats"><label>Categories:</label>${CATS.map(c=>`<label><input type="checkbox" data-cat="${c[0]}" ${(e.categories||[]).includes(c[0])?"checked":""}>${c[1]}</label>`).join("")}</div>`
+ let d=k==="g"?`<div class="row"><label>Category<select data-p="category"><option value="">Choose…</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label></div>`
   :`<div class="row"><label>Applies to<select data-p="kind"><option value="general" ${e.kind==="general"?"selected":""}>All genres of a category</option><option value="specific" ${e.kind==="specific"?"selected":""}>One specific genre</option></select></label>${e.kind==="specific"?`<label>Genre<select data-p="genre"><option value="">Choose…</option>${Object.values(S.genres).sort((a,b)=>lbl(a,"g").localeCompare(lbl(b,"g"))).map(g=>`<option value="${esc(g.id)}" ${e.genre===g.id?"selected":""}>${esc(lbl(g,"g"))}</option>`).join("")}</select></label>`:`<label>Category<select data-p="category"><option value="all" ${e.category==="all"?"selected":""}>All</option>${CATS.map(c=>`<option value="${c[0]}" ${e.category===c[0]?"selected":""}>${c[1]}</option>`).join("")}</select></label>`}</div><label>Families</label><div class="chips">${e.families.map((f,i)=>`<span class="chip">${esc(f)}<button data-rmf="${i}" title="Remove">×</button></span>`).join("")}<input id="fin" list="fam" placeholder="Add family, press Enter"></div><datalist id="fam">${[...new Set(Object.values(S.variants).flatMap(fams))].map(f=>`<option value="${esc(f)}">`).join("")}</datalist>`;
  d+=`<div class="row">${fld("Inventor","inventor.name",e.inventor.name)}${fld("Source","inventor.source",e.inventor.source||"")}${ta("Note","inventor.note",e.inventor.note)}</div>`;
  h+=card("Details",d);
@@ -315,7 +321,6 @@ function setp(o,p,v){const k=p.split("."),last=k.pop();let x=o;for(const s of k)
 $("#ed").addEventListener("input",ev=>{const t=ev.target,e=coll()[sel];if(!e||!A())return;
  if(t.id?.startsWith("pk-"))return pickList(t.id.slice(3));
  if(t.dataset.si!==undefined){e.rules[t.dataset.sl].statements[+t.dataset.si]=t.value;grow(t)}
- else if(t.dataset.cat){const a=e.categories=e.categories||[];if(t.checked){if(!a.includes(t.dataset.cat))a.push(t.dataset.cat)}else e.categories=a.filter(x=>x!==t.dataset.cat)}
  else if(t.dataset.p){if(t.dataset.p==="kind"){e.kind=t.value;if(e.kind==="specific")e.genre=e.genre||"";else e.category=e.category||"all";save();return editor()}
   setp(e,t.dataset.p,t.dataset.l?t.value.split("\n").map(s=>s.trim()).filter(Boolean):t.value);
   const m=t.dataset.p.match(/^rules\.(\w+)\.statements$/);if(m)$("#n_"+m[1]).textContent=e.rules[m[1]].statements.length+" statements"}
