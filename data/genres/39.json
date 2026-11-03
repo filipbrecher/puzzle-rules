@@ -1,0 +1,50 @@
+{
+  "id": "39",
+  "names": {
+    "en": [
+      "Skyscrapers"
+    ],
+    "ja": [
+      "ビルディングパズル"
+    ],
+    "cs": [
+      "Mrakodrapy"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number from 1 to N into each cell so that each row and column contains every number from that range with no repeats, where N is the side length of the grid.",
+        "A clue outside the grid represents how many cells in the corresponding row or column contain a larger number than all cells before it in that row or column from the direction of the clue."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "全ての空いているマスに数字を1つずつ書き込み、タテヨコ全ての列で1～N（Nは1列のマスの数）の数字が1つずつ現れるようにします。",
+        "マスの中の数字は、そのマスに建っているビルの高さを表します。盤面の外の数字は、その場所から盤面内を見たときに見えるビルの数を表します。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Doplň do všech prázdných polí tabulky čísla 1 až N tak, aby se v žádném řádku ani sloupci neopakovala. N je velikost tabulky.",
+        "Čísla v tabulce představují výšku budovy stojící na daném políčku.",
+        "Čísla okolo tabulky udávají, kolik budov je viditelných z daného směru, přičemž budova je vidět pouze pokud jsou všechny budovy před ní nižší."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
+    }
+  },
+  "examples": [
+    {
+      "id": "3x8t9l",
+      "problem": "images/39/3x8t9l-problem-jaeu.webp",
+      "solution": "images/39/3x8t9l-solution-g1cr.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101439"
+    }
+  ]
+}

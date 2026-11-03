@@ -1,0 +1,43 @@
+{
+  "id": "40",
+  "names": {
+    "en": [
+      "Icebarn"
+    ],
+    "ja": [
+      "アイスバーン"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a path through the centers of some cells, entering the grid at the “IN” marking and exiting at the “OUT” marking.",
+        "The path must travel through all of the arrows in the indicated direction.",
+        "Two perpendicular line segments may intersect each other only on icy cells, but they may not turn at their intersection or otherwise overlap.",
+        "The path may not turn on icy cells, and each orthogonally connected group of icy cells must be passed through at least once."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "ＩＮから入ってＯＵＴまで、１本の分岐のない線を引きます。線はタテヨコにマスの中央を通り、途中で盤面の外に出てはいけません。",
+        "灰色のマスをアイスバーンと呼びます。線はアイスバーン上で曲がることはできません。",
+        "線は、アイスバーン上でのみ交差することができます。",
+        "線は、それぞれのアイスバーン（タテヨコにつながっている灰色のマスはすべて１つのアイスバーンとします）を少なくとも１回は通ります。",
+        "矢印で結ばれた２マスには必ず線が通り、できた線上では矢印は必ずＯＵＴのほうを向きます。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "4k4luc",
+      "problem": "images/40/4k4luc-problem-dtdv.webp",
+      "solution": "images/40/4k4luc-solution-l9hw.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101438"
+    }
+  ]
+}

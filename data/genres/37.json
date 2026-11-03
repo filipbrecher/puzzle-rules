@@ -1,0 +1,45 @@
+{
+  "id": "37",
+  "names": {
+    "en": [
+      "Aquapelago"
+    ],
+    "ja": [
+      "Aquapelago"
+    ],
+    "cs": [
+      "Aquapelago"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells on the board. Some shaded cells may be given.",
+        "Shaded cells cannot be horizontally or vertically adjacent.",
+        "The unshaded cells cannot form a 2x2 square.",
+        "A number indicates the amount of cells in its diagonally connected group of shaded cells.",
+        "All unshaded cells on the board form an orthogonally connected area."
+      ],
+      "source": "puzz.link"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒マスにします。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断してはいけません。",
+        "白マスが2×2以上のカタマリになってはいけません。",
+        "数字は、その数字が含まれる、黒マスがナナメにつながったカタマリのマス数を表します。"
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "mx0215",
+      "problem": "images/37/mx0215-problem-qmij.webp",
+      "solution": "images/37/mx0215-solution-m7xa.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115919"
+    }
+  ]
+}

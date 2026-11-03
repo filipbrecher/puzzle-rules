@@ -1,0 +1,54 @@
+{
+  "id": "38",
+  "names": {
+    "en": [
+      "Polyominous"
+    ],
+    "ja": [
+      "Polyominous"
+    ],
+    "cs": [
+      "Polyominous"
+    ]
+  },
+  "notes": "This genre is often called Tetrominous, Pentominous, ... if the shape bank includes exactly all Tetrominoes, Pentominoes, ...",
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions in the shapes of the given polyomino shapes.",
+        "Two regions with the same shape can't touch themselves orthogonally. Rotated and reflected shapes are considered the same.",
+        "Clued cells must belong to a region with the polyomino shape associated with that letter."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Modified"
+    },
+    "ja": {
+      "statements": [
+        "盤面を与えられたポリオミノのセットに分割する。",
+        "合同なポリオミノは辺で接しない。",
+        "盤面に表出している記号は、その記号のあるマスが、その記号に対応するポリオミノの一部になることを意味する。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte tabulku na polyomina (= regiony) tak, aby každé pole tabulky bylo součástí přesně jednoho polyomina. Tvary regionů mohou být pouze z uvedené sady polyomin.",
+        "Dvě stejná polyomina se přitom nesmějí dotýkat stranou, diagonálně se dotýkat mohou. Otočené či zrcadlově převrácené tvary polyomin se považují za stejné.",
+        "Písmena předem zadaná v polích tabulky značí tvar polyomina, které do tohoto pole zasahuje. Polyomina mohou obsahovat žádné nebo více takto označených polí."
+      ],
+      "source": "Puzsq Rules",
+      "note": "Translated and reworded"
+    }
+  },
+  "examples": [
+    {
+      "id": "7y7eoe",
+      "problem": "images/38/7y7eoe-problem-p9t1.webp",
+      "solution": "images/38/7y7eoe-solution-4yw2.webp",
+      "author": "へーくま",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101676",
+      "note": "Pentomino shape bank."
+    }
+  ]
+}

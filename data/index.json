@@ -451,6 +451,62 @@
       "names": {
         "en": [
           "Bramble"
+        ],
+        "ja": [
+          "Bramble"
+        ]
+      }
+    },
+    {
+      "id": "37",
+      "names": {
+        "en": [
+          "Aquapelago"
+        ],
+        "ja": [
+          "Aquapelago"
+        ],
+        "cs": [
+          "Aquapelago"
+        ]
+      }
+    },
+    {
+      "id": "38",
+      "names": {
+        "en": [
+          "Polyominous"
+        ],
+        "ja": [
+          "Polyominous"
+        ],
+        "cs": [
+          "Polyominous"
+        ]
+      }
+    },
+    {
+      "id": "39",
+      "names": {
+        "en": [
+          "Skyscrapers"
+        ],
+        "ja": [
+          "ビルディングパズル"
+        ],
+        "cs": [
+          "Mrakodrapy"
+        ]
+      }
+    },
+    {
+      "id": "40",
+      "names": {
+        "en": [
+          "Icebarn"
+        ],
+        "ja": [
+          "アイスバーン"
         ]
       }
     }
