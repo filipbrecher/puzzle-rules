@@ -27,6 +27,39 @@ Make sure that translations of puzzle names are correct. You can always write mu
 
 Ask the owner of this repository for further questions or if there is some unclarity.
 
+### Rule Source Guidelines
+
+**Rule Source** indicates where the rules were originally obtained or which source they are based on.
+
+If the rules are copied from Puzsq, use the source label specified on Puzsq (e.g. "Puzsq Rules", "Original", or another source). Do not automatically use "Puzsq Rules" just because the rules were obtained from Puzsq. If the rules come from another reference, such as a dictionary, publication, social media post, or website, specify that source.
+
+If the rules are reworded, modified, or translated, keep the original source and describe the changes in **Rule Notes**.
+
+When rules are available in multiple languages, the source should refer to the source of the original-language rules, if known, rather than the source of the translation. The translation or other changes should be documented in Rule Notes.
+
+The **Inventor** refers to the person who invented the puzzle genre, not necessarily the person who wrote the rules. If the inventor is unknown, the first known appearance of the genre can be specified in the notes instead.
+
+| Source label | Meaning |
+| -------- | ------- |
+| Original | Rules taken from the original puzzle publication or the original source in which the rules appeared. |
+| Puzsq Rules | Rules obtained from Puzsq, where Puzsq Rules is listed as the source. |
+| Eric Fox's Dictionary of Rulesets | Rules obtained from Eric Fox's Dictionary of Rulesets. |
+| Twitter / X | Rules obtained from a Twitter / X post. Include a link to the post where possible. |
+| Website name or URL | Rules obtained from the specified website. |
+| Dlouhodobá soutěž HALAS | Rules obtained from the HALAS long-term competition. |
+| Puzzle Rules | Rules independently written or compiled for this project, without a more specific external source. |
+
+### Rule Notes
+
+Use Rule Notes to describe any differences between the rules as presented on this site and those in the original source.
+
+| Note label | Meaning |
+| -------- | ------- |
+| Reworded | The wording was changed for clarity, readability, or consistency with rules for other genres, without changing the meaning. |
+| Modified | The rules were changed in some way, resulting in a difference in meaning or interpretation compared to the source. |
+| Translated | The rules were translated from the source language into another language. |
+
+
 ### Language support
 
 It supports English, Japanese and Czech for now, but it's easy to add a new language. English ... obviously. Japanese because I will use most of the rules from Puzsq so I want to include their original Japanese versions as well. Czech because I want to record Czech versions for easier use in future Czech tournaments 
