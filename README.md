@@ -3,7 +3,7 @@
 Repo for storing puzzle Genre rules, Variant rules, and their Combinations. Plus additional metadata and example puzzles. This is meant mainly for easy access to rules in multiple languages, searching through past Combinations and access to example puzzles.
 
 
-### Info
+## Info
 
 I tried to make a simple way to organize the Variants and their usage for personal use, but I will share it publicly as well.
 Genre + Variant combinations can be seen in Combinations with possible sources where they appeared or example puzzles. There may be Combinations with multiple Genres or Variants.
@@ -22,13 +22,15 @@ Go to https://filipbrecher.github.io/puzzle-rules where it's accessible for view
 As I said above, I made this primarily for personal use, but I want to share it publicly as well (for browsing through). I am considering allowing other users to also edit, but only to trustworthy individuals (personal connections) using custom access tokens (for now).
 
 
-### For Contributors
+## For Contributors
+
+Ask the owner of this repository for further questions or if there is some unclarity.
+
+### Languages and Rule Names and Statements
 
 When adding new rules or modifying existing rules, always make sure that they are correct and somewhat consistent across languages. Make sure that all Statements end in a period so that copying the raw text version of the rules gives correct sentences.
 
 Make sure that translations of puzzle names are correct. You can always write multiple names for a puzzle or always add a new one if it's missing. Don't include the exact same names in other languages unless you are 100% sure that there isn't any other name for that puzzle in that language. (Example: "Slitherlink" is in English, but in Czech it's called "Slitherlink" or "Ploty", so we'd ommit the "Slitherlink" name.) (Another example: "Nurimisaki" is in English, but in Czech it's also "Nurimisaki". There isn't any other used name. It's ok to write "Nurimisaki" as the Czech name in this case.)
-
-Ask the owner of this repository for further questions or if there is some unclarity.
 
 
 ### Rule Source Guidelines
@@ -72,7 +74,12 @@ It supports English, Japanese and Czech for now, but it's easy to add a new lang
 Previously when making a tournament I either wrote the rules again, went to my personal sheet with all of my puzzles and copied from the rules in Penpa+, searched the official Czech website for puzzles, looked through past Czech tournament papers or through older latex files with those genres. And for some tournaments I needed to make an English version of the pdfs which made it even more annoying.
 
 
-### Future Goals
+## Classification guidelines
+
+todo
+
+
+## Future Goals
 
 One of the future goals is to standardize rules in a way where I could make a general editor (like Penpa+ feature variability combined with Puzzlink's or Pzprxs's easy editing abilities and pzpus-solver2's ability to solve puzzles), but (maybe) with automatically generated text rules from the actual rules that constrain the puzzle.
 
