@@ -19,6 +19,14 @@ Go to https://filipbrecher.github.io/puzzle-rules where it's accessible for view
 
 As I said above, I made this primarily for personal use, but I want to share it publicly as well (for browsing through). I am considering allowing other users to also edit, but only to trustworthy individuals (personal connections) using custom access tokens (for now).
 
+### For Contributors
+
+When adding new rules or modifying existing rules, always make sure that they are correct and somewhat consistent across languages. Make sure that all Statements end in a period so that copying the raw text version of the rules gives correct sentences.
+
+Make sure that translations of puzzle names are correct. You can always write multiple names for a puzzle or always add a new one if it's missing. Don't include the exact same names in other languages unless you are 100% sure that there isn't any other name for that puzzle in that language. (Example: "Slitherlink" is in English, but in Czech it's called "Slitherlink" or "Ploty", so we'd ommit the "Slitherlink" name.) (Another example: "Nurimisaki" is in English, but in Czech it's also "Nurimisaki". There isn't any other used name. It's ok to write "Nurimisaki" as the Czech name in this case.)
+
+Ask the owner of this repository for further questions or if there is some unclarity.
+
 ### Language support
 
 It supports English, Japanese and Czech for now, but it's easy to add a new language. English ... obviously. Japanese because I will use most of the rules from Puzsq so I want to include their original Japanese versions as well. Czech because I want to record Czech versions for easier use in future Czech tournaments 
