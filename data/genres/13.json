@@ -1,0 +1,48 @@
+{
+  "id": "13",
+  "names": {
+    "en": [
+      "Simple Loop"
+    ],
+    "ja": [
+      "シンプルループ"
+    ],
+    "cs": [
+      "Smyčka"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of all empty cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の白マスにタテヨコに線を引き、すべての白マスを通る１つの輪っかを作ります",
+        "輪っかを作る線は交差したり枝分かれしたり行き止まりがあったりしてはいけません"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Nakresli jednu uzavřenou čáru (smyčku), která se nekříží ani sama sebe nedotýká, a prochází středy všech prázdných polí ve vodorovném či svislém směru."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
+    }
+  },
+  "categories": [
+    "path"
+  ],
+  "examples": [
+    {
+      "id": "m6ryk0",
+      "problem": "images/13/m6ryk0-problem-8mbo.webp",
+      "solution": "images/13/m6ryk0-solution-aj05.webp",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101230",
+      "author": "AOKI"
+    }
+  ]
+}
