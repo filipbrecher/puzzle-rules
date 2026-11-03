@@ -1,0 +1,48 @@
+{
+  "id": "35",
+  "names": {
+    "en": [
+      "Curve Data"
+    ],
+    "ja": [
+      "カーブデータ"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines between the centers of cells so that each connected figure goes through exactly one clue, and all cells are used by a figure.",
+        "Clues show how their figures turn and connect with themselves, not allowing rotation or reflection, but do not indicate the lengths of the line segments.",
+        "Lines may not cross bold borders."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Modified"
+    },
+    "ja": {
+      "statements": [
+        "マスの中心をタテヨコにつなぐ線を引き、盤面上にいくつかの図形を作ります。全てのマスで、必ずどれか一つの図形が通るようにします。",
+        "各図形は、記号のマスをちょうど一つだけ通ります。",
+        "記号は、そのマスを通る図形の線のつながり方を表します。ただし長さの比率は正確ではなく、一部分が伸びたり縮んだりする可能性があります。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "cs": {
+      "statements": [
+        "Do tabulky nakreslete vodorovné či svislé čáry spojující středy některých sousedních políček tak, abyste vytvořili spojité tvary. Každé políčko musí být součástí nějakého tvaru.",
+        "Nápovědy ukazují, jak se tvary stáčejí a spojují sami se sebou. Jejich otáčení ani převracení není povoleno. Nápovědy neříkají nic o délkách jednotlivých úseků tvaru.",
+        "Přes tlusté hrany čára vést nesmí."
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "akmepl",
+      "problem": "images/35/akmepl-problem-nywy.webp",
+      "solution": "images/35/akmepl-solution-j7a3.webp",
+      "author": "みくろん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101260"
+    }
+  ]
+}

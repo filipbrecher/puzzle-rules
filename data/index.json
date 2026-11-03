@@ -384,6 +384,75 @@
           "Norinori"
         ]
       }
+    },
+    {
+      "id": "31",
+      "names": {
+        "en": [
+          "Spiral Galaxies",
+          "Tentaisho"
+        ],
+        "ja": [
+          "天体ショー"
+        ],
+        "cs": [
+          "Spirální galaxie"
+        ]
+      }
+    },
+    {
+      "id": "32",
+      "names": {
+        "en": [
+          "Crosswall"
+        ],
+        "ja": [
+          "クロスウォール"
+        ]
+      }
+    },
+    {
+      "id": "33",
+      "names": {
+        "en": [
+          "Firefly",
+          "Hotaru Beam"
+        ],
+        "ja": [
+          "ホタルビーム"
+        ]
+      }
+    },
+    {
+      "id": "34",
+      "names": {
+        "en": [
+          "Islands",
+          "Shimaguni"
+        ],
+        "ja": [
+          "島国"
+        ]
+      }
+    },
+    {
+      "id": "35",
+      "names": {
+        "en": [
+          "Curve Data"
+        ],
+        "ja": [
+          "カーブデータ"
+        ]
+      }
+    },
+    {
+      "id": "36",
+      "names": {
+        "en": [
+          "Bramble"
+        ]
+      }
     }
   ],
   "variants": [

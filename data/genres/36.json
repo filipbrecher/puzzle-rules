@@ -1,0 +1,30 @@
+{
+  "id": "36",
+  "names": {
+    "en": [
+      "Bramble"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some blocks of one or two cells such that no two blocks are orthogonally adjacent.",
+        "No block crosses a region boundary.",
+        "All blocks form a diagonally connected network without loops.",
+        "Two blocks which touch diagonally cannot both be single cells.",
+        "Number clues indicate the amount of shaded cells in their region."
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "u5j9cl",
+      "problem": "images/36/u5j9cl-problem-pjlp.webp",
+      "solution": "images/36/u5j9cl-solution-rxj7.webp",
+      "author": "PinkHoodie",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125768"
+    }
+  ]
+}

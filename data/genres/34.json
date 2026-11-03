@@ -1,0 +1,43 @@
+{
+  "id": "34",
+  "names": {
+    "en": [
+      "Islands",
+      "Shimaguni"
+    ],
+    "ja": [
+      "島国"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade a single group of orthogonally connected cells in each region.",
+        "Shaded groups may not share a bold border.",
+        "Regions with numbers must contain the indicated amount of shaded cells.",
+        "Each region must contain at least one shaded cell, and no two adjacent regions may contain the same number of shaded cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "太線で区切られたところ（海域）すべてに、以下のルールに従って黒マスのかたまり（国）を配置します。",
+        "タテヨコにつながった黒マスのカタマリを1つの国とします。1つの海域には、必ず1つの国が入ります。",
+        "海域内の数字は、国のマスの数を表します。数字のない海域では、国のマスの数は分かりませんが、0にはなりません。",
+        "異なる海域にある国どうしは、辺を共有しません。角で接するのはかまいません。",
+        "辺を共有する海域どうしでは、国の大きさは必ず異なります。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "umfgrs",
+      "problem": "images/34/umfgrs-problem-1vnk.webp",
+      "solution": "images/34/umfgrs-solution-qf0q.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102317"
+    }
+  ]
+}

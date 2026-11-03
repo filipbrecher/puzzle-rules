@@ -1,0 +1,40 @@
+{
+  "id": "32",
+  "names": {
+    "en": [
+      "Crosswall"
+    ],
+    "ja": [
+      "クロスウォール"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines along the edges of some cells to form a loop.",
+        "When the loop crosses itself, it must travel in a straight line each time. The loop cannot branch off or retrace itself.",
+        "Large numbers match the size of the area delimited by loop lines and the edge of the grid.",
+        "Small numbers indicate the minimum number of borders that must be crossed to reach the edge of the grid."
+      ],
+      "source": "Twitter (@MrSolyu): https://twitter.com/MrSolyu/status/1615942168488869888"
+    },
+    "ja": {
+      "statements": [
+        "盤面の点の間にタテヨコに線を引き、全体で１つの輪っかを作ります。",
+        "輪っかは枝分かれしてはいけませんが、自身と交差できます。その場合、輪っかの線は交点で直進します。",
+        "4つの点で作られた正方形の中にある数字は、中央の数字が「その数字がある、輪っかの線と外周で区切られた領域の面積」、右下の数字が「その数字がある領域から外に出るときに、輪っかの線を横切る最小の回数」を表します。"
+      ],
+      "source": "Twitter (@MrSolyu): https://twitter.com/MrSolyu/status/1615942168488869888"
+    }
+  },
+  "examples": [
+    {
+      "id": "ziix23",
+      "problem": "images/32/ziix23-problem-ayo8.webp",
+      "solution": "images/32/ziix23-solution-bh3c.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115915"
+    }
+  ]
+}

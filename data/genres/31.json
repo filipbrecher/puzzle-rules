@@ -1,0 +1,49 @@
+{
+  "id": "31",
+  "names": {
+    "en": [
+      "Spiral Galaxies",
+      "Tentaisho"
+    ],
+    "ja": [
+      "天体ショー"
+    ],
+    "cs": [
+      "Spirální galaxie"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of orthogonally connected cells.",
+        "Each region must contain exactly one circle and have 180° rotational symmetry around it."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の点線の上に線を引き、いくつかの領域に分割します。",
+        "すべての星(黒丸、白丸)は領域の内部に1つだけ含まれます。星を通るような分割線を引いてはいけません。",
+        "すべての領域は星を中心とする点対称図形になります。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte obrazec podél tečkovaných linií mřížky na oblasti tak, aby každé pole bylo součástí právě jedné oblasti.",
+        "Každá tato oblast musí být rotačně symetrická (otočení o 180 stupňů nezmění její tvar) a musí obsahovat právě jedno kolečko, umístěné ve středu symetrie"
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "of0t9v",
+      "problem": "images/31/of0t9v-problem-otcw.webp",
+      "solution": "images/31/of0t9v-solution-3r58.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102308"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "33",
+  "names": {
+    "en": [
+      "Firefly",
+      "Hotaru Beam"
+    ],
+    "ja": [
+      "ホタルビーム"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "For each circle in the grid, draw a path starting from its black dot, moving along the gridlines, and ending at a circle (including potentially the same one it started at), but not on the side containing another black dot.",
+        "Paths may not cross themselves, each other, or pass through circles.",
+        "A number in a circle represents how many turns the path exiting from its dot will make.",
+        "All circles must be joined by paths to form one connected network."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "すべての白丸の黒点から点線上に線をのばして白丸につなげます。",
+        "黒点同士が線で直接つながったり、白丸の黒点でない部分同士が線で直接つながってはいけません。",
+        "どの線も白丸以外のところで、途切れたり交差したり枝分かれしたりしてはいけません。また、線で全体がひとつながりにならなければいけません。",
+        "数字は、その白丸の黒点から出る線が白丸につながるまでに曲がる回数を表します。"
+      ],
+      "source": "https://www.nikoli.co.jp/ja/puzzles/hotaru_beam/"
+    }
+  },
+  "examples": [
+    {
+      "id": "eqxtzh",
+      "problem": "images/33/eqxtzh-problem-4jdz.webp",
+      "solution": "images/33/eqxtzh-solution-8k03.webp",
+      "author": "lilva",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101405"
+    }
+  ]
+}
