@@ -28,7 +28,8 @@
         "数字は、矢印の方向に伸びている直線の長さの合計を示します。",
         "枠線で囲まれた白マスはループの内側に、黒いマスはループの外側になります。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     }
   },
   "examples": [

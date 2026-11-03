@@ -32,7 +32,8 @@
         "布団が敷かれず、柱でもないマスはすべて黒マス（通路）となります。すべての布団は、1マス以上の通路と辺を共有します。",
         "すべての通路はタテヨコにひとつながりになります。また、通路が2×2のカタマリになってはいけません。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     }
   },
   "examples": [

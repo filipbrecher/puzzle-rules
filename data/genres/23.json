@@ -31,7 +31,8 @@
       "statements": [
         "Do každého políčka vepište jednu číslici od 1 do N tak, aby se číslice neopakovaly v žádném řádku, sloupci ani vyznačeném regionu. N je velikost tabulky."
       ],
-      "source": "Original"
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
     }
   },
   "examples": [

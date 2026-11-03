@@ -30,7 +30,8 @@
         "矢印があるマスは必ずブロックの端になり、矢印が示す先にそのブロックの角が来ます。",
         "１つのブロックに入る記号（白丸と矢印）の個数は、０～３個のどれになってもかまいません。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     },
     "cs": {
       "statements": [

@@ -24,7 +24,8 @@
         "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
         "黒マスをタテヨコに連続させてはいけません。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     }
   },
   "examples": [

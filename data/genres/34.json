@@ -28,7 +28,8 @@
         "異なる海域にある国どうしは、辺を共有しません。角で接するのはかまいません。",
         "辺を共有する海域どうしでは、国の大きさは必ず異なります。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     }
   },
   "examples": [

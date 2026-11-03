@@ -28,7 +28,7 @@
     },
     "cs": {
       "statements": [
-        "Nakresli jednu uzavřenou čáru (smyčku), která se nekříží ani sama sebe nedotýká, a prochází středy všech prázdných polí ve vodorovném či svislém směru."
+        "Nakreslete jednu uzavřenou čáru (smyčku), která se nekříží ani sama sebe nedotýká, a prochází středy všech prázdných polí ve vodorovném či svislém směru."
       ],
       "source": "Dlouhodobá soutěž HALAS",
       "note": "Reworded"

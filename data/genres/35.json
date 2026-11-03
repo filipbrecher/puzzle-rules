@@ -25,7 +25,8 @@
         "各図形は、記号のマスをちょうど一つだけ通ります。",
         "記号は、そのマスを通る図形の線のつながり方を表します。ただし長さの比率は正確ではなく、一部分が伸びたり縮んだりする可能性があります。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     },
     "cs": {
       "statements": [
@@ -33,7 +34,8 @@
         "Nápovědy ukazují, jak se tvary stáčejí a spojují sami se sebou. Jejich otáčení ani převracení není povoleno. Nápovědy neříkají nic o délkách jednotlivých úseků tvaru.",
         "Přes tlusté hrany čára vést nesmí."
       ],
-      "source": "Original"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated and modified"
     }
   },
   "examples": [

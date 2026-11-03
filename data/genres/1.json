@@ -38,7 +38,8 @@
         "Potom nakreslete všemi zbylými prázdnými políčky jednu uzavřenou smyčku. Smyčka prochází vodorovně a svisle mezi středy políček a nikde se sama se sebou nekříží ani jinak nedotýká.",
         "Číselné nápovědy nemohou být začerněné ani jimi nemůže procházet smyčka. Udávají počet začerněných políček ve směru šipky."
       ],
-      "source": "Original"
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Reworded"
     }
   },
   "examples": [

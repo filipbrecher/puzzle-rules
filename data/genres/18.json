@@ -28,7 +28,8 @@
         "すべての黒マスはタテヨコにひとつながりになっていなければなりません。",
         "同じ色のマスを、タテまたはヨコにまっすぐに4つ以上続けさせてはいけません。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     },
     "cs": {
       "statements": [

@@ -25,7 +25,8 @@
         "すべてのヨコ列、タテ列で、連続した黒マスが等間隔に3つ以上並ぶ形になってはいけません。",
         "黒マスをタテヨコに連続させたり、黒マスで盤面を分断したりしてはいけません。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     }
   },
   "examples": [

@@ -24,7 +24,8 @@
         "太線で区切られた部分を部屋と呼び、それぞれの部屋には、１からその部屋のマス数までの数を１つずつ入れます。",
         "同じ数字をタテまたはヨコの同じ列に入れる場合は、数字と数字のあいだに、数字と同じ数以上のマスがなければいけません。例えば３を同じ列に２つ入れる場合は、その２つのあいだに３マス以上なければならないということです。"
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
     }
   },
   "examples": [

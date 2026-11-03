@@ -38,7 +38,8 @@
         "Přes bílý kroužek prochází čára rovně a alespoň v jednom sousedícím políčku se zlomí do pravého úhlu.",
         "V černém kroužku se čára zlomí do pravého úhlu a v obou směrech pokračuje rovně ještě alespoň přes jedno pole."
       ],
-      "source": "Dlouhodobá soutěž HALAS"
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Rewroded"
     }
   },
   "examples": [
