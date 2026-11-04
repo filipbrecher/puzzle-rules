@@ -160,7 +160,9 @@ The **Inventor** is the person who invented the puzzle genre, not necessarily th
 
 Always try to include an example puzzle when adding a new genre. When adding a new combination, always either include an example or add a source (either a link or a name of the event/tournament where it appeared) that isn't ambiguous. Something like "This appeared in a tournament in Japan in 2024" isn't enough, unless you really don't remember where it came from and it's no longer possible to trace it back.
 
-Examples should be small and simple, around the difficulty of a Puzsq 1★ or an easier Puzsq 2★. Examples shouldn't contain any unnecessary background colors. (Take for example the light colors present in the Kudamono editor, or "green cells in the solution" in shading puzzles like Heyawake on puzz.link). If you don't have the time to upload a suitable example, you can upload the unsuiable version and later uploaded a cleaned-up version (for example recreating the puzzle in Penpa with white background). 
+Examples should be small and simple, around the difficulty of a Puzsq 1★ or an easier Puzsq 2★. Examples shouldn't contain any unnecessary background colors. (Take for example the light colors present in the Kudamono editor, or "green cells in the solution" in shading puzzles like Heyawake on puzz.link). If you don't have the time to upload a suitable example, you can upload the unsuiable version and later uploaded a cleaned-up version (for example recreating the puzzle in Penpa with white background).
+
+Examples should ideally require all puzzle rules to be solved. This ensures that if a rule sounds ambiguous (to someone else), the example puzzle makes it clear how it works.
 
 ## Progress Tracker
 
