@@ -1,0 +1,56 @@
+{
+  "id": "47",
+  "names": {
+    "en": [
+      "Statue Park"
+    ],
+    "ja": [
+      "Statue Park"
+    ],
+    "cs": [
+      "Statue Park"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place each shape from the bank given outside the grid into the grid so that no two shapes share an edge and all unused cells form one orthogonally connected area.",
+        "Rotating and reflecting shapes is allowed.",
+        "Cells with black circles must be used by a shape, and cells with white circles must not be used by a shape."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の外側に示されているいくつかの黒マスのカタマリを、一回ずつ盤面内に配置します。",
+        "黒マスのカタマリを配置する時、回転したり反転してもよいですが、形を変えてはいけません。",
+        "黒マスのカタマリどうしが辺で接したり、重なったりしてはいけません。",
+        "黒丸は必ず黒マスになる場所を、白丸は必ず白マスになる場所を示します。",
+        "黒マスで白マスを分断してはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka tak, aby v mřížce vznikla zadaná sada polyomin, každé polyomino použijete přesně jednou.",
+        "Polyomina můžete libovolně otáčet a zrcadlově převracet.",
+        "Polyomina se nesmějí navzájem vodorovně ani svisle dotýkat (dotyk rohem je povolen).",
+        "Políčka s černým kroužkem patří k polyominu, políčka s bílým kroužkem k polyominu nepatří.",
+        "Všechna bílá políčka musí být vodorovně a svisle propojena, lze tudíž dojít z jakéhokoli bílého pole na jiné bílé."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "rouqu6",
+      "problem": "images/47/rouqu6-problem-nk7l.webp",
+      "solution": "images/47/rouqu6-solution-c9k5.webp",
+      "author": "Euex",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101332"
+    }
+  ]
+}

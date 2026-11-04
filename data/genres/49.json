@@ -1,0 +1,51 @@
+{
+  "id": "49",
+  "names": {
+    "en": [
+      "Square Jam"
+    ],
+    "ja": [
+      "Square Jam"
+    ],
+    "cs": [
+      "Square Jam"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into square regions of orthogonally connected cells.",
+        "A number indicates the side length of the square it’s in.",
+        "Region borders may not form any four-way intersections."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "点線上に線を引き、盤面を正方形に分割します。数字は正方形の一辺の長さを表します。正方形の中に数字はいくつ入ってもかまいません。",
+        "正方形の境界線が十字に交差してはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte tabulku na čtverce. Zadaná čísla udávají, jak velkého čtverce je pole obsahující číslo součástí.",
+        "Číslo představuje délku strany čtverce v polích.",
+        "V tabulce se nikde nesmí vyskytnout bod, kde by se stýkaly čtyři čtverce."
+      ],
+      "source": "Dlouhodobá soutěž",
+      "note": "Reworded"
+    }
+  },
+  "examples": [
+    {
+      "id": "6q8pin",
+      "problem": "images/49/6q8pin-problem-o6i1.webp",
+      "solution": "images/49/6q8pin-solution-mec6.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115922"
+    }
+  ]
+}

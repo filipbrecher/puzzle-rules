@@ -520,6 +520,131 @@
           "アイスバーン"
         ]
       }
+    },
+    {
+      "id": "41",
+      "names": {
+        "en": [
+          "Star Battle"
+        ],
+        "ja": [
+          "スターバトル"
+        ],
+        "cs": [
+          "Star Battle"
+        ]
+      }
+    },
+    {
+      "id": "42",
+      "names": {
+        "en": [
+          "Pencils"
+        ],
+        "ja": [
+          "ペンシルズ"
+        ],
+        "cs": [
+          "Tužky"
+        ]
+      }
+    },
+    {
+      "id": "43",
+      "names": {
+        "en": [
+          "Mid-loop"
+        ],
+        "ja": [
+          "ミッドループ"
+        ]
+      }
+    },
+    {
+      "id": "44",
+      "names": {
+        "en": [
+          "Hebi-Ichigo"
+        ],
+        "ja": [
+          "へびいちご"
+        ]
+      }
+    },
+    {
+      "id": "45",
+      "names": {
+        "en": [
+          "Herugolf"
+        ],
+        "ja": [
+          "ヘルゴルフ"
+        ],
+        "cs": [
+          "Herugolf"
+        ]
+      }
+    },
+    {
+      "id": "46",
+      "names": {
+        "en": [
+          "Inverse LITSO"
+        ],
+        "ja": [
+          "Inverse LITSO"
+        ]
+      }
+    },
+    {
+      "id": "47",
+      "names": {
+        "en": [
+          "Statue Park"
+        ],
+        "ja": [
+          "Statue Park"
+        ],
+        "cs": [
+          "Statue Park"
+        ]
+      }
+    },
+    {
+      "id": "48",
+      "names": {
+        "en": [
+          "Ring-ring"
+        ],
+        "ja": [
+          "リングリング"
+        ]
+      }
+    },
+    {
+      "id": "49",
+      "names": {
+        "en": [
+          "Square Jam"
+        ],
+        "ja": [
+          "Square Jam"
+        ],
+        "cs": [
+          "Square Jam"
+        ]
+      }
+    },
+    {
+      "id": "50",
+      "names": {
+        "en": [
+          "Heteromino"
+        ],
+        "ja": [
+          "ヘテロミノ"
+        ]
+      }
     }
   ],
   "variants": [

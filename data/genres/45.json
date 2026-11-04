@@ -1,0 +1,44 @@
+{
+  "id": "45",
+  "names": {
+    "en": [
+      "Herugolf"
+    ],
+    "ja": [
+      "ヘルゴルフ"
+    ],
+    "cs": [
+      "Herugolf"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Move the circles vertically or horizontally at least once each so that each circle ends up stopping on an H.",
+        "A circle’s first move must be in a straight line of the number of cells indicated by the number inside it, and each successive move must be one cell shorter than the previous.",
+        "Circles’ paths may not cross themselves, each other, other circles, or other circles’ starting points.They also may not pass over an H without stopping on it, and may not ever stop on a cell with water."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "すべての丸(球)を何回か移動させて、Ｈ(ホール)のマスまで運びましょう。すべてのＨのマスに丸が１つずつ運ばれます。",
+        "各回の丸の移動は矢印で表します。矢印の先端はマスの中央になります。矢印の線が他の丸やＨのマスを通過したり、線どうしが交差したり重なったりしてはいけません。",
+        "１回の移動で、丸はタテかヨコにまっすぐ、丸の中の数字の分だけマスを動きます。１回の移動が終わると丸の数字は１減り、また移動することができます。移動の方向は変わってもかまいません。数字が０になった球や、Ｈのマスに停止した球はそれ以上移動できません。",
+        "球が盤面の外に出たり(OB)､灰色のマス(池)で停止したりするような移動はできません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "x5r763",
+      "problem": "images/45/x5r763-problem-zayd.webp",
+      "solution": "images/45/x5r763-solution-x6bn.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126989"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "44",
+  "names": {
+    "en": [
+      "Hebi-Ichigo"
+    ],
+    "ja": [
+      "へびいちご"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place numbers into some empty cells such that each orthogonally connected group forms a sequence of consecutive numbers from 1 to 5.",
+        "Each number in the sequence must be orthogonally adjacent to the next.",
+        "These groups may not share an edge with one another.",
+        "The 1 in a sequence must not be able to see any numbers in a straight line in the direction it’s pointing (away from its adjacent 2) unless a clued cell blocks its view.",
+        "A clue represents the first number seen in the indicated direction."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面の白マスに、ヘビ（１から５までの数字が１つずつ順にタテヨコにつながったピース）をいくつか配置しましょう。",
+        "黒マスの中の数字は、そのマスから矢印の方向に眺めたとき、いちばん近くに見える数字を表します。０の場合は、そのマスから黒マスか外周に至るまでにヘビがいないことを表します。",
+        "ヘビは１が頭、５が尾となります。２→１とつながった方向（すなわちヘビの視線の先）に、黒マスか外周に至るまで、他のヘビの一部もしくは全部が入るようにしてはいけません。攻撃しちゃいますからね。",
+        "異なるヘビどうしが辺を共有するようにしてはいけません。なわばり争いが起こるからです。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "wkiyxr",
+      "problem": "images/44/wkiyxr-problem-jt45.webp",
+      "solution": "images/44/wkiyxr-solution-kbjl.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102312"
+    }
+  ]
+}

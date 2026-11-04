@@ -1,0 +1,40 @@
+{
+  "id": "48",
+  "names": {
+    "en": [
+      "Ring-ring"
+    ],
+    "ja": [
+      "リングリング"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw rectangular loops through the centers of empty cells so that every empty cell gets used.",
+        "The sides of different rectangles may intersect each other, but not turn at their intersection or otherwise overlap."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面内に線を引き、いくつかの輪っかを作ります。線はタテヨコに引いてマスの中央を通り、枝分かれができてはいけません。",
+        "すべての白マスを線が通ります。",
+        "すべての輪っかは、長方形または正方形になります。",
+        "線は、あるマスで十字型に交差することがあります。その場合、線は必ず立体交差して向かいの辺へ進むものとします。",
+        "立体交差以外で、２つ以上の輪っかの線が重なってはいけません。"
+      ],
+      "source": "パズル通信ニコリ vol.135"
+    }
+  },
+  "examples": [
+    {
+      "id": "lh7jbf",
+      "problem": "images/48/lh7jbf-problem-9lfo.webp",
+      "solution": "images/48/lh7jbf-solution-5haw.webp",
+      "author": "もや / moyami",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101317"
+    }
+  ]
+}

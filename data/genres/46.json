@@ -1,0 +1,42 @@
+{
+  "id": "46",
+  "names": {
+    "en": [
+      "Inverse LITSO"
+    ],
+    "ja": [
+      "Inverse LITSO"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a tetromino (a block of 4 unshaded cells) in every outlined region, and shade the rest of the cells.",
+        "The shaded cells cannot form a 2x2 square.",
+        "Two identical tetrominoes cannot share an edge, counting rotations and reflections as the same.",
+        "All shaded cells form an orthogonally contiguous area."
+      ],
+      "source": "Puzsq Rules"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "太線で区切られた部分を領域と呼び、全ての領域について、白マスはちょうど４つあり、領域内でタテヨコに連なって白マスのテトロミノができるようにします。",
+        "すべての黒マスはタテヨコにひとつながりになっていなければなりません。",
+        "黒マスが2×2以上のカタマリになってはいけません。",
+        "回転あるいは裏返しをして同じ形になる白マスのテトロミノ同士が辺を共有するようにしてはいけません。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "znr15i",
+      "problem": "images/46/znr15i-problem-cppi.webp",
+      "solution": "images/46/znr15i-solution-mujw.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115913"
+    }
+  ]
+}

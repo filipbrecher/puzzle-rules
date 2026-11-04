@@ -1,0 +1,51 @@
+{
+  "id": "41",
+  "names": {
+    "en": [
+      "Star Battle"
+    ],
+    "ja": [
+      "スターバトル"
+    ],
+    "cs": [
+      "Star Battle"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place stars into some cells such that each row, column, and outlined region contains exactly N stars.",
+        "The value of N is given outside the grid.",
+        "Stars may not touch one another, not even diagonally."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マスに、星を入れましょう。",
+        "全てのタテ列、ヨコ列、太線で区切られた各部分には、星が指定された個数ずつ入ります。",
+        "星同士がタテヨコナナメに隣り合ってはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Do některých políček tabulky zakreslete hvězdy tak, aby bylo v každém řádku, sloupci a v každé tučně ohraničené oblasti právě N hvězd. N je uvedeno vedle tabulky.",
+        "Žádné dvě hvězdy se nesmějí dotýkat, a to ani diagonálně."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "awjmfx",
+      "problem": "images/41/awjmfx-problem-qs38.webp",
+      "solution": "images/41/awjmfx-solution-pb9p.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101270"
+    }
+  ]
+}

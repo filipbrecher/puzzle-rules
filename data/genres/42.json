@@ -1,0 +1,46 @@
+{
+  "id": "42",
+  "names": {
+    "en": [
+      "Pencils"
+    ],
+    "ja": [
+      "ペンシルズ"
+    ],
+    "cs": [
+      "Tužky"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place some pencils in the grid, each consisting of a 1xN body with a tip occupying an extra cell at one end, and draw a path of graphite which is N cells long starting at its tip.",
+        "Pencils and paths must occupy the entire grid without overlapping one another.",
+        "A cell with a number must be part of the body of a pencil of the given length.",
+        "Given pencil tips must be used where they are."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "点線上に、もしくはマスの中央を通るように線を引いたり、芯の記号を書き込んだりして、盤面に何本かの鉛筆と、鉛筆から引かれる線を描きましょう。すべてのマスは、鉛筆の軸か、鉛筆の芯か、鉛筆から引かれる線が通るマスのどれかになります。",
+        "１組の鉛筆には、１マス以上のまっすぐな軸（まわりの点線に線が引かれたマス）と、軸につながる１マス分の芯と、芯の先からタテヨコにマスの中央を通るように引かれる線がすべて含まれます。",
+        "数字があるマスは鉛筆の軸になり、数字は軸の長さを表します。１つの軸に２つ以上の（同じ）数字が入ることもあれば、数字が入らない軸もあります。",
+        "鉛筆から引かれる線の長さは、その鉛筆の軸の長さと同じになるようにします。",
+        "鉛筆から引かれる線を交差させたり枝分かれさせたりしてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "kvnob4",
+      "problem": "images/42/kvnob4-problem-p34m.webp",
+      "solution": "images/42/kvnob4-solution-2je8.webp",
+      "author": "K.N.Y.",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101334"
+    }
+  ]
+}

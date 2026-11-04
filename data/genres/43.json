@@ -1,0 +1,39 @@
+{
+  "id": "43",
+  "names": {
+    "en": [
+      "Mid-loop"
+    ],
+    "ja": [
+      "ミッドループ"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells that passes through every circle.",
+        "Each circle marks the center of the straight line segment it lies on."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて、全体で１つの輪っかを作りましょう。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "線はすべての黒丸を通ります。黒丸は、その黒丸を通る直線部分の中点（ちょうど真ん中）になるようにします。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "i2vy49",
+      "problem": "images/43/i2vy49-problem-f7p3.webp",
+      "solution": "images/43/i2vy49-solution-gpov.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101246"
+    }
+  ]
+}

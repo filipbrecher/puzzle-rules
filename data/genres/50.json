@@ -1,0 +1,38 @@
+{
+  "id": "50",
+  "names": {
+    "en": [
+      "Heteromino"
+    ],
+    "ja": [
+      "ヘテロミノ"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of three orthogonally connected cells.",
+        "Two regions which are the same shape and orientation may not share an edge."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "白マスを3マスずつのブロックに分割します。",
+        "向きも形も同じブロック同士は辺で接しません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "18erx9",
+      "problem": "images/50/18erx9-problem-msmq.webp",
+      "solution": "images/50/18erx9-solution-nd1h.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101298"
+    }
+  ]
+}
