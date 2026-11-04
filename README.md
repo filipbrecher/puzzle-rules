@@ -1,70 +1,33 @@
 # puzzle-rules
 
-Repo for storing puzzle genre rules, variant rules, and their combinations. Plus additional metadata, assets and example puzzles. This is meant mainly for useful classification, easy access to rules in multiple languages (side-by-side comparison), searching through genre and variant combinations and access to assets and example puzzles.
+Repo for storing puzzle genre rules, variant rules and their combinations, plus additional metadata, assets and example puzzles. It is meant mainly for useful classification, easy access to rules in multiple languages (side-by-side comparison), searching through genre and variant combinations, and access to assets and example puzzles.
 
 
-## Basic Info
+## About
 
-A try to organize the genres, variants and their usage originally for personal use, but I will share this publicly as well.
-Genre + Variant combinations can be seen in Combinations with possible sources where they appeared or example puzzles. There may be Combinations with multiple Genres or Variants.
+This is an attempt to organize genres, variants and their usage, originally for personal use, but shared publicly as well. A lot of inspiration comes from Puzsq and from personal experience with constructing and solving variant (and non-variant) puzzles.
 
-Some rules might be more specific than on other sites like Puzsq or Eric Fox's Dictionary of Rulesets to remove possible ambiguities. I also want to include example puzzles for all genres, and sometimes for the combinations (sometimes with multiple example puzzles as well, like a small 3x3, 5x5, 7x7, ... so you can choose whichever fits on some page in a pdf better and stuff like that).
+- Genre + variant combinations are listed in **Combinations**, with possible sources where they appeared and example puzzles. A combination can contain multiple genres or variants.
+- Some rules might be more specific than on other sites like Puzsq or Eric Fox's Dictionary of Rulesets, to remove possible ambiguities.
+- The goal is to include example puzzles for all genres and sometimes for combinations, sometimes in several sizes (for example 3x3, 5x5, 7x7) so you can choose whichever fits better on a page of a PDF.
 
-A lot of inspiration comes from Puzsq and personal experience with constructing and solving variant (and non-variant) puzzles.
-
-I wanted to make a quick first page with AI to see if this way of organizing would work, and I also don't have the time to write it myself from scratch :0
-
+The first version of the browsing page was made with AI, to quickly see if this way of organizing works.
 
 ### Usage
 
-Go to https://filipbrecher.github.io/puzzle-rules where it's accessible for viewing and browsing.
+Browse at https://filipbrecher.github.io/puzzle-rules/
 
-As I said above, I made this primarily for personal use, but I want to share it publicly as well (for browsing through). I am considering allowing other users to also edit, but only to trustworthy individuals (personal connections) using custom access tokens (for now).
+Editing is currently possible only with a personal access token. I am considering letting trustworthy people (personal connections) edit as well.
 
+### Language support
 
-## For Contributors
+English, Japanese and Czech are supported for now, and adding a new language is easy.
 
-Ask the owner of this repository for further questions if there is some unclarity.
+- **English**, as the reference language.
+- **Japanese**, because most of the rules come from Puzsq and I want to keep their original wording.
+- **Czech**, for easier use in Czech tournaments.
 
-### Languages and Rule Names and Statements
-
-When adding new rules or modifying existing rules, always make sure that they are correct and somewhat consistent across languages. Make sure that all Statements end in a period so that copying the raw text version of the rules gives correct sentences.
-
-Make sure that translations of puzzle names are correct. You can always write multiple names for a puzzle or always add a new one if it's missing. Don't include the exact same names in other languages unless you are 100% sure that there isn't any other name for that puzzle in that language. (Example: "Slitherlink" is in English, but in Czech it's called "Slitherlink" or "Ploty", so we'd ommit the "Slitherlink" name.) (Another example: "Nurimisaki" is in English, but in Czech it's also "Nurimisaki". There isn't any other used name. It's ok to write "Nurimisaki" as the Czech name in this case.)
-
-
-### Rule Source Guidelines
-
-**Rule Source** indicates where the rules were originally obtained or which source they are based on.
-
-If the rules are copied from Puzsq, use the source label specified on Puzsq (e.g. "Puzsq Rules", "Original", or another source). Do not automatically use "Puzsq Rules" just because the rules were obtained from Puzsq. If the rules come from another reference, such as a dictionary, publication, social media post, or website, specify that source.
-
-If the rules are reworded, modified, or translated, keep the original source and describe the changes in **Rule Notes**.
-
-When rules are available in multiple languages, the source should refer to the source of the original-language rules, if known, rather than the source of the translation. The translation or other changes should be documented in Rule Notes.
-
-The **Inventor** refers to the person who invented the puzzle genre, not necessarily the person who wrote the rules. If the inventor is unknown, the first known appearance of the genre can be specified in the notes instead.
-
-| Source label | Meaning |
-| -------- | ------- |
-| Original | Rules taken from the original puzzle publication or the original source in which the rules appeared. |
-| Puzsq Rules | Rules obtained from Puzsq, where Puzsq Rules is listed as the source or where there isn't any source listed. |
-| Eric Fox's Dictionary of Rulesets | Rules obtained from Eric Fox's Dictionary of Rulesets. |
-| Twitter / X | Rules obtained from a Twitter / X post. Include a link to the post where possible. |
-| Website name or URL | Rules obtained from the specified website. |
-| Dlouhodobá soutěž HALAS | Rules obtained from the HALAS long-term competition. |
-| Puzzle Rules | Rules independently written or compiled for this project, without a more specific external source. |
-
-
-### Rule Notes
-
-Use Rule Notes to describe any differences between the rules as presented on this site and those in the original source.
-
-| Note label | Meaning |
-| -------- | ------- |
-| Reworded | The wording was changed for clarity, readability, or consistency with rules for other genres, without changing the meaning. |
-| Modified | The rules were changed in some way, resulting in a difference in meaning or interpretation compared to the source. |
-| Translated | The rules were translated from the source language into another language. |
+Previously, for each tournament I either rewrote the rules, copied them from my personal sheet of puzzles (from Penpa+), searched the official Czech website, or looked through past Czech tournament papers and old LaTeX files. For some tournaments I also needed an English version of the rules, which made it even more annoying.
 
 
 ## Classification Guidelines
@@ -80,7 +43,7 @@ These guidelines define what belongs in a genre, a variant or a combination, and
 
 ### Writing rules
 
-1. **English rules are the reference.** At least the English rules must be correct, precise and unambiguous, because other languages and the combination rules build on them. When the English rules and another language disagree, the English rules are the ones to fix first.
+1. **English rules are the reference.** At least the English rules must be correct, precise and unambiguous, because other languages and the combination rules build on them. When the English rules and another language disagree, fix the English rules first.
 2. **Other languages** follow their source. The Japanese rules, for example, may keep the Puzsq wording. If two sources differ (one states a rule, the other doesn't), say so in the rules' Note.
 3. **One statement per line**, each saying one thing. Statements are written for the base genre only, so they don't mention variants.
 4. **Don't repeat common expansions** (see below) in every genre.
@@ -89,7 +52,7 @@ These guidelines define what belongs in a genre, a variant or a combination, and
 
 A genre's rules are the **minimal rules** that the main sources accept as defining the genre. Ask whether removing a statement would make it a different or unsolvable puzzle. If yes, the statement belongs to the genre.
 
-**Expansions that are common for the genre still belong to the genre.** If it is usual for a genre to be played with an extra rule or element (for example, walls that block a line from passing), then that extra rule is part of the genre's rules, and it counts as the base genre, not a variant.
+**Expansions that are common for the genre still belong to the genre.** If a genre is usually played with an extra rule or element (for example, walls that block a line from passing), that extra rule is part of the genre's rules and it counts as the base genre, not a variant.
 
 How common it is decides where it goes:
 
@@ -101,7 +64,7 @@ How common it is decides where it goes:
 
 ### Variants
 
-A variant changes the rules only as far as the result can still be called that genre with a modification, and not a completely different puzzle. It adds rules, replaces parts of the rules, or, as an exception, removes rules.
+A variant changes the rules only as far as the result can still be called that genre with a modification, and not a completely different puzzle. It adds rules, replaces parts of the rules or, as an exception, removes rules.
 
 - **Removing rules** should be uncommon, and usually only for one specific genre, not for a whole category.
 - **A very small or broad variant is fine.** Many combinations are acceptable, since that is how you can see which genres a variant has been used with.
@@ -139,47 +102,86 @@ These conventions apply to (almost) all puzzles, so they are **not** written in 
 5. Is it a one-off, or the way parts interact? Put it in the combination's own rules.
 
 
-## Language support
+## For Contributors
 
-It supports English, Japanese and Czech for now, but it's easy to add a new language. English ... obviously. Japanese because I will use most of the rules from Puzsq so I want to include their original Japanese versions as well. Czech because I want to record Czech versions for easier use in future Czech tournaments 
+Ask the owner of this repository if anything is unclear.
 
-Previously when making a tournament I either wrote the rules again, went to my personal sheet with all of my puzzles and copied from the rules in Penpa+, searched the official Czech website for puzzles, looked through past Czech tournament papers or through older latex files with those genres. And for some tournaments I needed to make an English version of the pdfs which made it even more annoying.
+### Names and statements
+
+When adding or modifying rules, make sure they are correct and consistent across languages. All statements must end in a period, so that copying the raw text of the rules gives correct sentences.
+
+Make sure the translations of puzzle names are correct. You can write multiple names for a puzzle, and add a new one if one is missing. Don't repeat the same name in another language unless you are 100% sure there is no other name for that puzzle in that language.
+
+- "Slitherlink" is the English name, but in Czech it is called "Slitherlink" or "Ploty", so the English "Slitherlink" is not repeated as a separate name.
+- "Nurimisaki" is the English name and also the only Czech name, so it is fine to write "Nurimisaki" as the Czech name too.
+
+### Rule sources
+
+The **Source** says where the rules were originally obtained or which source they are based on.
+
+- If the rules come from Puzsq, use the source label specified on Puzsq (for example "Puzsq Rules", "Original" or another source). Don't automatically use "Puzsq Rules" just because the rules were obtained from Puzsq.
+- If the rules come from another reference, such as a dictionary, publication, social media post or website, specify that source.
+- If the rules are reworded, modified or translated, keep the original source and describe the changes in the **Note**.
+- When rules are available in multiple languages, the source refers to the original-language rules, if known, not the translation. Document the translation in the Note.
+
+| Source label | Meaning |
+| -------- | ------- |
+| Original | Rules taken from the original puzzle publication or the original source in which the rules appeared. |
+| Puzsq Rules | Rules obtained from Puzsq, where Puzsq Rules is listed as the source or where there isn't any source listed. |
+| Eric Fox's Dictionary of Rulesets | Rules obtained from Eric Fox's Dictionary of Rulesets. |
+| Twitter / X | Rules obtained from a Twitter / X post. Include a link to the post where possible. |
+| Website name or URL | Rules obtained from the specified website. |
+| Dlouhodobá soutěž HALAS | Rules obtained from the HALAS long-term competition. |
+| Puzzle Rules | Rules independently written or compiled for this project, without a more specific external source. |
+
+### Rule notes
+
+Use the **Note** to describe any differences between the rules as presented here and those in the original source.
+
+| Note label | Meaning |
+| -------- | ------- |
+| Reworded | The wording was changed for clarity, readability or consistency with rules for other genres, without changing the meaning. |
+| Modified | The rules were changed in some way, resulting in a difference in meaning or interpretation compared to the source. |
+| Translated | The rules were translated from the source language into another language. |
+
+### Inventor
+
+The **Inventor** is the person who invented the puzzle genre, not necessarily the person who wrote the rules. If the inventor is unknown, the first known appearance of the genre can be given in the notes instead.
 
 
 ## Progress Tracker
 
-For tracking sources that were already used to input genres, variants and combinations.
+Tracks the sources that were already used to input genres, variants and combinations.
 
 ### Puzsq
 
-continue checking from the publication date of the last ID
+Continue checking from the publication date of the last ID. I'm not sure if I'll add genres from Instructionless puzzles, as they also usually don't have a name.
 
-**Genres**:
+- **Genres:** all genres with ID 0 to 0 are done.
+- **Genres in Others (non-variant):** all Others with ID 0 to 0 are done.
+- **Variants:** all Variant puzzles with ID 0 to 0 are done.
 
-All genres with ID 0 to 0 are done.
-
-**Genres in Others (non-variant)**
-
-All Others with ID 0 to 0 are done.
-
-**Variants**
-
-All Variant puzzles with ID 0 to 0 are done.
-
-### Tournaments to Explore
+### Tournaments to explore
 
 - [ ] WPC 2026
 - [ ] Add more later
 
-### Finished Tournaments
+### Finished tournaments
 
 - None
 
+
 ## Future Goals
 
-One of the future goals is to standardize rules in a way where I could make a general editor (like Penpa+ feature variability combined with Puzzlink's or Pzprxs's easy editing abilities and pzpus-solver2's ability to solve puzzles), but (maybe) with automatically generated text rules from the actual rules that constrain the puzzle.
+One future goal is to standardize rules so that a general puzzle editor becomes possible: the variability of Penpa+, combined with the easy editing of Puzz.link or Pzprxs and the solving ability of cspuz-solver2. Possibly with the text rules generated automatically from the actual rules that constrain the puzzle.
 
-Main ideas: Editor for puzzle generation or creation - define rules on parts of the puzzle, define what counts as a solution - now you can automatically generate puzzles (puzzle generator) or construct puzzles manually (puzzlink/pzprxs/penpa+ approach) with real-time solving / correctness checking / uniqueness check / etc. Make a puzzle on various grids (square, hex, ...). Can add custom "rules" on parts of the puzzle (eg. top left grid is Fillomino, top right grid is Square Jam, and they are combined with outside clues, or: numbers don't repeat in rows, but may repeat in columns, etc.). Allow to define base puzzles (no need to configure all necessary rules and conditions just to make a classic Skyscrapers puzzle, but choose from a list of already prepared "editor presets") or combine rules to create a completely custom single-use puzzle. Support for meta-rules (eg. assign N rules to N grids, or you have 4 grids and need to place them side-by-side in a 2x2 (possibly rotated) pattern, then solve normally). Automatic puzzle solving (partial / full / only use basic tricks) probably using SAT, SMT, ILP, ... to make it fast.
+Main ideas:
 
-In the past I already made quite a generalised Sudoku problem creator and solver which allowed to combine multiple sudokus together (something like a Samurai, but image you can define any rule anywhere, and even link number hints together to add another layer of hints) and combine variant rules together. It generated a random problem with a unique solution. I didn't make a frontendeditor for it (only for printing the generated puzzles) for it so everything was written in code and then ran in the page, so it's a bit hard to use. It includes over 100 Sudoku variants. It includes a couple of logic puzzles which were compatible. I might make the repo public if there is interest. Although the code isn't the best quality (Could use design patterns in some places to improve the code quality and readability...).
+- Create or generate puzzles by defining rules on parts of the puzzle and what counts as a solution. Puzzles can then be generated automatically or constructed by hand (the Puzz.link / Pzprxs / Penpa+ approach), with real-time solving, correctness checking, uniqueness checking and so on.
+- Support various grids (square, hexagonal and so on).
+- Allow custom rules on parts of the puzzle (for example the top left grid is Fillomino, the top right grid is Square Jam, and they are combined with outside clues, or numbers don't repeat in rows but may repeat in columns).
+- Offer ready-made "editor presets" for base puzzles (no need to configure all the rules just to make a classic Fillomino puzzle), or combine rules into a completely custom single-use puzzle.
+- Support meta-rules (for example assign N rules to N grids, or place 4 grids side by side in a 2x2, possibly rotated, pattern and then solve normally).
+- Automatic solving (partial, full or using only basic tricks), probably with SAT, SMT, ILP and similar solvers to make it fast.
 
+I already made a fairly generalised Sudoku problem creator and solver. It can combine multiple sudokus (like a Samurai, but you can define any rule anywhere and even link number hints together to add another layer of hints) and combine variant rules. It generates a random problem with a unique solution, includes over 100 Sudoku variants, and a couple of compatible logic puzzles. It has no front-end editor (only printing of generated puzzles), so everything is written in code, which makes it a bit hard to use. I might make the repo public if there is interest, although the code quality could be better (for example by using design patterns in some places).
