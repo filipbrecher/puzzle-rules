@@ -156,6 +156,7 @@ const C=Object.assign({branch:""},JSON.parse(localStorage.getItem("pzr-gh")||"{}
 let G={authed:false,edit:false,commit:"",base:{},imgs:new Set(),pend:{}},imgT=null;
 const TOK=()=>sessionStorage.getItem("pzr-tok")||localStorage.getItem("pzr-tok")||"";
 const A=()=>G.authed&&G.edit,J=o=>JSON.stringify(o,null,2);
+const usedImgs=()=>{const u=new Set();[...Object.values(S.genres),...Object.values(S.combos)].forEach(g=>(g.examples||[]).forEach(x=>[x.problem,x.solution].forEach(q=>q&&u.add(q))));Object.values(S.assets).forEach(a=>(a.images||[]).forEach(q=>u.add(q)));return u};
 const raw=(ref,p)=>`https://raw.githubusercontent.com/${C.owner}/${C.repo}/${ref}/${p}`;
 const imgUrl=p=>G.pend[p]?G.pend[p].url:raw(G.authed?G.commit:C.branch,p);
 async function api(p,o={}){const hd={Accept:"application/vnd.github+json"};if(TOK())hd.Authorization="Bearer "+TOK();if(o.body)hd["Content-Type"]="application/json";
@@ -261,7 +262,7 @@ function list(){const k=kind(),a=items();
  $("#list").innerHTML=a.map(e=>`<div class="it ${e.id===sel?"on":""}" data-id="${esc(e.id)}"><div class="nm">${lblH(e,k)||"New combination"}</div><small>${meta(e,k)||"&nbsp;"}</small></div>`).join("")||`<p class="empty">${A()?"Nothing here yet. Use New to add one.":"Nothing to show. Open the GitHub panel and load a repository."}</p>`}
 const fld=(lab,p,v,ex="")=>`<label>${lab}<input data-p="${p}" value="${esc(v)}" ${ex}></label>`;
 const ta=(lab,p,v,rows=1)=>`<label>${lab}<textarea rows="${rows}" data-p="${p}">${esc(v)}</textarea></label>`;
-const OPEN={Assets:false},DEFOPEN=["Names","Name","Images","Rules","Rule changes","Examples","Combinations","Components"],mob=()=>matchMedia("(max-width:800px)").matches;
+const OPEN={Assets:false},DEFOPEN=["Names","Additional rules","Name","Images","Rules","Rule changes","Examples","Combinations","Components"],mob=()=>matchMedia("(max-width:800px)").matches;
 const isOpen=(k,def)=>k in OPEN?OPEN[k]:(mob()?def:true);
 const card=(t,b,x="")=>{const k=t.replace(/ \(.*$/,""),o=isOpen(k,DEFOPEN.includes(k));return`<section class="card ${o?"":"shut"}"><h3><button class="tg" data-tg="${esc(k)}"><span class="tri">${o?"▾":"▸"}</span>${t}</button>${x}</h3><div class="cb">${b}</div></section>`};
 function infoHtml(x){const b=base(),l=sts(x,b).length?b:langs().find(c=>sts(x,c).length);
@@ -313,7 +314,7 @@ function edApp0(e){e.components=sortComps(e.components||[]);e.names=e.names||{};
  ${e.components.length&&!e.components.some(c=>c.type==="genre")?`<small class="au">A combination should contain at least one genre.</small>`:""}
  ${namesCard(e,"Names (optional)")}
  ${card("Components",comps+`<div class="row" style="margin-top:8px">${pk("genre")}${pk("variant")}</div>`)}
- ${rulesCard(e,"Rules")}
+ ${rulesCard(e,"Additional rules")}
  ${exCard(e)}
  ${card(`Assets (${e.assets.length})`,as+`<div class="row" style="margin-top:8px">${pk("asset")}</div>`)}
  ${card("Notes",`<textarea rows="2" style="width:100%" data-p="notes">${esc(e.notes||"")}</textarea>`)}
@@ -383,18 +384,21 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
   sel=null;armDel=null;save();render()}});
 $("#exp").onclick=async()=>{if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
  const z=new JSZip();for(const[q,c]of Object.entries(files()))z.file(q,c);
+ const im=[...usedImgs()];let miss=0;if(im.length)flash("Adding "+im.length+" images...");
+ await Promise.all(im.map(async q=>{if(G.pend[q])z.file(q,G.pend[q].b64,{base64:true});else try{const r=await fetch(imgUrl(q));if(!r.ok)throw 0;z.file(q,await r.blob())}catch(e){miss++}}));
+ if(miss)flash(miss+" image(s) could not be fetched and are missing from the zip.");
  const a=document.createElement("a");a.href=URL.createObjectURL(await z.generateAsync({type:"blob"}));a.download="puzzle-rules-data.zip";a.click();if(!A())S.dirty=false;persist()};
 $("#imp").onclick=()=>{const has=Object.keys(S.genres).length+Object.keys(S.variants).length+Object.keys(S.combos).length;
  if(has&&!armImp){armImp=true;$("#imp").textContent="Replace current data?";$("#imp").classList.add("arm");setTimeout(()=>{armImp=false;$("#imp").textContent="Import";$("#imp").classList.remove("arm")},4000);return}
  armImp=false;$("#imp").textContent="Import";$("#imp").classList.remove("arm");$("#file").click()};
 $("#file").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;
  if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
- try{const z=await JSZip.loadAsync(f),n={languages:null,genres:{},variants:{},combos:{},assets:{},dirty:A()};
-  for(const[p,x]of Object.entries(z.files)){if(x.dir)continue;const m=p.match(/(?:^|\/)(genres|variants|assets)\/([^/]+)\.json$/),t=await x.async("string");
+ try{const z=await JSZip.loadAsync(f),n={languages:null,genres:{},variants:{},combos:{},assets:{},dirty:A()},pend={};
+  for(const[p,x]of Object.entries(z.files)){if(x.dir)continue;const im=p.match(/(?:^|\/)(images\/.+)$/);if(im){const b=await x.async("base64");pend[im[1]]={b64:b,url:"data:image/webp;base64,"+b};continue}const m=p.match(/(?:^|\/)(genres|variants|assets)\/([^/]+)\.json$/),t=await x.async("string");
    if(m){const e=JSON.parse(t);e.id=e.id||m[2];n[m[1]][e.id]=e}
    else if(/(^|\/)languages\.json$/.test(p))n.languages=JSON.parse(t);
    else if(/(^|\/)combinations\.json$/.test(p))JSON.parse(t).forEach(a=>n.combos[a.id]=a)}
-  n.languages=n.languages||DEFL;S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
+  n.languages=n.languages||DEFL;G.pend={...G.pend,...pend};S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
 $("#ed").addEventListener("dragover",ev=>{if(ev.target.closest(".slot"))ev.preventDefault()});
 $("#ed").addEventListener("drop",ev=>{const sl=ev.target.closest(".slot");if(!sl||!A())return;ev.preventDefault();const f=ev.dataTransfer.files[0];if(f)slotImg(sl,f)});
 const addFam=v=>{const e=coll()[sel];v=v.trim();if(!e||!v||!A())return;e.families=fams(e);if(!e.families.includes(v))e.families.push(v);save();editor()};
