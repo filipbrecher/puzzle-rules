@@ -90,8 +90,16 @@ These conventions apply to (almost) all puzzles, so they are **not** written in 
 3. **Black cells** in the grid, when the rules do not mention black cells, are not part of the grid either.
 4. **Given features.** Some features of a puzzle may already be given in the problem, even if the rules don't say so. For example, in a region-division puzzle some of the region borders may already be drawn, and in a path puzzle some parts of the path may already be given.
 5. **Grid shape.** Rules are written for a square grid by default. If a genre is by default played on another grid (for example hexagonal), say so in its rules or its notes.
-6. **Size.** Write the rules for general sizes, unless they are really about a specific size (for example, when the puzzle only works for that size). Sudoku rules, for instance, are for NxN, not only 9x9. If a puzzle needs a particular size, restrict it later with a combination consisting of only that genre, or add it to the genre's Notes.
+6. **Size.** Write the rules for general sizes, unless they are really about a specific size (for example, when the puzzle only works for that size). Sudoku rules, for instance, are for NxN, not only 9x9. If a genre usually uses a particular size, restrict it later with a combination consisting of only that genre, or add it to the genre's Notes.
 7. **Shape banks.** Unless the rules say otherwise, any shape bank is allowed. A combination may restrict it (for example Pentominous: polyominoes limited to pentominoes).
+
+### Special cases
+
+**Related genres that other sites list separately.** Ayeheya is Heyawake plus the rule that the shaded cells in every region are 180° rotationally symmetric, so it is recorded as Heyawake + Symmetrical Regions (Shading) because it clearly adds on top of Heyawake. Regional Yajilin is the opposite case: instead of arrow number clues, regions carry counts and the loop does not pass through the number cells. The defining clue of Yajilin would've been replaced, so it stays a separate genre. (The alternative would be to define Yajilin without number clues and treat each clue type as a variant for the Shading category.)
+
+**Genre families (mostly for Walks).** Many puzzles share one frame and differ only by a type, such as Ice Walk, Forest Walk or Morning Walk. Make one base genre (Walk) and a specific variant for each type, grouped by a shared family (for example "walk"). This avoids dozens of near-identical genres, and still lets you combine them into a single puzzle (for example one part Ice Walk and another part Forest Walk), with the combination's rules describing how the variants meet.
+
+**Genres native to another grid (for example Honey Islands).** You can write the rules so that they don't depend on the grid shape, and state the native grid in the Notes. Using another grid is then recorded as a combination with a grid-shape variant. For Honey Islands: "Shade some cells in the grid such that exactly N unshaded regions are formed, containing N cells each. N is given outside the grid.". The Notes say that its native grid is hexagonal, and the original "exactly 6 regions of 6 cells" is the size case described above.
 
 ### Quick checklist
 
