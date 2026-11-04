@@ -1,0 +1,42 @@
+{
+  "id": "72",
+  "names": {
+    "en": [
+      "Yin-Yang"
+    ],
+    "ja": [
+      "しろまるくろまる"
+    ],
+    "cs": [
+      "Yin-Yang"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a circle into each cell of the grid - some white and some black - such that all circles of the same type must lie in cells forming one orthogonally connected area.",
+        "No 2x2 region may contain all one type of circle."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "全てのマスに○か●を記入する。",
+        "○●はそれぞれ同じ色どうしで、全体でひとつにつながっている。",
+        "同じ色の丸で、２×２以上の固まりができてはいけない。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "t4xkwg",
+      "problem": "images/72/t4xkwg-problem-bdzl.webp",
+      "solution": "images/72/t4xkwg-solution-rv8x.webp",
+      "author": "うまや天国",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/561"
+    }
+  ]
+}

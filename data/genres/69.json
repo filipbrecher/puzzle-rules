@@ -1,0 +1,38 @@
+{
+  "id": "69",
+  "names": {
+    "en": [
+      "The Longest"
+    ],
+    "ja": [
+      "短辺消失"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines over the dotted lines to divide the board into polygons.",
+        "For each polygon, the side (or sides) with the biggest length must consist entirely of given borders.",
+        "Each given border must be part of the longest side for at least one of the adjacent polygons."
+      ],
+      "source": "Original"
+    },
+    "ja": {
+      "statements": [
+        "点線上に線を引き、面積1マス以上のブロックに分割します。使わないマスはありません。",
+        "最初から表示されている線は各ブロックの最も長い辺(複数あるならすべて)です。書き込む線が最も長い辺の一部や全体になるようなブロックができてはいけません。"
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "9xilnw",
+      "problem": "images/69/9xilnw-problem-6grh.webp",
+      "solution": "images/69/9xilnw-solution-aaou.webp",
+      "author": "はっちゅ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126022"
+    }
+  ]
+}

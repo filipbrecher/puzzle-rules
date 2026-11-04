@@ -1,0 +1,45 @@
+{
+  "id": "63",
+  "names": {
+    "en": [
+      "Nonogram"
+    ],
+    "ja": [
+      "お絵かきロジック",
+      "ののぐらむ"
+    ],
+    "cs": [
+      "Malovaná křížovka",
+      "Kodovaný obrázek",
+      "Nonogram"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that the clues outside the grid represent the lengths of the blocks of consecutive shaded cells in the corresponding row or column, in order."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "数字をヒントに盤面のいくつかのマスを黒く塗ります。",
+        "タテとヨコの数字は、その列にある連続してつながっている黒マスの数を表します。",
+        "複数の数字がある場合は、それぞれの間が一つ以上の白マスで分かれていることを表します。",
+        "複数の数字がある場合は、その順番通りに盤面を黒く塗ります。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "o0ykag",
+      "problem": "images/63/o0ykag-problem-gvms.webp",
+      "solution": "images/63/o0ykag-solution-19yj.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/127005"
+    }
+  ]
+}

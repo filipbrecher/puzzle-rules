@@ -1,0 +1,53 @@
+{
+  "id": "71",
+  "names": {
+    "en": [
+      "Kakuro"
+    ],
+    "ja": [
+      "カックロ",
+      "サムクロス"
+    ],
+    "cs": [
+      "Kakuro"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number from 1 to 9 into each empty cell so that no number is repeated in any unobstructed horizontal or vertical line.",
+        "A clue on the bottom of a blocked cell represents the sum of the numbers in the vertical line below it.",
+        "A clue on the right side of a blocked cell represents the sum of the numbers in the horizontal line to its right.",
+        "Clues cannot see numbers through other blocked cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "すべての白マスに１から９までの数字のどれかを１つずつ入れます。",
+        "黒マスに引かれた対角線の右上の数字は、そのマスから右方向に壁または黒マスにぶつかるまで直進できる範囲のマスに入る数字の合計を表します。",
+        "黒マスに引かれた対角線の左下の数字は、そのマスから下方向に壁または黒マスにぶつかるまで直進できる範囲のマスに入る数字の合計を表します。",
+        "白マスから上下左右それぞれ壁または黒マスにぶつかるまで直進できる範囲のマスに、その白マスと同じ数字は入りません。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Do prázdných políček vepište číslice 1 až 9.",
+        "Bílá čísla v černých políčkách udávají součet číslic v části řádku (vpravo od něj) či sloupce (dolů od něj), pro kterou je bílé číslo uvedeno.",
+        "Jednotlivé části řádku či sloupce jsou vymezeny černými políčky či okrajem tabulky a číslice se v nich nesmí opakovat."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "cx3hen",
+      "problem": "images/71/cx3hen-problem-2bxy.webp",
+      "solution": "images/71/cx3hen-solution-1611.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126993"
+    }
+  ]
+}

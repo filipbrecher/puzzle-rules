@@ -1,0 +1,49 @@
+{
+  "id": "66",
+  "names": {
+    "en": [
+      "Hitori"
+    ],
+    "ja": [
+      "ひとりにしてくれ"
+    ],
+    "cs": [
+      "Hitori"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent and the remaining unshaded cells form one orthogonally connected area.",
+        "No two cells in the same row or column containing the same number may both be unshaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断してはいけません。",
+        "すべてのタテ列、すべてのヨコ列について、塗られていないマスの数字がすべて１つずつになるようにします。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka tabulky tak, aby zbylá pole tvořila plochu propojenou stranami.",
+        "Nesmíte začernit dvě políčka sousedící stranou.",
+        "Ve zbývajících nezačerněných polích se v žádném řádku ani v žádném sloupci nesmí opakovat stejná čísla."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "3ufwcz",
+      "problem": "images/66/3ufwcz-problem-bbh7.webp",
+      "solution": "images/66/3ufwcz-solution-7xuc.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102323"
+    }
+  ]
+}

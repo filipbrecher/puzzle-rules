@@ -1,0 +1,42 @@
+{
+  "id": "58",
+  "names": {
+    "en": [
+      "Nanameguri"
+    ],
+    "ja": [
+      "ななめぐり"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines through orthogonally adjacent cells to form a loop.",
+        "The loop cannot branch off or cross itself. Cells can not be entered more than once.",
+        "Every outlined region must be visited exactly once.",
+        "The loop must visit every cell containing a diagonal line.",
+        "The loop cannot go through diagonal lines."
+      ],
+      "source": "https://puzz.link/rules.html?nanameguri"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて全体で１つの輪っかを作りましょう。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "線は、すべての太線で区切られた部分（部屋）を１回ずつ通ります。同じ部屋を２回以上通ってはいけません。",
+        "線は、ナナメの太線があるマスを必ず通りますが、線がナナメの太線をまたいではいけません。"
+      ],
+      "source": "パズル通信ニコリ vol.181 p.101"
+    }
+  },
+  "examples": [
+    {
+      "id": "c9ewdh",
+      "problem": "images/58/c9ewdh-problem-j8wp.webp",
+      "solution": "images/58/c9ewdh-solution-yjeu.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115932"
+    }
+  ]
+}

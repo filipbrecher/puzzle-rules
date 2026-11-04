@@ -1,0 +1,37 @@
+{
+  "id": "70",
+  "names": {
+    "en": [
+      "Moon or Sun",
+      "Moonsun"
+    ],
+    "ja": [
+      "月か太陽"
+    ]
+  },
+  "notes": "English Puzsq rules (copied from Eric Fox's Dictionary of Rulesets) allowed for weird behavior where the loop passed through all suns, nothing (completely empty region) and then all moons.\nPuzz.link rules are similar to Eric Fox's rules, but the loop always passes at least one clue in each region.\nThese versions are classified under their respective combinations.",
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells which visits each region exactly once.",
+        "Each region must be either sun-type or moon-type.",
+        "A sun-type region must have the loop pass through all suns and no moons.",
+        "A moon-type region must have the loop pass through all moons and no suns.",
+        "Consecutively visited regions must alternate between sun-type and moon-type. Regions with no clues must be either moon-type or sun-type."
+      ],
+      "source": "Puzzle Rules"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて全体で１つの輪っかを作りましょう。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "太線で区切られた部分を部屋と呼びます。線は、すべての部屋を１回ずつだけ通るようにしなければなりません。",
+        "それぞれの部屋において、線は月(????)か太陽(○)のいずれか一方の記号があるマスをすべて通るようにします。",
+        "線は、月を通る部屋と太陽を通る部屋を交互に通らなければいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated and modified"
+    }
+  }
+}

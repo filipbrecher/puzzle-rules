@@ -1,0 +1,45 @@
+{
+  "id": "55",
+  "names": {
+    "en": [
+      "Stostone"
+    ],
+    "ja": [
+      "ストストーン"
+    ],
+    "cs": [
+      "Stostone"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade a single group of orthogonally connected cells in each region.",
+        "Shaded groups may not share a bold border.",
+        "Regions with numbers must contain the indicated amount of shaded cells.",
+        "If all of the shaded groups were to fall straight down without changing shape, they must completely fill the bottom half of the grid."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "いくつかの白マスを黒くぬりつぶしましょう。",
+        "太線で区切られたそれぞれの部屋には、黒マスがタテヨコにひとつながりになったカタマリ（石）が１つだけ入ります。数字は、その部屋に入る石のマス数を表します。数字のない部屋では、何マスの石が入るかはわかりません。",
+        "黒マスは、太線をまたいでタテヨコに隣り合ってはいけません。",
+        "すべての石は、形を変えずにそのまままっすぐ下に落とされたとき、盤面のちょうど下半分をすき間なく埋め尽くすようにします。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "fc1dmc",
+      "problem": "images/55/fc1dmc-problem-md09.webp",
+      "solution": "images/55/fc1dmc-solution-qril.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102318"
+    }
+  ]
+}

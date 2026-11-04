@@ -1,0 +1,30 @@
+{
+  "id": "3",
+  "names": {
+    "en": [
+      "Coded Numbers"
+    ],
+    "cs": [
+      "Kódovaná čísla"
+    ]
+  },
+  "families": [
+    "coded"
+  ],
+  "kind": "general",
+  "category": "all",
+  "rules": {
+    "en": {
+      "statements": [
+        "Same letters represent the same numbers, different letters represent different numbers."
+      ],
+      "source": "Puzzle Rules"
+    },
+    "cs": {
+      "statements": [
+        "Stejná písmena reprezentují stejná čísla, různá písmena reprezentují různá čísla."
+      ],
+      "source": "Puzzle Rules"
+    }
+  }
+}

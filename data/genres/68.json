@@ -1,0 +1,41 @@
+{
+  "id": "68",
+  "names": {
+    "en": [
+      "Yajisan-Kazusan"
+    ],
+    "ja": [
+      "やじさんかずさん"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent and the remaining unshaded cells form one orthogonally connected area.",
+        "If a cell with a number in it is unshaded, the number represents how many shaded cells are in a straight line in the indicated direction.",
+        "If a cell with a number in it is shaded, the number is meaningless."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "数字は、矢印の方向に入る黒マスの数を表します。",
+        "数字の入ったマスが黒マスになることもあります。その場合、そのマスの数字の情報は無効になります。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断したりしてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "yio92n",
+      "problem": "images/68/yio92n-problem-79g5.webp",
+      "solution": "images/68/yio92n-solution-adzv.webp",
+      "author": "カルコゲン",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101582"
+    }
+  ]
+}

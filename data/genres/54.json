@@ -1,0 +1,52 @@
+{
+  "id": "54",
+  "names": {
+    "en": [
+      "Bridges",
+      "Hashiwokakero",
+      "Hashi"
+    ],
+    "ja": [
+      "橋をかけろ"
+    ],
+    "cs": [
+      "Mosty"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Connect pairs of circles horizontally or vertically so that all circles form one connected network.",
+        "Connections may not cross one another, and any pair of circles may have at most two connections between them.",
+        "Numbers in circles represent the amount of connections they’re a part of."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "数字と数字の間にタテヨコに0〜2本の線を引き、すべての数字がひと繋がりになるようにします。",
+        "数字を結ぶ線同士が交差したり、線が他の数字の上を通ってはいけません。",
+        "数字はその数字から伸びる線の本数を表しています。数字のないマスにはいくつ線が引かれるかわかりません。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Kroužky s čísly představují ostrovy. Vyznačte jednoduché a dvojité čáry představující mosty vedoucí mezi ostrovy.",
+        "Z každého ostrova vede tolik mostů, kolik udává číslo na něm. Mosty musí vést vodorovně nebo svisle a nesmí se křižovat.",
+        "Všechny ostrovy musí být propojeny navzájem, tzn. že musí existovat cesta z libovolného ostrova na každý jiný."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "r6t89w",
+      "problem": "images/54/r6t89w-problem-00nr.webp",
+      "solution": "images/54/r6t89w-solution-oa0z.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126990"
+    }
+  ]
+}

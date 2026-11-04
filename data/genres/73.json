@@ -1,0 +1,39 @@
+{
+  "id": "73",
+  "names": {
+    "en": [
+      "Nuritwin"
+    ],
+    "ja": [
+      "ぬりツイン"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade exactly two blocks of equal size per territory, so all cells to form a single shaded zone, without entirely shading any vertex.",
+        "Numbers match the area of every block within the enclosing territory."
+      ],
+      "source": "Kudamono Editor(nuritwin)"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "太線で区切られたそれぞれの部屋には、部屋の中で黒マスがタテヨコにひとつながりになったブロックが２つだけ、同じマス数で入ります。数字は、その部屋に入るブロック１つ分のマス数を表します。数字のない部屋では、何マスのブロックが入るかはわかりません。",
+        "すべての黒マスは、太線をまたぎながらタテヨコにひとつながりになっていなければなりません。",
+        "同じ部屋のブロックどうしが辺で隣り合ってはいけません。また、黒マスを２×２以上のカタマリにしてはいけません。"
+      ],
+      "source": "パズル通信ニコリ vol.186 p.91"
+    }
+  },
+  "examples": [
+    {
+      "id": "x35z1z",
+      "problem": "images/73/x35z1z-problem-mtny.webp",
+      "solution": "images/73/x35z1z-solution-8qv9.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/167005"
+    }
+  ]
+}

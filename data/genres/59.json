@@ -1,0 +1,52 @@
+{
+  "id": "59",
+  "names": {
+    "en": [
+      "Cave"
+    ],
+    "ja": [
+      "バッグ",
+      "Cave"
+    ],
+    "cs": [
+      "Jeskyně"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that the shaded cells are all connected orthogonally by other shaded cells to the edge of the grid, and the remaining unshaded cells form one orthogonally connected area.",
+        "Clues cannot be shaded, and represent the total number of unshaded cells that can be seen in a straight line vertically or horizontally, including itself."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "すべての白マスはタテヨコにひとつながりになっていなければなりません。",
+        "すべての黒マスは盤面外に接する黒マスのいずれかとタテヨコにひとつながりになっていなければなりません。",
+        "数字の入ったマスを黒く塗りつぶすことはできません。",
+        "数字はその数字マスから上下左右それぞれに、壁または黒マスにぶつかるまで直進できる範囲のマスの数（数字マス自身を含む）を表します。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Vyčerněte některá políčka tabulky tak, aby vám zbyla jeskyně, tj. jedna propojená nevyčerněná oblast, která neobklopuje žádnou černou oblast. Jinak řečeno všechny skupiny černých polí musíte propojit s okrajem tabulky.",
+        "Všechna políčka s čísly jsou součástí jeskyně. Každé číslo udává počet políček jeskyně, která jsou z tohoto čísla vidět do čtyř směrů (vodorovně a svisle), včetně políčka samého."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "07ma89",
+      "problem": "images/59/07ma89-problem-9ywi.webp",
+      "solution": "images/59/07ma89-solution-qu8r.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101637"
+    }
+  ]
+}

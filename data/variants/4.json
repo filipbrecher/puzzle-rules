@@ -1,0 +1,31 @@
+{
+  "id": "4",
+  "names": {
+    "en": [
+      "Coded Digits"
+    ],
+    "cs": [
+      "Kódované číslice"
+    ]
+  },
+  "notes": "The variant \"Coded Numbers\" should be used in preference if both of these variants would be correct.",
+  "families": [
+    "coded"
+  ],
+  "kind": "general",
+  "category": "all",
+  "rules": {
+    "en": {
+      "statements": [
+        "Same letters represent the same valid digits, different letters represent different digits.",
+        "Multi-digit numbers cannot start with a 0."
+      ]
+    },
+    "cs": {
+      "statements": [
+        "Stejná písmena reprezentují stejné číslice, rozdílná písmena reprezentují rozdílné číslice.",
+        "Víceciferné číslo nesmí začínat na 0."
+      ]
+    }
+  }
+}

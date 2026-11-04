@@ -1,0 +1,39 @@
+{
+  "id": "64",
+  "names": {
+    "en": [
+      "Kurarin"
+    ],
+    "ja": [
+      "クラリン"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells and draw a non-intersecting loop through all remaining cells.",
+        "Black circles indicate there are more shaded than unshaded cells among the cells the circle overlaps. White circles indicate more unshaded cells. Grey circles indicate the amount of shaded and unshaded cells is equal."
+      ],
+      "source": " Puzzle Communication Nikoli vol. 191, 2025",
+      "note": "Translated"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて、 全体で1つの輪っかを作りましょう。また、線が通らないマスは黒くぬり、黒マスにしましょう。",
+        "小さな丸は、その丸が接している周囲のマスのうち、黒マスと白マスのどちらの数が多いかを表しています。黒丸なら黒マスの方が多く、白丸なら白マスの方が多いということです。灰色の丸は、白マスと黒マスが同数であることを表しています。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。"
+      ],
+      "source": " Puzzle Communication Nikoli vol. 191, 2025"
+    }
+  },
+  "examples": [
+    {
+      "id": "4m45l6",
+      "problem": "images/64/4m45l6-problem-bk3t.webp",
+      "solution": "images/64/4m45l6-solution-t6kp.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/166899"
+    }
+  ]
+}

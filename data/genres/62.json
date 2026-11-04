@@ -1,0 +1,40 @@
+{
+  "id": "62",
+  "names": {
+    "en": [
+      "Tapa-Like Loop"
+    ],
+    "ja": [
+      "Tapa-Like Loop"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some empty cells.",
+        "Clues represent the numbers of consecutive cells occupied by the loop each time it enters the (up to) eight cells surrounding the clue."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて全体で１つの輪っかを作りましょう。線はタテヨコにマスの中央を通り、交差も枝分かれもしません。",
+        "盤面内の数字は、数字があるマスにタテヨコナナメに隣り合う最大８マスの中で線が連続して通るマスの数を表します。複数の数字が入っているマスでは、数字の個数だけ線が引かれ、それぞれの線はマスの周囲では連続しません。",
+        "？は数字が１つあることを表しますが、何の数字かは分かりません。数字か？が複数あるマスでは？は０になりません。",
+        "線が数字か？のあるマスを通ってはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "kgyeis",
+      "problem": "images/62/kgyeis-problem-h5ds.webp",
+      "solution": "images/62/kgyeis-solution-hmhx.webp",
+      "author": "三価スニウム",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101495"
+    }
+  ]
+}

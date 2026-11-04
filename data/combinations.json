@@ -28,5 +28,62 @@
         "source": "https://puzsq.logicpuzzle.app/puzzle/101252"
       }
     ]
+  },
+  {
+    "id": "c_ej0i4c",
+    "names": {
+      "en": [
+        "Moon or Sun (Eric Fox's version)"
+      ]
+    },
+    "notes": "Yes, Eric Fox's rules are either wrong or written ambiguously.",
+    "components": [
+      {
+        "type": "genre",
+        "id": "70"
+      }
+    ],
+    "rules": {
+      "en": {
+        "statements": [
+          "A region containing only suns or only moons must have its clues passed through.",
+          "Empty regions are moon-type and sun-type at the same time.",
+          "For every two consecutively visited regions it must be true, that one of them is at least sun-type and the other one is at least moon-type. This means that you may pass through an empty region and switch the type's parity."
+        ],
+        "source": "Eric Fox's Dictionary of Rulesets"
+      }
+    }
+  },
+  {
+    "id": "c_1hggdr",
+    "names": {
+      "en": [
+        "Moon or Sun (puzz.link version)"
+      ]
+    },
+    "notes": "Puzz.link version of the rules.",
+    "components": [
+      {
+        "type": "genre",
+        "id": "70"
+      }
+    ],
+    "rules": {
+      "en": {
+        "statements": [
+          "All regions must have at least one moon or sun that is used by the loop."
+        ],
+        "source": "https://puzz.link/rules.html?moonsun"
+      }
+    },
+    "examples": [
+      {
+        "id": "m7te5q",
+        "problem": "images/c_1hggdr/m7te5q-problem-aeyw.webp",
+        "solution": "images/c_1hggdr/m7te5q-solution-0uf3.webp",
+        "author": "K.N.Y.",
+        "source": "https://puzsq.logicpuzzle.app/puzzle/101337"
+      }
+    ]
   }
 ]

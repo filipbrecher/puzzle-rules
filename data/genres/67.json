@@ -1,0 +1,40 @@
+{
+  "id": "67",
+  "names": {
+    "en": [
+      "Multiplication Link"
+    ],
+    "ja": [
+      "掛け算リンク"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw an orthogonal loop through every number and circle.",
+        "A number clue matches the product of all long segments on it.",
+        "A circle indicates a loop corner."
+      ],
+      "source": "Kudamono Editor(multiplication-link)"
+    },
+    "ja": {
+      "statements": [
+        "盤面の点にタテヨコに線を引いて全体で1つのループを作りましょう。",
+        "〇の位置はループにおいて角となります。",
+        "〇以外の場所で角が発生しても構いません。",
+        "〇の中の数字は、〇からでる2本の直線の長さの積となります。"
+      ],
+      "source": "https://puzzle.nada-sc.jp/kakezan"
+    }
+  },
+  "examples": [
+    {
+      "id": "pg8jau",
+      "problem": "images/67/pg8jau-problem-w14x.webp",
+      "solution": "images/67/pg8jau-solution-vc6u.webp",
+      "author": "y888",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/124057"
+    }
+  ]
+}

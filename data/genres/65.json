@@ -1,0 +1,42 @@
+{
+  "id": "65",
+  "names": {
+    "en": [
+      "Tasquare"
+    ],
+    "ja": [
+      "たすくえあ"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that each orthogonally connected area of shaded cells is in the shape of a square and the remaining unshaded cells form one orthogonally connected area.",
+        "Clued cells cannot be shaded, and represent the total size of the shaded squares that share an edge with the clue.",
+        "If a clue has no number, it must share an edge with at least one shaded square."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "□の中の数字は、そのマスに隣接した黒マスのカタマリのマス数の合計を表します。",
+        "数字のない□には、必ず１つ以上の黒マスが隣接します。",
+        "□があるマスは、□に数字が入っていても入っていなくても、黒マスにしてはいけません。",
+        "タテヨコにつながる黒マスのカタマリは、必ず正方形にしなければなりません。",
+        "黒マス以外のすべてのマスは、タテヨコにひとつながりになっていなければなりません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "fjybua",
+      "problem": "images/65/fjybua-problem-i3t8.webp",
+      "solution": "images/65/fjybua-solution-c2xp.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102315"
+    }
+  ]
+}

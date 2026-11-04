@@ -1,0 +1,31 @@
+{
+  "id": "52",
+  "names": {
+    "en": [
+      "Honey Islands"
+    ],
+    "ja": [
+      "ハニーアイランド"
+    ]
+  },
+  "notes": "On a hexagonal grid. It is usually assumed that N=6 for this genre.",
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells in the grid such that exactly N unshaded regions are formed, containing N cells each. N is given outside the grid."
+      ],
+      "source": "Puzsq Rules",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "yk5g7q",
+      "problem": "images/52/yk5g7q-problem-gvj0.webp",
+      "solution": "images/52/yk5g7q-solution-ja19.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101381"
+    }
+  ]
+}

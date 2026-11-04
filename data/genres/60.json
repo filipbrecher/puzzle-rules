@@ -1,0 +1,47 @@
+{
+  "id": "60",
+  "names": {
+    "en": [
+      "R・B Loop"
+    ],
+    "ja": [
+      "R・Bループ"
+    ]
+  },
+  "notes": "Basically Yajilin with two loops of two colors.",
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a red and a blue loop, and shade the rest of the cells.",
+        "Red tiles may not be used by the blue loop, and blue tiles may not be used by the red loop. Colored tiles may be shaded.",
+        "Purple tiles are either visited by both loops, or are shaded.",
+        "Loops cannot branch off or cross themselves, but the two loops may cross each other. Both loops must go straight at an intersection.",
+        "Shaded cells cannot be orthogonally adjacent.",
+        "Cells with numbers cannot be shaded, and are not part of any loop.",
+        "A number indicates the amount of shaded cells in the given direction."
+      ],
+      "source": "Original"
+    },
+    "ja": {
+      "statements": [
+        "盤面にタテヨコに線を引き、赤の輪っかと青の輪っかを1つずつ作ります。線が通らないマスはすべて黒く塗りつぶします。",
+        "輪っかを作る線はマスの中央を通り、盤面の外に出たり、枝分かれしたり、行き止まりがあったりしてはいけません。ただし、色が違う線ならば直角に交差することが出来ます。また、色が違う線どうしの角がマスの中で接してはいけません。",
+        "黒マスをタテヨコに連続させてはいけません",
+        "矢印のついた数字はその方向に入る黒マスの数を表します。矢印が指していない範囲にはいくつ黒マスが入るかわかりません。",
+        "数字のマスに線を引いたり黒マスを置いてはいけません。色のついたマスに黒マスを置くことはでき、その色のついていたマスを線が通る必要はありません。",
+        "赤のマスには赤の線、青のマスには青の線が通ります。赤のマスに青の線、青のマスに赤の線を通してはいけません。紫のマスは赤の線と青の線が交差します。"
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "ek9ipp",
+      "problem": "images/60/ek9ipp-problem-l6z4.webp",
+      "solution": "images/60/ek9ipp-solution-cbt9.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115929"
+    }
+  ]
+}

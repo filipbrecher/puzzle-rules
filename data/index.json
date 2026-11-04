@@ -656,6 +656,279 @@
           "チェンブロ"
         ]
       }
+    },
+    {
+      "id": "52",
+      "names": {
+        "en": [
+          "Honey Islands"
+        ],
+        "ja": [
+          "ハニーアイランド"
+        ]
+      }
+    },
+    {
+      "id": "53",
+      "names": {
+        "en": [
+          "Double LITS"
+        ],
+        "ja": [
+          "Double LITS"
+        ]
+      }
+    },
+    {
+      "id": "54",
+      "names": {
+        "en": [
+          "Bridges",
+          "Hashiwokakero",
+          "Hashi"
+        ],
+        "ja": [
+          "橋をかけろ"
+        ],
+        "cs": [
+          "Mosty"
+        ]
+      }
+    },
+    {
+      "id": "55",
+      "names": {
+        "en": [
+          "Stostone"
+        ],
+        "ja": [
+          "ストストーン"
+        ],
+        "cs": [
+          "Stostone"
+        ]
+      }
+    },
+    {
+      "id": "56",
+      "names": {
+        "en": [
+          "Koburin"
+        ],
+        "ja": [
+          "コブリン"
+        ]
+      }
+    },
+    {
+      "id": "57",
+      "names": {
+        "en": [
+          "Kurodoko",
+          "Kuromasu"
+        ],
+        "ja": [
+          "黒どこ"
+        ]
+      }
+    },
+    {
+      "id": "58",
+      "names": {
+        "en": [
+          "Nanameguri"
+        ],
+        "ja": [
+          "ななめぐり"
+        ]
+      }
+    },
+    {
+      "id": "59",
+      "names": {
+        "en": [
+          "Cave"
+        ],
+        "ja": [
+          "バッグ",
+          "Cave"
+        ],
+        "cs": [
+          "Jeskyně"
+        ]
+      }
+    },
+    {
+      "id": "60",
+      "names": {
+        "en": [
+          "R・B Loop"
+        ],
+        "ja": [
+          "R・Bループ"
+        ]
+      }
+    },
+    {
+      "id": "61",
+      "names": {
+        "en": [
+          "Five Cells",
+          "FiveCells"
+        ],
+        "ja": [
+          "ファイブセルズ"
+        ]
+      }
+    },
+    {
+      "id": "62",
+      "names": {
+        "en": [
+          "Tapa-Like Loop"
+        ],
+        "ja": [
+          "Tapa-Like Loop"
+        ]
+      }
+    },
+    {
+      "id": "63",
+      "names": {
+        "en": [
+          "Nonogram"
+        ],
+        "ja": [
+          "お絵かきロジック",
+          "ののぐらむ"
+        ],
+        "cs": [
+          "Malovaná křížovka",
+          "Kodovaný obrázek",
+          "Nonogram"
+        ]
+      }
+    },
+    {
+      "id": "64",
+      "names": {
+        "en": [
+          "Kurarin"
+        ],
+        "ja": [
+          "クラリン"
+        ]
+      }
+    },
+    {
+      "id": "65",
+      "names": {
+        "en": [
+          "Tasquare"
+        ],
+        "ja": [
+          "たすくえあ"
+        ]
+      }
+    },
+    {
+      "id": "66",
+      "names": {
+        "en": [
+          "Hitori"
+        ],
+        "ja": [
+          "ひとりにしてくれ"
+        ],
+        "cs": [
+          "Hitori"
+        ]
+      }
+    },
+    {
+      "id": "67",
+      "names": {
+        "en": [
+          "Multiplication Link"
+        ],
+        "ja": [
+          "掛け算リンク"
+        ]
+      }
+    },
+    {
+      "id": "68",
+      "names": {
+        "en": [
+          "Yajisan-Kazusan"
+        ],
+        "ja": [
+          "やじさんかずさん"
+        ]
+      }
+    },
+    {
+      "id": "69",
+      "names": {
+        "en": [
+          "The Longest"
+        ],
+        "ja": [
+          "短辺消失"
+        ]
+      }
+    },
+    {
+      "id": "70",
+      "names": {
+        "en": [
+          "Moon or Sun",
+          "Moonsun"
+        ],
+        "ja": [
+          "月か太陽"
+        ]
+      }
+    },
+    {
+      "id": "71",
+      "names": {
+        "en": [
+          "Kakuro"
+        ],
+        "ja": [
+          "カックロ",
+          "サムクロス"
+        ],
+        "cs": [
+          "Kakuro"
+        ]
+      }
+    },
+    {
+      "id": "72",
+      "names": {
+        "en": [
+          "Yin-Yang"
+        ],
+        "ja": [
+          "しろまるくろまる"
+        ],
+        "cs": [
+          "Yin-Yang"
+        ]
+      }
+    },
+    {
+      "id": "73",
+      "names": {
+        "en": [
+          "Nuritwin"
+        ],
+        "ja": [
+          "ぬりツイン"
+        ]
+      }
     }
   ],
   "variants": [
@@ -675,6 +948,28 @@
       "names": {
         "en": [
           "Symmetrical Regions"
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "names": {
+        "en": [
+          "Coded Numbers"
+        ],
+        "cs": [
+          "Kódovaná čísla"
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "names": {
+        "en": [
+          "Coded Digits"
+        ],
+        "cs": [
+          "Kódované číslice"
         ]
       }
     }
