@@ -1,0 +1,43 @@
+{
+  "id": "51",
+  "names": {
+    "en": [
+      "Chained Block"
+    ],
+    "ja": [
+      "チェンブロ"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells such that each connected group of shaded cells contains exactly one clue.",
+        "Clues must be shaded, and indicate the size of their group of shaded cells.",
+        "Each group of shaded cells must be connected by a corner to at least one other, forming networks.",
+        "Two shaded groups belonging to the same network may not have the same shape and size, counting rotations and reflections as the same."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "数字は、その数字が含まれる、黒マスがタテヨコにつながったカタマリ（ブロックと呼びます）のマス数を表します｡｢？｣の場合、何マスのカタマリになるかはわかりません。",
+        "すべてのブロックには数字か｢？｣が１つずつ入るようにします。",
+        "２個以上のブロックが角で接したつながりを「チェーン」と呼びます。チェーンを作らないブロックがあってはいけません。",
+        "１つのチェーンの中に、大きさも形も同じブロックが入ってはいけません。回転や裏返しをして同じになるものは「同じ形」とします。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "qccwng",
+      "problem": "images/51/qccwng-problem-lz9j.webp",
+      "solution": "images/51/qccwng-solution-jl3h.webp",
+      "author": "K.N.Y.",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101875"
+    }
+  ]
+}
