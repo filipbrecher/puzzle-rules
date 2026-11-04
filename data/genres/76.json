@@ -1,0 +1,42 @@
+{
+  "id": "76",
+  "names": {
+    "en": [
+      "Norinuri"
+    ],
+    "ja": [
+      "海苔ぬり"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells on the board to form regions of unshaded cells.",
+        "Each region contains exactly one number.",
+        "A number indicates the size of the region that contains it.",
+        "You cannot shade a cell with a number.",
+        "All shaded cells are orthogonally adjacent to exactly one other shaded cell."
+      ],
+      "source": "https://puzz.link/rules.html?norinuri"
+    },
+    "ja": {
+      "statements": [
+        "以下のルールに従って、盤面に黒マスを配置します。",
+        "数字が入っているマスは黒マスになりません。",
+        "数字は、その数字が含まれる黒マスによって分断されたところ(シマとよぶ)のマスの数です。すべてのシマには数字が１つずつ入っていなければなりません。",
+        "黒マスは、必ず１×２か２×１のカタマリになります。黒マスのつながりがそれより多くても少なくてもいけません。"
+      ],
+      "source": "https://puzz.link/rules.html?norinuri"
+    }
+  },
+  "examples": [
+    {
+      "id": "xwsmf5",
+      "problem": "images/76/xwsmf5-problem-bdce.webp",
+      "solution": "images/76/xwsmf5-solution-3tq9.webp",
+      "author": "p711",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101227"
+    }
+  ]
+}

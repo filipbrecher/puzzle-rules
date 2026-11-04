@@ -1,0 +1,26 @@
+{
+  "id": "5",
+  "names": {
+    "en": [
+      "Ice"
+    ],
+    "ja": [
+      "アイス"
+    ]
+  },
+  "families": [
+    "walk"
+  ],
+  "kind": "specific",
+  "genre": "75",
+  "rules": {
+    "en": {
+      "statements": [
+        "Two perpendicular line segments may intersect each other (only) on icy cells, but they may not turn at their intersection or otherwise overlap.",
+        "The loop may not turn on icy cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Reworded"
+    }
+  }
+}

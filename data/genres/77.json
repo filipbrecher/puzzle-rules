@@ -1,0 +1,39 @@
+{
+  "id": "77",
+  "names": {
+    "en": [
+      "Creek"
+    ],
+    "ja": [
+      "クリーク"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that the remaining unshaded cells form one orthogonally connected area.",
+        "A clue represents how many of the (up to) four cells it touches are shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "数字は、数字がまたがる最大４マスのうち、黒マスとなるマスの数を表しています。",
+        "黒マスにならないマスは白マスとなります。そして、すべての白マスはタテヨコにひとつながりになっていなければなりません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "9n0ik4",
+      "problem": "images/77/9n0ik4-problem-lfkx.webp",
+      "solution": "images/77/9n0ik4-solution-x2pp.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102316"
+    }
+  ]
+}

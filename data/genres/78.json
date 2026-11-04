@@ -1,0 +1,33 @@
+{
+  "id": "78",
+  "names": {
+    "en": [
+      "LIX Loop"
+    ],
+    "ja": [
+      "LIX Loop"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that no two shaded cells are orthogonally adjacent and draw a non-intersecting loop through the centers of all the remaining empty cells.",
+        "Clues cannot be shaded.",
+        "The letters represent cells that contain a turning line (L), straight line (I), shaded cell (X). The clued cells indicate whichever sort is most frequent in that direction (If there are multiple, all letters will be present)."
+      ],
+      "source": "https://twitter.com/_subparnova/status/1766007922537226465?t=5cdGyogQHpFzUwwUFsKmog&s=19",
+      "note": "Translated"
+    },
+    "ja": {
+      "statements": [
+        "盤面にタテヨコに線を引き、全体で１つの輪っかを作ります。線が通らないマスはすべて黒く塗りつぶします。",
+        "輪っかを作る線はマスの中央を通り、盤面の外に出たり、交差したり、枝分かれしたり、行き止まりがあったりしてはいけません。",
+        "黒マスをタテヨコに連続させてはいけません。",
+        "矢印のついた文字は、その方向に入る折れ線（L）、直線（I）、黒マス（X）のうち、最も多いものを（複数あるならすべて）表します。",
+        "文字のマスに線を引いたり黒マスを置いたりしてはいけません。"
+      ],
+      "source": "Original"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "74",
+  "names": {
+    "en": [
+      "Barns"
+    ],
+    "ja": [
+      "バーンズ"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a loop through the centers of all cells, which may not pass through bold borders.",
+        "Two perpendicular line segments may intersect each other only on icy cells, but they may not turn at their intersection or otherwise overlap.",
+        "The loop may not turn on icy cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面に線を引き、すべてのマスを通る１つのループを作ります。",
+        "ループを作る線は、タテヨコに引いてマスの中央を通ります。枝分かれや行き止まりがあってはいけません。",
+        "水色のマスをアイスバーンと呼びます。線はアイスバーン上で曲がることはできません。",
+        "線は、アイスバーン上でのみ立体交差することができます。",
+        "線は、点線上にある太線と交差してはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "4m64q3",
+      "problem": "images/74/4m64q3-problem-rwhh.webp",
+      "solution": "images/74/4m64q3-solution-187p.webp",
+      "author": "へーくま",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101281"
+    }
+  ]
+}

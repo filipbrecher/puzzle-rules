@@ -85,5 +85,35 @@
         "source": "https://puzsq.logicpuzzle.app/puzzle/101337"
       }
     ]
+  },
+  {
+    "id": "c_tsd73n",
+    "names": {
+      "en": [
+        "Ice Walk"
+      ],
+      "ja": [
+        "アイスウォーク"
+      ]
+    },
+    "components": [
+      {
+        "type": "genre",
+        "id": "75"
+      },
+      {
+        "type": "variant",
+        "id": "5"
+      }
+    ],
+    "examples": [
+      {
+        "id": "huwq2v",
+        "problem": "images/c_tsd73n/huwq2v-problem-pi9g.webp",
+        "solution": "images/c_tsd73n/huwq2v-solution-jzvj.webp",
+        "author": "にしなんとか",
+        "source": "https://puzsq.logicpuzzle.app/puzzle/154553"
+      }
+    ]
   }
 ]

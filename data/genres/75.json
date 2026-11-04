@@ -1,0 +1,23 @@
+{
+  "id": "75",
+  "names": {
+    "en": [
+      "Walk"
+    ],
+    "ja": [
+      "ウォーク"
+    ]
+  },
+  "notes": "Base genre for all Walks. Walks may alter or add to the rules. For example to create a network instead of a loop (allow crossing), or allow loop crossing.",
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a loop through the centers of some cells which passes through each numbered cell.",
+        "The loop cannot branch off or cross itself.",
+        "A number indicates how many cells inside the same-colored region make up the continuous section of the loop that the number is on."
+      ],
+      "source": "Puzzle Rules"
+    }
+  }
+}
