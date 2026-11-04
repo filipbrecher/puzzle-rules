@@ -1,18 +1,18 @@
 # puzzle-rules
 
-Repo for storing puzzle Genre rules, Variant rules, and their Combinations. Plus additional metadata and example puzzles. This is meant mainly for easy access to rules in multiple languages, searching through past Combinations and access to example puzzles.
+Repo for storing puzzle genre rules, variant rules, and their combinations. Plus additional metadata, assets and example puzzles. This is meant mainly for useful classification, easy access to rules in multiple languages (side-by-side comparison), searching through genre and variant combinations and access to assets and example puzzles.
 
 
-## Info
+## Basic Info
 
-I tried to make a simple way to organize the Variants and their usage for personal use, but I will share it publicly as well.
+A try to organize the genres, variants and their usage originally for personal use, but I will share this publicly as well.
 Genre + Variant combinations can be seen in Combinations with possible sources where they appeared or example puzzles. There may be Combinations with multiple Genres or Variants.
 
 Some rules might be more specific than on other sites like Puzsq or Eric Fox's Dictionary of Rulesets to remove possible ambiguities. I also want to include example puzzles for all genres, and sometimes for the combinations (sometimes with multiple example puzzles as well, like a small 3x3, 5x5, 7x7, ... so you can choose whichever fits on some page in a pdf better and stuff like that).
 
 A lot of inspiration comes from Puzsq and personal experience with constructing and solving variant (and non-variant) puzzles.
 
-I wanted to make a quick first page with AI to see if this way of organizing would work.
+I wanted to make a quick first page with AI to see if this way of organizing would work, and I also don't have the time to write it myself from scratch :0
 
 
 ### Usage
@@ -24,7 +24,7 @@ As I said above, I made this primarily for personal use, but I want to share it 
 
 ## For Contributors
 
-Ask the owner of this repository for further questions or if there is some unclarity.
+Ask the owner of this repository for further questions if there is some unclarity.
 
 ### Languages and Rule Names and Statements
 
