@@ -146,6 +146,35 @@ It supports English, Japanese and Czech for now, but it's easy to add a new lang
 Previously when making a tournament I either wrote the rules again, went to my personal sheet with all of my puzzles and copied from the rules in Penpa+, searched the official Czech website for puzzles, looked through past Czech tournament papers or through older latex files with those genres. And for some tournaments I needed to make an English version of the pdfs which made it even more annoying.
 
 
+## Progress Tracker
+
+For tracking sources that were already used to input genres, variants and combinations.
+
+### Puzsq
+
+continue checking from the publication date of the last ID
+
+**Genres**:
+
+All genres with ID 0 to 0 are done.
+
+**Genres in Others (non-variant)**
+
+All Others with ID 0 to 0 are done.
+
+**Variants**
+
+All Variant puzzles with ID 0 to 0 are done.
+
+### Tournaments to Explore
+
+- [ ] WPC 2026
+- [ ] Add more later
+
+### Finished Tournaments
+
+- None
+
 ## Future Goals
 
 One of the future goals is to standardize rules in a way where I could make a general editor (like Penpa+ feature variability combined with Puzzlink's or Pzprxs's easy editing abilities and pzpus-solver2's ability to solve puzzles), but (maybe) with automatically generated text rules from the actual rules that constrain the puzzle.
