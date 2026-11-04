@@ -48,7 +48,7 @@ The **Inventor** refers to the person who invented the puzzle genre, not necessa
 | Source label | Meaning |
 | -------- | ------- |
 | Original | Rules taken from the original puzzle publication or the original source in which the rules appeared. |
-| Puzsq Rules | Rules obtained from Puzsq, where Puzsq Rules is listed as the source. |
+| Puzsq Rules | Rules obtained from Puzsq, where Puzsq Rules is listed as the source or where there isn't any source listed. |
 | Eric Fox's Dictionary of Rulesets | Rules obtained from Eric Fox's Dictionary of Rulesets. |
 | Twitter / X | Rules obtained from a Twitter / X post. Include a link to the post where possible. |
 | Website name or URL | Rules obtained from the specified website. |
