@@ -67,9 +67,76 @@ Use Rule Notes to describe any differences between the rules as presented on thi
 | Translated | The rules were translated from the source language into another language. |
 
 
-## Classification guidelines
+## Classification Guidelines
 
-todo
+These guidelines define what belongs in a genre, a variant or a combination, and how rules are written. They affect how the whole database works, and they may be refined over time.
+
+### Terms
+
+- **Genre**: a puzzle type that is generally acknowledged as a separate genre. It is the base everything else builds on. Each genre has exactly one category.
+- **Variant**: a reusable change to the rules of a genre (adding, replacing or, rarely, removing statements). A *general* variant applies to all genres or to one category. A *specific* variant applies to one genre only.
+- **Combination**: a set of genres and variants that are used together, for example LITS + Aqre, or a genre + one or more variants or other genres. It can have its own names, examples, notes and, optionally, its own rules.
+- **Appearance**: a record of who used a combination, with an author, a source and a note.
+
+### Writing rules
+
+1. **English rules are the reference.** At least the English rules must be correct, precise and unambiguous, because other languages and the combination rules build on them. When the English rules and another language disagree, the English rules are the ones to fix first.
+2. **Other languages** follow their source. The Japanese rules, for example, may keep the Puzsq wording. If two sources differ (one states a rule, the other doesn't), say so in the rules' Note.
+3. **One statement per line**, each saying one thing. Statements are written for the base genre only, so they don't mention variants.
+4. **Don't repeat common expansions** (see below) in every genre.
+
+### Genres
+
+A genre's rules are the **minimal rules** that the main sources accept as defining the genre. Ask whether removing a statement would make it a different or unsolvable puzzle. If yes, the statement belongs to the genre.
+
+**Expansions that are common for the genre still belong to the genre.** If it is usual for a genre to be played with an extra rule or element (for example, walls that block a line from passing), then that extra rule is part of the genre's rules, and it counts as the base genre, not a variant.
+
+How common it is decides where it goes:
+
+- **Common for this genre:** include it in the genre's rules.
+- **Uncommon for this genre but reusable:** make it a variant, and record the genre and variant as a combination.
+- **A one-off or specific to one puzzle:** put it in the combination's own rules, or leave it out of the rules if it is a convention (see the common expansions below).
+
+**Implementation conventions count.** If the common implementation of a genre enforces a rule (for example, a line may not cross bold borders) even though some other source leaves it out, treat it as part of the genre and mention the difference in the Note.
+
+### Variants
+
+A variant changes the rules only as far as the result can still be called that genre with a modification, and not a completely different puzzle. It adds rules, replaces parts of the rules, or, as an exception, removes rules.
+
+- **Removing rules** should be uncommon, and usually only for one specific genre, not for a whole category.
+- **A very small or broad variant is fine.** Many combinations are acceptable, since that is how you can see which genres a variant has been used with.
+- A one-off tweak that nobody else uses is not worth a variant. Put it in the combination's own rules.
+- **General or specific:** a general variant is attached to one category or to all categories (the default). Use a specific variant only when the change makes sense for one genre alone.
+- **Different interpretations** of the same idea for different genres or categories are separate variants. Group them with a shared family (a tag, for example "Grid shape" or "Walls").
+- **Grid shapes** (hexagonal, Cairo and so on) are variants. The statements describe how adjacency, rows and directions change.
+
+### Combinations
+
+- A combination should contain **at least one genre**. A variant combined only with other variants, without a genre, is not a puzzle.
+- A genre plus a specific variant is a combination too. It is what lets you record appearances for it.
+- **How the parts interact** is described in the combination's own rules. For example, if one variant forbids crossing borders and another concerns adjacency, then "cells separated by a border are not considered adjacent" belongs to the combination, not to either variant.
+- A combination can have a name of its own, even though most will be unnamed. A name is shown before the list of its parts.
+- Several combinations can have the same genres and variants when the rules are interpreted differently. They are kept separate.
+
+### Common expansions
+
+These conventions apply to (almost) all puzzles, so they are **not** written in each genre's rules and are not offered by the page. They are listed here once.
+
+1. **Question marks** in clue cells stand for any valid clue of that puzzle (for example any valid number). Puzzle editors usually assume this even when the rules don't mention it.
+2. **Missing cells.** The grid may be missing some cells, which are then not part of the puzzle. It is still a square grid (or another grid), but with some cells removed, so the remaining cells can form any shape: a circle, a grid without its corners, or a grid with holes in the middle. This also applies to hexagonal and other grids.
+3. **Black cells** in the grid, when the rules do not mention black cells, are not part of the grid either.
+4. **Given features.** Some features of a puzzle may already be given in the problem, even if the rules don't say so. For example, in a region-division puzzle some of the region borders may already be drawn, and in a path puzzle some parts of the path may already be given.
+5. **Grid shape.** Rules are written for a square grid by default. If a genre is by default played on another grid (for example hexagonal), say so in its rules or its notes.
+6. **Size.** Write the rules for general sizes, unless they are really about a specific size (for example, when the puzzle only works for that size). Sudoku rules, for instance, are for NxN, not only 9x9. If a puzzle needs a particular size, restrict it later with a combination consisting of only that genre, or add it to the genre's Notes.
+7. **Shape banks.** Unless the rules say otherwise, any shape bank is allowed. A combination may restrict it (for example Pentominous: polyominoes limited to pentominoes).
+
+### Quick checklist
+
+1. Is it part of the minimal rules of the genre? Put it in the genre.
+2. Is it a common expansion for this genre? Put it in the genre.
+3. Is it a universal convention? See the common expansions above.
+4. Is it reusable but uncommon for the genre? Make a variant and record a combination.
+5. Is it a one-off, or the way parts interact? Put it in the combination's own rules.
 
 
 ## Language support
