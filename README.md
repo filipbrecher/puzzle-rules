@@ -9,7 +9,7 @@ This is an attempt to organize genres, variants and their usage, originally for 
 
 - Genre + variant combinations are listed in **Combinations**, with possible sources where they appeared and example puzzles. A combination can contain multiple genres or variants.
 - Some rules might be more specific than on other sites like Puzsq or Eric Fox's Dictionary of Rulesets, to remove possible ambiguities.
-- The goal is to include example puzzles for all genres and sometimes for combinations, sometimes in several sizes (for example 3x3, 5x5, 7x7) so you can choose whichever fits better on a page of a PDF.
+- The goal is to include example puzzles for all genres and sometimes for combinations, sometimes in several sizes (for example 3x3, 5x5, 7x7) or colors so you can choose whichever fits better on a page of a PDF.
 
 The first version of the browsing page was made with AI, to quickly see if this way of organizing works.
 
@@ -156,6 +156,11 @@ Use the **Note** to describe any differences between the rules as presented here
 
 The **Inventor** is the person who invented the puzzle genre, not necessarily the person who wrote the rules. If the inventor is unknown, the first known appearance of the genre can be given in the notes instead.
 
+### Examples
+
+Always try to include an example puzzle when adding a new genre. When adding a new combination, always either include an example or add a source (either a link or a name of the event/tournament where it appeared) that isn't ambiguous. Something like "This appeared in a tournament in Japan in 2024" isn't enough, unless you really don't remember where it came from and it's no longer possible to trace it back.
+
+Examples should be small and simple, around the difficulty of a Puzsq 1★ or an easier Puzsq 2★. Examples shouldn't contain any unnecessary background colors. (Take for example the light colors present in the Kudamono editor, or "green cells in the solution" in shading puzzles like Heyawake on puzz.link). If you don't have the time to upload a suitable example, you can upload the unsuiable version and later uploaded a cleaned-up version (for example recreating the puzzle in Penpa with white background). 
 
 ## Progress Tracker
 
