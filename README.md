@@ -190,9 +190,9 @@ Continue checking from the publication date of the last ID. I'm not sure if I'll
 - None
 
 
-## Future Goals
+## Future Ideas
 
-One future goal is to standardize rules (or just have a list of possible rules types and puzzle features) so that a general puzzle editor becomes possible: the variability of Penpa+, combined with the easy editing of Puzz.link or Pzprxs and the solving ability of cspuz-solver2. Possibly with the text rules generated automatically from the actual rules that constrain the puzzle.
+Standardize rules (or just have a list of possible rules types and puzzle features) so that a general puzzle editor becomes possible: the variability of Penpa+, combined with the easy editing of Puzz.link or Pzprxs and the solving ability of cspuz-solver2. Possibly with the text rules generated automatically from the actual rules that constrain the puzzle.
 
 Main ideas:
 
