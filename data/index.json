@@ -1232,6 +1232,122 @@
           "クロクローン"
         ]
       }
+    },
+    {
+      "id": "101",
+      "names": {
+        "en": [
+          "Circles and Squares"
+        ],
+        "ja": [
+          "Circles and Squares"
+        ]
+      }
+    },
+    {
+      "id": "102",
+      "names": {
+        "en": [
+          "Oyakodori"
+        ],
+        "ja": [
+          "おやこどり"
+        ]
+      }
+    },
+    {
+      "id": "103",
+      "names": {
+        "en": [
+          "Kissing Polyominoes"
+        ],
+        "ja": [
+          "Kissing Polyominoes"
+        ]
+      }
+    },
+    {
+      "id": "104",
+      "names": {
+        "en": [
+          "Compass"
+        ],
+        "ja": [
+          "Compass"
+        ],
+        "cs": [
+          "Kompas"
+        ]
+      }
+    },
+    {
+      "id": "105",
+      "names": {
+        "en": [
+          "Cocktail Lamp"
+        ],
+        "ja": [
+          "カクテルランプ"
+        ]
+      }
+    },
+    {
+      "id": "106",
+      "names": {
+        "en": [
+          "Tents"
+        ],
+        "ja": [
+          "Tents"
+        ],
+        "cs": [
+          "Stany"
+        ]
+      }
+    },
+    {
+      "id": "107",
+      "names": {
+        "en": [
+          "All or Nothing"
+        ],
+        "ja": [
+          "オールｏｒナッシング"
+        ]
+      }
+    },
+    {
+      "id": "108",
+      "names": {
+        "en": [
+          "Select Words"
+        ],
+        "ja": [
+          "セレクトワーズ"
+        ]
+      }
+    },
+    {
+      "id": "109",
+      "names": {
+        "en": [
+          "Icelom"
+        ],
+        "ja": [
+          "アイスローム"
+        ]
+      }
+    },
+    {
+      "id": "110",
+      "names": {
+        "en": [
+          "Dominion"
+        ],
+        "ja": [
+          "ドミニオン"
+        ]
+      }
     }
   ],
   "variants": [
@@ -1330,6 +1446,28 @@
       "names": {
         "en": [
           "Exampleless"
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "names": {
+        "en": [
+          "Water"
+        ],
+        "ja": [
+          "ウォーター"
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "names": {
+        "en": [
+          "Fire"
+        ],
+        "ja": [
+          "ファイア"
         ]
       }
     }

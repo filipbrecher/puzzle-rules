@@ -1,0 +1,43 @@
+{
+  "id": "103",
+  "names": {
+    "en": [
+      "Kissing Polyominoes"
+    ],
+    "ja": [
+      "Kissing Polyominoes"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that the shaded cells form the set of given shapes.",
+        "Shapes can be rotated or reflected.",
+        "If an edge is marked with a bar, then two shapes touch along that edge.",
+        "If an edge is not marked with a bar, then two shapes do not touch along that edge (but both adjacent cells could be occupied by the same shape).",
+        "If a shape appears multiple times in the given set, then the same number of copies of that shape must appear in the grid.",
+        "Cells marked with a cross must not be shaded."
+      ],
+      "source": "WPF PuzzleGP 2023 R6"
+    },
+    "ja": {
+      "statements": [
+        "盤面の外側に示されているいくつかの黒マスのカタマリを、一回ずつ盤面内に配置します。",
+        "カタマリは回転や反転をすることができます。",
+        "異なるカタマリが隣り合う場所すべてに、太線が引かれています。",
+        "バツの書かれたマスにはカタマリを入れてはいけません。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "1ucxi2",
+      "problem": "images/103/1ucxi2-problem-r94n.webp",
+      "solution": "images/103/1ucxi2-solution-6mki.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115917"
+    }
+  ]
+}

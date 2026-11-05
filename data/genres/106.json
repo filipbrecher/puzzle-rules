@@ -1,0 +1,51 @@
+{
+  "id": "106",
+  "names": {
+    "en": [
+      "Tents"
+    ],
+    "ja": [
+      "Tents"
+    ],
+    "cs": [
+      "Stany"
+    ]
+  },
+  "category": "object",
+  "rules": {
+    "en": {
+      "statements": [
+        "For each tree in the grid, place a tent in an empty orthogonally adjacent cell, connecting to it.",
+        "Tents may not touch one another, not even diagonally.",
+        "A clue given outside the grid represents the number of tents in the corresponding row or column."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "各々の木に対してタテヨコに隣り合ったマスのいずれかにテントを１つずつ配置してください。",
+        "テント同士がタテヨコナナメに隣り合ってはいけません。",
+        "盤面の外の数字は、その列にあるテントの数を表します。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Umístěte do prázdných polí tabulky stany (do každého pole lze umístit nejvýše jeden stan). Políčka se stany se nesmí vzájemně dotýkat, a to ani diagonálně.",
+        "Stanů musí být v tabulce stejný počet jako vyznačených stromů. Stany a stromy musí být spojeny do dvojic tak, aby každý strom měl svůj stan v jednom ze stranou sousedících políček.",
+        "Čísla na okraji tabulky udávají, kolik je v příslušném řádku/sloupci stanů."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "eusxy0",
+      "problem": "images/106/eusxy0-problem-ooqi.webp",
+      "solution": "images/106/eusxy0-solution-8n4y.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101289"
+    }
+  ]
+}

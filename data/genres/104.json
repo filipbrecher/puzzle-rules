@@ -1,0 +1,50 @@
+{
+  "id": "104",
+  "names": {
+    "en": [
+      "Compass"
+    ],
+    "ja": [
+      "Compass"
+    ],
+    "cs": [
+      "Kompas"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of orthogonally connected cells, each containing exactly one compass.",
+        "A number in a compass indicates how many cells belong to its region that are further in the indicated direction than the compass itself."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "点線に沿って線を引き、盤面をいくつかのブロックに分割します。",
+        "どのブロックにも、「コンパス」がちょうど1つずつ入るようにします。コンパスのマスだけのブロックができてもかまいません。",
+        "コンパスの上側の数字は、そのコンパスが入るブロックの中で、コンパスよりも上にあるマスの数を表します。右、下、左についても同様です。",
+        "(ルール文は、パズル同人誌「トケタ？」を参照。)"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Rozdělte tabulku na několik oblastí, každá obsahující jeden kompas.",
+        "Kompas zadává počet políček, které jsou v jeho oblasti v daném směru"
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "qnwu11",
+      "problem": "images/104/qnwu11-problem-dn3w.webp",
+      "solution": "images/104/qnwu11-solution-w1iq.webp",
+      "author": "Euex",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101678"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "11",
+  "names": {
+    "en": [
+      "Water"
+    ],
+    "ja": [
+      "ウォーター"
+    ]
+  },
+  "families": [
+    "wak"
+  ],
+  "kind": "specific",
+  "genre": "75",
+  "rules": {
+    "en": {
+      "statements": [
+        "Blue cells represent water. The loop may not go through more than 2 water cells in a row."
+      ],
+      "source": "https://puzz.link/rules.html?waterwalk",
+      "note": "Reworded"
+    },
+    "ja": {
+      "statements": [
+        "青色のマスを「水マス」と呼びます。輪っかは、水マスを3マス以上連続して通ってはいけません。"
+      ],
+      "source": "https://puzz.link/rules.html?waterwalk",
+      "note": "Reworded"
+    }
+  }
+}

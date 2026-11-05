@@ -1,0 +1,44 @@
+{
+  "id": "110",
+  "names": {
+    "en": [
+      "Dominion"
+    ],
+    "ja": [
+      "ドミニオン"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells on the board to divide all unshaded cells into regions.",
+        "All shaded cells are orthogonally adjacent to exactly one other shaded cell.",
+        "Cells with letters cannot be shaded.",
+        "All identical letters must be in the same region. There can not be a region without any letters.",
+        "Different letters must be in different regions.",
+        "Question marks can be replaced with any letter, as long as it appears elsewhere on the grid."
+      ],
+      "source": "https://puzz.link/rules.html?dominion"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒く塗ります。黒マスは必ずタテかヨコにちょうど２つだけつながったカタマリになります。",
+        "文字のあるマスを黒く塗ることはできません。",
+        "同じ文字どうしは黒マスで区切られた同じ領域内に入ります。文字の入っていない領域ができてはいけません。",
+        "異なる文字どうしは異なる領域内に入ります。",
+        "？は、盤面に既にある他の文字のいずれかと同じ文字になります。"
+      ],
+      "source": "https://puzz.link/rules.html?dominion"
+    }
+  },
+  "examples": [
+    {
+      "id": "fzpgz0",
+      "problem": "images/110/fzpgz0-problem-3bke.webp",
+      "solution": "images/110/fzpgz0-solution-dh1l.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125873"
+    }
+  ]
+}

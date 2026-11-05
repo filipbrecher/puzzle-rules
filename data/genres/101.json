@@ -1,0 +1,41 @@
+{
+  "id": "101",
+  "names": {
+    "en": [
+      "Circles and Squares"
+    ],
+    "ja": [
+      "Circles and Squares"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that all shaded cells form one orthogonally connected area and each orthogonally connected area of unshaded cells is in the shape of a square.",
+        "Cells with black circles must be shaded, and cells with white circles must not be shaded.",
+        "No 2x2 region may be entirely shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "すべての黒マスはタテヨコにひとつながりになっていなければなりません。",
+        "黒マスが2×2以上のカタマリになってはいけません。",
+        "黒マスによって分断されたひとつながりの白マスのカタマリはすべて正方形になります",
+        "黒丸はそのマスが黒く塗られることを、白丸はそのマスが塗られないことを表します。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "6idni7",
+      "problem": "images/101/6idni7-problem-ozxd.webp",
+      "solution": "images/101/6idni7-solution-z4g9.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115921"
+    }
+  ]
+}

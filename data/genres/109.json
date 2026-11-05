@@ -1,0 +1,41 @@
+{
+  "id": "109",
+  "names": {
+    "en": [
+      "Icelom"
+    ],
+    "ja": [
+      "アイスローム"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a path through the centers of some cells, entering the grid at the “IN” marking and exiting at the “OUT” marking.",
+        "All non-icy cells must be visited, and all cells containing numbers must be visited in increasing order.",
+        "Two perpendicular line segments may intersect each other only on icy cells, but they may not turn at their intersection or otherwise overlap.",
+        "The path may not turn on icy cells."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "INからOUTまで１２３…と順にチェックポイントを通り、全ての白マスを通過するように線を引こう。",
+        "水色のマスは氷が張っていてツルツル滑るよ。水色のマスに入った瞬間、白いマスに出るまで直進する。この時、枠の外にコースアウトしてはいけない。",
+        "氷の数字のないマスなら十字交差もOKだよ。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "2qa4ng",
+      "problem": "images/109/2qa4ng-problem-q1r5.webp",
+      "solution": "images/109/2qa4ng-solution-ka81.webp",
+      "author": "Euex",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125886"
+    }
+  ]
+}

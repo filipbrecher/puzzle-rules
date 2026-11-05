@@ -1,0 +1,36 @@
+{
+  "id": "12",
+  "names": {
+    "en": [
+      "Fire"
+    ],
+    "ja": [
+      "ファイア"
+    ]
+  },
+  "families": [
+    "walk"
+  ],
+  "kind": "specific",
+  "genre": "75",
+  "rules": {
+    "en": {
+      "statements": [
+        "Orange cells represent fire. The loop must turn on every fire cell it visits. The loop must visit the center of every other (non-fire) cell.",
+        "Fire cells may be visited twice as long as the two turns in the cell do not touch (the turn is a quarter circle), and the centre of the cell is inside the loop."
+      ],
+      "source": "Original",
+      "note": "Reworded"
+    },
+    "ja": {
+      "statements": [
+        "赤色のマスを「炎マス」と呼び、それ以外のマスを「通常マス」と呼びます。線は通常マスの中央を通ります。",
+        "線が炎マスを通るとき、そのマスの中では必ず90度に曲がります。",
+        "1つの炎マスを、線は最大2回まで通ることができます。",
+        "炎マスを2回通るとき、そのマスの中で曲がる2本の線分どうしが触れてはいけません",
+        "炎マスを2回通るとき、その炎マスの中心は必ず輪っかの内側に入ります。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  }
+}

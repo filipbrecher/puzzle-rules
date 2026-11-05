@@ -1,0 +1,44 @@
+{
+  "id": "107",
+  "names": {
+    "en": [
+      "All or Nothing"
+    ],
+    "ja": [
+      "オールｏｒナッシング"
+    ]
+  },
+  "category": "path",
+  "inventor": {
+    "name": "Inaba Naoki"
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines through orthogonally adjacent cells to form a loop.",
+        "The loop cannot branch off or cross itself.",
+        "If a country is visited by the loop, it must visit all cells.",
+        "Countries cannot be visited more than once.",
+        "Two unused countries cannot be orthogonally adjacent."
+      ],
+      "source": "https://puzz.link/rules.html?nothing"
+    },
+    "ja": {
+      "statements": [
+        "パズル面のどのブロックも「全てのマスに線が通る」か「全く線が通らない」のいずれかの状態になるように、枝分かれのない一つのループを作る。",
+        "一つのブロックを線が二回以上通過してはいけない。",
+        "「全く線が通らない」ブロック同士は、辺で接しない。"
+      ],
+      "source": "稲葉のパズル研究室"
+    }
+  },
+  "examples": [
+    {
+      "id": "ogbxt2",
+      "problem": "images/107/ogbxt2-problem-z1hf.webp",
+      "solution": "images/107/ogbxt2-solution-anmv.webp",
+      "author": "うまや天国",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126646"
+    }
+  ]
+}

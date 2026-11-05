@@ -1,0 +1,44 @@
+{
+  "id": "102",
+  "names": {
+    "en": [
+      "Oyakodori"
+    ],
+    "ja": [
+      "おやこどり"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "You're given a grid with small birds (black circles) and large birds (white circles). Draw lines to move each bird into a nest, represented by adjacent two gray cells.",
+        "Movement lines cannot cross or overlap each other. Lines can also not go through the start- or endpoint of other birds.",
+        "Lines can not go through nests, but must stop there.",
+        "Every nest must have a small bird and a large bird.",
+        "Black birds cannot fly over borders.",
+        "White birds must fly over at least one border."
+      ],
+      "source": "Original"
+    },
+    "ja": {
+      "statements": [
+        "親鳥（○、白丸）と雛鳥（●、黒丸）を巣（２マスの灰色マス）まで移動させましょう。",
+        "それぞれの巣には親鳥と雛鳥が１匹ずつ入るようにします。",
+        "親鳥、雛鳥の移動は矢印で表します。矢印の線はマスの中央を通るようにタテヨコに引き、枝分かれさせたり交差させたり他の丸を飛び越えて移動してはいけません。",
+        "親鳥はエサを求めて最低でも１回は太線をまたいで移動しないといけません。",
+        "雛鳥はまだ飛べないので太線で区切られた仕切りの中でしか移動できません。"
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "80rhhs",
+      "problem": "images/102/80rhhs-problem-i06q.webp",
+      "solution": "images/102/80rhhs-solution-9h4p.webp",
+      "author": "はっちゅ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125898"
+    }
+  ]
+}

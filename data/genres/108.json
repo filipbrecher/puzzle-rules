@@ -1,0 +1,39 @@
+{
+  "id": "108",
+  "names": {
+    "en": [
+      "Select Words"
+    ],
+    "ja": [
+      "セレクトワーズ"
+    ]
+  },
+  "category": "word",
+  "rules": {
+    "en": {
+      "statements": [
+        "Pick one letter from each column so that you form words. The words read from left to right must be valid words from a dictionary.",
+        "Make as many words as there are rows in total. Once you use a letter for one word, you may not use it for other words.",
+        "Uppercase letters may be used as lowercase letters and vice versa. (This applies to alphabets from other languages as well.)",
+        "Cells with the same background color must contain the same letters."
+      ]
+    },
+    "ja": {
+      "statements": [
+        "それぞれのタテ列から１つずつ文字を拾って、左から右に読める言葉をヨコ列の個数分作りましょう。辞書に載っていない言葉を作ってはいけません。",
+        "文字はすべて１回ずつしか使えません。",
+        "大きい文字を小さい文字として扱うこともあります。",
+        "灰色のマスがある場合、それらのマスにはすべて同じ1文字が入ります。"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "vxed24",
+      "problem": "images/108/vxed24-problem-wxh4.webp",
+      "solution": "images/108/vxed24-solution-s3eg.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/9713"
+    }
+  ]
+}

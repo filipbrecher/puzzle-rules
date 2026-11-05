@@ -1,0 +1,42 @@
+{
+  "id": "105",
+  "names": {
+    "en": [
+      "Cocktail Lamp"
+    ],
+    "ja": [
+      "カクテルランプ"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells such that all shaded cells within a region form a single orthogonally connected group.",
+        "Shaded groups may not be orthogonally adjacent, but must all form a single diagonally connected network.",
+        "Regions with numbers must contain the indicated amount of shaded cells.",
+        "No 2x2 region may be entirely shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒く塗りましょう。",
+        "太線で区切られた領域内の数字はその領域内の黒マスの数を表しています。数字がない場合は黒マスがいくつ入るか分かりません。",
+        "黒マスで2×2のカタマリを作ってはいけません。",
+        "同じ領域内の黒マスでは辺でひとつながりになります。",
+        "違う領域の黒マス同士では辺で繋がりませんが、点で（角と角を接して）ひとつながりになります。"
+      ],
+      "source": "Original"
+    }
+  },
+  "examples": [
+    {
+      "id": "q19hbk",
+      "problem": "images/105/q19hbk-problem-95gh.webp",
+      "solution": "images/105/q19hbk-solution-0wd4.webp",
+      "author": "ミレイ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101640"
+    }
+  ]
+}
