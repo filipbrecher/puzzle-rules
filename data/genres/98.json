@@ -1,0 +1,55 @@
+{
+  "id": "98",
+  "names": {
+    "en": [
+      "Snake"
+    ],
+    "ja": [
+      "Snake"
+    ],
+    "cs": [
+      "Had"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells to form a non-intersecting path which does not touch itself, not even diagonally.",
+        "Black circles must lie on one end of the path.",
+        "White circles must lie somewhere along the path, but not at an end.",
+        "A number outside the grid represents how many cells in the corresponding row or column are shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "いくつかのマスを黒く塗り、黒マス全体がタテヨコにひとつながりになった蛇の形になるようにします。",
+        "●のマスは蛇の頭または尾になるマスを表します。○のマスは蛇の一部になるマスを表します。頭や尾になってはいけません。",
+        "蛇はタテヨコナナメで自分自身に接触してはいけません。",
+        "盤面の外の数字は、その列で黒く塗るマスの数を表します。"
+      ],
+      "source": "トケタVol.6",
+      "note": "Modified"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka v tabulce tak, abyste vytvořili hada. Had se nesmí dotýkat sám sebe, a to ani diagonálně.",
+        "Černá políčka označují začátek nebo konec hada.",
+        "Bílá políčka označují část hada, která není jeho koncem.",
+        "Čísla okolo tabulky (jsou-li zadaná) udávají, kolik polí v daném řádku či sloupci je obsazeno hadem."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "ygj8jw",
+      "problem": "images/98/ygj8jw-problem-nfxw.webp",
+      "solution": "images/98/ygj8jw-solution-kytu.webp",
+      "author": "へーくま",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101915"
+    }
+  ]
+}

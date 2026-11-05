@@ -1182,6 +1182,56 @@
           "Balance Loop"
         ]
       }
+    },
+    {
+      "id": "97",
+      "names": {
+        "en": [
+          "Tetro Chain-Y"
+        ],
+        "ja": [
+          "テトロチェーンＹ"
+        ]
+      }
+    },
+    {
+      "id": "98",
+      "names": {
+        "en": [
+          "Snake"
+        ],
+        "ja": [
+          "Snake"
+        ],
+        "cs": [
+          "Had"
+        ]
+      }
+    },
+    {
+      "id": "99",
+      "names": {
+        "en": [
+          "Akichiwake"
+        ],
+        "ja": [
+          "Akichiwake"
+        ],
+        "cs": [
+          "Akichiwake"
+        ]
+      }
+    },
+    {
+      "id": "100",
+      "names": {
+        "en": [
+          "Kuroclone"
+        ],
+        "ja": [
+          "クロクローン"
+        ]
+      }
     }
   ],
   "variants": [

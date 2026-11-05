@@ -1,0 +1,53 @@
+{
+  "id": "99",
+  "names": {
+    "en": [
+      "Akichiwake"
+    ],
+    "ja": [
+      "Akichiwake"
+    ],
+    "cs": [
+      "Akichiwake"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shaded cells cannot be horizontally or vertically adjacent.",
+        "A number indicates the size of the largest group of connected unshaded cells within its region.",
+        "There cannot be a horizontal or vertical line of unshaded cells that goes through 2 or more region borders.",
+        "All unshaded cells on the board form an orthogonally connected area."
+      ],
+      "source": "https://puzz.link/rules.html?akichi"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "黒マスをタテヨコに連続させたり、黒マスで盤面を分断してはいけません。",
+        "数字は、その領域の中で、白マスがひとつながりになったかたまりの面積の最大値を表します。",
+        "タテまたはヨコに連続する白マスが２つ以上の太線をまたいではいけません。"
+      ],
+      "source": "https://puzz.link/rules.html?akichi"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá políčka v tabulce tak, aby zbývající nezačerněná políčka tvořila stranově propojenou plochu, přičemž nesmíte začernit dvě políčka sousedící stranou.",
+        "V tabulce jsou vyznačené oblasti rozdělené tlustými čarami. Čísla ukazují velikost největší stranově propojené skupiny bílých políček ležící plně v dané oblasti.",
+        "Žádná skupina přímo za sebou ležících nezačerněných políček ve vodorovném či svislém směru nesmí vést přes více než jednu tlustou čáru."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "r8jata",
+      "problem": "images/99/r8jata-problem-ath1.webp",
+      "solution": "images/99/r8jata-solution-z33o.webp",
+      "author": "三価スニウム",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126101"
+    }
+  ]
+}

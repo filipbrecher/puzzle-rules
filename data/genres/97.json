@@ -1,0 +1,46 @@
+{
+  "id": "97",
+  "names": {
+    "en": [
+      "Tetro Chain-Y"
+    ],
+    "ja": [
+      "テトロチェーンＹ"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place several tetrominoes (blocks of 4 cells) in the grid.",
+        "Tetrominoes cannot be orthogonally adjacent.",
+        "Tetrominoes cannot overlap a number.",
+        "A number indicates the amount of cells used by tetrominoes in the given direction.",
+        "Two tetrominoes which touch each other at the corners must have different shapes, counting rotations and reflections as the same.",
+        "All tetrominoes form a diagonally contiguous area."
+      ],
+      "source": "パズル通信ニコリ vol.181 p.98",
+      "note": "Modified"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "数字は、矢印の方向に入る黒マスの数を表します。数字のマスを黒くぬってはいけません。",
+        "黒マスがタテヨコにつながってできるカタマリは、必ず４マスになります。",
+        "すべての黒マスのカタマリは角でひとつながりになります。",
+        "角を共有している２つの黒マスのカタマリが同じ形になってはいけません。回転・裏返しによって同じになるものは「同じ形」とします。"
+      ],
+      "source": "パズル通信ニコリ vol.181 p.98",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "pkjndo",
+      "problem": "images/97/pkjndo-problem-2o9y.webp",
+      "solution": "images/97/pkjndo-solution-8yqe.webp",
+      "author": "Yu-ri",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125911"
+    }
+  ]
+}

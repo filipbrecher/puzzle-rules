@@ -1,0 +1,42 @@
+{
+  "id": "100",
+  "names": {
+    "en": [
+      "Kuroclone"
+    ],
+    "ja": [
+      "クロクローン"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells on the board. Numbers cannot be shaded.",
+        "Each region must include exactly two units (shaded blocks), and these units must have the same shape, counting rotations and reflections as the same.",
+        "A number indicates the size of the unit that occupies the adjacent cell in the indicated direction.",
+        "Shaded cells must not be adjacent across borders."
+      ],
+      "source": "パズル通信ニコリ vol.153",
+      "note": "Translated by X_Sheep"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。数字があるマスはぬりません。",
+        "タテヨコにひとつながりになった黒マスを、１つのユニットと呼びます。太線で区切られたすべての部屋には、ちょうど２つずつのユニットが入り、それらは回転あるいは裏返しして同じ形になっていなければなりません。",
+        "数字は、矢印の方向のすぐ隣にあるマスを含む、ユニットの黒マスの数を表します。",
+        "黒マスは、太線をまたいでタテヨコに隣り合ってはいけません。"
+      ],
+      "source": "パズル通信ニコリ vol.153"
+    }
+  },
+  "examples": [
+    {
+      "id": "n1cql6",
+      "problem": "images/100/n1cql6-problem-f1t1.webp",
+      "solution": "images/100/n1cql6-solution-9uvs.webp",
+      "author": "みくろん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125848"
+    }
+  ]
+}
