@@ -1,0 +1,27 @@
+{
+  "id": "8",
+  "names": {
+    "en": [
+      "Forest"
+    ],
+    "ja": [
+      "フォレスト"
+    ]
+  },
+  "families": [
+    "walk"
+  ],
+  "kind": "specific",
+  "genre": "75",
+  "rules": {
+    "en": {
+      "statements": [
+        "Drawn lines may branch off to create a network.",
+        "The network cannot have dead ends or 4-way crossings.",
+        "Every visited (green) forest cell must have a T-junction.",
+        "There can be no T-junctions outside of forest cells."
+      ],
+      "source": "Original"
+    }
+  }
+}

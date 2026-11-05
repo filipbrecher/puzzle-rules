@@ -1,0 +1,46 @@
+{
+  "id": "82",
+  "names": {
+    "en": [
+      "Takoyaki"
+    ],
+    "ja": [
+      "たこ焼き"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines through all unshaded cells, then place circles on top of them.",
+        "Every line goes through exactly three circles: One on each endpoint, and another somewhere in the middle.",
+        "Lines cannot cross or branch off, and cannot form loops.",
+        "Two circles cannot be orthogonally adjacent.",
+        "Circles belonging to the same line cannot share a row or column.",
+        "A number indicates the amount of circles in the 4 orthogonally adjacent cells.",
+        "Lines and circles cannot overlap shaded cells."
+      ],
+      "source": "https://puzz.link/rules.html?takoyaki"
+    },
+    "ja": {
+      "statements": [
+        "盤面の白マスにタテヨコに線を引き、枝分かれのない線をいくつか作ります。すべての白マスをどれか１つの線が通るようにします。さらにその上にいくつかの丸を配置します。",
+        "線はマスの中央を通り、盤面の外に出たり、交差したり、輪っかを作ったりしてはいけません。",
+        "丸はそれぞれの線の両端に1つずつ、内部に1つ、合計3つ配置されます。",
+        "丸同士は辺を共有してはいけません。",
+        "同じ線に属する丸同士が列または行を共有してはいけません。",
+        "盤面の数字は、その数字の入っているマスにタテヨコに隣り合うマスのうち、丸が配置されるマスの数を表します。"
+      ],
+      "source": "https://puzz.link/rules.html?takoyaki"
+    }
+  },
+  "examples": [
+    {
+      "id": "cdye1q",
+      "problem": "images/82/cdye1q-problem-x8nk.webp",
+      "solution": "images/82/cdye1q-solution-mrel.webp",
+      "author": "Yu-ri",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/106925"
+    }
+  ]
+}

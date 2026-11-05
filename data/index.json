@@ -984,6 +984,120 @@
           "LIX Loop"
         ]
       }
+    },
+    {
+      "id": "79",
+      "names": {
+        "en": [
+          "Double Block",
+          "Doppelblock"
+        ],
+        "ja": [
+          "ビトゥイーン・サム"
+        ],
+        "cs": [
+          "Dvojblok"
+        ]
+      }
+    },
+    {
+      "id": "80",
+      "names": {
+        "en": [
+          "Lohkous"
+        ],
+        "ja": [
+          "Lohkous"
+        ]
+      }
+    },
+    {
+      "id": "81",
+      "names": {
+        "en": [
+          "Latin square"
+        ],
+        "cs": [
+          "Latinský čtverec"
+        ]
+      }
+    },
+    {
+      "id": "82",
+      "names": {
+        "en": [
+          "Takoyaki"
+        ],
+        "ja": [
+          "たこ焼き"
+        ]
+      }
+    },
+    {
+      "id": "83",
+      "names": {
+        "en": [
+          "Light and Shadow"
+        ],
+        "ja": [
+          "Light and Shadow"
+        ]
+      }
+    },
+    {
+      "id": "84",
+      "names": {
+        "en": [
+          "Geradeweg"
+        ],
+        "ja": [
+          "Geradeweg"
+        ]
+      }
+    },
+    {
+      "id": "85",
+      "names": {
+        "en": [
+          "Kurotto"
+        ],
+        "ja": [
+          "クロット"
+        ]
+      }
+    },
+    {
+      "id": "86",
+      "names": {
+        "en": [
+          "Hasu no Mura"
+        ],
+        "ja": [
+          "はすのむら"
+        ]
+      }
+    },
+    {
+      "id": "87",
+      "names": {
+        "en": [
+          "Country Road"
+        ],
+        "ja": [
+          "カントリーロード"
+        ]
+      }
+    },
+    {
+      "id": "88",
+      "names": {
+        "en": [
+          "Slant"
+        ],
+        "ja": [
+          "ごきげんななめ"
+        ]
+      }
     }
   ],
   "variants": [
@@ -1036,6 +1150,36 @@
         ],
         "ja": [
           "アイス"
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "names": {
+        "en": [
+          "Number Bank"
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "names": {
+        "en": [
+          "Kropki"
+        ],
+        "cs": [
+          "Kropki"
+        ]
+      }
+    },
+    {
+      "id": "8",
+      "names": {
+        "en": [
+          "Forest"
+        ],
+        "ja": [
+          "フォレスト"
         ]
       }
     }

@@ -1,0 +1,42 @@
+{
+  "id": "87",
+  "names": {
+    "en": [
+      "Country Road"
+    ],
+    "ja": [
+      "カントリーロード"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells which passes through each region exactly once.",
+        "A number in a region represents how many cells in the region are visited by the loop.",
+        "Orthogonally adjacent cells across a region border may not both be unused."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて全体で１つの輪っかを作りましょう。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "線は、太線で区切られたところ（国と呼びます）すべてを１回ずつだけ通るようにしなければなりません。",
+        "数字は、その数字がある国を線が通るマス数を表します。数字のない国には、線が何マス通るようにしてもかまいません。",
+        "線が通らないマスが、太線（国境）をはさんでタテヨコに隣りあうようにしてはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "vqi2ui",
+      "problem": "images/87/vqi2ui-problem-tsnk.webp",
+      "solution": "images/87/vqi2ui-solution-z2y7.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126996"
+    }
+  ]
+}

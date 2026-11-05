@@ -1,0 +1,39 @@
+{
+  "id": "84",
+  "names": {
+    "en": [
+      "Geradeweg"
+    ],
+    "ja": [
+      "Geradeweg"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells that passes through every clue.",
+        "Every straight line segment that touches a clue must have a length equal to the clue’s value."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスに線を引いて全体で１つの輪っかを作りましょう。",
+        "線は、マスの中央を通るようにタテヨコに引きます。線を交差させたり、枝分かれさせたりしてはいけません。",
+        "線は全ての数字を通ります。数字は、そのマスを通る直線の長さになるようにします。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "cjv5ve",
+      "problem": "images/84/cjv5ve-problem-po3k.webp",
+      "solution": "images/84/cjv5ve-solution-308n.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101440"
+    }
+  ]
+}

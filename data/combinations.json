@@ -115,5 +115,89 @@
         "source": "https://puzsq.logicpuzzle.app/puzzle/154553"
       }
     ]
+  },
+  {
+    "id": "c_9k5wec",
+    "names": {
+      "en": [
+        "Kropki"
+      ]
+    },
+    "components": [
+      {
+        "type": "genre",
+        "id": "81"
+      },
+      {
+        "type": "variant",
+        "id": "7"
+      }
+    ],
+    "examples": [
+      {
+        "id": "qj3kut",
+        "problem": "images/c_9k5wec/qj3kut-problem-c4ph.webp",
+        "solution": "images/c_9k5wec/qj3kut-solution-djpn.webp",
+        "author": "K.N.Y.",
+        "source": "https://puzsq.logicpuzzle.app/puzzle/6657"
+      }
+    ]
+  },
+  {
+    "id": "c_1ydtq0",
+    "names": {
+      "en": [
+        "Forest Walk"
+      ]
+    },
+    "components": [
+      {
+        "type": "genre",
+        "id": "75"
+      },
+      {
+        "type": "variant",
+        "id": "8"
+      }
+    ],
+    "examples": [
+      {
+        "id": "du2eel",
+        "problem": "images/c_1ydtq0/du2eel-problem-no37.webp",
+        "solution": "images/c_1ydtq0/du2eel-solution-mik4.webp",
+        "author": "はっちゅ",
+        "source": "https://puzsq.logicpuzzle.app/puzzle/166453"
+      }
+    ]
+  },
+  {
+    "id": "c_2rogkh",
+    "names": {
+      "en": [
+        "SLICY"
+      ],
+      "ja": [
+        "SLICY"
+      ]
+    },
+    "components": [
+      {
+        "type": "genre",
+        "id": "3"
+      },
+      {
+        "type": "variant",
+        "id": "1"
+      }
+    ],
+    "examples": [
+      {
+        "id": "h14ban",
+        "problem": "images/c_2rogkh/h14ban-problem-2sq9.webp",
+        "solution": "images/c_2rogkh/h14ban-solution-w4pg.webp",
+        "author": "にしなんとか",
+        "source": "https://puzsq.logicpuzzle.app/puzzle/154564"
+      }
+    ]
   }
 ]

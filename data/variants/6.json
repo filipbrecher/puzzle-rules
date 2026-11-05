@@ -1,0 +1,18 @@
+{
+  "id": "6",
+  "names": {
+    "en": [
+      "Number Bank"
+    ]
+  },
+  "notes": "For example instead of placing numbers from the range 1~4 you place numbers from the range 4~7 or from the number bank [3, 5, 7, 9], ...",
+  "kind": "general",
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Instead of placing the expected number values or number range, place numbers from the given number bank."
+      ]
+    }
+  }
+}

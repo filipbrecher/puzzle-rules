@@ -15,31 +15,34 @@
   "rules": {
     "en": {
       "statements": [
-        "Shade one tetromino of cells in each region so that all shaded cells form one orthogonally connected area.",
-        "Two tetrominoes of the same shape may not share a bold border, counting rotations and reflections as the same.",
-        "No 2x2 region may be entirely shaded."
+        "Shade a single contiguous block of cells in each room.",
+        "Each block comprises exactly 4 cells.",
+        "Equal blocks (even if mirrored or rotated) cannot be adjacent across region borders.",
+        "All shaded cells are connected.",
+        "No vertex may be fully surrounded by shaded cells."
       ],
-      "source": "Eric Fox's Dictionary of Rulesets"
+      "source": "Kudamono Editor(slicy)"
     },
     "ja": {
       "statements": [
-        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
-        "全ての領域について、黒マスはちょうど４つあり、領域内でタテヨコに連なってテトロミノができるようにします。",
-        "すべての黒マスはタテヨコにひとつながりになっていなければなりません。",
-        "黒マスが2×2以上のカタマリになってはいけません。",
-        "回転あるいは裏返しをして同じ形になるテトロミノ同士が辺を共有するようにしてはいけません。"
+        "盤面のいくつかのマスを黒く塗りましょう。",
+        "各領域に黒マスはちょうど4つあり、領域内でタテヨコに連なって1つのブロックになります。",
+        "すべての黒マスはタテヨコにひとつながりになります。",
+        "マスの頂点の周囲がすべて黒マスになっているようなカタマリができてはいけません。",
+        "同じ形のブロック(回転、反転を含みます)は隣り合ってはいけません。"
       ],
-      "source": "Puzsq Rules"
+      "source": "Original",
+      "note": "Rules for SLICY from Puzsq"
     },
     "cs": {
       "statements": [
-        "V každé ohraničené oblasti začerněte právě 4 políčka navzájem propojená stranami (tetromina) tak, aby byly splněny následující podmínky:",
+        "V každé ohraničené oblasti začerněte právě 4 políčka navzájem propojená stranami tak, aby byly splněny následující podmínky:",
         "Všechna vybarvená pole v tabulce tvoří jeden stranově propojený celek.",
-        "V tabulce se nesmí objevit čtverec 2x2, který by byl celý vybarvený.",
-        "Jestliže se hranou navzájem dotýkají dvě tetromina z rozdílných oblastí, nesmí se jednat o tetromina stejného tvaru (za stejný tvar považujeme tetromina libovolně převrácená či otočená)."
+        "V tabulce se nesmí objevit vrchol plně obklopený začerněnými políčky.",
+        "Jestliže se hranou navzájem dotýkají dva celky z rozdílných oblastí, nesmí mít stejný tvar (za stejný tvar považujeme i libovolně převrácené či otočené celky)."
       ],
       "source": "Dlouhodobá soutěž HALAS",
-      "note": "Reworded"
+      "note": "Modified"
     }
   },
   "examples": [

@@ -1,0 +1,50 @@
+{
+  "id": "79",
+  "names": {
+    "en": [
+      "Double Block",
+      "Doppelblock"
+    ],
+    "ja": [
+      "ビトゥイーン・サム"
+    ],
+    "cs": [
+      "Dvojblok"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number from 1 to N-2 into some cells so that each row and column contains every number from that range with no repeats, where N is the side length of the grid, and shade the remaining two cells of each row and column.",
+        "A clue outside the grid indicates the sum of the digits which appear between the two shaded cells in the corresponding row or column."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "いくつかの空いているマスに数字または黒マスを書き込み、タテヨコ全ての列で指定された数字（基本的に１から盤面のサイズ－２）が１回ずつと黒マスが２個現れるようにします。",
+        "盤面の外の数字は、その列の２つの黒マスに挟まれた数の和を表します。間に数がない場合は０になります。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Začerněte některá pole a do zbývajících zapište čísla od 1 do N-2 tak, aby v každém řádku a v každém sloupci byla právě dvě černá políčka a každé číslo se vyskytovalo právě jednou. N je velikost tabulky.",
+        "Čísla na okrajích udávají součet čísel umístěných mezi dvěma černými poli v daném řádku nebo sloupci."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
+    }
+  },
+  "examples": [
+    {
+      "id": "xl1une",
+      "problem": "images/79/xl1une-problem-tsax.webp",
+      "solution": "images/79/xl1une-solution-makr.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101277"
+    }
+  ]
+}

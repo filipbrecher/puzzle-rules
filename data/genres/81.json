@@ -1,0 +1,33 @@
+{
+  "id": "81",
+  "names": {
+    "en": [
+      "Latin square"
+    ],
+    "cs": [
+      "Latinský čtverec"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a number from 1 to N into each empty cell so that each row and column contains every number from that range with no repeats, where N is the side length of the grid."
+      ],
+      "source": "Puzsq Rules"
+    },
+    "ja": {
+      "statements": [
+        "縦横すべての列に、1から盤面の一辺のマス数までの数字を、重複なくひとつずつ入れる。"
+      ],
+      "source": "Puzsq Rules"
+    },
+    "cs": {
+      "statements": [
+        "Doplň do všech prázdných polí tabulky čísla 1–N tak, aby se čísla neopakovala v žádném řádku ani sloupci, kde N je velikost tabulky."
+      ],
+      "source": "Dlouhodobá soutěž HALAS",
+      "note": "Modified"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "7",
+  "names": {
+    "en": [
+      "Kropki"
+    ],
+    "cs": [
+      "Kropki"
+    ]
+  },
+  "kind": "general",
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "All pairs of orthogonally adjacent cells containing numbers with a 1:2 ratio are marked with a black dot.",
+        "All pairs of orthogonally adjacent cells containing consecutive numbers are marked with a white dot.",
+        "A 1 next to a 2 may be marked with either dot."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "黒丸を挟んだ二マスに入る数字は、一方が他方の二倍になっている。",
+        "白丸を挟んだ二マスに入る数字は、一方が他方より1大きい。",
+        "隣接した二マスの間に黒丸も白丸もないときは、その二マスに入る数字は一つ違いでも二倍違いでもない。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    },
+    "cs": {
+      "statements": [
+        "Je-li mezi dvěma poli bílá tečka, mají čísla v těchto polích rozdíl 1.",
+        "Je-li mezi dvěma poli černá tečka, je jedno z těchto polí dvojnásobek druhého.",
+        "Všechny možné tečky jsou vyznačeny.",
+        "Mezi 1 a 2 může být tečka libovolné barvy."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  }
+}

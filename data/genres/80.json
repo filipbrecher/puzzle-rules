@@ -1,0 +1,41 @@
+{
+  "id": "80",
+  "names": {
+    "en": [
+      "Lohkous"
+    ],
+    "ja": [
+      "Lohkous"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Divide the grid into regions of orthogonally connected cells, each containing exactly one clue.",
+        "The numbers in a clue indicate all of the different lengths of runs of consecutive cells within its region, vertically and horizontally.",
+        "Lengths may be repeated, but each given length must be represented at least once."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "点線に沿って線を引き、盤面をいくつかのブロックに分割します。",
+        "どのブロックにも、数字の書かれたマスがちょうど1つずつ入るようにします。",
+        "余分な線があってはいけません。つまり、同じブロックに属するマスを隔てるような線を引いてはいけません。",
+        "それぞれのブロックにおいて、1つの行または列の中で境界線から別の境界線まで連続しているマスの集まりをセグメントとよびます。ブロック内の数字は、そのブロックに現れるセグメントの長さの全ての種類を表しています。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "jof2fj",
+      "problem": "images/80/jof2fj-problem-npw1.webp",
+      "solution": "images/80/jof2fj-solution-pr86.webp",
+      "author": "三価スニウム",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125553"
+    }
+  ]
+}

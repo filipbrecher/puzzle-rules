@@ -1,0 +1,38 @@
+{
+  "id": "88",
+  "names": {
+    "en": [
+      "Slant"
+    ],
+    "ja": [
+      "ごきげんななめ"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Place a diagonal line into each cell, connecting two opposite corners, such that no loops are formed by the diagonal lines.",
+        "A clue in a circle indicates how many lines are extending from that circle."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "すべてのマスに斜線を1つずつ引きます。",
+        "盤面の数字は、その数字につながる斜線の数を表します。",
+        "斜線によって輪っかができてしまってはいけません。"
+      ],
+      "source": "https://www.nikoli.co.jp/ja/puzzles/gokigen_naname/"
+    }
+  },
+  "examples": [
+    {
+      "id": "vv1ghy",
+      "problem": "images/88/vv1ghy-problem-1n73.webp",
+      "solution": "images/88/vv1ghy-solution-zem6.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101272"
+    }
+  ]
+}

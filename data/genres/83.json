@@ -1,0 +1,39 @@
+{
+  "id": "83",
+  "names": {
+    "en": [
+      "Light and Shadow"
+    ],
+    "ja": [
+      "Light and Shadow"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that each orthogonally connected area of only shaded or only unshaded cells contains exactly one clue.",
+        "Some clued cells are given as shaded, and unshaded clues may not be shaded.",
+        "A clue represents the size of the area of shaded or unshaded cells that the clue belongs to."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "以下の条件を満たすように、盤面のいくつかのマスを塗りつぶします。数字の入ったマスを塗りつぶしてはいけません。",
+        "タテヨコにつながった白マスのカタマリと黒マスのカタマリそれぞれに、同じ色の数字のマスがちょうどひとつずつ入っているようにします。数字はそのカタマリに含まれるマスの数を示します。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "auubyx",
+      "problem": "images/83/auubyx-problem-i0sj.webp",
+      "solution": "images/83/auubyx-solution-v68r.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/127003"
+    }
+  ]
+}

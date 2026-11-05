@@ -1,0 +1,39 @@
+{
+  "id": "85",
+  "names": {
+    "en": [
+      "Kurotto"
+    ],
+    "ja": [
+      "クロット"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that clues represent the total size of the orthogonally connected areas of shaded cells that share an edge with the clue.",
+        "Clued cells cannot be shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかのマスを黒くぬりましょう。",
+        "丸の中の数字は、その数字の入っているマスにタテヨコに隣り合うマスが含まれる、タテヨコでひとつながりになった黒マスの個数の合計を表します。数字のない丸では、いくつの黒マスになるかわかりません。",
+        "丸のあるマスを黒くぬってはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "q87usw",
+      "problem": "images/85/q87usw-problem-94nd.webp",
+      "solution": "images/85/q87usw-solution-h55q.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/126994"
+    }
+  ]
+}

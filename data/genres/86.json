@@ -1,0 +1,41 @@
+{
+  "id": "86",
+  "names": {
+    "en": [
+      "Hasu no Mura"
+    ],
+    "ja": [
+      "はすのむら"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells such that all shaded cells form one orthogonally connected network.",
+        "No 2x2 region may be entirely shaded.",
+        "Clues cannot be shaded and indicate the sum of the areas of the unshaded regions using the (up to 4) cells diagonally adjacent to the clue. If a region uses multiple of these cells, it is only counted once."
+      ],
+      "source": "Puzsq Rules"
+    },
+    "ja": {
+      "statements": [
+        "盤面のいくつかの白マス全体を黒く塗り、黒マスとします。",
+        "すべての黒マスはタテヨコにひとつながりになっていなければなりません。",
+        "黒マスが2×2以上のカタマリになってはいけません。",
+        "数字は、その数字の入ったマスのナナメの位置にある白マスと、そこからタテヨコにひとつながりになる白マスの合計になります。",
+        "数字の入ったマスを黒く塗ってはいけません。"
+      ],
+      "source": "Puzsq Rules"
+    }
+  },
+  "examples": [
+    {
+      "id": "4qgu0c",
+      "problem": "images/86/4qgu0c-problem-gxk6.webp",
+      "solution": "images/86/4qgu0c-solution-8ue2.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/115928"
+    }
+  ]
+}
