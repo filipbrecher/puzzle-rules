@@ -1,0 +1,41 @@
+{
+  "id": "91",
+  "names": {
+    "en": [
+      "Putteria"
+    ],
+    "ja": [
+      "プッテリア"
+    ]
+  },
+  "category": "number",
+  "rules": {
+    "en": {
+      "statements": [
+        "Label one cell in each region with the number of cells the region contains.",
+        "Two orthogonally adjacent cells may not both be labeled.",
+        "No two cells which share a row or column may be labeled with the same number."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "太線で囲まれたブロック内の1マスに、そのブロックのマス数の数字を入れる。",
+        "数字どうしはタテヨコに隣り合わない。",
+        "数字を×のマスに入れてはいけない。",
+        "1つの列に同じ数字を複数入れてはいけない。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "0979br",
+      "problem": "images/91/0979br-problem-8gv7.webp",
+      "solution": "images/91/0979br-solution-vhku.webp",
+      "author": "へーくま",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101271"
+    }
+  ]
+}

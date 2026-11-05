@@ -1098,6 +1098,94 @@
           "ごきげんななめ"
         ]
       }
+    },
+    {
+      "id": "89",
+      "names": {
+        "en": [
+          "Mochikoro"
+        ],
+        "ja": [
+          "モチコロ"
+        ]
+      }
+    },
+    {
+      "id": "90",
+      "names": {
+        "en": [
+          "Isowatari"
+        ],
+        "ja": [
+          "イソワタリ"
+        ]
+      }
+    },
+    {
+      "id": "91",
+      "names": {
+        "en": [
+          "Putteria"
+        ],
+        "ja": [
+          "プッテリア"
+        ]
+      }
+    },
+    {
+      "id": "92",
+      "names": {
+        "en": [
+          "Reflect Link"
+        ],
+        "ja": [
+          "リフレクトリンク"
+        ]
+      }
+    },
+    {
+      "id": "93",
+      "names": {
+        "en": [
+          "Road Planning"
+        ],
+        "ja": [
+          "道路計画"
+        ]
+      }
+    },
+    {
+      "id": "94",
+      "names": {
+        "en": [
+          "Instructionless"
+        ]
+      }
+    },
+    {
+      "id": "95",
+      "names": {
+        "en": [
+          "Sendai-Miyagi"
+        ],
+        "ja": [
+          "宮城県仙台市"
+        ]
+      }
+    },
+    {
+      "id": "96",
+      "names": {
+        "en": [
+          "Balance Loop"
+        ],
+        "ja": [
+          "Balance Loop"
+        ],
+        "cs": [
+          "Balance Loop"
+        ]
+      }
     }
   ],
   "variants": [
@@ -1180,6 +1268,22 @@
         ],
         "ja": [
           "フォレスト"
+        ]
+      }
+    },
+    {
+      "id": "9",
+      "names": {
+        "en": [
+          "Morning"
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "names": {
+        "en": [
+          "Exampleless"
         ]
       }
     }

@@ -1,0 +1,41 @@
+{
+  "id": "90",
+  "names": {
+    "en": [
+      "Isowatari"
+    ],
+    "ja": [
+      "イソワタリ"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade all black stones and no white stones.",
+        "The unshaded areas may not be divided and no 2x2 area should be left entirely unshaded.",
+        "Shaded areas should match the indicated size."
+      ],
+      "source": "Kudamono Editor(isowatari)"
+    },
+    "ja": {
+      "statements": [
+        "いくつかのマスを黒く塗りましょう。",
+        "黒丸は必ず黒マスになり、白丸は必ず白マスになります。",
+        "白マスはタテヨコにひとつながりになります。",
+        "白マスが2×2以上のカタマリになってはいけません。",
+        "すべての黒マスのブロックの面積は、指定した数になります。"
+      ],
+      "source": "Kudamono Editor(isowatari)"
+    }
+  },
+  "examples": [
+    {
+      "id": "k0rksw",
+      "problem": "images/90/k0rksw-problem-nsop.webp",
+      "solution": "images/90/k0rksw-solution-7xrl.webp",
+      "author": "きんたろ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/125540"
+    }
+  ]
+}

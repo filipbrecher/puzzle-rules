@@ -1,0 +1,17 @@
+{
+  "id": "10",
+  "names": {
+    "en": [
+      "Exampleless"
+    ]
+  },
+  "kind": "specific",
+  "genre": "94",
+  "rules": {
+    "en": {
+      "statements": [
+        "No example puzzle is given. Guess the rules from the provided problem."
+      ]
+    }
+  }
+}

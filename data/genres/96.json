@@ -1,0 +1,52 @@
+{
+  "id": "96",
+  "names": {
+    "en": [
+      "Balance Loop"
+    ],
+    "ja": [
+      "Balance Loop"
+    ],
+    "cs": [
+      "Balance Loop"
+    ]
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells that passes through every circle.",
+        "The straight line segments coming out of a white circle must have equal length, while the straight line segments coming out of a black circle must have different lengths.",
+        "A clue in a circle represents the sum of the lengths of these two line segments."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "タテヨコにマスの中心をつなぐように線を引き、盤面を一周するループを作ります。ループが同じマスを2回以上通ることはありません。",
+        "ループはすべての○と●を通ります。数は、そのマスから伸びる2方向の直線の長さの和を表します。",
+        "○では、そのマスから伸びる2方向の直線の長さが等しくなります。",
+        "●では、そのマスから伸びる2方向の直線の長さが異なります。"
+      ],
+      "source": "トケタ? Vol.5"
+    },
+    "cs": {
+      "statements": [
+        "Nakresli smyčku spojující středy některých políček tabulky, která vede pouze vodorovně a svisle, sama sebe se nedotýká ani nekřižuje.",
+        "Smyčka prochází všemi vyznačenými bílými a černými kroužky. Samotný kroužek nenapovídá nic o tom, zda se v políčku smyčka lomí či jím prochází rovně.",
+        "Bílý kroužek značí, že obě ramena smyčky z kroužku vycházející mají stejnou délku.",
+        "Černý kroužek značí, že ramena smyčky z kroužku vycházející mají rozdílnou délku.",
+        "Číslo uvnitř kroužku, pokud je uvedeno, značí součet délek obou ramen smyčky vycházející z kroužku. Ramenem se myslí část smyčky se začátkem v políčku s kroužkem a koncem v políčku, kde se smyčky lomí."
+      ],
+      "source": "Dlouhodobá soutěž HALAS"
+    }
+  },
+  "examples": [
+    {
+      "id": "s5rlqf",
+      "problem": "images/96/s5rlqf-problem-ce1e.webp",
+      "solution": "images/96/s5rlqf-solution-h3t3.webp",
+      "author": "ふーなんとかさん",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/127004"
+    }
+  ]
+}

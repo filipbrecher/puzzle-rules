@@ -1,0 +1,23 @@
+{
+  "id": "94",
+  "names": {
+    "en": [
+      "Instructionless"
+    ]
+  },
+  "category": "other",
+  "rules": {
+    "en": {
+      "statements": [
+        "Guess the rule from the example and its solution and solve the problem.",
+        "Both the example and the problem can be solved as the only solution under the assumed rules."
+      ]
+    },
+    "ja": {
+      "statements": [
+        "例題とその解答からルールを推測し、問題を解きます。",
+        "想定のルールのもとで、例題・問題ともに唯一解になります。"
+      ]
+    }
+  }
+}

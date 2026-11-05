@@ -1,0 +1,42 @@
+{
+  "id": "92",
+  "names": {
+    "en": [
+      "Reflect Link"
+    ],
+    "ja": [
+      "リフレクトリンク"
+    ]
+  },
+  "category": "path",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw a non-intersecting loop through the centers of some cells.",
+        "Two perpendicular line segments must cross each other at given intersections, but nowhere else.",
+        "Every triangle must be touched by the loop.",
+        "Triangles reflect the loop at right angles, and a number in a triangle indicates the total number of cells that the lines coming out of it travel to before turning, including the cell the triangle is in."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面内に線を引き、全体で枝分かれのない１つの輪っかを作ります。線はタテヨコにマスの中央を通ります。",
+        "┼のマスでは、線は必ず立体交差します。┼以外のマスで線が交差してはいけません。",
+        "三角形があるマスは必ず線が通り、斜辺で直角に曲がります。三角形の中を線が通ってはいけません。",
+        "三角形の中の数字は、その数字から出た２本の線が最初に曲がるまでの、その三角形のマスを含めてのマス数の合計です。数字のない三角形では線が何マス続くかは分かりません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "ae1sq0",
+      "problem": "images/92/ae1sq0-problem-9da3.webp",
+      "solution": "images/92/ae1sq0-solution-sipe.webp",
+      "author": "ミレイ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101386"
+    }
+  ]
+}

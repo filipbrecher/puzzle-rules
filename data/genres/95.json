@@ -1,0 +1,41 @@
+{
+  "id": "95",
+  "names": {
+    "en": [
+      "Sendai-Miyagi"
+    ],
+    "ja": [
+      "宮城県仙台市"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines over the dotted lines to divide each larger region (prefecture) into smaller regions (cities). Cities are allowed to be the same size as its prefecture.",
+        "Every city must be orthogonally adjacent to at least one other city with the same shape and orientation.",
+        "A number indicates the amount of cities in a prefecture. A prefecture without a number may have any amount of cities.",
+        "There can be no dead-end lines."
+      ],
+      "source": "ニコリ オモパ大全 p.99",
+      "note": "Translated"
+    },
+    "ja": {
+      "statements": [
+        "点線上に線を引き、すでに太線で区切られた大部屋（県）を、いくつかの小さな部屋（市）に分けます。線が引かれない（市を１つしか持たない）県があってもかまいません。",
+        "すべての市は、形も向きも同じになる他の市と辺（市境）を共有しなければなりません。",
+        "数字は、その県が含む市の数を表します。"
+      ],
+      "source": "ニコリ オモパ大全 p.99"
+    }
+  },
+  "examples": [
+    {
+      "id": "zexhbh",
+      "problem": "images/95/zexhbh-problem-85zd.webp",
+      "solution": "images/95/zexhbh-solution-5jb2.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/166720"
+    }
+  ]
+}

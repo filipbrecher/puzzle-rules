@@ -1,0 +1,34 @@
+{
+  "id": "93",
+  "names": {
+    "en": [
+      "Road Planning"
+    ],
+    "ja": [
+      "道路計画"
+    ]
+  },
+  "category": "region",
+  "rules": {
+    "en": {
+      "statements": [
+        "Draw lines over the dotted lines to divide the grid into regions of equal size.",
+        "Dots represent a point where 3 or 4 lines meet. The outside border counts as a line.",
+        "All possible dots are given, meaning lines cannot branch or cross at points without a dot.",
+        "Lines can not form dead-ends.",
+        "The areas on both sides of a line may belong to the same region."
+      ],
+      "source": "Original"
+    },
+    "ja": {
+      "statements": [
+        "点線上に線(道)を引き、盤面(町)を面積の等しい領域に分割します。",
+        "道や枠線が3方向以上から集まる点には白丸(交差点)が置かれています。",
+        "逆に、交差点からは3方向以上に道や枠線が通ります。",
+        "道は、交差点から交差点にのみ引くことができます。",
+        "道をはさんだ両側が同じ領域に含まれてもかまいません。"
+      ],
+      "source": "Original"
+    }
+  }
+}

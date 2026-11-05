@@ -1,0 +1,44 @@
+{
+  "id": "89",
+  "names": {
+    "en": [
+      "Mochikoro"
+    ],
+    "ja": [
+      "モチコロ"
+    ]
+  },
+  "category": "shading",
+  "rules": {
+    "en": {
+      "statements": [
+        "Shade some cells so that all areas of orthogonally connected unshaded cells are rectangular.",
+        "The unshaded rectangles must all be connected diagonally.",
+        "Clues cannot be shaded, and represent the number of cells in the unshaded area they belong to.",
+        "An unshaded area of cells cannot contain more than one clue.",
+        "No 2x2 region may be entirely shaded."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    },
+    "ja": {
+      "statements": [
+        "盤面に白い長方形(正方形)のブロックをいくつか作ります。残りのマスは黒く塗ります。",
+        "数字は、そのマスを含むブロックの面積を表します。ブロックに含まれない数字があってはいけません。",
+        "ブロック同士は辺を共有しませんが、すべてのブロックは点でひとつながりになります。",
+        "1つのブロックには0個か1個の数字が入ります。",
+        "黒マスが2×2マス以上のカタマリになってはいけません。"
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets",
+      "note": "Translated"
+    }
+  },
+  "examples": [
+    {
+      "id": "e4d01t",
+      "problem": "images/89/e4d01t-problem-xm47.webp",
+      "solution": "images/89/e4d01t-solution-lxgo.webp",
+      "author": "ゆずっこ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/102322"
+    }
+  ]
+}

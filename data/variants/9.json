@@ -1,0 +1,25 @@
+{
+  "id": "9",
+  "names": {
+    "en": [
+      "Morning"
+    ]
+  },
+  "families": [
+    "walk"
+  ],
+  "kind": "specific",
+  "genre": "75",
+  "inventor": {
+    "name": "Anurag Sahay",
+    "note": "This was stated as the source of the English rules on Puzsq"
+  },
+  "rules": {
+    "en": {
+      "statements": [
+        "The lengths of two successive differently coloured sections of the loop cannot be equal."
+      ],
+      "source": "Puzsq Rules"
+    }
+  }
+}
