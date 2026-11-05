@@ -17,6 +17,9 @@ h1{font-size:15px;margin:0}
 #dirty{color:#b36b00;font-size:12px;font-weight:600;white-space:nowrap;visibility:hidden}
 @media(prefers-color-scheme:dark){#dirty{color:#e8a33a}}
 .srw{display:flex;gap:6px;align-items:center;padding:0 12px 8px;font-size:12px;color:var(--mut)}.srw input{display:inline;width:auto;margin:0}
+#busy{position:fixed;inset:0;background:#0006;display:flex;align-items:center;justify-content:center;z-index:60}#busy[hidden]{display:none}
+.bx{background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:16px 22px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 24px #0004}
+.spin{width:20px;height:20px;border:3px solid var(--ln);border-top-color:var(--ac);border-radius:50%;animation:sp .8s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
 #toast{position:fixed;right:16px;bottom:16px;max-width:360px;background:var(--ink);color:var(--pn);padding:8px 12px;border-radius:8px;font-size:13px;display:none;z-index:40}
 .tg{border:0;background:none;padding:0;font:inherit;font-weight:600;display:inline-flex;gap:6px;align-items:center;cursor:pointer;color:var(--ink)}.tg:hover{border-color:transparent;color:var(--ac)}.tri{color:var(--mut);width:10px}
 .sub{display:flex;flex-direction:column;gap:6px}.sb{display:flex;flex-direction:column;gap:6px}
@@ -114,6 +117,7 @@ button:disabled{opacity:.6;cursor:not-allowed}
 <aside><div class="srch"><input id="q" type="search" placeholder="Search names and rules"><button id="new" class="pri">New</button></div><label id="srw" class="srw"><input type="checkbox" id="sr"> Include rules in search</label><div id="flt"></div><div id="list"></div></aside>
 <section id="ed"></section>
 </main>
+<div id="busy" hidden><div class="bx"><div class="spin"></div><div id="bt"></div></div></div>
 <div id="toast"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
@@ -123,13 +127,14 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let SAVED=null;try{SAVED=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 let S={languages:DEFL,genres:{},variants:{},combos:{},assets:{},dirty:false};
-let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();let appPage=0,appSel=null,RAW={},SR=false,SELS={};
+let tab="genres",sel=null,q="",F={},armDel=null,armImp=false;const openInfo=new Set();let appPage=0,appSel=null,RAW={},SR=false,SELS={},AUTO=false,LOADING={},pT=null;const MOD=new Set();
 const langs=()=>S.languages.map(l=>l.code);
 const base=()=>(S.languages.find(l=>l.base)||S.languages[0]).code;
 const kind=()=>tab==="genres"?"g":tab==="variants"?"v":tab==="combos"?"a":"s";
 const coll=()=>S[tab];
-const persist=()=>{if(A())try{localStorage.setItem(KEY,JSON.stringify({...S,commit:G.commit,pend:G.pend}))}catch(e){}status()};
-const save=()=>{S.dirty=true;persist()};
+function doPersist(){if(!A())return;try{const full={genres:{},variants:{},combos:{}},ids={};for(const t in full){ids[t]=Object.keys(S[t]);for(const id of ids[t])if(MOD.has(t+":"+id)&&!S[t][id]._s)full[t][id]=S[t][id]}localStorage.setItem(KEY,JSON.stringify({commit:G.commit,pend:G.pend,dirty:S.dirty,languages:S.languages,assets:S.assets,ids,full}))}catch(e){}}
+const persist=()=>{status();clearTimeout(pT);pT=setTimeout(doPersist,500)};
+const save=()=>{S.dirty=true;if(sel)MOD.add(tab+":"+sel);persist()};
 const nid=o=>String(Math.max(0,...Object.keys(o).map(Number).filter(Number.isFinite))+1);
 const rid=()=>"c_"+Math.random().toString(36).slice(2,8);
 const catLbl=c=>(CATS.find(x=>x[0]===c)||[0,""])[1];
@@ -164,8 +169,8 @@ async function api(p,o={}){const hd={Accept:"application/vnd.github+json"};if(TO
  if(!r.ok)throw Error((await r.json().catch(()=>({}))).message||r.status);return r.json()}
 async function pull(ref){RAW={};const f=async p=>{const r=await fetch(raw(ref,p));if(!r.ok)throw Error(p+" "+r.status);const t=await r.text();RAW[p]=t;return JSON.parse(t)};
  const ix=await f("data/index.json"),n={languages:await f("data/languages.json"),genres:{},variants:{},combos:{},assets:{},dirty:false};
- await Promise.all([...(ix.genres||[]).map(x=>["genres",x.id]),...(ix.variants||[]).map(x=>["variants",x.id]),...(ix.assets||[]).map(x=>["assets",x.id])].map(async([t,id])=>{n[t][id]=await f(`data/${t}/${id}.json`)}));
- (await f("data/combinations.json")).forEach(a=>n.combos[a.id]=a);return n}
+ for(const t of["genres","variants","combos"])(ix[t]||[]).forEach(x=>n[t][x.id]={...x,_s:true});
+ (ix.assets||[]).forEach(a=>n.assets[a.id]=a);return n}
 const pk=(o,ks)=>{const r={};ks.forEach(k=>{if(o&&o[k]!==undefined)r[k]=o[k]});return r};
 function shape(t,e){const c=JSON.parse(JSON.stringify(e));clean(c);if(t==="assets")return{id:c.id,name:c.name,images:c.images};
  const ex=a=>(a||[]).map(x=>pk(x,["id","problem","solution","author","source","note"])),rl=r=>{const o={};for(const l in r||{})o[l]=pk(r[l],["statements","source","note"]);return o},b={id:c.id,names:c.names,notes:c.notes};
@@ -174,15 +179,31 @@ function shape(t,e){const c=JSON.parse(JSON.stringify(e));clean(c);if(t==="asset
  return{...b,components:(c.components||[]).map(x=>pk(x,["type","id"])),rules:rl(c.rules),examples:ex(c.examples),assets:c.assets,appearances:(c.appearances||[]).map(x=>pk(x,["author","source","note"]))}}
 function files(){const o={};
  o["data/languages.json"]=J(S.languages);
- for(const t of["genres","variants","assets"])Object.values(S[t]).forEach(e=>o[`data/${t}/${e.id}.json`]=J(prune(shape(t,e))));
- o["data/combinations.json"]=J(prune(Object.values(S.combos).map(a=>shape("combos",{...a,components:sortComps([...(a.components||[])])})))||[]);
- o["data/index.json"]=J(prune({schemaVersion:1,genres:Object.values(S.genres).map(e=>({id:e.id,names:e.names})),variants:Object.values(S.variants).map(e=>({id:e.id,names:e.names})),assets:Object.values(S.assets).map(e=>({id:e.id,name:e.name}))}));return o}
+ for(const[t,d]of[["genres","genres"],["variants","variants"],["combos","combinations"]])Object.values(S[t]).forEach(e=>{if(!e._s)o[`data/${d}/${e.id}.json`]=J(prune(shape(t,t==="combos"?{...e,components:sortComps([...(e.components||[])])}:e)))});
+ o["data/index.json"]=J(prune({schemaVersion:2,genres:Object.values(S.genres).map(e=>summ("genres",e)),variants:Object.values(S.variants).map(e=>summ("variants",e)),combos:Object.values(S.combos).map(e=>summ("combos",e)),assets:Object.values(S.assets).map(a=>shape("assets",a))}));return o}
+let bn=0;const busy=t=>{bn++;$("#bt").textContent=t;$("#busy").hidden=false;return()=>{if(--bn<=0){bn=0;$("#busy").hidden=true}}},bset=t=>{$("#bt").textContent=t};
+const ref=()=>G.authed?G.commit:C.branch,dpath=(t,id)=>`data/${t==="combos"?"combinations":t}/${id}.json`;
+const hasR=(e,l)=>e._s?(e.r||[]).includes(l):sts(e,l).length>0,hasEx=e=>e._s?!!e.ex:(e.examples||[]).length>0;
+function ensure(t,id){const e=S[t][id];if(!e||!e._s)return Promise.resolve();const k=t+id;
+ if(!LOADING[k])LOADING[k]=(async()=>{const q=dpath(t,id),r=await fetch(raw(ref(),q));if(!r.ok)throw Error(q+" "+r.status);const x=await r.text();RAW[q]=x;if(S[t][id]&&S[t][id]._s)S[t][id]=JSON.parse(x)})().finally(()=>delete LOADING[k]);
+ return LOADING[k]}
+async function loadAll(){const st=[];for(const t of["genres","variants","combos"])for(const id in S[t])if(S[t][id]._s)st.push([t,id]);if(!st.length)return;
+ const tot=st.length;let n=0;const d=busy("Loading entries 0 / "+tot);
+ try{await Promise.all(Array.from({length:20},async()=>{while(st.length){const[t,id]=st.pop();await ensure(t,id);bset("Loading entries "+(++n)+" / "+tot)}}))}finally{d()}}
+function restore(v){S.languages=v.languages||S.languages;S.assets=v.assets||S.assets;
+ for(const t of["genres","variants","combos"]){const ids=new Set(v.ids[t]||[]);for(const id of Object.keys(S[t]))if(!ids.has(id))delete S[t][id];for(const id in(v.full||{})[t]||{}){S[t][id]=v.full[t][id];MOD.add(t+":"+id)}}
+ S.dirty=true;G.pend=v.pend||{};G.edit=true}
+function summ(t,e){if(e._s){const{_s,...r}=e;return r}
+ const c=JSON.parse(JSON.stringify(e));clean(c);const b={id:c.id,names:c.names,r:langs().filter(l=>sts(c,l).length),sn:nm(c)?undefined:snip(c)},ex=(c.examples||[]).length?1:undefined;
+ if(t==="genres")return{...b,category:c.category,ex};
+ if(t==="variants")return{...b,families:c.families,kind:c.kind,category:c.kind==="general"?c.category:undefined,genre:c.kind==="specific"?c.genre:undefined};
+ return{...b,components:sortComps((c.components||[]).map(x=>pk(x,["type","id"]))),assets:c.assets,ex,appearances:(c.appearances||[]).filter(a=>a.author).map(a=>({author:a.author}))}}
 async function connect(){const rp=await api("");if(rp.permissions&&rp.permissions.push===false)throw Error("This token cannot write to the repo");
  G.commit=(await api(`git/ref/heads/${C.branch}`)).object.sha;
- G.imgs=new Set((await api(`git/trees/${G.commit}?recursive=1`)).tree.filter(x=>x.type==="blob"&&x.path.startsWith("images/")).map(x=>x.path));
+ G.paths=new Set((await api(`git/trees/${G.commit}?recursive=1`)).tree.filter(x=>x.type==="blob").map(x=>x.path));G.imgs=new Set([...G.paths].filter(q=>q.startsWith("images/")));
  let n;try{n=await pull(G.commit)}catch(e){if(!/404/.test(e.message))throw e}
  S=n||{languages:DEFL,genres:{},variants:{},combos:{},assets:{},dirty:false};if(!(S[tab]||{})[sel])sel=null;G.base=n?{...RAW}:{};G.pend={};
- G.edit=false;if(SAVED&&SAVED.dirty&&SAVED.commit===G.commit){const{commit,pend,...s}=SAVED;S=s;G.pend=pend||{};G.edit=true}SAVED=null;G.authed=true}
+ MOD.clear();G.edit=false;if(SAVED&&SAVED.dirty&&SAVED.ids&&SAVED.commit===G.commit)restore(SAVED);SAVED=null;G.authed=true}
 async function load(){if(!C.branch)C.branch=(await api("")).default_branch;
  if(TOK())await connect();else{S=await pull(C.branch);sel=null;G.authed=false;G.edit=false}}
 function parseRepo(s){const m=s.trim().replace(/\.git$/,"").match(/(?:github\.com[\/:])?([\w.-]+)\/([\w.-]+)(?:\/tree\/([^\/\s]+))?/);return m?{owner:m[1],repo:m[2],branch:m[3]||""}:null}
@@ -190,20 +211,22 @@ const hint=e=>/Bad credentials/.test(e.message)?"GitHub rejected the token (wron
 const cmsg=(t,c)=>{$("#c-msg").textContent=t;$("#c-msg").className="msg "+c};
 async function ghSave(){
  if((await api(`git/ref/heads/${C.branch}`)).object.sha!==G.commit)throw Error("The repo changed since you loaded it. Reconnect first (export a zip as backup).");
- const f=files(),ent=[],used=new Set();
+ const f=files(),ent=[],used=new Set(),del=q=>ent.push({path:q,mode:"100644",type:"blob",sha:null});
  Object.values(S.assets).forEach(a=>(a.images||[]).forEach(q=>used.add(q)));
  [...Object.values(S.genres),...Object.values(S.combos)].forEach(g=>(g.examples||[]).forEach(x=>[x.problem,x.solution].forEach(q=>q&&used.add(q))));
  const blob=async(path,content,encoding)=>{const b=await api("git/blobs",{method:"POST",body:{content,encoding}});ent.push({path,mode:"100644",type:"blob",sha:b.sha})},jobs=[];
  for(const[q,c]of Object.entries(f))if(G.base[q]!==c)jobs.push(blob(q,c,"utf-8"));
- for(const q in G.base)if(!(q in f))ent.push({path:q,mode:"100644",type:"blob",sha:null});
+ const kt={genres:"genres",variants:"variants",combinations:"combos"};
+ for(const q of G.paths){const m=q.match(/^data\/(genres|variants|combinations)\/([^/]+)\.json$/);if(m?!S[kt[m[1]]][m[2]]:q.startsWith("data/")&&!(q in f))del(q)}
  for(const q in G.pend)if(used.has(q))jobs.push(blob(q,G.pend[q].b64,"base64"));
- for(const q of G.imgs)if(!used.has(q))ent.push({path:q,mode:"100644",type:"blob",sha:null});
+ const own=q=>{const m=q.match(/^images\/assets\/([^/]+)\//);if(m)return S.assets[m[1]];const g=q.match(/^images\/([^/]+)\//);return g&&(S.genres[g[1]]||S.combos[g[1]])};
+ for(const q of G.imgs){const o=own(q);if(!used.has(q)&&(!o||!o._s))del(q)}
  await Promise.all(jobs);if(!ent.length)return flash("Nothing to save.");
  const cm=await api(`git/commits/${G.commit}`),tr=await api("git/trees",{method:"POST",body:{base_tree:cm.tree.sha,tree:ent}});
  const nc=await api("git/commits",{method:"POST",body:{message:C.msg||"Update puzzle rules",tree:tr.sha,parents:[G.commit]}});
  await api(`git/refs/heads/${C.branch}`,{method:"PATCH",body:{sha:nc.sha}});
- for(const q in G.pend)if(used.has(q))G.imgs.add(q);G.imgs=new Set([...G.imgs].filter(q=>used.has(q)));
- G.commit=nc.sha;G.base=f;G.pend={};S.dirty=false;persist();flash("Saved to GitHub")}
+ ent.forEach(x=>{if(x.sha===null){G.paths.delete(x.path);G.imgs.delete(x.path)}else{G.paths.add(x.path);if(x.path.startsWith("images/"))G.imgs.add(x.path)}});
+ G.commit=nc.sha;G.base={...G.base,...f};G.pend={};MOD.clear();S.dirty=false;persist();flash("Saved to GitHub")}
 function toWebp(file){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>{const s=Math.min(1,1000/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext("2d").drawImage(i,0,0,c.width,c.height);
  c.toBlob(b=>{const r=new FileReader();r.onload=()=>res({url:r.result,b64:r.result.split(",")[1]});r.readAsDataURL(b)},"image/webp",.9)};i.onerror=rej;i.src=URL.createObjectURL(file)})}
 async function setAssetImg(f,i){const e=coll()[sel];
@@ -213,13 +236,15 @@ async function setImg(f){const e=coll()[sel],x=e.examples[imgT.i];
  try{const r=await toWebp(f),q=`images/${e.id}/${x.id}-${imgT.s}-${rid().slice(2,6)}.webp`;delete G.pend[x[imgT.s]];G.pend[q]=r;x[imgT.s]=q;save();editor()}catch(err){flash("Could not read that image")}}
 function applyMode(){const ro=!A();document.body.classList.toggle("ro",ro);hdr();
  if(ro){document.querySelectorAll("#ed input,#ed textarea").forEach(x=>x.readOnly=true);document.querySelectorAll("#ed select,#ed input[type=checkbox]").forEach(x=>x.disabled=true)}}
-function editor(){editor0();applyMode()}
+function editor(){const e=coll()[sel];
+ if(e&&e._s){$("#ed").innerHTML='<p class="empty">Loading...</p>';const id=sel,t=tab;ensure(t,id).then(()=>{if(sel===id&&tab===t)editor()}).catch(er=>{$("#ed").innerHTML='<p class="empty">Could not load this entry: '+esc(er.message)+'</p>'});return}
+ if(e&&AUTO){AUTO=false;autoOpen(e,"nonempty")}editor0();applyMode()}
 async function boot(){if(!C.owner||!C.repo)return;try{await load()}catch(e){flash("GitHub: "+hint(e))}render()}
 function norm(e,k){e.names=e.names||{};e.rules=e.rules||{};e.inventor=e.inventor||{name:"",source:"",note:""};e.notes=e.notes||"";
  langs().forEach(l=>{e.names[l]=e.names[l]||[];const r=e.rules[l]=e.rules[l]||{};r.statements=r.statements||[];r.source=r.source||"";r.note=r.note||""});
  if(k==="v"){e.families=e.families||[];if(!e.kind){e.kind="general";e.category="all"}}else e.category=e.category||"";return e}
 function nm(e){const b=e.names?.[base()]||[];if(b.length)return b.join(" / ");for(const l of langs()){const n=(e.names?.[l]||[])[0];if(n)return n}return""}
-function snip(e){const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
+function snip(e){if(e._s)return e.sn||"";const s=sts(e,base())[0]||langs().map(l=>sts(e,l)[0]).find(Boolean)||"";return s.length>70?s.slice(0,70)+"…":s}
 const authText=c=>{const a=[...new Set((c.appearances||[]).map(x=>x.author).filter(Boolean))];return a.slice(0,3).join(", ")+(a.length>3?" and others":"")};
 const scopeT=v=>v.kind==="specific"?(S.genres[v.genre]?nm(S.genres[v.genre])||"Unnamed genre":"?"):(v.category&&v.category!=="all"?catLbl(v.category):"All");
 const scopeH=v=>v.kind==="specific"?`<span class="g">${esc(scopeT(v))}</span>`:`<span class="c">${esc(scopeT(v))}</span>`;
@@ -237,10 +262,10 @@ function sc(e,ws){if(!ws.length)return 1;let tot=0;for(const w of ws){const s=ws
 function items(){const k=kind(),ws=words(q);
  let a=Object.values(coll()).map(e=>({e,s:k==="s"?(ws.every(w=>(e.name||"").toLowerCase().includes(w))?1:0):k==="a"?(ws.every(w=>(lbl(e,"a")+" "+Object.values(e.names||{}).flat().join(" ")+" "+(e.components||[]).map(c=>{const x=cget(c);return x?Object.values(x.names||{}).flat().join(" "):""}).join(" ")+" "+(e.appearances||[]).map(x=>[x.author,x.source,x.note].join(" ")).join(" ")+" "+(e.notes||"")+" "+(SR?langs().map(l=>sts(e,l).join(" ")).join(" "):"")).toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0);
   if(F.c)a=a.filter(x=>x.e.category===F.c);
- if(F.r)a=a.filter(x=>!sts(x.e,F.r).length);
- if(F.n)a=a.filter(x=>F.n==="*"?langs().every(l=>!(x.e.names?.[l]||[]).length):!(x.e.names?.[F.n]||[]).length);
+ if(F.r)a=a.filter(x=>!hasR(x.e,F.r));
+ if(F.n)a=a.filter(x=>F.n==="+"?langs().some(l=>(x.e.names?.[l]||[]).length):F.n==="*"?langs().every(l=>!(x.e.names?.[l]||[]).length):!(x.e.names?.[F.n]||[]).length);
  if(F.f)a=a.filter(x=>fams(x.e).includes(F.f));
- if(F.x)a=a.filter(x=>!(x.e.examples||[]).length);
+ if(F.x)a=a.filter(x=>!hasEx(x.e));
  if(F.e==="none")a=a.filter(x=>!(x.e.examples||[]).some(y=>y.problem||y.solution));
  return a.sort((x,y)=>y.s-x.s||lbl(x.e,k).localeCompare(lbl(y.e,k))).map(x=>x.e)}
 function meta(e,k){
@@ -255,7 +280,7 @@ function filters(){const k=kind();$("#srw").style.display=k==="s"?"none":"flex";
  const o=(v,t,c)=>`<option value="${esc(v)}" ${c===v?"selected":""}>${esc(t)}</option>`,sl=(key,all,opts)=>`<select data-f="${key}">${o("",all,F[key]||"")+opts.map(x=>o(x[0],x[1],F[key]||"")).join("")}</select>`;
  let h=k==="g"?sl("c","All categories",CATS):"";
  if(k==="v")h+=sl("f","All families",[...new Set(Object.values(S.variants).flatMap(fams))].sort().map(f=>[f,f]));
- h+=sl("n","Any names",[["*","No name at all"],...S.languages.map(l=>[l.code,"No "+l.code+" name"])]);h+=sl("r","Any rules",S.languages.map(l=>[l.code,"No "+l.code+" rules"]));
+ h+=sl("n","Any names",[["+","Has some name"],["*","No name at all"],...S.languages.map(l=>[l.code,"No "+l.code+" name"])]);h+=sl("r","Any rules",S.languages.map(l=>[l.code,"No "+l.code+" rules"]));
  if(k!=="v")h+=sl("x","Examples: any",[["none","No examples"]]);
  $("#flt").innerHTML=h;$("#flt").style.display="flex"}
 function list(){const k=kind(),a=items();
@@ -322,20 +347,27 @@ function edApp0(e){e.components=sortComps(e.components||[]);e.names=e.names||{};
 function pickList(t){const ws=words($("#pk-"+t).value),K=t==="asset"?"s":t[0],src={genre:S.genres,variant:S.variants,asset:S.assets}[t];
  const a=Object.values(src).map(e=>({e,s:t==="asset"?(ws.every(w=>(e.name||"").toLowerCase().includes(w))?1:0):sc(e,ws)})).filter(x=>x.s>0).sort((x,y)=>y.s-x.s||lbl(x.e,K).localeCompare(lbl(y.e,K))).slice(0,12);
  const b=$("#pkl-"+t);b.innerHTML=a.map(x=>`<div class="opt" data-pick="${t}:${esc(x.e.id)}"><b class="nm">${lblH(x.e,K)}</b>${snip(x.e)?`<small>${esc(snip(x.e))}</small>`:""}</div>`).join("")||`<div class="opt">No match</div>`;b.hidden=false}
+function autoOpen(e,mode){const k=kind(),all=mode==="all",L=langs(),o=(key,v)=>{OPEN[key]=all?true:!!v};
+ const nms=l=>(e.names?.[l]||[]).length,rl=l=>sts(e,l).length||e.rules?.[l]?.source||e.rules?.[l]?.note;
+ L.forEach(l=>{o("n:"+l,nms(l));o("r:"+l,rl(l))});
+ if(k==="s"){o("Name",1);o("Images",(e.images||[]).length);o("Combinations",Object.values(S.combos).some(c=>(c.assets||[]).includes(e.id)));return}
+ o("Names",L.some(nms));o("Notes",e.notes);o("Rules",L.some(rl));o("Rule changes",L.some(rl));o("Additional rules",L.some(rl));o("Examples",(e.examples||[]).length);
+ if(k==="a"){o("Components",(e.components||[]).length);o("Assets",(e.assets||[]).length);o("Appearances",(e.appearances||[]).length)}
+ else{o("Details",k==="v"||e.category||(e.inventor&&(e.inventor.name||e.inventor.source||e.inventor.note)));o("Combinations",usedBy(k==="g"?"genre":"variant",e.id).length);o("Specific variants",1)}}
 function hdr(){const d=A()&&S.dirty;$("#new").disabled=!A();$("#imp").disabled=!A();
  $("#m-view").classList.toggle("on",!G.edit);$("#m-edit").classList.toggle("on",G.edit);
  $("#sv").disabled=!d;$("#sv").classList.toggle("pri",d);$("#dc").disabled=!d;$("#dirty").style.visibility=d?"visible":"hidden";$("#dots").classList.toggle("dirty",d)}
 function status(){document.title=(A()&&S.dirty?"● ":"")+"Puzzle rules";hdr()}
 function render(){tabs();filters();list();editor();status()}
-function go(t,id){if(mob())hideSearch();clean(coll()[sel]);SELS[tab]=sel;tab=t;sel=id;armDel=null;q="";F={};$("#q").value="";render()}
+function go(t,id){if(mob())hideSearch();clean(coll()[sel]);SELS[tab]=sel;tab=t;sel=id;AUTO=!mob();armDel=null;q="";F={};$("#q").value="";render()}
 let tm;const lazy=()=>{clearTimeout(tm);tm=setTimeout(()=>{list();tabs();const h=$("#ed h2"),e=coll()[sel];if(h&&e)h.innerHTML=lblH(e,kind())||"New combination"},200)};
 $("#tabs").onclick=ev=>{const t=ev.target.dataset.tab;if(t){clean(coll()[sel]);SELS[tab]=sel;tab=t;sel=coll()[SELS[t]]?SELS[t]:null;armDel=null;F={};render()}};
 $("#q").oninput=ev=>{q=ev.target.value;list()};
 $("#flt").oninput=ev=>{F[ev.target.dataset.f]=ev.target.value;list()};
-$("#list").onclick=ev=>{const d=ev.target.closest(".it");if(d){if(mob())hideSearch();clean(coll()[sel]);sel=d.dataset.id;armDel=null;list();editor()}};
+$("#list").onclick=ev=>{const d=ev.target.closest(".it");if(d){if(mob())hideSearch();clean(coll()[sel]);sel=d.dataset.id;AUTO=!mob();armDel=null;list();editor()}};
 $("#new").onclick=()=>{if(mob())hideSearch();const c=coll();let e;clean(c[sel]);
  if(tab==="combos")e={id:rid(),components:[]};else if(tab==="assets")e={id:nid(c),name:"",images:[]};else e=norm({id:nid(c)},kind());
- c[e.id]=e;sel=e.id;save();render();($("#pk-genre")||$("#ed textarea"))?.focus()};
+ c[e.id]=e;sel=e.id;autoOpen(e,"all");save();render();($("#pk-genre")||$("#ed textarea"))?.focus()};
 function twice(t,label){if(t.dataset.arm)return true;const old=t.textContent;t.dataset.arm="1";t.textContent=label||"Click again to remove";t.classList.add("arm");
  setTimeout(()=>{if(t.isConnected){delete t.dataset.arm;t.textContent=old;t.classList.remove("arm")}},4000);return false}
 function setp(o,p,v){const k=p.split("."),last=k.pop();let x=o;for(const s of k)x=x[s]||(x[s]={});x[last]=v}
@@ -360,7 +392,7 @@ $("#ed").addEventListener("paste",ev=>{const t=ev.target,sl=t.closest?.(".slot")
 $("#ed").addEventListener("mousedown",ev=>{if(ev.target.closest(".opt"))ev.preventDefault()});
 $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.slot");if(!t)return;const e=coll()[sel],d=t.dataset;
  if(d.tg!==undefined){const el=t.closest(".card,.sub"),sh=el.classList.toggle("shut");OPEN[d.tg]=!sh;t.querySelector(".tri").textContent=sh?"▸":"▾";if(!sh)el.querySelectorAll(".st textarea").forEach(grow);return}
- if(d.copy){const s=sts(e,d.copy);navigator.clipboard.writeText(s.map((x,i)=>d.num?`${i+1}) ${x}`:x).join("\n"))}
+ if(d.copy){const s=sts(e,d.copy);navigator.clipboard.writeText(s.map((x,i)=>d.num?`${i+1}) ${x}`:x).join(d.num?"\n\n":" "))}
   else if(d.aslot!==undefined){if(A()){imgT={a:+d.aslot};$("#imgf").click()}}
  else if(d.rmimg){if(twice(t)){e.images.splice(+d.rmimg,1);save();editor()}}
  else if(d.rma){if(twice(t)){e.assets.splice(+d.rma,1);save();edApp(e)}}
@@ -374,7 +406,7 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
  else if(d.open){const[a,b]=d.open.split(":");go(a==="combo"?"combos":a+"s",b)}
  else if(d.newapp!==undefined){const a={id:rid(),components:[{type:kind()==="g"?"genre":"variant",id:e.id}]};S.combos[a.id]=a;save();go("combos",a.id)}
  else if(d.pick){const[ty,id]=d.pick.split(":");if(ty==="asset"){e.assets=e.assets||[];if(!e.assets.includes(id))e.assets.push(id)}else{e.components.push({type:ty,id});sortComps(e.components)}save();edApp(e);lazy()}
- else if(d.info){openInfo.has(d.info)?openInfo.delete(d.info):openInfo.add(d.info);edApp(e)}
+ else if(d.info){const[ty,id]=d.info.split(":");if(openInfo.has(d.info)){openInfo.delete(d.info);edApp(e)}else{openInfo.add(d.info);ensure(ty+"s",id).then(()=>edApp(e))}}
  else if(d.rm){if(!twice(t))return;e.components.splice(+d.rm,1);save();edApp(e);lazy()}
  else if(d.del!==undefined){
   if(kind()==="s"){const n=Object.values(S.combos).filter(c=>(c.assets||[]).includes(sel)).length;if(n)return flash("Can't delete: used in combinations ("+n+")")}
@@ -383,7 +415,7 @@ $("#ed").addEventListener("click",ev=>{const t=ev.target.closest("button,.opt,.s
   const id=sel;delete coll()[id];
   sel=null;armDel=null;save();render()}});
 $("#exp").onclick=async()=>{if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
- const z=new JSZip();for(const[q,c]of Object.entries(files()))z.file(q,c);
+ await loadAll();const z=new JSZip();for(const[q,c]of Object.entries(files()))z.file(q,c);
  const im=[...usedImgs()];let miss=0;if(im.length)flash("Adding "+im.length+" images...");
  await Promise.all(im.map(async q=>{if(G.pend[q])z.file(q,G.pend[q].b64,{base64:true});else try{const r=await fetch(imgUrl(q));if(!r.ok)throw 0;z.file(q,await r.blob())}catch(e){miss++}}));
  if(miss)flash(miss+" image(s) could not be fetched and are missing from the zip.");
@@ -394,9 +426,10 @@ $("#imp").onclick=()=>{const has=Object.keys(S.genres).length+Object.keys(S.vari
 $("#file").onchange=async ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;
  if(!window.JSZip)return flash("The ZIP library could not load. Check your connection.");
  try{const z=await JSZip.loadAsync(f),n={languages:null,genres:{},variants:{},combos:{},assets:{},dirty:A()},pend={};
-  for(const[p,x]of Object.entries(z.files)){if(x.dir)continue;const im=p.match(/(?:^|\/)(images\/.+)$/);if(im){const b=await x.async("base64");pend[im[1]]={b64:b,url:"data:image/webp;base64,"+b};continue}const m=p.match(/(?:^|\/)(genres|variants|assets)\/([^/]+)\.json$/),t=await x.async("string");
-   if(m){const e=JSON.parse(t);e.id=e.id||m[2];n[m[1]][e.id]=e}
+  for(const[p,x]of Object.entries(z.files)){if(x.dir)continue;const im=p.match(/(?:^|\/)(images\/.+)$/);if(im){const b=await x.async("base64");pend[im[1]]={b64:b,url:"data:image/webp;base64,"+b};continue}const m=p.match(/(?:^|\/)(genres|variants|assets|combinations)\/([^/]+)\.json$/),t=await x.async("string");
+   if(m){const e=JSON.parse(t);e.id=e.id||m[2];n[m[1]==="combinations"?"combos":m[1]][e.id]=e}
    else if(/(^|\/)languages\.json$/.test(p))n.languages=JSON.parse(t);
+   else if(/(^|\/)index\.json$/.test(p))(JSON.parse(t).assets||[]).forEach(a=>n.assets[a.id]=a);
    else if(/(^|\/)combinations\.json$/.test(p))JSON.parse(t).forEach(a=>n.combos[a.id]=a)}
   n.languages=n.languages||DEFL;G.pend={...G.pend,...pend};S=n;sel=null;persist();render()}catch(err){flash("Import failed: "+err.message)}};
 $("#ed").addEventListener("dragover",ev=>{if(ev.target.closest(".slot"))ev.preventDefault()});
@@ -420,8 +453,14 @@ $("#m-edit").onclick=async()=>{if(G.edit)return;if(!G.authed){$("#cfg").hidden=f
 let armDc=false;const dcReset=()=>{armDc=false;$("#dc").textContent="Discard";$("#dc").classList.remove("arm")};
 $("#dc").onclick=async()=>{if(!armDc){armDc=true;$("#dc").textContent="Click again to discard";$("#dc").classList.add("arm");setTimeout(dcReset,4000);return}
  dcReset();localStorage.removeItem(KEY);SAVED=null;try{await connect();G.edit=true}catch(e){flash("GitHub: "+hint(e))}render()};
-window.addEventListener("beforeunload",ev=>{if(A()&&S.dirty){ev.preventDefault();ev.returnValue=""}});
-$("#sr").onchange=ev=>{SR=ev.target.checked;list()};
+window.addEventListener("beforeunload",ev=>{if(A()&&S.dirty){doPersist();ev.preventDefault();ev.returnValue=""}});
+$("#sr").onchange=async ev=>{SR=ev.target.checked;if(SR)try{await loadAll()}catch(e){flash("Could not load all entries: "+e.message)}list()};
+{const oc=connect,op=pull,os=ghSave,oe=$("#exp").onclick,of=$("#file").onchange;
+ connect=async function(){const d=busy("Connecting to GitHub...");try{return await oc()}finally{d()}};
+ pull=async function(r){const d=busy("Loading puzzle data...");try{return await op(r)}finally{d()}};
+ ghSave=async function(){const d=busy("Saving to GitHub...");try{return await os()}finally{d()}};
+ $("#exp").onclick=async()=>{const d=busy("Preparing export...");try{await oe()}finally{d()}};
+ $("#file").onchange=async ev=>{const d=busy("Importing...");try{await of(ev)}finally{d()}}}
 const hideSearch=()=>{$("aside").classList.remove("show");$("#sb").classList.remove("on")};
 $("#sb").onclick=()=>{const a=$("aside");a.style.top=$("header").offsetHeight+"px";const s=a.classList.toggle("show");$("#sb").classList.toggle("on",s);if(s)$("#q").focus()};
 $("#dots").onclick=()=>$(".hr").classList.toggle("open");

@@ -1,0 +1,29 @@
+{
+  "id": "c_9zkudq",
+  "names": {
+    "en": [
+      "FourCells"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "61"
+    }
+  ],
+  "rules": {
+    "en": {
+      "statements": [
+        "N=4"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "y3za82",
+      "problem": "images/c_9zkudq/y3za82-problem-8hw6.webp",
+      "solution": "images/c_9zkudq/y3za82-solution-8b1m.webp",
+      "author": "AlfoFish"
+    }
+  ]
+}

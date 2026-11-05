@@ -1,0 +1,34 @@
+{
+  "id": "c_p5if9w",
+  "names": {
+    "en": [
+      "FiveCells",
+      "Five Cells"
+    ],
+    "ja": [
+      "ファイブセルズ"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "61"
+    }
+  ],
+  "rules": {
+    "en": {
+      "statements": [
+        "N=5"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "10v6r7",
+      "problem": "images/c_p5if9w/10v6r7-problem-0jpz.webp",
+      "solution": "images/c_p5if9w/10v6r7-solution-pegi.webp",
+      "author": "_AtomicNeoN_",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101295"
+    }
+  ]
+}

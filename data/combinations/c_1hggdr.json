@@ -1,0 +1,32 @@
+{
+  "id": "c_1hggdr",
+  "names": {
+    "en": [
+      "Moon or Sun (puzz.link version)"
+    ]
+  },
+  "notes": "Puzz.link version of the rules.",
+  "components": [
+    {
+      "type": "genre",
+      "id": "70"
+    }
+  ],
+  "rules": {
+    "en": {
+      "statements": [
+        "All regions must have at least one moon or sun that is used by the loop."
+      ],
+      "source": "https://puzz.link/rules.html?moonsun"
+    }
+  },
+  "examples": [
+    {
+      "id": "m7te5q",
+      "problem": "images/c_1hggdr/m7te5q-problem-aeyw.webp",
+      "solution": "images/c_1hggdr/m7te5q-solution-0uf3.webp",
+      "author": "K.N.Y.",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101337"
+    }
+  ]
+}

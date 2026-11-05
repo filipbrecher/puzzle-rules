@@ -1,0 +1,30 @@
+{
+  "id": "c_inxo4n",
+  "names": {
+    "en": [
+      "Fire Walk"
+    ],
+    "ja": [
+      "ファイアウォーク"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "75"
+    },
+    {
+      "type": "variant",
+      "id": "12"
+    }
+  ],
+  "examples": [
+    {
+      "id": "wodyci",
+      "problem": "images/c_inxo4n/wodyci-problem-lo2z.webp",
+      "solution": "images/c_inxo4n/wodyci-solution-o97i.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/154554"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "c_zriqyb",
+  "names": {
+    "en": [
+      "Morning Walk"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "75"
+    },
+    {
+      "type": "variant",
+      "id": "9"
+    }
+  ],
+  "examples": [
+    {
+      "id": "8vjwmj",
+      "problem": "images/c_zriqyb/8vjwmj-problem-0rsz.webp",
+      "solution": "images/c_zriqyb/8vjwmj-solution-4yuv.webp",
+      "source": "Puzsq example puzzle",
+      "note": "Example puzzle which wasn't posted, so the author is unknown."
+    }
+  ]
+}

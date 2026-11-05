@@ -1,0 +1,30 @@
+{
+  "id": "c_bvhnt9",
+  "names": {
+    "en": [
+      "Water Walk"
+    ],
+    "ja": [
+      "ウォーターウォーク"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "75"
+    },
+    {
+      "type": "variant",
+      "id": "11"
+    }
+  ],
+  "examples": [
+    {
+      "id": "euh2h5",
+      "problem": "images/c_bvhnt9/euh2h5-problem-9mgx.webp",
+      "solution": "images/c_bvhnt9/euh2h5-solution-yxbi.webp",
+      "author": "はっちゅ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/166516"
+    }
+  ]
+}

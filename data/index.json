@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "genres": [
     {
       "id": "1",
@@ -13,7 +13,14 @@
         "cs": [
           "Yajilin"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "2",
@@ -27,7 +34,14 @@
         "cs": [
           "Heyawake"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "3",
@@ -41,7 +55,14 @@
         "cs": [
           "LITS"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "4",
@@ -55,7 +76,14 @@
         "cs": [
           "Žárovky"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "5",
@@ -69,7 +97,14 @@
         "cs": [
           "Masyu"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "6",
@@ -83,7 +118,14 @@
         "cs": [
           "Shakashaka"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "7",
@@ -94,7 +136,13 @@
         "ja": [
           "ダブルチョコ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "8",
@@ -108,7 +156,14 @@
         "cs": [
           "Ploty"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "9",
@@ -122,7 +177,14 @@
         "cs": [
           "Nurikabe"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "10",
@@ -133,7 +195,13 @@
         "ja": [
           "チョコバナナ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "11",
@@ -147,7 +215,13 @@
         "cs": [
           "Nurimisaki"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "12",
@@ -158,7 +232,13 @@
         "ja": [
           "ノースリー"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "13",
@@ -172,7 +252,14 @@
         "cs": [
           "Smyčka"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "14",
@@ -185,7 +272,13 @@
           "ナンバーリンク",
           "アルコネ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "15",
@@ -199,7 +292,14 @@
         "cs": [
           "Fillomino"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "16",
@@ -213,7 +313,14 @@
         "cs": [
           "Tapa"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "17",
@@ -227,7 +334,13 @@
         "cs": [
           "Slalom"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "18",
@@ -241,7 +354,14 @@
         "cs": [
           "Aqre"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "19",
@@ -252,7 +372,13 @@
         "ja": [
           "ぬりめいず"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "20",
@@ -263,7 +389,13 @@
         "ja": [
           "Castle Wall"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "21",
@@ -274,7 +406,13 @@
         "ja": [
           "ガイドアロー"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "22",
@@ -288,7 +426,14 @@
         "cs": [
           "Sashigane"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "23",
@@ -303,7 +448,14 @@
         "cs": [
           "Sudoku"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "24",
@@ -314,7 +466,13 @@
         "ja": [
           "ソウルメイツ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "25",
@@ -328,7 +486,14 @@
         "cs": [
           "Shikaku"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "26",
@@ -340,7 +505,13 @@
         "ja": [
           "修学旅行の夜"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "27",
@@ -351,7 +522,13 @@
         "ja": [
           "シンカミノ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "28",
@@ -365,7 +542,13 @@
         "cs": [
           "Regionální Yajilin"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "29",
@@ -377,7 +560,13 @@
         "ja": [
           "波及効果"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "30",
@@ -391,7 +580,13 @@
         "cs": [
           "Norinori"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "31",
@@ -406,7 +601,14 @@
         "cs": [
           "Spirální galaxie"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "32",
@@ -417,7 +619,13 @@
         "ja": [
           "クロスウォール"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "33",
@@ -432,7 +640,13 @@
         "cs": [
           "Světlušky"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "34",
@@ -444,7 +658,13 @@
         "ja": [
           "島国"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "35",
@@ -455,7 +675,14 @@
         "ja": [
           "カーブデータ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "36",
@@ -466,7 +693,12 @@
         "ja": [
           "Bramble"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "37",
@@ -480,7 +712,13 @@
         "cs": [
           "Aquapelago"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "38",
@@ -494,7 +732,14 @@
         "cs": [
           "Polyominous"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "39",
@@ -508,7 +753,14 @@
         "cs": [
           "Mrakodrapy"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "40",
@@ -519,7 +771,13 @@
         "ja": [
           "アイスバーン"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "41",
@@ -533,7 +791,14 @@
         "cs": [
           "Star Battle"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "42",
@@ -547,7 +812,13 @@
         "cs": [
           "Tužky"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "43",
@@ -558,7 +829,13 @@
         "ja": [
           "ミッドループ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "44",
@@ -569,7 +846,13 @@
         "ja": [
           "へびいちご"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "45",
@@ -583,7 +866,13 @@
         "cs": [
           "Herugolf"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "46",
@@ -594,7 +883,13 @@
         "ja": [
           "Inverse LITSO"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "47",
@@ -608,7 +903,14 @@
         "cs": [
           "Statue Park"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "48",
@@ -619,7 +921,13 @@
         "ja": [
           "リングリング"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "49",
@@ -633,7 +941,14 @@
         "cs": [
           "Square Jam"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "50",
@@ -644,7 +959,13 @@
         "ja": [
           "ヘテロミノ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "51",
@@ -655,7 +976,13 @@
         "ja": [
           "チェンブロ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "52",
@@ -666,7 +993,12 @@
         "ja": [
           "ハニーアイランド"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "53",
@@ -677,7 +1009,13 @@
         "ja": [
           "Double LITS"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "54",
@@ -693,7 +1031,14 @@
         "cs": [
           "Mosty"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "55",
@@ -707,7 +1052,13 @@
         "cs": [
           "Stostone"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "56",
@@ -718,7 +1069,13 @@
         "ja": [
           "コブリン"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "57",
@@ -730,7 +1087,13 @@
         "ja": [
           "黒どこ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "58",
@@ -741,7 +1104,13 @@
         "ja": [
           "ななめぐり"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "59",
@@ -756,7 +1125,14 @@
         "cs": [
           "Jeskyně"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "60",
@@ -767,7 +1143,13 @@
         "ja": [
           "R・Bループ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "61",
@@ -775,7 +1157,12 @@
         "en": [
           "N Cells"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "62",
@@ -786,7 +1173,13 @@
         "ja": [
           "Tapa-Like Loop"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "63",
@@ -803,7 +1196,13 @@
           "Kodovaný obrázek",
           "Nonogram"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "64",
@@ -814,7 +1213,13 @@
         "ja": [
           "クラリン"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "65",
@@ -825,7 +1230,13 @@
         "ja": [
           "たすくえあ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "66",
@@ -839,7 +1250,14 @@
         "cs": [
           "Hitori"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "67",
@@ -850,7 +1268,13 @@
         "ja": [
           "掛け算リンク"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "68",
@@ -861,7 +1285,13 @@
         "ja": [
           "やじさんかずさん"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "69",
@@ -872,7 +1302,13 @@
         "ja": [
           "短辺消失"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "70",
@@ -884,7 +1320,13 @@
         "ja": [
           "月か太陽"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "71",
@@ -899,7 +1341,14 @@
         "cs": [
           "Kakuro"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "72",
@@ -913,7 +1362,13 @@
         "cs": [
           "Yin-Yang"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "73",
@@ -924,7 +1379,13 @@
         "ja": [
           "ぬりツイン"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "74",
@@ -935,7 +1396,13 @@
         "ja": [
           "バーンズ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "75",
@@ -946,7 +1413,12 @@
         "ja": [
           "ウォーク"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "76",
@@ -957,7 +1429,13 @@
         "ja": [
           "海苔ぬり"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "77",
@@ -968,7 +1446,13 @@
         "ja": [
           "クリーク"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "78",
@@ -979,7 +1463,13 @@
         "ja": [
           "LIX Loop"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "79",
@@ -994,7 +1484,14 @@
         "cs": [
           "Dvojblok"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "80",
@@ -1005,7 +1502,13 @@
         "ja": [
           "Lohkous"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "81",
@@ -1016,7 +1519,14 @@
         "cs": [
           "Latinský čtverec"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "82",
@@ -1027,7 +1537,13 @@
         "ja": [
           "たこ焼き"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "83",
@@ -1038,7 +1554,13 @@
         "ja": [
           "Light and Shadow"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "84",
@@ -1049,7 +1571,13 @@
         "ja": [
           "Geradeweg"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "85",
@@ -1060,7 +1588,13 @@
         "ja": [
           "クロット"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "86",
@@ -1071,7 +1605,13 @@
         "ja": [
           "はすのむら"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "87",
@@ -1082,7 +1622,13 @@
         "ja": [
           "カントリーロード"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "88",
@@ -1093,7 +1639,13 @@
         "ja": [
           "ごきげんななめ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "89",
@@ -1104,7 +1656,13 @@
         "ja": [
           "モチコロ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "90",
@@ -1115,7 +1673,13 @@
         "ja": [
           "イソワタリ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "91",
@@ -1126,7 +1690,13 @@
         "ja": [
           "プッテリア"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "number",
+      "ex": 1
     },
     {
       "id": "92",
@@ -1137,7 +1707,13 @@
         "ja": [
           "リフレクトリンク"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "93",
@@ -1148,7 +1724,13 @@
         "ja": [
           "道路計画"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "94",
@@ -1156,7 +1738,12 @@
         "en": [
           "Instructionless"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "other"
     },
     {
       "id": "95",
@@ -1167,7 +1754,13 @@
         "ja": [
           "宮城県仙台市"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "96",
@@ -1181,7 +1774,14 @@
         "cs": [
           "Balance Loop"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "97",
@@ -1192,7 +1792,13 @@
         "ja": [
           "テトロチェーンＹ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "98",
@@ -1206,7 +1812,14 @@
         "cs": [
           "Had"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "99",
@@ -1220,7 +1833,14 @@
         "cs": [
           "Akichiwake"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "100",
@@ -1231,7 +1851,13 @@
         "ja": [
           "クロクローン"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "101",
@@ -1242,7 +1868,13 @@
         "ja": [
           "Circles and Squares"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "102",
@@ -1253,7 +1885,13 @@
         "ja": [
           "おやこどり"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "103",
@@ -1264,7 +1902,13 @@
         "ja": [
           "Kissing Polyominoes"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "104",
@@ -1278,7 +1922,14 @@
         "cs": [
           "Kompas"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "region",
+      "ex": 1
     },
     {
       "id": "105",
@@ -1289,7 +1940,13 @@
         "ja": [
           "カクテルランプ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     },
     {
       "id": "106",
@@ -1303,7 +1960,14 @@
         "cs": [
           "Stany"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "category": "object",
+      "ex": 1
     },
     {
       "id": "107",
@@ -1314,7 +1978,13 @@
         "ja": [
           "オールｏｒナッシング"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "108",
@@ -1325,7 +1995,13 @@
         "ja": [
           "セレクトワーズ"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "word",
+      "ex": 1
     },
     {
       "id": "109",
@@ -1336,7 +2012,13 @@
         "ja": [
           "アイスローム"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "path",
+      "ex": 1
     },
     {
       "id": "110",
@@ -1347,7 +2029,13 @@
         "ja": [
           "ドミニオン"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "category": "shading",
+      "ex": 1
     }
   ],
   "variants": [
@@ -1360,7 +2048,16 @@
         "cs": [
           "Hexagonální"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "cs"
+      ],
+      "families": [
+        "hexagonal"
+      ],
+      "kind": "general",
+      "category": "all"
     },
     {
       "id": "2",
@@ -1368,7 +2065,13 @@
         "en": [
           "Symmetrical Regions"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "kind": "general",
+      "category": "shading"
     },
     {
       "id": "3",
@@ -1379,7 +2082,16 @@
         "cs": [
           "Kódovaná čísla"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "cs"
+      ],
+      "families": [
+        "coded"
+      ],
+      "kind": "general",
+      "category": "all"
     },
     {
       "id": "4",
@@ -1390,7 +2102,16 @@
         "cs": [
           "Kódované číslice"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "cs"
+      ],
+      "families": [
+        "coded"
+      ],
+      "kind": "general",
+      "category": "all"
     },
     {
       "id": "5",
@@ -1401,7 +2122,15 @@
         "ja": [
           "アイス"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "families": [
+        "walk"
+      ],
+      "kind": "specific",
+      "genre": "75"
     },
     {
       "id": "6",
@@ -1409,7 +2138,12 @@
         "en": [
           "Number Bank"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "kind": "general",
+      "category": "number"
     },
     {
       "id": "7",
@@ -1420,7 +2154,14 @@
         "cs": [
           "Kropki"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja",
+        "cs"
+      ],
+      "kind": "general",
+      "category": "number"
     },
     {
       "id": "8",
@@ -1431,7 +2172,15 @@
         "ja": [
           "フォレスト"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "families": [
+        "walk"
+      ],
+      "kind": "specific",
+      "genre": "75"
     },
     {
       "id": "9",
@@ -1439,7 +2188,15 @@
         "en": [
           "Morning"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "families": [
+        "walk"
+      ],
+      "kind": "specific",
+      "genre": "75"
     },
     {
       "id": "10",
@@ -1447,7 +2204,12 @@
         "en": [
           "Exampleless"
         ]
-      }
+      },
+      "r": [
+        "en"
+      ],
+      "kind": "specific",
+      "genre": "94"
     },
     {
       "id": "11",
@@ -1458,7 +2220,16 @@
         "ja": [
           "ウォーター"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "families": [
+        "wak"
+      ],
+      "kind": "specific",
+      "genre": "75"
     },
     {
       "id": "12",
@@ -1469,7 +2240,312 @@
         "ja": [
           "ファイア"
         ]
-      }
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "families": [
+        "walk"
+      ],
+      "kind": "specific",
+      "genre": "75"
+    }
+  ],
+  "combos": [
+    {
+      "id": "c_6ci1hd",
+      "names": {
+        "en": [
+          "Ayeheya"
+        ],
+        "ja": [
+          "∀人∃ＨＥＹＡ"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "2"
+        },
+        {
+          "type": "variant",
+          "id": "2"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_ej0i4c",
+      "names": {
+        "en": [
+          "Moon or Sun (Eric Fox's version)"
+        ]
+      },
+      "r": [
+        "en"
+      ],
+      "components": [
+        {
+          "type": "genre",
+          "id": "70"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_1hggdr",
+      "names": {
+        "en": [
+          "Moon or Sun (puzz.link version)"
+        ]
+      },
+      "r": [
+        "en"
+      ],
+      "components": [
+        {
+          "type": "genre",
+          "id": "70"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_tsd73n",
+      "names": {
+        "en": [
+          "Ice Walk"
+        ],
+        "ja": [
+          "アイスウォーク"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "75"
+        },
+        {
+          "type": "variant",
+          "id": "5"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_9k5wec",
+      "names": {
+        "en": [
+          "Kropki"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "81"
+        },
+        {
+          "type": "variant",
+          "id": "7"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_1ydtq0",
+      "names": {
+        "en": [
+          "Forest Walk"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "75"
+        },
+        {
+          "type": "variant",
+          "id": "8"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_2rogkh",
+      "names": {
+        "en": [
+          "SLICY"
+        ],
+        "ja": [
+          "SLICY"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "3"
+        },
+        {
+          "type": "variant",
+          "id": "1"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_zriqyb",
+      "names": {
+        "en": [
+          "Morning Walk"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "75"
+        },
+        {
+          "type": "variant",
+          "id": "9"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_u9r2av",
+      "components": [
+        {
+          "type": "genre",
+          "id": "94"
+        },
+        {
+          "type": "variant",
+          "id": "10"
+        }
+      ],
+      "appearances": [
+        {
+          "author": "わんど"
+        }
+      ]
+    },
+    {
+      "id": "c_p5if9w",
+      "names": {
+        "en": [
+          "FiveCells",
+          "Five Cells"
+        ],
+        "ja": [
+          "ファイブセルズ"
+        ]
+      },
+      "r": [
+        "en"
+      ],
+      "components": [
+        {
+          "type": "genre",
+          "id": "61"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_9zkudq",
+      "names": {
+        "en": [
+          "FourCells"
+        ]
+      },
+      "r": [
+        "en"
+      ],
+      "components": [
+        {
+          "type": "genre",
+          "id": "61"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_gco0ft",
+      "names": {
+        "en": [
+          "Heyajirimisaki"
+        ],
+        "ja": [
+          "へやジリみさき"
+        ],
+        "cs": [
+          "Heyajirimisaki"
+        ]
+      },
+      "r": [
+        "en",
+        "ja"
+      ],
+      "components": [
+        {
+          "type": "genre",
+          "id": "2"
+        },
+        {
+          "type": "genre",
+          "id": "11"
+        },
+        {
+          "type": "genre",
+          "id": "1"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_bvhnt9",
+      "names": {
+        "en": [
+          "Water Walk"
+        ],
+        "ja": [
+          "ウォーターウォーク"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "75"
+        },
+        {
+          "type": "variant",
+          "id": "11"
+        }
+      ],
+      "ex": 1
+    },
+    {
+      "id": "c_inxo4n",
+      "names": {
+        "en": [
+          "Fire Walk"
+        ],
+        "ja": [
+          "ファイアウォーク"
+        ]
+      },
+      "components": [
+        {
+          "type": "genre",
+          "id": "75"
+        },
+        {
+          "type": "variant",
+          "id": "12"
+        }
+      ],
+      "ex": 1
     }
   ]
 }

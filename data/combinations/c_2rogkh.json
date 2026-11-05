@@ -1,0 +1,30 @@
+{
+  "id": "c_2rogkh",
+  "names": {
+    "en": [
+      "SLICY"
+    ],
+    "ja": [
+      "SLICY"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "3"
+    },
+    {
+      "type": "variant",
+      "id": "1"
+    }
+  ],
+  "examples": [
+    {
+      "id": "h14ban",
+      "problem": "images/c_2rogkh/h14ban-problem-2sq9.webp",
+      "solution": "images/c_2rogkh/h14ban-solution-w4pg.webp",
+      "author": "にしなんとか",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/154564"
+    }
+  ]
+}

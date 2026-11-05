@@ -1,0 +1,27 @@
+{
+  "id": "c_9k5wec",
+  "names": {
+    "en": [
+      "Kropki"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "81"
+    },
+    {
+      "type": "variant",
+      "id": "7"
+    }
+  ],
+  "examples": [
+    {
+      "id": "qj3kut",
+      "problem": "images/c_9k5wec/qj3kut-problem-c4ph.webp",
+      "solution": "images/c_9k5wec/qj3kut-solution-djpn.webp",
+      "author": "K.N.Y.",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/6657"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "c_ej0i4c",
+  "names": {
+    "en": [
+      "Moon or Sun (Eric Fox's version)"
+    ]
+  },
+  "notes": "Yes, Eric Fox's rules were probably written incorrectly or it's hard to understand what they meant.",
+  "components": [
+    {
+      "type": "genre",
+      "id": "70"
+    }
+  ],
+  "rules": {
+    "en": {
+      "statements": [
+        "A region containing only suns or only moons must have its clues passed through.",
+        "Empty regions are moon-type and sun-type at the same time.",
+        "For every two consecutively visited regions it must be true, that one of them is at least sun-type and the other one is at least moon-type. This means that you may pass through an empty region and switch the type's parity."
+      ],
+      "source": "Eric Fox's Dictionary of Rulesets"
+    }
+  },
+  "examples": [
+    {
+      "id": "8jkgns",
+      "problem": "images/c_ej0i4c/8jkgns-problem-cef1.webp",
+      "solution": "images/c_ej0i4c/8jkgns-solution-z8x3.webp",
+      "author": "AlfoFish",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/177056"
+    }
+  ]
+}

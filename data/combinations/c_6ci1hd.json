@@ -1,0 +1,30 @@
+{
+  "id": "c_6ci1hd",
+  "names": {
+    "en": [
+      "Ayeheya"
+    ],
+    "ja": [
+      "∀人∃ＨＥＹＡ"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "2"
+    },
+    {
+      "type": "variant",
+      "id": "2"
+    }
+  ],
+  "examples": [
+    {
+      "id": "16iu3z",
+      "problem": "images/c_6ci1hd/16iu3z-problem-hsvk.webp",
+      "solution": "images/c_6ci1hd/16iu3z-solution-pjgu.webp",
+      "author": "もや / moyami",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101252"
+    }
+  ]
+}

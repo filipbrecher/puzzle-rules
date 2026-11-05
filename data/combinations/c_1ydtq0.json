@@ -1,0 +1,27 @@
+{
+  "id": "c_1ydtq0",
+  "names": {
+    "en": [
+      "Forest Walk"
+    ]
+  },
+  "components": [
+    {
+      "type": "genre",
+      "id": "75"
+    },
+    {
+      "type": "variant",
+      "id": "8"
+    }
+  ],
+  "examples": [
+    {
+      "id": "du2eel",
+      "problem": "images/c_1ydtq0/du2eel-problem-no37.webp",
+      "solution": "images/c_1ydtq0/du2eel-solution-mik4.webp",
+      "author": "はっちゅ",
+      "source": "https://puzsq.logicpuzzle.app/puzzle/166453"
+    }
+  ]
+}
