@@ -1,5 +1,7 @@
 # puzzle-rules
 
+Focused on grid satisfaction puzzles / Nikoli style puzzles.
+
 Repo for storing puzzle genre rules, variant rules and their combinations, plus additional metadata, assets and example puzzles. It is meant mainly for useful classification, easy access to rules in multiple languages (side-by-side comparison), searching through genre and variant combinations, and access to assets and example puzzles.
 
 
