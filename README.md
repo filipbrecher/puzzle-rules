@@ -174,9 +174,9 @@ Tracks the sources that were already used to input genres, variants and combinat
 
 Continue checking from the publication date of the last ID. I'm not sure if I'll add genres from Instructionless puzzles, as they also usually don't have a name.
 
-- **Genres:** all genres with ID 0 to 0 are done.
-- **Genres in Others (non-variant):** all Others with ID 0 to 0 are done.
-- **Variants:** all Variant puzzles with ID 0 to 0 are done.
+- **Genres:** all genres published before (and including) ID 0 are done.
+- **Genres in Others (non-variant):** all Others published before (and including) ID 0 are done.
+- **Variants:** all Variant puzzles published before (and including) ID 0 are done.
 
 ### Tournaments to explore
 
