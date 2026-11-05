@@ -10,7 +10,7 @@ Repo for storing puzzle genre rules, variant rules and their combinations, plus 
 This is an attempt to organize genres, variants and their usage, originally for personal use, but shared publicly as well. A lot of inspiration comes from Puzsq and from personal experience with constructing and solving variant (and non-variant) puzzles.
 
 - Genre + variant combinations are listed in **Combinations**, with possible sources where they appeared and example puzzles. A combination can contain multiple genres or variants.
-- Some rules might be more specific than on other sites like Puzsq or Eric Fox's Dictionary of Rulesets, to remove possible ambiguities.
+- Some rules might be more specific or generalized compared to other sites like Puzsq or Eric Fox's Dictionary of Rulesets, to remove possible ambiguities and allow for better classification.
 - The goal is to include example puzzles for all genres and sometimes for combinations, sometimes in several sizes (for example 3x3, 5x5, 7x7) or colors so you can choose whichever fits better on a page of a PDF.
 
 The first version of the browsing page was made with AI, to quickly see if this way of organizing works.
