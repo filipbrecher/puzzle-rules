@@ -2,29 +2,20 @@
   "id": "61",
   "names": {
     "en": [
-      "Five Cells",
-      "FiveCells"
-    ],
-    "ja": [
-      "ファイブセルズ"
+      "N Cells"
     ]
   },
+  "notes": "This genre is usually played with N=5 or N=4 under the FiveCells and FourCells names respectively.",
   "category": "region",
   "rules": {
     "en": {
       "statements": [
-        "Divide the grid into regions of 5 orthogonally connected cells.",
+        "Divide the grid into regions of N orthogonally connected cells, where N is given outside of the grid.",
         "Clued cells must have the indicated number of region borders or grid borders surrounding them."
       ],
       "source": "Eric Fox's Dictionary of Rulesets"
     },
     "ja": {
-      "statements": [
-        "点線上に線を引き、盤面をタテヨコに５マスつながったブロックに切り分けましょう。４マス以下や６マス以上のブロックができてはいけません。",
-        "数字は、そのマスのまわりに引かれる線の数を表します。外枠の線も数に入ります。",
-        "１つのブロックに入る数字の個数は、０～５個のどれになってもかまいません。",
-        "線がブロックの内部で途切れてはいけません。"
-      ],
       "source": "Eric Fox's Dictionary of Rulesets",
       "note": "Translated"
     }
@@ -35,7 +26,8 @@
       "problem": "images/61/fz2fni-problem-8ipv.webp",
       "solution": "images/61/fz2fni-solution-0wgf.webp",
       "author": "_AtomicNeoN_",
-      "source": "https://puzsq.logicpuzzle.app/puzzle/101295"
+      "source": "https://puzsq.logicpuzzle.app/puzzle/101295",
+      "note": "Example for N=5"
     }
   ]
 }
