@@ -9,6 +9,9 @@
     ]
   },
   "category": "path",
+  "inventor": {
+    "note": "This genre first appeared in Puzzle Communication Nikoli vol. 116."
+  },
   "rules": {
     "en": {
       "statements": [
@@ -30,5 +33,13 @@
       ],
       "source": "Puzsq Rules"
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "z3proh",
+      "problem": "images/56/z3proh-problem-7yn8.webp",
+      "solution": "images/56/z3proh-solution-txuq.webp",
+      "author": "AlfoFish"
+    }
+  ]
 }

@@ -36,7 +36,7 @@
         "Moon or Sun (Eric Fox's version)"
       ]
     },
-    "notes": "Yes, Eric Fox's rules are either wrong or written ambiguously.",
+    "notes": "Yes, Eric Fox's rules were probably written incorrectly or it's hard to understand what they meant.",
     "components": [
       {
         "type": "genre",
@@ -52,7 +52,16 @@
         ],
         "source": "Eric Fox's Dictionary of Rulesets"
       }
-    }
+    },
+    "examples": [
+      {
+        "id": "8jkgns",
+        "problem": "images/c_ej0i4c/8jkgns-problem-cef1.webp",
+        "solution": "images/c_ej0i4c/8jkgns-solution-z8x3.webp",
+        "author": "AlfoFish",
+        "source": "https://puzsq.logicpuzzle.app/puzzle/177056"
+      }
+    ]
   },
   {
     "id": "c_1hggdr",
@@ -299,6 +308,14 @@
           "N=4"
         ]
       }
-    }
+    },
+    "examples": [
+      {
+        "id": "y3za82",
+        "problem": "images/c_9zkudq/y3za82-problem-8hw6.webp",
+        "solution": "images/c_9zkudq/y3za82-solution-8b1m.webp",
+        "author": "AlfoFish"
+      }
+    ]
   }
 ]

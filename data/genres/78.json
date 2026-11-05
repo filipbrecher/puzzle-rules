@@ -29,5 +29,13 @@
       ],
       "source": "Original"
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "4eg1x1",
+      "problem": "images/78/4eg1x1-problem-3v8n.webp",
+      "solution": "images/78/4eg1x1-solution-ock8.webp",
+      "author": "AlfoFish"
+    }
+  ]
 }

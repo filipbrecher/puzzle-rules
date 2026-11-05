@@ -29,5 +29,13 @@
       "source": "Dlouhodobá soutěž HALAS",
       "note": "Modified"
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "spd8ev",
+      "problem": "images/81/spd8ev-problem-buph.webp",
+      "solution": "images/81/spd8ev-solution-l2ii.webp",
+      "author": "AlfoFish"
+    }
+  ]
 }

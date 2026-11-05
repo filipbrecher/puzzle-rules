@@ -19,5 +19,13 @@
       ],
       "source": "Puzzle Rules"
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "y4t6ot",
+      "problem": "images/75/y4t6ot-problem-mqix.webp",
+      "solution": "images/75/y4t6ot-solution-2mxf.webp",
+      "author": "AlfoFish"
+    }
+  ]
 }

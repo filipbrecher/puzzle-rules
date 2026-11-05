@@ -33,5 +33,13 @@
       "source": "Eric Fox's Dictionary of Rulesets",
       "note": "Translated and modified"
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "kpbf3i",
+      "problem": "images/70/kpbf3i-problem-c3sr.webp",
+      "solution": "images/70/kpbf3i-solution-63tp.webp",
+      "author": "AlfoFish"
+    }
+  ]
 }

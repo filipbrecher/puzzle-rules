@@ -30,5 +30,13 @@
       ],
       "source": "Original"
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "53545v",
+      "problem": "images/93/53545v-problem-kl48.webp",
+      "solution": "images/93/53545v-solution-uiyk.webp",
+      "author": "AlfoFish"
+    }
+  ]
 }
