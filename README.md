@@ -47,6 +47,7 @@ These guidelines define what belongs in a genre, a variant or a combination, and
 2. **Other languages** follow their source. The Japanese rules, for example, may keep the Puzsq wording. If two sources differ (one states a rule, the other doesn't), say so in the rules' Note.
 3. **One statement per line**, each saying one thing. Statements are written for the base genre only, so they don't mention variants.
 4. **Don't repeat common expansions** (see below) in every genre.
+4. **Rule priority.** Combination's rules have precedence over Variant's rules which have precedence over Genre's rules.
 
 ### Genres
 
@@ -89,9 +90,10 @@ These conventions apply to (almost) all puzzles, so they are **not** written in 
 2. **Missing cells.** The grid may be missing some cells, which are then not part of the puzzle. It is still a square grid (or another grid), but with some cells removed, so the remaining cells can form any shape: a circle, a grid without its corners, or a grid with holes in the middle. This also applies to hexagonal and other grids.
 3. **Black cells** in the grid, when the rules do not mention black cells, are not part of the grid either.
 4. **Given features.** Some features of a puzzle may already be given in the problem, even if the rules don't say so. For example, in a region-division puzzle some of the region borders may already be drawn, and in a path puzzle some parts of the path may already be given.
-5. **Grid shape.** Rules are written for a square grid by default. If a genre is by default played on another grid (for example hexagonal), say so in its rules or its notes.
-6. **Size.** Write the rules for general sizes, unless they are really about a specific size (for example, when the puzzle only works for that size). Sudoku rules, for instance, are for NxN, not only 9x9. If a genre usually uses a particular size, restrict it later with a combination consisting of only that genre, or add it to the genre's Notes.
-7. **Shape banks.** Unless the rules say otherwise, any shape bank is allowed. A combination may restrict it (for example Pentominous: polyominoes limited to pentominoes).
+5. **Crosses.** In puzzles about placing numbers or objects, some cells may already contain a cross, which means that nothing can be placed in that cell (for example in Putteria).
+6. **Grid shape.** Rules are written for a square grid by default. If a genre is by default played on another grid (for example hexagonal), say so in its rules or its notes.
+7. **Size.** Write the rules for general sizes, unless they are really about a specific size (for example, when the puzzle only works for that size). Sudoku rules, for instance, are for NxN, not only 9x9. If a genre usually uses a particular size, restrict it later with a combination consisting of only that genre, or add it to the genre's Notes.
+8. **Shape banks.** Unless the rules say otherwise, any shape bank is allowed. A combination may restrict it (for example Pentominous: polyominoes limited to pentominoes).
 
 ### Special cases
 
